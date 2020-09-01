@@ -66,7 +66,7 @@ public class MultiplayerManager : PunBehaviour
 	}
 
 	public void CreateRoom() {
-		room = "room" + Random.Range(101, 9999999);
+		room = "room" + Random.Range(101, 99999);
 		roomName = room;
 		if (PhotonNetwork.connected)
 		{
@@ -89,6 +89,7 @@ public class MultiplayerManager : PunBehaviour
 		UIManager.Instance.LoadingPanel.SetActive(false);
 		UIManager.Instance.RoomPanel.SetActive(true);
 		Debug.Log("Room Joined");
+		UIManager.Instance.ShareText.text = "Invite your friends with room code: " + roomName;
 		if (IsCreate)
 			Debug.Log("Invite your friends with room code: " + roomName);
 
@@ -102,6 +103,12 @@ public class MultiplayerManager : PunBehaviour
 		UIManager.Instance.LoadingPanel.SetActive(false);
 		UIManager.Instance.RoomPanel.SetActive(false);
 		base.OnPhotonJoinRoomFailed(codeAndMsg);
+    }
+
+    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+		Debug.Log("New Player Arrived. Total Players: " + PhotonNetwork.room.PlayerCount);
+        base.OnPhotonPlayerConnected(newPlayer);
     }
     #endregion
 }
