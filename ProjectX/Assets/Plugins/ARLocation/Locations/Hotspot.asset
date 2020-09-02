@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 635ca3a89b644ab44b888c22da8eae56, type: 3}
   m_Name: Hotspot
   m_EditorClassIdentifier: 
-  location:
-    Latitude: -23.540271
-    Longitude: -46.647165
+  Location:
+    Latitude: 44.815414
+    Longitude: -91.500705
     Altitude: 0
     AltitudeMode: 0
     Label: 

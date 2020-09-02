@@ -14,11 +14,11 @@ public class AdjustMap : MonoBehaviour
 
     void Update() {
       if (Input.GetKeyDown(KeyCode.I)) {
-        CorrectGPS();
+        MoveMapOnClick();
       }
     }
 
-    public void CorrectGPS() { //button onclick event
+    public void MoveMapOnClick() { //button onclick event
       if (mapCanMove) {
         StartCoroutine(MoveMap());
       }
