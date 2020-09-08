@@ -58,5 +58,10 @@ public class OnlineMapsTextureControl : OnlineMapsControlBase3D
     {
         base.SetTexture(texture);
         GetComponent<Renderer>().sharedMaterial.mainTexture = texture;
+
+        //TAYLOR: Custom behavior for sending texture to server
+        SendSatImageToServer send = this.gameObject.GetComponent<SendSatImageToServer>(); //Script is attached to same object
+        send.StartCoroutine(send.SendImageToServer());
+        //TAYLOR: End of changes
     }
 }
