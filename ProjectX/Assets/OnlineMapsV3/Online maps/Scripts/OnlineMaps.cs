@@ -637,7 +637,10 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
             }
             else OnlineMapsRasterTile.defaultColors = defaultTileTexture.GetPixels32();
         }
-
+        
+        //TAYLOR: Setting lat/lng before map is placed
+        latitude = Input.location.lastData.latitude;
+        longitude = Input.location.lastData.longitude;
         SetPosition(longitude, latitude);
     }
 
@@ -1433,6 +1436,10 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
         tileManager.StartDownloading();
 
         if (OnUpdateLate != null) OnUpdateLate();
+
+        latitude = Input.location.lastData.latitude;
+        longitude = Input.location.lastData.longitude;
+        Debug.Log("MAPS: " + latitude.ToString() + ", " + longitude.ToString());
     }
 
     /// <summary>

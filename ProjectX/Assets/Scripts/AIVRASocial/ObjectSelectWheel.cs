@@ -2,15 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //A triginometric approach to selecting an object, based on the unit circle (scale up for game)
 public class ObjectSelectWheel : MonoBehaviour
 {
     public GameObject[] objectsToSpawn; //Array of spawnable objects (doesn't need getter/setter since assignment is manual)
-    public GameObject objectWheel;
+    public GameObject objectWheel, selectedObjectCheck; //Used to reference the wheel and collider to check for selected object
     private int objectToSpawnIndex = 0; //Array index (changed by item select menu)
     private int totalSpawnableObjects;
 
-    public int ObjectToSpawnIndex {get; set;} //Need this for PlayerObjectInteractions to access the index
+    public int ObjectToSpawnIndex {get => objectToSpawnIndex; set => objectToSpawnIndex = value;} //Need this for PlayerObjectInteractions to access the index
 
     void Start() {
       objectWheel.SetActive(false); //Turn the wheel off
@@ -19,14 +20,14 @@ public class ObjectSelectWheel : MonoBehaviour
     }
 
     private void CreateWheel() {
-      for (int i = 1; i <= totalSpawnableObjects; i++) { //Start at 1 to avoid Divide-By-Zero error
-        int function = (360 / totalSpawnableObjects) * i; //Function to get angle of circle object is placed on
-
-        //Instantiate at index i - 1 since we start at 1, spawn objects along x-axis through iteration function
-        GameObject newObj = Instantiate(objectsToSpawn[i - 1], objectWheel.transform, false); //false = Don't instantiate in world space
+      for (int i = 0; i < totalSpawnableObjects; i++) {
+        float function = (360f / totalSpawnableObjects) * i; //Function to get angle of circle object is placed on
+        function = function * Mathf.Deg2Rad; //Convert to radians
+        GameObject newObj = Instantiate(objectsToSpawn[i], objectWheel.transform, false); //false = Don't instantiate in world space
         newObj.transform.localPosition = new Vector3(Mathf.Cos(function), 0, Mathf.Sin(function)); //Move objects to circle
         newObj.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f); //Set the scale smaller
-        newObj.name = objectsToSpawn[i - 1].name; //Change the name since Unity appends (Clone) on the end of instantiated objects
+        newObj.name = objectsToSpawn[i].name; //Change the name since Unity appends (Clone) on the end of instantiated objects
+        newObj.tag = "Placeable"; //Set the tag so they cant be interacted with like normal objects
         var rotateBehavior = newObj.AddComponent<RotateObjectContinuously>();
         rotateBehavior.XRotateSpeed = 0.5f; //Add constant rotation on each axis
         rotateBehavior.YRotateSpeed = 0.5f;
@@ -42,25 +43,21 @@ public class ObjectSelectWheel : MonoBehaviour
           objectWheel.transform.Rotate(0, -h, 0); //Rotate based on position of touch
         }
       }
-
-      RaycastHit hit;
-      if (Physics.Raycast(transform.position, Vector3.forward * 10, out hit, Mathf.Infinity)) {
-        if (hit.transform.tag == "Placeable") {
-          for (int i = 0; i < totalSpawnableObjects - 1; i++) { //Minus 1 since array starts at 0
-            if (hit.transform.gameObject.name == objectsToSpawn[i].name) { //Compare names of objects together
-              objectToSpawnIndex = i;
-              Debug.Log(objectToSpawnIndex);
-            }
-          }
-        }
-      }
     }
 
-    public void ToggleWheel() { //onclick listener
+    public void ToggleWheel() { //onclick listener (must be public)
       if (objectWheel.activeSelf) {
         objectWheel.SetActive(false);
       } else {
         objectWheel.SetActive(true);
+      }
+    }
+
+    public void SetObjectToSpawnIndex(string objName) { //Used in ObjectSelectOutline to set the active object to place
+      for (int i = 0; i < objectsToSpawn.Length; i++) { //For each object in the array
+        if (objectsToSpawn[i].name == objName) { //Compare the names
+          objectToSpawnIndex = i; //And set the index for the controls to be able to reference the right object
+        }
       }
     }
 }

@@ -1,8 +1,7 @@
 ﻿/*         INFINITY CODE         */
 /*   https://infinity-code.com   */
-
 using UnityEngine;
-
+using System.Collections;
 /// <summary>
 /// Class control the map for the Texture.
 /// </summary>
@@ -59,9 +58,17 @@ public class OnlineMapsTextureControl : OnlineMapsControlBase3D
         base.SetTexture(texture);
         GetComponent<Renderer>().sharedMaterial.mainTexture = texture;
 
-        //TAYLOR: Custom behavior for sending texture to server
-        SendSatImageToServer send = this.gameObject.GetComponent<SendSatImageToServer>(); //Script is attached to same object
-        send.StartCoroutine(send.SendImageToServer());
-        //TAYLOR: End of changes
+        StartCoroutine(SendToServerDelayed()); //Delayed so the GPS sensor can catch up
+    }
+
+    private IEnumerator SendToServerDelayed() {
+      if (map.latitude == 0 || map.longitude == 0) {
+        yield return new WaitForSeconds(5f);
+      }
+      //TAYLOR: Custom behavior for sending texture to server
+      Debug.Log("TEXTURE: " + map.latitude.ToString() + ", " + map.longitude.ToString());
+      SendSatImageToServer send = this.gameObject.GetComponent<SendSatImageToServer>(); //Script is attached to same object
+      send.StartCoroutine(send.SendImageToServer());
+      //TAYLOR: End of changes
     }
 }

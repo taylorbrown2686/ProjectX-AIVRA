@@ -354,6 +354,7 @@ public class OnlineMapsMarkerBase: IOnlineMapsInteractiveElement
     private void OnMarkerPress(OnlineMapsMarkerBase marker)
     {
         map.control.dragMarker = this;
+        Debug.Log("asdf");
     }
 
     /// <summary>

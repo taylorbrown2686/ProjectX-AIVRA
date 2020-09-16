@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,3 +13,10 @@ MonoBehaviour:
   m_Name: ARLocationConfig
   m_EditorClassIdentifier: 
   EarthRadiusInKM: 6372.8
+  DistanceFunction: 0
+  InitialGroundHeightGuess: 0
+  MinGroundHeight: 0
+  MaxGroundHeight: 0.1
+  VuforiaGroundHitTestDistance: 4
+  GroundHeightSmoothingFactor: 0.05
+  UseVuforia: 0

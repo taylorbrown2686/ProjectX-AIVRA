@@ -19,7 +19,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
     public AdjustMap mapPlane;
     private ARLocationProvider provider;
     //TAYLOR: Added so I can change the marker texture for different markers
-    private MarkerManager markerManager;
+    public MarkerImages markerImages;
     //TAYLOR: Added so I can control how often markers are updated
     private bool canUpdateEnemies = true, canUpdatePlayer = true;
 
@@ -192,7 +192,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
         base.Start();
         mapPlane = GameObject.Find("MapPlane").GetComponent<AdjustMap>();
         provider = GameObject.Find("ARLocationRoot").GetComponent<ARLocationProvider>();
-        markerManager = this.gameObject.GetComponent<MarkerManager>();
+        markerImages = this.gameObject.GetComponent<MarkerImages>();
 
         foreach (OnlineMapsMarker marker in items)
         {
@@ -211,12 +211,12 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
             if (map.control.GetCoords(out lng, out lat)) Create(lng, lat);
         }
 
-        if (Input.touchCount == 1 && mapPlane.mapCanMove && CheckForCollisionWithMap() == "MapPlane") {
+        /*if (Input.touchCount == 1 && mapPlane.mapCanMove && CheckForCollisionWithMap() == "MapPlane") {
           var touch = Input.GetTouch(0);
           RemoveMarkerByLabel("Portal");
           double lat, lng;
-          if (map.control.GetCoords(out lng, out lat)) Create(new Vector2((float)lng, (float)lat), markerManager.markerTextures[3], "Portal");
-        }
+          if (map.control.GetCoords(out lng, out lat)) Create(new Vector2((float)lng, (float)lat), markerImages.markerTextures[3], "Portal");
+        }*/
 
         if (canUpdatePlayer) {
           RemoveMarkerByLabel("Player");
@@ -232,7 +232,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       canUpdateEnemies = false;
       foreach (GameObject location in GameObject.FindGameObjectsWithTag("Enemy")) {
         PlaceAtLocation coords = location.GetComponent<PlaceAtLocation>();
-        Create(new Vector2((float)coords.Location.Longitude, (float)coords.Location.Latitude), markerManager.markerTextures[2], "Enemy");
+        Create(new Vector2((float)coords.Location.Longitude, (float)coords.Location.Latitude), markerImages.markerTextures[2], "Enemy");
       }
       yield return new WaitForSeconds(5f);
       canUpdateEnemies = true;
@@ -240,23 +240,12 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
 
     private IEnumerator UpdateMapPositionOfPlayer() {
       canUpdatePlayer = false;
-      Create(new Vector2(Input.location.lastData.longitude, Input.location.lastData.latitude), markerManager.markerTextures[0], "Player");
+      Create(new Vector2(Input.location.lastData.longitude, Input.location.lastData.latitude), markerImages.markerTextures[0], "Player");
       yield return new WaitForSeconds(1f);
       canUpdatePlayer = true;
     }
 
-    public void LockInGPS() {
-      Vector3 touchedPosition = new Vector3(Convert.ToSingle(this.items[0].latitude), 0, Convert.ToSingle(this.items[0].longitude));
-      provider.Provider.lat = touchedPosition.x;
-      provider.Provider.lng = touchedPosition.z;
-      provider.Provider.alt = touchedPosition.y; //may change later (0)
-      mapPlane.MoveMapOnClick();
-      //CorrectGPS correction = this.gameObject.GetComponent<CorrectGPS>();
-      //correction.CorrectGPSPosition(new Vector2(Convert.ToSingle(this.items[0].latitude), Convert.ToSingle(this.items[0].longitude)), new Vector2(Input.location.lastData.latitude, Input.location.lastData.longitude));
-    }
-
     private void RemoveMarkerByLabel(string labelToRemove) {
-      Debug.Log("Removing " + labelToRemove);
       List<OnlineMapsMarker> tempList = new List<OnlineMapsMarker>();
       tempList = this.items;
       foreach (OnlineMapsMarker marker in tempList) {

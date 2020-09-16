@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//This script adjusts the map when you touch the 'Change Position' button
 public class AdjustMap : MonoBehaviour
 {
     public OnlineMaps map; //reference to the map script

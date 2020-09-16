@@ -243,7 +243,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -318,6 +318,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1867954584}
+  - {fileID: 1566805827}
   m_Father: {fileID: 742910441}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -350,10 +351,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bab95bc7a817d446b383f1e8bfff52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axes:
+  - {fileID: 3508305010690110787, guid: 3342c3a992d49e04992f9d4a17d2892d, type: 3}
+  - {fileID: 2708974838354158474, guid: 3ba4a57144fdc32438d4f1668e797239, type: 3}
+  - {fileID: 3717376447926622312, guid: 55dd1b410b503ee4d98d8bb0e14f25f8, type: 3}
   arso: {fileID: 742910441}
-  osw: {fileID: 0}
+  osw: {fileID: 1867954585}
+  outlineShader: {fileID: 4800000, guid: 325ef41ea6b63a34390134b8c6f5feaa, type: 3}
+  defaultShader: {fileID: 10704, guid: 0000000000000000f000000000000000, type: 0}
   raycastManager: {fileID: 742910442}
-  debugText: {fileID: 636197534}
 --- !u!4 &483262185
 Transform:
   m_ObjectHideFlags: 0
@@ -646,11 +652,11 @@ RectTransform:
   m_Father: {fileID: 1075720057}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 420, y: 250}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 198}
+  m_SizeDelta: {x: 350, y: 190}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &951983413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -810,8 +816,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 101838618}
+  m_PlaneDistance: 10
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -924,7 +930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 483262184}
         m_MethodName: ChangeCurrentSetting
         m_Mode: 5
         m_Arguments:
@@ -948,7 +954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1119,7 +1125,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 483262184}
         m_MethodName: ChangeCurrentSetting
         m_Mode: 5
         m_Arguments:
@@ -1248,7 +1254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 483262184}
         m_MethodName: ChangeCurrentSetting
         m_Mode: 5
         m_Arguments:
@@ -1272,7 +1278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1296,6 +1302,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1473653585}
   m_CullTransparentMesh: 0
+--- !u!1 &1566805826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1566805827}
+  - component: {fileID: 1566805828}
+  - component: {fileID: 1566805829}
+  m_Layer: 0
+  m_Name: SelectedObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1566805827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566805826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 101838622}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1566805828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566805826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2beabab73b6fea542b40cccaf344a686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineShader: {fileID: 4800000, guid: 325ef41ea6b63a34390134b8c6f5feaa, type: 3}
+  defaultShader: {fileID: 10704, guid: 0000000000000000f000000000000000, type: 0}
+  wheel: {fileID: 1867954585}
+--- !u!65 &1566805829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566805826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1605122178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1502,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 483262184}
         m_MethodName: ChangeCurrentSetting
         m_Mode: 5
         m_Arguments:
@@ -1510,8 +1576,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1867954583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 101838622}
   m_RootOrder: 0
@@ -1535,13 +1601,13 @@ MonoBehaviour:
   - {fileID: 7076544580430009035, guid: 2252c454deca08845b25e016f656c2f9, type: 3}
   - {fileID: 5093775882793985084, guid: 93db331a4fd589043b37d6a73bb4e8f7, type: 3}
   - {fileID: 1589840073049327119, guid: 8f26853fc6d56874f8c76156bd31c0ba, type: 3}
-  - {fileID: 6578243846764146688, guid: 2f3a0bd4a91c12748aea08db204bead3, type: 3}
   - {fileID: 2513670581848614966, guid: 31d5f67da7a70bf4b9c06e6eb3b18b75, type: 3}
-  - {fileID: 4734366226249917496, guid: 4bfce429f8146254aabc0371033feaab, type: 3}
-  - {fileID: 4968999829912741713, guid: 2ab7f540358a43541852e38cb4522aba, type: 3}
-  - {fileID: 3696074791718032503, guid: 0a8fb6ef9f588664487fd9ff9f9b0568, type: 3}
+  - {fileID: 6578243846764146688, guid: 2f3a0bd4a91c12748aea08db204bead3, type: 3}
   - {fileID: 1803556195888489472, guid: f10e26ccba448994481f54b28d8661a5, type: 3}
+  - {fileID: 3696074791718032503, guid: 0a8fb6ef9f588664487fd9ff9f9b0568, type: 3}
+  - {fileID: 4734366226249917496, guid: 4bfce429f8146254aabc0371033feaab, type: 3}
   objectWheel: {fileID: 1867954583}
+  selectedObjectCheck: {fileID: 1566805826}
 --- !u!136 &1867954586
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1637,7 +1703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 483262184}
         m_MethodName: ChangeCurrentSetting
         m_Mode: 5
         m_Arguments:

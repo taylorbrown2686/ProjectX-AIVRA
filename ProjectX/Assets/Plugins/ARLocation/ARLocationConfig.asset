@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EarthRadiusInKM: 6371
   DistanceFunction: 0
-  InitialGroundHeightGuess: 0.5
+  InitialGroundHeightGuess: 0
   MinGroundHeight: 0
-  MaxGroundHeight: 3
+  MaxGroundHeight: 0.1
   VuforiaGroundHitTestDistance: 4
   GroundHeightSmoothingFactor: 0.05
   UseVuforia: 0

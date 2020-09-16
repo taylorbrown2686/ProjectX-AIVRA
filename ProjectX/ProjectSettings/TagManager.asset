@@ -16,8 +16,8 @@ TagManager:
   - 
   - 
   - PlayerPlacedObject
-  - 
-  - 
+  - GroundPlane
+  - Axis
   - 
   - 
   - 
