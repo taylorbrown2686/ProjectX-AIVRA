@@ -5,7 +5,7 @@ using UnityEngine;
 public class AxesBase : MonoBehaviour
 {
     private string activeAxis;
-    
+
     public string ActiveAxis { //'Set' is done here, so we don't need that attribute
       get {return activeAxis;}
     }

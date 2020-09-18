@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script outlines an object on the Object Wheel for selection and spawning
 public class ObjectSelectOutline : MonoBehaviour
 {
     public Shader outlineShader, defaultShader;
@@ -12,14 +12,12 @@ public class ObjectSelectOutline : MonoBehaviour
       if (col.tag == "Placeable") { //If it has placeable tag
         objectToOutline = col.transform.gameObject; //Get the material on the renderer
         ApplyOutline();
-        Debug.Log("Entered");
       }
     }
 
     void OnTriggerExit(Collider col) {
       if (col.tag == "Placeable") {
         RemoveOutline();
-        Debug.Log("Exited");
       }
     }
 

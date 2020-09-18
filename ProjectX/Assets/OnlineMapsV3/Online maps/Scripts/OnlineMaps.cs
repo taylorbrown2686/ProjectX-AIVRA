@@ -337,10 +337,10 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
     private float _zoom = MINZOOM;
 
     [SerializeField]
-    public double latitude = 0;
+    public double latitude;
 
     [SerializeField]
-    public double longitude = 0;
+    public double longitude;
 
 #if NETFX_CORE
     private OnlineMapsThreadWINRT renderThread;
@@ -637,11 +637,11 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
             }
             else OnlineMapsRasterTile.defaultColors = defaultTileTexture.GetPixels32();
         }
-        
+
         //TAYLOR: Setting lat/lng before map is placed
-        latitude = Input.location.lastData.latitude;
-        longitude = Input.location.lastData.longitude;
-        SetPosition(longitude, latitude);
+        //latitude = Input.location.lastData.latitude;
+        //longitude = Input.location.lastData.longitude;
+        //SetPosition(longitude, latitude);
     }
 
     private void CheckBaseProps()
@@ -1437,9 +1437,8 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
 
         if (OnUpdateLate != null) OnUpdateLate();
 
-        latitude = Input.location.lastData.latitude;
-        longitude = Input.location.lastData.longitude;
-        Debug.Log("MAPS: " + latitude.ToString() + ", " + longitude.ToString());
+        //latitude = Input.location.lastData.latitude;
+        //longitude = Input.location.lastData.longitude;
     }
 
     /// <summary>

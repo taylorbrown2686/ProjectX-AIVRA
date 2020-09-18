@@ -94,6 +94,8 @@ namespace ARLocation
 
         void Restart();
 
+        void SetGPSPosition(float latitude, float longitude);
+
         void OnEnabled(LocationEnabledDelegate del);
         void OnFail(LocationFailedDelegate del);
 

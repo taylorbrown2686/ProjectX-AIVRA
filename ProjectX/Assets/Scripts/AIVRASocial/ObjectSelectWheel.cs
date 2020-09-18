@@ -8,15 +8,20 @@ public class ObjectSelectWheel : MonoBehaviour
 {
     public GameObject[] objectsToSpawn; //Array of spawnable objects (doesn't need getter/setter since assignment is manual)
     public GameObject objectWheel, selectedObjectCheck; //Used to reference the wheel and collider to check for selected object
-    private int objectToSpawnIndex = 0; //Array index (changed by item select menu)
+    public PlayerObjectInteractions playerInteractions;
     private int totalSpawnableObjects;
 
-    public int ObjectToSpawnIndex {get => objectToSpawnIndex; set => objectToSpawnIndex = value;} //Need this for PlayerObjectInteractions to access the index
-
     void Start() {
-      objectWheel.SetActive(false); //Turn the wheel off
+      this.enabled = false; //Turn the wheel off
       totalSpawnableObjects = objectsToSpawn.Length; //Get the total objects in the array
+    }
+
+    void OnEnable() {
       CreateWheel();
+    }
+
+    void OnDisable() {
+      DeleteWheel();
     }
 
     private void CreateWheel() {
@@ -35,6 +40,12 @@ public class ObjectSelectWheel : MonoBehaviour
       }
     }
 
+    private void DeleteWheel() {
+      foreach (Transform child in objectWheel.transform) {
+        Destroy(child.gameObject);
+      }
+    }
+
     void Update() {
       if (Input.touchCount == 1) { //Rotate the object if touching screen
         Touch touch = Input.GetTouch(0);
@@ -46,17 +57,17 @@ public class ObjectSelectWheel : MonoBehaviour
     }
 
     public void ToggleWheel() { //onclick listener (must be public)
-      if (objectWheel.activeSelf) {
-        objectWheel.SetActive(false);
+      if (this.enabled) {
+        this.enabled = false;
       } else {
-        objectWheel.SetActive(true);
+        this.enabled = true;
       }
     }
 
     public void SetObjectToSpawnIndex(string objName) { //Used in ObjectSelectOutline to set the active object to place
       for (int i = 0; i < objectsToSpawn.Length; i++) { //For each object in the array
         if (objectsToSpawn[i].name == objName) { //Compare the names
-          objectToSpawnIndex = i; //And set the index for the controls to be able to reference the right object
+          playerInteractions.ObjectToSpawn = objectsToSpawn[i]; //And set the index for the controls to be able to reference the right object
         }
       }
     }

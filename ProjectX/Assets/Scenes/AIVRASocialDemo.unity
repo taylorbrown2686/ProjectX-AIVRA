@@ -1608,6 +1608,7 @@ MonoBehaviour:
   - {fileID: 4734366226249917496, guid: 4bfce429f8146254aabc0371033feaab, type: 3}
   objectWheel: {fileID: 1867954583}
   selectedObjectCheck: {fileID: 1566805826}
+  playerInteractions: {fileID: 483262184}
 --- !u!136 &1867954586
 CapsuleCollider:
   m_ObjectHideFlags: 0

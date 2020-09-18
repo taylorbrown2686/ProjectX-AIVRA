@@ -446,5 +446,9 @@ namespace ARLocation
         {
             Paused = false;
         }
+
+        public void SetGPSPosition(float latitude, float longitude) {
+
+        }
     }
 }

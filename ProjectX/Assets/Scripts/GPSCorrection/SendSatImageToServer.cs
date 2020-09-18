@@ -27,7 +27,7 @@ public class SendSatImageToServer : MonoBehaviour
       form.AddField("latitude", map.latitude.ToString());
       form.AddField("longitude", map.longitude.ToString());
       form.AddBinaryData("content", bytes, "ggg.png", "image/jpg");
-      using (UnityWebRequest www = UnityWebRequest.Post("http://255446f6fb1e.ngrok.io/files/ggg.jpg", form)) {
+      using (UnityWebRequest www = UnityWebRequest.Post("http://067612e313c6.ngrok.io/files/ggg.jpg", form)) {
 
           yield return www.SendWebRequest();
 

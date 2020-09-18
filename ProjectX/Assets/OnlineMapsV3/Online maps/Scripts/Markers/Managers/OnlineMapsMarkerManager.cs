@@ -216,7 +216,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
           RemoveMarkerByLabel("Portal");
           double lat, lng;
           if (map.control.GetCoords(out lng, out lat)) Create(new Vector2((float)lng, (float)lat), markerImages.markerTextures[3], "Portal");
-        }*/
+        }
 
         if (canUpdatePlayer) {
           RemoveMarkerByLabel("Player");
@@ -225,10 +225,10 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
         if (canUpdateEnemies) {
           RemoveMarkerByLabel("Enemy");
           StartCoroutine(UpdateMapPositionOfEnemies());
-        }
+        }*/
     }
 
-    private IEnumerator UpdateMapPositionOfEnemies() {
+    /*private IEnumerator UpdateMapPositionOfEnemies() {
       canUpdateEnemies = false;
       foreach (GameObject location in GameObject.FindGameObjectsWithTag("Enemy")) {
         PlaceAtLocation coords = location.GetComponent<PlaceAtLocation>();
@@ -243,14 +243,13 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       Create(new Vector2(Input.location.lastData.longitude, Input.location.lastData.latitude), markerImages.markerTextures[0], "Player");
       yield return new WaitForSeconds(1f);
       canUpdatePlayer = true;
-    }
+    }*/
 
-    private void RemoveMarkerByLabel(string labelToRemove) {
-      List<OnlineMapsMarker> tempList = new List<OnlineMapsMarker>();
-      tempList = this.items;
-      foreach (OnlineMapsMarker marker in tempList) {
-        if (marker.label == labelToRemove) {
-          this.Remove(marker);
+    public void RemoveMarkerByLabel(string labelToRemove) {
+      for (int i = 0; i < this.items.Count; i++) {
+        if (this.items[i].label == labelToRemove) {
+          this.Remove(this.items[i]);
+          i--;
         }
       }
     }

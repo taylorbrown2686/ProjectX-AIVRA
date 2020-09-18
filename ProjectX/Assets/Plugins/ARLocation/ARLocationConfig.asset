@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fdf1fc4a89fb2243b47ffffdffcc69e, type: 3}
   m_Name: ARLocationConfig
   m_EditorClassIdentifier: 
-  EarthRadiusInKM: 6371
+  EarthRadiusInKM: 6372.8
   DistanceFunction: 0
   InitialGroundHeightGuess: 0
   MinGroundHeight: 0
   MaxGroundHeight: 0.1
-  VuforiaGroundHitTestDistance: 4
+  VuforiaGroundHitTestDistance: 0
   GroundHeightSmoothingFactor: 0.05
   UseVuforia: 0

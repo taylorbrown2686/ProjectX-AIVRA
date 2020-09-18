@@ -17,6 +17,6 @@ MonoBehaviour:
   InitialGroundHeightGuess: 0
   MinGroundHeight: 0
   MaxGroundHeight: 0.1
-  VuforiaGroundHitTestDistance: 4
+  VuforiaGroundHitTestDistance: 0
   GroundHeightSmoothingFactor: 0.05
   UseVuforia: 0

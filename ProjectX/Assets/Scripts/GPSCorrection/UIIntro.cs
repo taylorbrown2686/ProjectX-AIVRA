@@ -25,26 +25,20 @@ public class UIIntro : MonoBehaviour
     IEnumerator Start() {
       logo.sprite = aivra;
       StartCoroutine(Fade(true, logo));
-      yield return new WaitForSeconds(3f);
-      StartCoroutine(Fade(false, logo));
       yield return new WaitForSeconds(2f);
+      StartCoroutine(Fade(false, logo));
+      yield return new WaitForSeconds(1f);
 
       logo.sprite = earthMedia;
       StartCoroutine(Fade(true, logo));
-      yield return new WaitForSeconds(3f);
-      StartCoroutine(Fade(false, logo));
       yield return new WaitForSeconds(2f);
+      StartCoroutine(Fade(false, logo));
+      yield return new WaitForSeconds(1f);
 
       logo.enabled = false;
-      loadingText.text = "Hello, and welcome to AIVRA!";
+      loadingText.text = "Welcome to AIVRA!" + "\n" + "We are finding a portal to our world, please wait...";
       StartCoroutine(Fade(true, null, loadingText));
       yield return new WaitForSeconds(3f);
-      StartCoroutine(Fade(false, null, loadingText));
-      yield return new WaitForSeconds(2f);
-
-      loadingText.text = "We are finding a portal to our world, please wait...";
-      StartCoroutine(Fade(true, null, loadingText));
-      yield return new WaitForSeconds(5f);
 
       do {
         tooltipText.text = tooltips[Random.Range(0, 4)];
@@ -61,24 +55,24 @@ public class UIIntro : MonoBehaviour
       if (image != null) {
         if (fadeIn) {
           while (image.color.a < 1) {
-              image.color += new Color(0, 0, 0, 0.01f);
+              image.color += new Color(0, 0, 0, 0.02f);
               yield return new WaitForSeconds(0.01f);
           }
         } else {
           while (image.color.a > 0) {
-              image.color -= new Color(0, 0, 0, 0.01f);
+              image.color -= new Color(0, 0, 0, 0.02f);
               yield return new WaitForSeconds(0.01f);
           }
         }
       } else if (text != null) {
         if (fadeIn) {
           while (text.color.a < 1) {
-              text.color += new Color(0, 0, 0, 0.01f);
+              text.color += new Color(0, 0, 0, 0.02f);
               yield return new WaitForSeconds(0.01f);
           }
         } else {
           while (text.color.a > 0) {
-              text.color -= new Color(0, 0, 0, 0.01f);
+              text.color -= new Color(0, 0, 0, 0.02f);
               yield return new WaitForSeconds(0.01f);
           }
         }

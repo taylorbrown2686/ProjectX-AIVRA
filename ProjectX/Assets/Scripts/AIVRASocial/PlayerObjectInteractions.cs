@@ -13,6 +13,7 @@ public class PlayerObjectInteractions : MonoBehaviour
     private string currentSetting; //Current setting we are on
     private GameObject lastTouchedObject; //Object we have touched last
     private GameObject lastSpawnedObject; //Object we spawned last (NOT THE SAME AS lastTouchedObject)
+    private GameObject objectToSpawn; //Object selected in ObjectSelectWheel
     private GameObject activeAxes; //Represents the axes spawned for the current setting
     public GameObject[] axes = new GameObject[3]; //Represents all the axes we can spawn for move, rotate, and scale
     public Transform arso; //ARSessionOrigin, SelectedObject (to spawn with create button)
@@ -22,15 +23,17 @@ public class PlayerObjectInteractions : MonoBehaviour
     public ARRaycastManager raycastManager; //Raycast manager to store hit objects
     public List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
+    public GameObject ObjectToSpawn {set => objectToSpawn = value;}
+
     private void Update() {
-      if (!TryGetTouchPosition(out Vector2 touchPosition) || EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) { //Break without executing anything if we aren't touching an object
-        return;
+      if (!TryGetTouchPosition(out Vector2 touchPosition) || EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId)) {
+        return; //Break without executing anything if we aren't touching an object
       }
 
       //Select object raycast
       if (Input.touchCount == 1) {
         Touch touch = Input.GetTouch(0);
-        if (touch.phase == TouchPhase.Began && currentSetting != "Spawn") {
+        if (touch.phase == TouchPhase.Began && currentSetting != "Spawn") { //If on 'Spawn', single touch spawns object, not select
           Ray ray = Camera.main.ScreenPointToRay(touchPosition); //Get touch position
           RaycastHit hit;
           int layermask = (1 << 8 | 1 << 10);
@@ -39,6 +42,7 @@ public class PlayerObjectInteractions : MonoBehaviour
               if (lastTouchedObject != null) { //Null check so the first spawned object doesn't throw an error
                 lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = false;
                 lastTouchedObject = null;
+                Destroy(activeAxes); //Destroy the current axis so we can spawn a new one
               }
               lastTouchedObject = hit.collider.gameObject; //Set the active object via a raycast
               lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = true;
@@ -50,16 +54,13 @@ public class PlayerObjectInteractions : MonoBehaviour
       }
 
       //Switch-case for current setting
-      if (!osw.gameObject.activeSelf) { //Make sure we aren't in the wheel
+      if (!osw.enabled) { //Make sure we aren't in the wheel
         switch (currentSetting) { //Switch between settings to change what we look for in touches.
           case "Spawn":
-          Destroy(activeAxes);
-          if (Input.touchCount == 1) {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began) {
+            if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) {
               if (raycastManager.Raycast(touchPosition, hits, TrackableType.Planes)) {
                 var hitPose = hits[0].pose;
-                lastSpawnedObject = Instantiate(osw.objectsToSpawn[osw.ObjectToSpawnIndex], //Spawn object at index in the osw
+                lastSpawnedObject = Instantiate(objectToSpawn,
                   hitPose.position + new Vector3(0, 0.5f, 0), hitPose.rotation, arso); //Spawn at finger touch
                 lastSpawnedObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); //Make the object smaller on spawn.
                 lastSpawnedObject.layer = 8; //Set the layer to PlayerPlacedObjects so we can interact with it.
@@ -67,52 +68,39 @@ public class PlayerObjectInteractions : MonoBehaviour
                 lastSpawnedObject.GetComponent<PlaceableObject>().IsGhosted = true; //Ghost the object so it doesn't collide until spawned
               }
             }
-            if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary) {
+            if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary) {
               if (raycastManager.Raycast(touchPosition, hits, TrackableType.Planes)) {
                 var hitPose = hits[0].pose;
                 lastSpawnedObject.transform.position = hitPose.position + new Vector3(0, 0.5f, 0);
               }
             }
-            if (touch.phase == TouchPhase.Ended) {
+            if (Input.GetTouch(0).phase == TouchPhase.Ended) {
               lastSpawnedObject.GetComponent<PlaceableObject>().IsGhosted = false;
             }
-          }
           break;
 
           case "Move":
-            if (activeAxes) {
-              Destroy(activeAxes);
-            }
-            if (lastTouchedObject) { //If last touched exists (not null)
+            if (lastTouchedObject && !activeAxes) { //If last touched exists (not null)
               activeAxes = Instantiate(axes[0], lastTouchedObject.transform.position + new Vector3(0, 0.1f, 0),
                 Quaternion.identity, lastTouchedObject.transform);
             }
           break;
 
           case "Rotate":
-            if (activeAxes) {
-              Destroy(activeAxes);
-            }
-            if (lastTouchedObject) { //If last touched exists (not null)
+            if (lastTouchedObject && !activeAxes) { //If last touched exists (not null)
               activeAxes = Instantiate(axes[1], lastTouchedObject.transform.position + new Vector3(0, 0.1f, 0),
                 Quaternion.identity, lastTouchedObject.transform);
             }
           break;
 
           case "Scale":
-            if (activeAxes) {
-              Destroy(activeAxes);
-            }
-            if (lastTouchedObject) { //If last touched exists (not null)
+            if (lastTouchedObject && !activeAxes) { //If last touched exists (not null)
               activeAxes = Instantiate(axes[2], lastTouchedObject.transform.position + new Vector3(0, 0.1f, 0),
                 Quaternion.identity, lastTouchedObject.transform);
             }
           break;
 
           case "Delete":
-            if (activeAxes) {
-              Destroy(activeAxes);
-            }
             Destroy(lastTouchedObject);
           break;
         }
@@ -129,8 +117,14 @@ public class PlayerObjectInteractions : MonoBehaviour
     }
 
     public void ChangeCurrentSetting(string setting) { //On click button handler
-      currentSetting = setting;
-      lastTouchedObject = null;
+      currentSetting = setting; //Change the setting
+      if (activeAxes) { //Delete the current axis if there is one
+        Destroy(activeAxes);
+      }
+      if (lastTouchedObject) { //Reset the lastTouchedObject if there is one
+        lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = false;
+        lastTouchedObject = null;
+      }
     }
 
 

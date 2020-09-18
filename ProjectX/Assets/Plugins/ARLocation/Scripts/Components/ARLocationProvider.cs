@@ -60,7 +60,7 @@ namespace ARLocation
         /// <summary>
         /// Returns the current location provider.
         /// </summary>
-        public ILocationProvider Provider { get; private set; }
+        public ILocationProvider Provider { get; set; }
 
         /// <summary>
         /// If true, the location provider has received the first location data.
@@ -119,7 +119,7 @@ namespace ARLocation
         {
             base.Awake();
 
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
             Provider = new MockLocationProvider();
 
             if (MockLocationData != null)
@@ -127,13 +127,15 @@ namespace ARLocation
                 Logger.LogFromMethod("ARLocationProvider", "Awake", $"Using mock location {MockLocationData}", DebugMode);
                 ((MockLocationProvider) Provider).mockLocation = MockLocationData.Location;
             }
-#elif ARGPS_CUSTOM_PROVIDER
+#elif AIVRA_CUSTOM_PROVIDER
         // If you want to use a custom location provider, add 'ARGPS_CUSTOM_PROVIDER' to the define symbols in the Player
         // settings, create a implementation of ILocationProvider, and instantiate it in the line below.
-        Provider = new ARGpsCustomLocationProvider();
+        //TAYLOR: Custom provider instantiated
+        Debug.Log("ARLocationProvider using AIVRA_CUSTOM_PROVIDER");
+        Provider = new AIVRACustomProvider();
 #else
         Provider = new UnityLocationProvider();
-#endif
+#endif*/
 
             Logger.LogFromMethod("ARLocationProvider", "Awake",": Using provider " + Provider.Name, DebugMode);
         }
