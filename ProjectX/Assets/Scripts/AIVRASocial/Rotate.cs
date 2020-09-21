@@ -13,15 +13,27 @@ public class Rotate : AxesBase
           switch (ActiveAxis) {
 
             case "xAxis":
-              this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(touchMag / 1000, 0, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(-(touchMag / 1000), 0, 0);
+              } else {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(touchMag / 1000, 0, 0);
+              }
             break;
 
             case "yAxis":
-              this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, touchMag / 1000, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, -(touchMag / 1000), 0);
+              } else {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, touchMag / 1000, 0);
+              }
             break;
 
             case "zAxis":
-              this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, 0, touchMag / 1000);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, 0, -(touchMag / 1000));
+              } else {
+                this.gameObject.transform.parent.transform.rotation *= Quaternion.Euler(0, 0, touchMag / 1000);
+              }
             break;
 
           }

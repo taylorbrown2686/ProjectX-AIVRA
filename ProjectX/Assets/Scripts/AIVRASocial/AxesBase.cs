@@ -10,6 +10,12 @@ public class AxesBase : MonoBehaviour
       get {return activeAxis;}
     }
 
+    public TempDirectionChange dirChange;
+
+    void Start() {
+      dirChange = GameObject.Find("_MAINCONTROLLER").GetComponent<TempDirectionChange>();
+    }
+
     protected void Update() {
       if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) { //If beginning of touch...
         Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position); //Get touch position

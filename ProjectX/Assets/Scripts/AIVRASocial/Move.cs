@@ -13,15 +13,27 @@ public class Move : AxesBase
           switch (ActiveAxis) {
 
             case "xAxis":
-              this.gameObject.transform.parent.transform.position += new Vector3(touchMag / 1000, 0, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.position += new Vector3(-(touchMag / 1000), 0, 0);
+              } else {
+                this.gameObject.transform.parent.transform.position += new Vector3(touchMag / 1000, 0, 0);
+              }
             break;
 
             case "yAxis":
-              this.gameObject.transform.parent.transform.position += new Vector3(0, touchMag / 1000, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.position += new Vector3(0, -(touchMag / 1000), 0);
+              } else {
+                this.gameObject.transform.parent.transform.position += new Vector3(0, touchMag / 1000, 0);
+              }
             break;
 
             case "zAxis":
-              this.gameObject.transform.parent.transform.position += new Vector3(0, 0, touchMag / 1000);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.position += new Vector3(0, 0, -(touchMag / 1000));
+              } else {
+                this.gameObject.transform.parent.transform.position += new Vector3(0, 0, touchMag / 1000);
+              }
             break;
 
           }

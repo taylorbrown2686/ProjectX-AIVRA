@@ -19,6 +19,7 @@ namespace ARLocation {
         mockLocation.Latitude = 0;
         mockLocation.Longitude = 0;
         mockLocation.Altitude = 0;
+        RequestLocationAndCompassUpdates();
       }
 
       protected override HeadingReading? ReadHeading()

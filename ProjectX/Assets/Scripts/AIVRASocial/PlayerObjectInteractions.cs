@@ -40,12 +40,12 @@ public class PlayerObjectInteractions : MonoBehaviour
           if (Physics.Raycast(ray, out hit, Mathf.Infinity, layermask)) {
             if (hit.collider.gameObject.layer == 8) {
               if (lastTouchedObject != null) { //Null check so the first spawned object doesn't throw an error
-                lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = false;
+                lastTouchedObject.GetComponent<PlaceableObject>().GhostObject(false);
                 lastTouchedObject = null;
                 Destroy(activeAxes); //Destroy the current axis so we can spawn a new one
               }
               lastTouchedObject = hit.collider.gameObject; //Set the active object via a raycast
-              lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = true;
+              lastTouchedObject.GetComponent<PlaceableObject>().GhostObject(true);
             } else if (hit.collider.gameObject.layer == 10) {
               return; //If we hit an axis, the AxesBase will handle the raycast
             }
@@ -65,7 +65,7 @@ public class PlayerObjectInteractions : MonoBehaviour
                 lastSpawnedObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f); //Make the object smaller on spawn.
                 lastSpawnedObject.layer = 8; //Set the layer to PlayerPlacedObjects so we can interact with it.
                 lastSpawnedObject.GetComponent<PlaceableObject>().enabled = true;
-                lastSpawnedObject.GetComponent<PlaceableObject>().IsGhosted = true; //Ghost the object so it doesn't collide until spawned
+                lastSpawnedObject.GetComponent<PlaceableObject>().GhostObject(true); //Ghost the object so it doesn't collide until spawned
               }
             }
             if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(0).phase == TouchPhase.Stationary) {
@@ -75,7 +75,9 @@ public class PlayerObjectInteractions : MonoBehaviour
               }
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended) {
-              lastSpawnedObject.GetComponent<PlaceableObject>().IsGhosted = false;
+              if (lastSpawnedObject) { //If the lastSpawnedObject exists
+                lastSpawnedObject.GetComponent<PlaceableObject>().GhostObject(false);
+              }
             }
           break;
 
@@ -117,13 +119,17 @@ public class PlayerObjectInteractions : MonoBehaviour
     }
 
     public void ChangeCurrentSetting(string setting) { //On click button handler
-      currentSetting = setting; //Change the setting
-      if (activeAxes) { //Delete the current axis if there is one
-        Destroy(activeAxes);
-      }
-      if (lastTouchedObject) { //Reset the lastTouchedObject if there is one
-        lastTouchedObject.GetComponent<PlaceableObject>().IsGhosted = false;
-        lastTouchedObject = null;
+      if (lastTouchedObject) { //If a lastTouchedObject exists
+        if (lastTouchedObject.GetComponent<PlaceableObject>().validAreaToPlace) {
+          currentSetting = setting; //Change the setting
+          if (activeAxes) { //Delete the current axis if there is one
+            Destroy(activeAxes);
+          }
+          lastTouchedObject.GetComponent<PlaceableObject>().GhostObject(false);
+          lastTouchedObject = null;
+        }
+      } else {
+        currentSetting = setting; //Change the setting
       }
     }
 

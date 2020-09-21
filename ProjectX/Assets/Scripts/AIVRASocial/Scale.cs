@@ -13,20 +13,32 @@ public class Scale : AxesBase
           switch (ActiveAxis) {
 
             case "xAxis":
-              this.gameObject.transform.parent.transform.localScale += new Vector3(touchMag / 10000, 0, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(-(touchMag / 10000), 0, 0);
+              } else {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(touchMag / 10000, 0, 0);
+              }
             break;
 
             case "yAxis":
-              this.gameObject.transform.parent.transform.localScale += new Vector3(0, touchMag / 10000, 0);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(0, -(touchMag / 10000), 0);
+              } else {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(0, touchMag / 10000, 0);
+              }
             break;
 
             case "zAxis":
-              this.gameObject.transform.parent.transform.localScale += new Vector3(0, 0, touchMag / 10000);
+              if (dirChange.moveNegative) {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(0, 0, -(touchMag / 10000));
+              } else {
+                this.gameObject.transform.parent.transform.localScale += new Vector3(0, 0, touchMag / 10000);
+              }
             break;
 
           }
+          this.gameObject.transform.localScale = new Vector3(0.1f, 1f, 0.1f); //Reset the scale so it doesn't change with the block
         }
-        this.gameObject.transform.localScale = new Vector3(0.1f, 1f, 0.1f); //Reset the scale so it doesn't change with the block
       }
     }
 }
