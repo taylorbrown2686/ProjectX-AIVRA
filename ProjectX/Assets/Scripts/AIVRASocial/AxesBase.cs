@@ -13,7 +13,7 @@ public class AxesBase : MonoBehaviour
     public TempDirectionChange dirChange;
 
     void Start() {
-      dirChange = GameObject.Find("_MAINCONTROLLER").GetComponent<TempDirectionChange>();
+      //dirChange = GameObject.Find("_MAINCONTROLLER").GetComponent<TempDirectionChange>();
     }
 
     protected void Update() {

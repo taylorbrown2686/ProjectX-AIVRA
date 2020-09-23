@@ -1,25 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TempDirectionChange : MonoBehaviour
 {
-    public bool moveNegative {get; private set;}
-    public Sprite[] sprites;
-    public Image btnImage;
+    public bool moveNegative = false;
 
-    void Start() {
-      moveNegative = false;
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
-    public void ChangeDirection() {
-      if (moveNegative) {
-        moveNegative = false;
-        btnImage.sprite = sprites[0];
-      } else {
-        moveNegative = true;
-        btnImage.sprite = sprites[1];
-      }
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 }
