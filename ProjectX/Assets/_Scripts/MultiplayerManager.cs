@@ -13,7 +13,7 @@ public class MultiplayerManager : PunBehaviour
 	private InputField RoomCode;
 
 	private bool IsCreate=false;
-    #region MonoBehaviour Callbacks
+#region MonoBehaviour Callbacks
     private void Awake()
 	{
 		// #Critical
@@ -36,7 +36,7 @@ public class MultiplayerManager : PunBehaviour
 
 	}
 
-    #endregion
+#endregion
     public void Connect()
 	{
 		// keep track of the will to join a room, because when we come back from the game we will get a callback that we are connected, so we need to know what to do then
@@ -47,7 +47,7 @@ public class MultiplayerManager : PunBehaviour
 
 		// we check if we are connected or not, we join if we are , else we initiate the connection to the server.
 		if (!PhotonNetwork.connected)
-		{ 
+		{
 			// #Critical, we must first and foremost connect to Photon Online Server.
 			PhotonNetwork.ConnectUsingSettings(_gameVersion);
 
