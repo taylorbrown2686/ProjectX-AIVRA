@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Placeable
+  - FinishLine
+  - Checkpoint
+  - Obstacle
+  - Ground
+  - Car
   layers:
   - Default
   - TransparentFX

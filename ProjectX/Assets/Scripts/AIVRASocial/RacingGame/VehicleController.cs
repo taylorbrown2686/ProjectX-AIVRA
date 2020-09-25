@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UltimateJoystick;
 
 public class VehicleController : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class VehicleController : MonoBehaviour
     private float speedInput, turnInput;
     private bool isAccelerating, isBraking, isSteeringLeft, isSteeringRight;
 
+    public float Acceleration {get => acceleration;}
+
     private void Start() {
       rb = this.GetComponent<Rigidbody>();
       //TEMP
-      maxSpeed = 20f;
+      maxSpeed = 2f;
     }
 
     private void Update() {
@@ -32,31 +35,31 @@ public class VehicleController : MonoBehaviour
         turnForce = 0; //If we aren't steering, set the turnForce to 0 to stop turning
       }
 
-      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, turnForce * Time.deltaTime, 0));
+      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
+        new Vector3(0, UltimateJoystick.GetHorizontalAxis("SteeringJoystick") * 100 * Time.deltaTime, 0));
       transform.position = rb.transform.position;
     }
 
     private void FixedUpdate() { //Use FixedUpdate for physics calculations
-      //rb.AddForce(transform.right * acceleration * Time.deltaTime); //My test model has axes flipped, normally use transform.forward
-      rb.transform.Translate(Vector3.right * acceleration * Time.deltaTime, Space.Self);
+      rb.transform.Translate(Vector3.right * UltimateJoystick.GetVerticalAxis("MovingJoystick") * 2 * Time.deltaTime, Space.Self);
     }
 
     private void Accelerate() { //Button event handler (PointerDown)
-      acceleration += 3f;
+      acceleration += UltimateJoystick.GetVerticalAxis("MovingJoystick");
       if (acceleration > maxSpeed) {
         acceleration = maxSpeed;
       }
     }
 
     private void Brake() { //Button event handler (PointerDown)
-      acceleration -= 5f;
+      acceleration -= 0.66f;
       if (acceleration < 0) {
         acceleration = 0;
       }
     }
 
     private void Coast() {
-      acceleration -= 0.25f;
+      acceleration -= 0.33f;
       if (acceleration < 0) {
         acceleration = 0;
       }
@@ -64,11 +67,11 @@ public class VehicleController : MonoBehaviour
 
     private void Steer(bool isLeft) {
       if (isLeft) {
-        turnForce -= 1f;
-        acceleration -= 1f;
+        turnForce -= 3.33f;
+        //acceleration -= 0.5f;
       } else {
-        turnForce += 1f;
-        acceleration -= 1f;
+        turnForce += 3.33f;
+        //acceleration -= 0.5f;
       }
     }
 
