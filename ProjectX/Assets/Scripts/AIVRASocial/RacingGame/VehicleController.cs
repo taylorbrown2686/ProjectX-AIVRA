@@ -1,114 +1,63 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UltimateJoystick;
 
-public class VehicleController : MonoBehaviour
+public class VehicleController : VehicleBase
 {
     private Rigidbody rb;
-    protected float acceleration, maxSpeed, turnForce;
-    private float speedInput, turnInput;
-    private bool isAccelerating, isBraking, isSteeringLeft, isSteeringRight;
-
-    public float Acceleration {get => acceleration;}
+    public GameObject leftTire, rightTire; //In front, all cars are FWD
 
     private void Start() {
       rb = this.GetComponent<Rigidbody>();
-      //TEMP
-      maxSpeed = 2f;
     }
 
     private void Update() {
-      if (isAccelerating) {
-        Accelerate();
-      } else if (isBraking) {
-        Brake();
-      } else {
-        Coast();
-      }
-
-      if (isSteeringLeft) {
-        Steer(true);
-      } else if (isSteeringRight) {
-        Steer(false);
-      } else {
-        turnForce = 0; //If we aren't steering, set the turnForce to 0 to stop turning
-      }
-
-      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles +
-        new Vector3(0, UltimateJoystick.GetHorizontalAxis("SteeringJoystick") * 100 * Time.deltaTime, 0));
+      RotateTires();
+      //We can use left or right tires for rotation, both are the same
+      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
+        UltimateJoystick.GetHorizontalAxis("SteeringJoystick") * steeringForce, transform.rotation.eulerAngles.z);
       transform.position = rb.transform.position;
+
+      switch (rb.velocity.magnitude * 10) { //Speed (in m/s)
+        case float n when n > 0: //When greater than topSpeed * someRatio...
+          acceleration = accelerationsAtGears[0]; //Change the acceleration accordingly
+        break;
+
+        case float n when n > topSpeed * gearRatios[0]:
+          acceleration = accelerationsAtGears[1];
+        break;
+
+        case float n when n > topSpeed * gearRatios[1]:
+          acceleration = accelerationsAtGears[2];
+        break;
+
+        case float n when n > topSpeed * gearRatios[2]:
+          acceleration = accelerationsAtGears[3];
+        break;
+
+        case float n when n > topSpeed * gearRatios[3]:
+          acceleration = accelerationsAtGears[4];
+        break;
+
+        case float n when n > topSpeed * gearRatios[4]:
+          acceleration = accelerationsAtGears[5];
+        break;
+      }
     }
 
     private void FixedUpdate() { //Use FixedUpdate for physics calculations
-      rb.transform.Translate(Vector3.right * UltimateJoystick.GetVerticalAxis("MovingJoystick") * 2 * Time.deltaTime, Space.Self);
+      //rb.transform.Translate(Vector3.right * UltimateJoystick.GetVerticalAxis("MovingJoystick") * 3 * Time.deltaTime, Space.Self);
+      rb.AddForce(leftTire.transform.right * UltimateJoystick.GetVerticalAxis("MovingJoystick") * acceleration * Time.deltaTime);
+      rb.AddForce(rightTire.transform.right * UltimateJoystick.GetVerticalAxis("MovingJoystick") * acceleration * Time.deltaTime);
     }
 
-    private void Accelerate() { //Button event handler (PointerDown)
-      acceleration += UltimateJoystick.GetVerticalAxis("MovingJoystick");
-      if (acceleration > maxSpeed) {
-        acceleration = maxSpeed;
-      }
-    }
+    private void RotateTires() {
+      leftTire.transform.rotation = Quaternion.Euler(leftTire.transform.rotation.x,
+        UltimateJoystick.GetHorizontalAxis("SteeringJoystick") * 50, leftTire.transform.rotation.z);
 
-    private void Brake() { //Button event handler (PointerDown)
-      acceleration -= 0.66f;
-      if (acceleration < 0) {
-        acceleration = 0;
-      }
-    }
-
-    private void Coast() {
-      acceleration -= 0.33f;
-      if (acceleration < 0) {
-        acceleration = 0;
-      }
-    }
-
-    private void Steer(bool isLeft) {
-      if (isLeft) {
-        turnForce -= 3.33f;
-        //acceleration -= 0.5f;
-      } else {
-        turnForce += 3.33f;
-        //acceleration -= 0.5f;
-      }
-    }
-
-    //Public button event handlers
-    public void OnTouchStart(string buttonHit) {
-      switch (buttonHit) {
-        case "Accelerate":
-          isAccelerating = true;
-        break;
-        case "Brake":
-          isBraking = true;
-        break;
-        case "SteerLeft":
-          isSteeringRight = false; //We can't turn both directions at once, so turn off the opposite steering
-          isSteeringLeft = true;
-        break;
-        case "SteerRight":
-          isSteeringLeft = false;
-          isSteeringRight = true;
-        break;
-      }
-    }
-
-    public void OnTouchEnd(string buttonHit) {
-      switch (buttonHit) {
-        case "Accelerate":
-          isAccelerating = false;
-        break;
-        case "Brake":
-          isBraking = false;
-        break;
-        case "SteerLeft":
-          isSteeringLeft = false;
-        break;
-        case "SteerRight":
-          isSteeringRight = false;
-        break;
-      }
+      rightTire.transform.rotation = Quaternion.Euler(rightTire.transform.rotation.x,
+        UltimateJoystick.GetHorizontalAxis("SteeringJoystick") * 50, rightTire.transform.rotation.z);
     }
 }
