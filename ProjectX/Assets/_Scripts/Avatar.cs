@@ -5,14 +5,28 @@ public class Avatar
 
     public class FacialFeatures {
 
-        public int eye;
-        public int nose;
-        public int mouth;
-        public int hair;
-        public int facialShape;
+        #region Fields
+
+        /// <summary>
+        /// fields for an Avatar
+        /// </summary>
+        int eye;
+        int nose;
+        int mouth;
+        int hair;
+        int facialShape;
+
+        #endregion
+
 
     }
 
 
-    public int body;
+    int body;
+
+    public void SetFace()
+    {
+        FacialFeatures face = new FacialFeatures();
+        
+    }
 }

@@ -5,12 +5,14 @@ using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.EventSystems;
 
-public class TouchManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
     ARRaycastManager ar_raycast;
     [SerializeField]
-    private Transform Player;
+    private Transform playerPrefab;
+
+    private Transform player;
     private static List<ARRaycastHit> raycast_Hits = new List<ARRaycastHit>();
 
     // Start is called before the first frame update
@@ -37,8 +39,9 @@ public class TouchManager : MonoBehaviour
                     //   StateText.text = "Hit Detected " + mousePos;
                     Pose hitPose = raycast_Hits[0].pose;
                     Vector3 positionToBePlaced = hitPose.position;
-                    Player.position = positionToBePlaced;
-                    Rigidbody rb = Player.GetComponent<Rigidbody>();
+                    
+                    player.position = positionToBePlaced;
+                    Rigidbody rb = player.GetComponent<Rigidbody>();
                     rb.isKinematic = false;
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
@@ -52,4 +55,11 @@ public class TouchManager : MonoBehaviour
     {
         
     }
+
+    public void StartGameCallback() {
+        if (PhotonNetwork.connected) {
+
+        }
+    }
+    
 }
