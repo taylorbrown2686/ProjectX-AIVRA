@@ -4,13 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
-  - Placeable
-  - FinishLine
-  - Checkpoint
-  - Obstacle
   - Ground
-  - Car
+  - Obstacle
+  - Checkpoint
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -20,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - PlayerPlacedObject
-  - GroundPlane
-  - Axis
+  - Planes
+  - 
+  - 
   - 
   - 
   - 
