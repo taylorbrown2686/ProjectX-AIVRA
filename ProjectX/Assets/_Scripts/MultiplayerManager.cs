@@ -72,6 +72,9 @@ public class MultiplayerManager : PunBehaviour
 	public void CreateRoom() {
 		room = "room" + Random.Range(101, 99999);
 		roomName = room;
+		RoomOptions roomOptions = new RoomOptions();
+		roomOptions.IsOpen = true;
+		roomOptions.MaxPlayers = 2;
 		if (PhotonNetwork.connected)
 		{
 			PhotonNetwork.CreateRoom(room);
