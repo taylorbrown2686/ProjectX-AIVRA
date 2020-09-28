@@ -13,6 +13,7 @@ public class MultiplayerManager : PunBehaviour
 	private InputField RoomCode;
 
 	private bool IsCreate=false;
+
     #region MonoBehaviour Callbacks
     private void Awake()
 	{
@@ -23,7 +24,9 @@ public class MultiplayerManager : PunBehaviour
 		// #Critical
 		// this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
 		PhotonNetwork.automaticallySyncScene = true;
+
 	}
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -53,6 +56,7 @@ public class MultiplayerManager : PunBehaviour
 
 		}
 	}
+
 	string room;
 	public void JoinRoom() {
 		room = RoomCode.text;
@@ -60,7 +64,7 @@ public class MultiplayerManager : PunBehaviour
 			if (PhotonNetwork.connected)
 			{
 				PhotonNetwork.JoinRoom(room);
-				UIManager.Instance.LoadingPanel.SetActive(true);
+				UIManager.Instance.loadingPanel.SetActive(true);
 			}
 
 	}
@@ -68,11 +72,14 @@ public class MultiplayerManager : PunBehaviour
 	public void CreateRoom() {
 		room = "room" + Random.Range(101, 99999);
 		roomName = room;
+		RoomOptions roomOptions = new RoomOptions();
+		roomOptions.IsOpen = true;
+		roomOptions.MaxPlayers = 2;
 		if (PhotonNetwork.connected)
 		{
 			PhotonNetwork.CreateRoom(room);
 			IsCreate = true;
-			UIManager.Instance.LoadingPanel.SetActive(true);
+			UIManager.Instance.loadingPanel.SetActive(true);
 		}
 	}
 
@@ -86,10 +93,12 @@ public class MultiplayerManager : PunBehaviour
     public override void OnJoinedRoom()
     {
 		roomName = room;
-		UIManager.Instance.LoadingPanel.SetActive(false);
-		UIManager.Instance.RoomPanel.SetActive(true);
+		UIManager.Instance.loadingPanel.SetActive(false);
+		UIManager.Instance.roomPanel.SetActive(true);
 		Debug.Log("Room Joined");
-		UIManager.Instance.ShareText.text = "Invite your friends with room code: " + roomName;
+		PhotonNetwork.LoadLevel(1);
+		UIManager.Instance.preJoinPanel.SetActive(false);
+		UIManager.Instance.shareText.text = "Invite your friends with room code: " + roomName;
 		if (IsCreate)
 			Debug.Log("Invite your friends with room code: " + roomName);
 
@@ -100,8 +109,8 @@ public class MultiplayerManager : PunBehaviour
     {
 		Debug.Log("Room Joining Failed");
 		roomName = "";
-		UIManager.Instance.LoadingPanel.SetActive(false);
-		UIManager.Instance.RoomPanel.SetActive(false);
+		UIManager.Instance.loadingPanel.SetActive(false);
+		UIManager.Instance.roomPanel.SetActive(false);
 		base.OnPhotonJoinRoomFailed(codeAndMsg);
     }
 
@@ -110,5 +119,18 @@ public class MultiplayerManager : PunBehaviour
 		Debug.Log("New Player Arrived. Total Players: " + PhotonNetwork.room.PlayerCount);
         base.OnPhotonPlayerConnected(newPlayer);
     }
+
+    public override void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
+    {
+		Debug.Log("Player Left. Total Players: " + PhotonNetwork.room.PlayerCount);
+		base.OnPhotonPlayerDisconnected(otherPlayer);
+    }
+
+	public override void OnDisconnectedFromPhoton()
+    {
+		//disconnect panel should pop up
+        base.OnDisconnectedFromPhoton();
+    }
+
     #endregion
 }
