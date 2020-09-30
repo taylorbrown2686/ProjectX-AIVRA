@@ -1,15 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
+//This script handles spawning the GameZone and scaling it. It handles the UI when spawning as well.
 public class SpawnGameZone : MonoBehaviour
 {
     public GameObject gameZone; //Make private and have get/set when incorporated into main app
     private GameObject spawnedGame;
     private bool gameHasSpawned = false;
+    private Vector2 previousTouchPosition;
 
-    private Vector2 initialPositionOne, initialPositionTwo; //We can't store an initial value in an Update, so we do it here
-    private float initialTouchMagnitude;
+    public Text placeZoneText, scaleZoneText;
+
+    public ARPlaneManager planeManager;
+
+    void Start() {
+      placeZoneText.gameObject.SetActive(true);
+      scaleZoneText.gameObject.SetActive(false);
+    }
 
     void Update() {
       if (Input.touchCount == 1) {
@@ -19,25 +28,32 @@ public class SpawnGameZone : MonoBehaviour
           int layermask = 1 << 8;
           Ray touchPos = Camera.main.ScreenPointToRay(touch.position);
           if (Physics.Raycast(touchPos, out hit, Mathf.Infinity, layermask)) {
-            spawnedGame = Instantiate(gameZone, hit.point, Quaternion.identity, GameObject.Find("AR Session Origin").transform);
+            spawnedGame = Instantiate(gameZone, hit.point + new Vector3(0, 0.05f, 0),
+              Quaternion.identity, GameObject.Find("AR Session Origin").transform);
             gameHasSpawned = true;
+            planeManager.enabled = false;
           }
         }
-      }
-      if (Input.touchCount == 2) {
         if (gameHasSpawned) {
-          Touch touchOne = Input.GetTouch(0);
-          Touch touchTwo = Input.GetTouch(1);
-          Vector2 positionOne = Camera.main.ScreenToViewportPoint(touchOne.position);
-          Vector2 positionTwo = Camera.main.ScreenToViewportPoint(touchTwo.position);
-          if (initialPositionOne != Vector2.zero && initialPositionTwo != Vector2.zero) {
-            float touchMagnitude = Vector2.Distance(positionOne, positionTwo);
-            float differenceMagnitude = (initialTouchMagnitude - touchMagnitude) / 10; //Divide to make the number smaller
-            spawnedGame.transform.localScale += new Vector3(differenceMagnitude, differenceMagnitude, differenceMagnitude);
+          placeZoneText.gameObject.SetActive(false);
+          scaleZoneText.gameObject.SetActive(true);
+          Vector2 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
+          if (previousTouchPosition.magnitude != 0) {
+            if (previousTouchPosition.y - touchPosition.y > 0) {
+              spawnedGame.transform.localScale += new Vector3(-0.001f, -0.001f, -0.001f);
+            } else if (previousTouchPosition.y - touchPosition.y <= 0) {
+              spawnedGame.transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);
+            }
           }
-          initialPositionOne = positionOne;
-          initialPositionTwo = positionTwo;
+          previousTouchPosition = touchPosition;
         }
       }
+    }
+
+    public void StartGameAfterScaling() { //Public onclick button handler
+      scaleZoneText.gameObject.SetActive(false);
+      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
+      spawnedGame.GetComponent<InitializeGame>().InitializeUI();
+      Destroy(this);
     }
 }
