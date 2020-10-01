@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,22 +7,31 @@ public class ShootableObject : MonoBehaviour
 {
 
     private Rigidbody rb;
-    private bool hasTicked = false; //One-sided colliders are inefficient, so this compensates for that
+    private bool hasTickedGround = false; //One-sided colliders are inefficient, so this compensates for that
     [SerializeField] private float speedMultiplier;
+    [SerializeField] private ScoreController scoreController;
 
     void Awake() {
       rb = this.gameObject.GetComponent<Rigidbody>();
+      //We do this because ScoreController is on a prefab, and can't be assigned manually
+      scoreController = GameObject.Find("_GAMECONTROLLER").GetComponent<ScoreController>();
     }
 
     public void Fire() {
-      rb.AddForce(transform.up * Random.Range(15,20) * speedMultiplier);
+      rb.AddForce(transform.up * UnityEngine.Random.Range(50,60) * speedMultiplier);
     }
 
-    void OnTriggerEnter(Collider col) {
-      if (!hasTicked) {
-        hasTicked = true;
-      } else {
-        Destroy(this.gameObject); //Destroy the object on it's second collision
+    void OnCollisionEnter(Collision col) {
+      if (col.collider.tag == "Ground") {
+        if (hasTickedGround) {
+          Destroy(this.gameObject);
+        } else {
+          hasTickedGround = true;
+        }
+      } else if (col.collider.tag == "Bullet") {
+        int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
+        scoreController.AddScore(scoreToAdd);
+        Destroy(this.gameObject);
       }
     }
 

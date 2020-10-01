@@ -9,9 +9,9 @@ public class SpawnGameZone : MonoBehaviour
     public GameObject gameZone; //Make private and have get/set when incorporated into main app
     private GameObject spawnedGame;
     private bool gameHasSpawned = false;
-    private Vector2 previousTouchPosition;
 
     public Text placeZoneText, scaleZoneText;
+    public Slider scaleSlider, rotateSlider;
 
     public ARPlaneManager planeManager;
 
@@ -38,16 +38,11 @@ public class SpawnGameZone : MonoBehaviour
           placeZoneText.gameObject.SetActive(false);
           scaleZoneText.gameObject.SetActive(true);
           Vector2 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
-          if (previousTouchPosition.magnitude != 0) {
-            if (previousTouchPosition.y - touchPosition.y > 0) {
-              spawnedGame.transform.localScale += new Vector3(-0.001f, -0.001f, -0.001f);
-            } else if (previousTouchPosition.y - touchPosition.y <= 0) {
-              spawnedGame.transform.localScale += new Vector3(0.001f, 0.001f, 0.001f);
-            }
-          }
-          previousTouchPosition = touchPosition;
+          spawnedGame.transform.position = new Vector3(touchPosition.x, -0.05f, touchPosition.y);
         }
       }
+      spawnedGame.transform.rotation = Quaternion.Euler(0, rotateSlider.value, 0);
+      spawnedGame.transform.localScale = new Vector3(scaleSlider.value, scaleSlider.value, scaleSlider.value);
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler

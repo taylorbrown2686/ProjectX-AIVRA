@@ -16,11 +16,17 @@ public class RoundController : MonoBehaviour
     public ShootableObjectController shootableController; //Target spawn control script
 
     public GameObject[] countdownImages = new GameObject[3];
+    public GameObject roundOverImage;
+    public GameObject gameOverImage;
 
     void Awake() {
+      shoot.enabled = false;
+      shootableController.enabled = false;
       foreach (GameObject obj in countdownImages) {
         obj.SetActive(false);
       }
+      roundOverImage.SetActive(false);
+      gameOverImage.SetActive(false);
     }
 
     void Update() {
@@ -38,6 +44,7 @@ public class RoundController : MonoBehaviour
     }
 
     public IEnumerator StartRound() {
+      shoot.CurrentAmmo = shoot.MaxAmmo;
       roundsRemaining -= 1;
 
       countdownImages[0].SetActive(true); //Ready-aim-fire countdown
@@ -50,16 +57,19 @@ public class RoundController : MonoBehaviour
       roundIsActive = true;
       yield return new WaitForSeconds(1f);
       countdownImages[2].SetActive(false);
+
       yield return new WaitForSeconds(roundLength);
       roundIsActive = false;
-      //End of round UI
+      roundOverImage.SetActive(true);
       //Display score
       yield return new WaitForSeconds(10f);
+      roundOverImage.SetActive(false);
+
       if (roundsRemaining != 0) {
         StartCoroutine(StartRound());
       } else {
-        //End game UI
-        Debug.Log("End of game");
+        gameOverImage.SetActive(true);
+        //Show composite score
       }
     }
 }

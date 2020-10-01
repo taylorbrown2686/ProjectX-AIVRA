@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - FinishLine
   - Shootable
+  - Bullet
   layers:
   - Default
   - TransparentFX

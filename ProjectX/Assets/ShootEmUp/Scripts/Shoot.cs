@@ -8,8 +8,18 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public Text ammoText;
     private bool canShoot = true;
+    private bool isReloading = false;
     private int maxAmmo = 12;
+    public int MaxAmmo {get => maxAmmo;}
     private int currentAmmo = 12;
+    public int CurrentAmmo {set => currentAmmo = value;} //Used for RoundController to reset ammo at each round
+
+    private AudioSource source;
+    [SerializeField] private AudioClip gunshotSound, reloadSound;
+
+    void Awake() {
+      source = Camera.main.GetComponent<AudioSource>();
+    }
 
     void Update() {
       if (Input.touchCount == 1) {
@@ -17,12 +27,13 @@ public class Shoot : MonoBehaviour
         if (canShoot && currentAmmo != 0) {
           currentAmmo -= 1;
           GameObject newBullet = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation);
-          newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
-          newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.right * 100);
+          //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
+          newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1000);
+          PlaySound(gunshotSound);
           StartCoroutine(DelayShooting());
         }
       }
-      if (currentAmmo == 0) {
+      if (currentAmmo == 0 && !isReloading) {
         StartCoroutine(Reload());
       }
       ammoText.text = currentAmmo + "/" + maxAmmo;
@@ -35,7 +46,14 @@ public class Shoot : MonoBehaviour
     }
 
     private IEnumerator Reload() {
-      yield return new WaitForSeconds(3f);
+      isReloading = true;
+      PlaySound(reloadSound);
+      yield return new WaitForSeconds(2.5f);
       currentAmmo = maxAmmo;
+      isReloading = false;
+    }
+
+    private void PlaySound(AudioClip clip) {
+      source.PlayOneShot(clip);
     }
 }

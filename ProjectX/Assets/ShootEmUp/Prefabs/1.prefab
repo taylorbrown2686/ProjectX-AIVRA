@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4254377859606624437}
   - component: {fileID: -6343886198358226209}
   m_Layer: 0
-  m_Name: 1PointBall
+  m_Name: 1
   m_TagString: Shootable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,13 +104,13 @@ Rigidbody:
   m_GameObject: {fileID: 3624002738493808924}
   serializedVersion: 2
   m_Mass: 0.1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 30
+  m_AngularDrag: 30
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &-6343886198358226209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,4 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a045069b6dc234889d654aca19565e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 1
+  speedMultiplier: 2
+  scoreController: {fileID: 0}
