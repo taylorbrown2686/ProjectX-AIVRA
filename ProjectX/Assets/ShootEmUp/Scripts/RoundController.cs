@@ -12,29 +12,47 @@ public class RoundController : MonoBehaviour
     public int RoundLength {get => roundLength; set => roundLength = value;}
     public bool GameReadyToStart {get => gameReadyToStart; set => gameReadyToStart = value;}
     private bool roundIsActive = false;
-    public Shoot shoot; //Gun control script
+
     public ShootableObjectController shootableController; //Target spawn control script
+    public ScoreController scoreController;
 
     public GameObject[] countdownImages = new GameObject[3];
     public GameObject roundOverImage;
     public GameObject gameOverImage;
 
+    public Text compositeScoreText;
+
     void Awake() {
-      shoot.enabled = false;
+      foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+        Shoot playerShoot = player.GetComponent<Shoot>();
+        playerShoot.enabled = false;
+
+        scoreController = player.GetComponent<ScoreController>(); //TEMP
+
+      }
       shootableController.enabled = false;
       foreach (GameObject obj in countdownImages) {
         obj.SetActive(false);
       }
       roundOverImage.SetActive(false);
       gameOverImage.SetActive(false);
+      compositeScoreText.enabled = false;
     }
 
     void Update() {
       if (roundIsActive) {
-        shoot.enabled = true;
+        //shoot.enabled = true;
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+          Shoot playerShoot = player.GetComponent<Shoot>();
+          playerShoot.enabled = true;
+        }
         shootableController.enabled = true;
       } else {
-        shoot.enabled = false;
+        //shoot.enabled = false;
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+          Shoot playerShoot = player.GetComponent<Shoot>();
+          playerShoot.enabled = false;
+        }
         shootableController.enabled = false;
       }
       if (gameReadyToStart) {
@@ -44,7 +62,10 @@ public class RoundController : MonoBehaviour
     }
 
     public IEnumerator StartRound() {
-      shoot.CurrentAmmo = shoot.MaxAmmo;
+      foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+        Shoot playerShoot = player.GetComponent<Shoot>();
+        playerShoot.CurrentAmmo = playerShoot.MaxAmmo;
+      }
       roundsRemaining -= 1;
 
       countdownImages[0].SetActive(true); //Ready-aim-fire countdown
@@ -61,15 +82,24 @@ public class RoundController : MonoBehaviour
       yield return new WaitForSeconds(roundLength);
       roundIsActive = false;
       roundOverImage.SetActive(true);
-      //Display score
-      yield return new WaitForSeconds(10f);
+      compositeScoreText.enabled = true;
+      compositeScoreText.text = scoreController.CompositeScore.ToString();
+      for (int i = 0; i < scoreController.CurrentScore; i++) {
+        compositeScoreText.text = "Score: " + i.ToString();
+        yield return new WaitForSeconds(0.01f);
+      }
+      yield return new WaitForSeconds(5f);
       roundOverImage.SetActive(false);
+      compositeScoreText.enabled = false;
 
       if (roundsRemaining != 0) {
         StartCoroutine(StartRound());
       } else {
         gameOverImage.SetActive(true);
-        //Show composite score
+        for (int i = 0; i < scoreController.CompositeScore; i++) {
+          compositeScoreText.text = "Score: " + i.ToString();
+          yield return new WaitForSeconds(0.01f);
+        }
       }
     }
 }

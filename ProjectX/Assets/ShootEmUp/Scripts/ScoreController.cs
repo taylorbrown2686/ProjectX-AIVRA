@@ -5,15 +5,31 @@ using UnityEngine.UI;
 
 public class ScoreController : MonoBehaviour
 {
-    public Text scoreText;
-    public int score;
+    private int currentScore, compositeScore;
+    public int CurrentScore {get => currentScore;}
+    public int CompositeScore {get => compositeScore;}
+    public bool doublePoints; //For the 2x power-up
 
-    void Update() {
-      scoreText.text = "Score: " + score.ToString();
-    }
+    //void Update() {
+      //scoreText.text = "Score: " + compositeScore.ToString();
+    //}
 
     public void AddScore(int scoreToAdd) {
-      score += scoreToAdd;
+      if (!doublePoints) {
+        currentScore += scoreToAdd;
+      } else {
+        currentScore += (scoreToAdd * 2);
+      }
+    }
+
+    public void AddScoreToComposite(int scoreToAdd) {
+      compositeScore += scoreToAdd;
+    }
+
+    public IEnumerator PowerUp() {
+      doublePoints = true;
+      yield return new WaitForSeconds(10f);
+      doublePoints = false;
     }
 
 }

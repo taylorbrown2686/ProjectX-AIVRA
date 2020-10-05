@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 //This script handles spawning the GameZone and scaling it. It handles the UI when spawning as well.
 public class SpawnGameZone : MonoBehaviour
 {
@@ -10,43 +11,32 @@ public class SpawnGameZone : MonoBehaviour
     private GameObject spawnedGame;
     private bool gameHasSpawned = false;
 
-    public Text placeZoneText, scaleZoneText;
+    public Text tutorialText;
     public Slider scaleSlider, rotateSlider;
 
     public ARPlaneManager planeManager;
+    public ARRaycastManager raycastManager;
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     void Start() {
-      placeZoneText.gameObject.SetActive(true);
-      scaleZoneText.gameObject.SetActive(false);
+      tutorialText.gameObject.SetActive(true);
+      spawnedGame = Instantiate(gameZone, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("AR Session Origin").transform);
     }
 
     void Update() {
-      if (Input.touchCount == 1) {
-        Touch touch = Input.GetTouch(0);
-        if (!gameHasSpawned) {
-          RaycastHit hit;
-          int layermask = 1 << 8;
-          Ray touchPos = Camera.main.ScreenPointToRay(touch.position);
-          if (Physics.Raycast(touchPos, out hit, Mathf.Infinity, layermask)) {
-            spawnedGame = Instantiate(gameZone, hit.point + new Vector3(0, 0.05f, 0),
-              Quaternion.identity, GameObject.Find("AR Session Origin").transform);
-            gameHasSpawned = true;
-            planeManager.enabled = false;
-          }
-        }
-        if (gameHasSpawned) {
-          placeZoneText.gameObject.SetActive(false);
-          scaleZoneText.gameObject.SetActive(true);
-          Vector2 touchPosition = Camera.main.ScreenToViewportPoint(touch.position);
-          spawnedGame.transform.position = new Vector3(touchPosition.x, -0.05f, touchPosition.y);
-        }
+      Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
+      Ray ray = Camera.main.ScreenPointToRay(centerOfScreen);
+      if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon)) {
+        Pose hitPose = hits[0].pose;
+        Vector3 positionToBePlaced = hitPose.position + new Vector3(0, 0.025f, 0);
+        spawnedGame.transform.position = positionToBePlaced;
       }
       spawnedGame.transform.rotation = Quaternion.Euler(0, rotateSlider.value, 0);
       spawnedGame.transform.localScale = new Vector3(scaleSlider.value, scaleSlider.value, scaleSlider.value);
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler
-      scaleZoneText.gameObject.SetActive(false);
+      tutorialText.gameObject.SetActive(false);
       spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
       spawnedGame.GetComponent<InitializeGame>().InitializeUI();
       Destroy(this);

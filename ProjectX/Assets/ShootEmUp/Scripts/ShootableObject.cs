@@ -6,33 +6,35 @@ using UnityEngine;
 public class ShootableObject : MonoBehaviour
 {
 
-    private Rigidbody rb;
-    private bool hasTickedGround = false; //One-sided colliders are inefficient, so this compensates for that
-    [SerializeField] private float speedMultiplier;
-    [SerializeField] private ScoreController scoreController;
+    protected Rigidbody rb;
+    [SerializeField] protected float speedMultiplier;
+    [SerializeField] protected ScoreController scoreController;
 
     void Awake() {
       rb = this.gameObject.GetComponent<Rigidbody>();
       //We do this because ScoreController is on a prefab, and can't be assigned manually
-      scoreController = GameObject.Find("_GAMECONTROLLER").GetComponent<ScoreController>();
+
+      //TEMP Change how this is assigned for multiplayer (multiple score controllers)
+      scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
+
     }
 
-    public void Fire() {
-      rb.AddForce(transform.up * UnityEngine.Random.Range(50,60) * speedMultiplier);
+    public virtual void Fire() {
+      rb.AddForce(transform.up * UnityEngine.Random.Range(5,10) * speedMultiplier);
+      //transform.Translate(Vector3.up * speedMultiplier);
+      StartCoroutine(DestroyAfterTime(UnityEngine.Random.Range(1.5f, 2f)));
     }
 
-    void OnCollisionEnter(Collision col) {
-      if (col.collider.tag == "Ground") {
-        if (hasTickedGround) {
-          Destroy(this.gameObject);
-        } else {
-          hasTickedGround = true;
-        }
-      } else if (col.collider.tag == "Bullet") {
+    public virtual void OnTriggerEnter(Collider col) {
+      if (col.tag == "Bullet") {
         int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
         scoreController.AddScore(scoreToAdd);
         Destroy(this.gameObject);
       }
     }
 
+    protected IEnumerator DestroyAfterTime(float time) {
+      yield return new WaitForSeconds(time);
+      Destroy(this.gameObject);
+    }
 }

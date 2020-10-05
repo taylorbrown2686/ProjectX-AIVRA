@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 104916271}
   - component: {fileID: 104916270}
   m_Layer: 5
-  m_Name: ScaleZoneText
+  m_Name: TutorialText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,7 +243,7 @@ RectTransform:
   - {fileID: 1086995827}
   - {fileID: 1357511934}
   m_Father: {fileID: 858305583}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -282,8 +282,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Move the zone by touch. Rotate and scale it with the sliders. When you
-    are finished, touch the checkmark.
+  m_Text: 'Move, rotate, and scale your zone to fit your play area.
+
+    TIP: You
+    can play outside!'
 --- !u!222 &104916271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -736,6 +738,7 @@ GameObject:
   - component: {fileID: 684633198}
   - component: {fileID: 684633197}
   - component: {fileID: 684633196}
+  - component: {fileID: 684633199}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -786,6 +789,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684633199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684633195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 1110080628948436583, guid: 5d4705981e5a64c439d877c00b6c1115,
+    type: 3}
 --- !u!1 &713960047
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1010,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1767470071}
   m_HandleRect: {fileID: 318466578}
   m_Direction: 0
-  m_MinValue: 0.1
+  m_MinValue: 0.05
   m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 0.1
@@ -1091,7 +1108,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 713960048}
-  - {fileID: 1333459591}
   - {fileID: 104916269}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1273,9 +1289,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameZone: {fileID: 8376129756680302957, guid: a0ee32662370b6e40b3f06d00fbb47c7,
     type: 3}
-  placeZoneText: {fileID: 1333459592}
-  scaleZoneText: {fileID: 104916270}
+  tutorialText: {fileID: 104916270}
+  scaleSlider: {fileID: 772979195}
+  rotateSlider: {fileID: 89940634}
   planeManager: {fileID: 684633196}
+  raycastManager: {fileID: 684633199}
 --- !u!82 &881216227
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1611,84 +1629,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 240}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1333459590
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1333459591}
-  - component: {fileID: 1333459593}
-  - component: {fileID: 1333459592}
-  m_Layer: 5
-  m_Name: PlaceZoneText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1333459591
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333459590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 858305583}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 360}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1333459592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333459590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 0cc120c2578b77b4ca1b5395ca22926c, type: 3}
-    m_FontSize: 75
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 90
-    m_Alignment: 1
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Touch to place your Game Zone on a ground plane.
---- !u!222 &1333459593
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333459590}
-  m_CullTransparentMesh: 0
 --- !u!1 &1357511933
 GameObject:
   m_ObjectHideFlags: 0
