@@ -9,13 +9,14 @@ public class MaxAmmo : ShootableObject
 
     public override void Fire() {
       rb.AddForce(transform.up * UnityEngine.Random.Range(5,10) * speedMultiplier);
-      StartCoroutine(DestroyAfterTime(UnityEngine.Random.Range(3f, 5f)));
+      StartCoroutine(Vanish());
     }
 
     public virtual void OnTriggerEnter(Collider col) {
       if (col.tag == "Bullet") {
         playerShoot = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<Shoot>();
         playerShoot.StartCoroutine(playerShoot.PowerUp());
+        StartCoroutine(EnemyDeath());
       }
     }
 

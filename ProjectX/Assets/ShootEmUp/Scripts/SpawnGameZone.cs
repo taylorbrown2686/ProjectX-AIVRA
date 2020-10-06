@@ -36,6 +36,7 @@ public class SpawnGameZone : MonoBehaviour
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler
+      planeManager.enabled = false;
       tutorialText.gameObject.SetActive(false);
       spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
       spawnedGame.GetComponent<InitializeGame>().InitializeUI();
