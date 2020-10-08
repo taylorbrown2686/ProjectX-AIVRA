@@ -24,6 +24,7 @@ public class SpawnGameZone : MonoBehaviour
     }
 
     void Update() {
+
       Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
       Ray ray = Camera.main.ScreenPointToRay(centerOfScreen);
       if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon)) {
@@ -33,12 +34,15 @@ public class SpawnGameZone : MonoBehaviour
       }
       spawnedGame.transform.rotation = Quaternion.Euler(0, rotateSlider.value, 0);
       spawnedGame.transform.localScale = new Vector3(scaleSlider.value, scaleSlider.value, scaleSlider.value);
+
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler
       tutorialText.gameObject.SetActive(false);
-      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
-      spawnedGame.GetComponent<InitializeGame>().InitializeUI();
+    //  spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
+      spawnedGame.GetComponent<InitializeGame>().SwitchMultiplayerUI(true);
       Destroy(this);
     }
+
+    //public void 
 }

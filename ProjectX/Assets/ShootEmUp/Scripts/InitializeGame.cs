@@ -9,11 +9,12 @@ public class InitializeGame : MonoBehaviour
     [SerializeField] private GameObject canvas;
     [SerializeField] private RoundSettings roundSettings;
     [SerializeField] private GameObject defaultPlayer;
-
+    [SerializeField] private GameObject multiplayerUI;
     void Awake() {
       canvas.SetActive(false);
       roundSettings.enabled = false;
-      GameObject newPlayer = Instantiate(defaultPlayer, Vector3.zero, Quaternion.identity, Camera.main.transform);
+
+    //  GameObject newPlayer = Instantiate(defaultPlayer, Vector3.zero, Quaternion.identity, Camera.main.transform); //mahnoor
       //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
     }
 
@@ -21,7 +22,12 @@ public class InitializeGame : MonoBehaviour
       roundSettings.enabled = true;
     }
 
-    public void InitializeUI() {
-      canvas.SetActive(true);
+    public void InitializeGameUI() {
+         canvas.SetActive(true);
+      
+    }
+
+    public void SwitchMultiplayerUI(bool status) {
+        multiplayerUI.SetActive(status);
     }
 }
