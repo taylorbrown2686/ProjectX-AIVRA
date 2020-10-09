@@ -4866,6 +4866,7 @@ GameObject:
   - component: {fileID: -5748752604712599380}
   - component: {fileID: -3603158098906710294}
   - component: {fileID: -5095634511005201607}
+  - component: {fileID: -8565869560121868368}
   m_Layer: 0
   m_Name: 5PointGhost
   m_TagString: Shootable
@@ -4961,7 +4962,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 1.5
-  scoreController: {fileID: 0}
+  powerupImages: []
+--- !u!95 &-8565869560121868368
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960575541199949315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e722c0f3ffbb5e14c8ef32fabc092d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6960575541199949317
 GameObject:
   m_ObjectHideFlags: 0

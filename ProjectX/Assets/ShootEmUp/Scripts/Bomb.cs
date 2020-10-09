@@ -13,9 +13,14 @@ public class Bomb : ShootableObject
       explosion = this.gameObject.GetComponentInChildren<ParticleSystem>();
     }
 
+    public override void Update() {
+      if (this.gameObject.transform.position.y > initialY + 0.25f && objectCanBeShot) {
+        StartCoroutine(Vanish());
+      }
+    }
+
     public override void Fire() {
       rb.AddForce(transform.up * UnityEngine.Random.Range(5,10) * speedMultiplier);
-      StartCoroutine(Vanish());
     }
 
     public virtual void OnTriggerEnter(Collider col) {
@@ -25,8 +30,12 @@ public class Bomb : ShootableObject
     }
 
     private IEnumerator Explode(string shotBy) {
+      //StartCoroutine(PowerupUI());
       foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Shootable")) {
-        if (Vector3.Distance(obj.transform.position, this.transform.position) < 3) {
+        if (Vector3.Distance(obj.transform.position, this.transform.position) < 0.1f) {
+          if (Vector3.Distance(obj.transform.position, this.transform.position) == 0) { //The activated bomb is also checked
+            continue; //Break out of the coroutine if we are referencing the bomb we hit
+          }
           if (obj.name.Contains("2X")) {
             obj.GetComponent<DoublePoints>().ActivateByBomb(shotBy);
           } else if (obj.name.Contains("Bomb")) {
@@ -47,5 +56,11 @@ public class Bomb : ShootableObject
 
     public void ActivateByBomb(string shotBy) {
       StartCoroutine(Explode(shotBy));
+    }
+
+    private IEnumerator PowerupUI() {
+      powerupImages[0].enabled = true;
+      yield return new WaitForSeconds(5f);
+      powerupImages[0].enabled = false;
     }
 }

@@ -14,9 +14,7 @@ GameObject:
   - component: {fileID: 2170573634492023734}
   - component: {fileID: 3072476622245115375}
   - component: {fileID: -7719437209522361230}
-  - component: {fileID: 3281571891016302497}
   - component: {fileID: 7553089354196341950}
-  - component: {fileID: 1208391011309657097}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Shootable
@@ -129,20 +127,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &3281571891016302497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388153133612082983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a045069b6dc234889d654aca19565e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  scoreController: {fileID: 0}
 --- !u!114 &7553089354196341950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,21 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafeee6d862eea343a7b75bef466184d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0
-  scoreController: {fileID: 0}
---- !u!114 &1208391011309657097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3388153133612082983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee072c0c7f6132042a4ce496b3c54342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
+  speedMultiplier: 1.5
+  powerupImages: []
 --- !u!1 &5747526804567011047
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5747526804567011047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2616296707929111965}
@@ -277,7 +248,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -338,7 +309,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0.0025
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -454,8 +425,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.75
-      minScalar: 0.5
+      scalar: 0.075
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -837,7 +808,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 0.0025, y: 0.0025, z: 0.0025}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1161,12 +1132,12 @@ ParticleSystem:
           outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 2
-          outSlope: 2
+          value: 0.1
+          inSlope: 0.07183863
+          outSlope: 0.07183863
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.18811888
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2

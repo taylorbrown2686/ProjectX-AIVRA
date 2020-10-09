@@ -7,7 +7,8 @@ public class ShootableObjectController : MonoBehaviour
 
     [SerializeField] private Shooter[] shooters;
     private bool canShoot = true;
-    private float delay = 0.25f; //This delays how often the objects are shot up
+    private float delay = 2f; //This delays how often the objects are shot up
+    [SerializeField] private RoundController roundController;
 
     void Update() {
       if (canShoot) {

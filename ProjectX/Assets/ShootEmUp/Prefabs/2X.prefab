@@ -121,9 +121,7 @@ GameObject:
   - component: {fileID: 8144635870333863474}
   - component: {fileID: 3059842222067258191}
   - component: {fileID: 1648191463004815276}
-  - component: {fileID: -1759660310343342685}
   - component: {fileID: 7554618691278830736}
-  - component: {fileID: 3445186621882688545}
   m_Layer: 0
   m_Name: 2X
   m_TagString: Shootable
@@ -190,20 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &-1759660310343342685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3912324462493944343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a045069b6dc234889d654aca19565e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  scoreController: {fileID: 0}
 --- !u!114 &7554618691278830736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,21 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cb79f310694dc7479e409de0ec9a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0
-  scoreController: {fileID: 0}
---- !u!114 &3445186621882688545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3912324462493944343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee072c0c7f6132042a4ce496b3c54342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
+  speedMultiplier: 1.5
+  powerupImages: []
 --- !u!1 &5838009499865670002
 GameObject:
   m_ObjectHideFlags: 0

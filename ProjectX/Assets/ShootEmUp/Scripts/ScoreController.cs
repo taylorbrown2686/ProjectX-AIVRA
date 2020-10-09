@@ -10,9 +10,11 @@ public class ScoreController : MonoBehaviour
     public int CompositeScore {get => compositeScore;}
     public bool doublePoints; //For the 2x power-up
 
-    //void Update() {
-      //scoreText.text = "Score: " + compositeScore.ToString();
-    //}
+    void Update() {
+      if (doublePoints) {
+        Debug.Log("doublePoints");
+      }
+    }
 
     public void AddScore(int scoreToAdd) {
       if (!doublePoints) {

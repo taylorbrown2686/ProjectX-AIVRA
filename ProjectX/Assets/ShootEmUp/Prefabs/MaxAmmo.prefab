@@ -168,10 +168,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3400244810066292766}
   - component: {fileID: 6024834892071760317}
+  - component: {fileID: 4777023417667752789}
   - component: {fileID: -296384461236420930}
   - component: {fileID: -3113320661380789498}
-  - component: {fileID: 4777023417667752789}
-  - component: {fileID: 2546751338001845159}
   m_Layer: 0
   m_Name: MaxAmmo
   m_TagString: Shootable
@@ -210,33 +209,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.02
   m_Center: {x: 0, y: 0.0125, z: 0.004}
---- !u!114 &-296384461236420930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4702104973826641303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab0bafdb88c71c48a7da82dfb131b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedMultiplier: 2
-  scoreController: {fileID: 0}
---- !u!114 &-3113320661380789498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4702104973826641303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee072c0c7f6132042a4ce496b3c54342, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
 --- !u!54 &4777023417667752789
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -253,7 +225,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2546751338001845159
+--- !u!114 &-296384461236420930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,11 +234,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4702104973826641303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a045069b6dc234889d654aca19565e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ab0bafdb88c71c48a7da82dfb131b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 0
-  scoreController: {fileID: 0}
+  speedMultiplier: 1.5
+  powerupImages: []
+--- !u!114 &-3113320661380789498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702104973826641303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee072c0c7f6132042a4ce496b3c54342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &7496175236458821857
 GameObject:
   m_ObjectHideFlags: 0

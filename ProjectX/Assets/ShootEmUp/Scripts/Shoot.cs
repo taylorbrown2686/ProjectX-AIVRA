@@ -25,10 +25,14 @@ public class Shoot : MonoBehaviour
     }
 
     void Update() {
+      if (!useAmmo) {
+        Debug.Log("inf ammo");
+      }
+
       if (ammoText == null) {
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
       }
-      
+
       if (Input.touchCount == 1) {
         Touch touch = Input.GetTouch(0);
         if (canShoot && currentAmmo != 0) {

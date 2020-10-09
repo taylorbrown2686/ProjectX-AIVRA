@@ -4949,6 +4949,7 @@ GameObject:
   - component: {fileID: -3838961619974137442}
   - component: {fileID: -4866521217096311038}
   - component: {fileID: 7916260342942386164}
+  - component: {fileID: -4307776483043762313}
   m_Layer: 0
   m_Name: 9PointGhost
   m_TagString: Shootable
@@ -5044,7 +5045,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 2
-  scoreController: {fileID: 0}
+  powerupImages: []
+--- !u!95 &-4307776483043762313
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7370626747407240973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e722c0f3ffbb5e14c8ef32fabc092d13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7370626747407240975
 GameObject:
   m_ObjectHideFlags: 0
