@@ -7,7 +7,7 @@ public class ShootableObjectController : MonoBehaviour
 
     [SerializeField] private Shooter[] shooters;
     private bool canShoot = true;
-    private float delay = 2f; //This delays how often the objects are shot up
+    private float delay; //This delays how often the objects are shot up
     [SerializeField] private RoundController roundController;
 
     void Update() {
@@ -17,6 +17,7 @@ public class ShootableObjectController : MonoBehaviour
     }
 
     private IEnumerator Shoot() {
+      delay = (roundController.RoundsRemaining + 1) * 0.2f; //Scale factor for increased spawns each round
       canShoot = false;
       Shooter shooter = shooters[Random.Range(0, shooters.Length)];
       if (!shooter.SpawnedShootable) {

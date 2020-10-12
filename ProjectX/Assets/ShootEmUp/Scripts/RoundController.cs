@@ -14,7 +14,8 @@ public class RoundController : MonoBehaviour
     private bool roundIsActive = false;
 
     public ShootableObjectController shootableController; //Target spawn control script
-    public ScoreController scoreController;
+    private ScoreController scoreController;
+    private HealthController healthController;
 
     public GameObject[] countdownImages = new GameObject[3];
     public GameObject roundOverImage;
@@ -27,8 +28,9 @@ public class RoundController : MonoBehaviour
         Shoot playerShoot = player.GetComponent<Shoot>();
         playerShoot.enabled = false;
 
-        scoreController = player.GetComponent<ScoreController>(); //TEMP
-
+        //TEMP until multiplayer implemented
+        scoreController = player.GetComponent<ScoreController>();
+        healthController = player.GetComponent<HealthController>();
       }
       shootableController.enabled = false;
       foreach (GameObject obj in countdownImages) {
@@ -41,14 +43,12 @@ public class RoundController : MonoBehaviour
 
     void Update() {
       if (roundIsActive) {
-        //shoot.enabled = true;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
           Shoot playerShoot = player.GetComponent<Shoot>();
           playerShoot.enabled = true;
         }
         shootableController.enabled = true;
       } else {
-        //shoot.enabled = false;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
           Shoot playerShoot = player.GetComponent<Shoot>();
           playerShoot.enabled = false;
@@ -62,12 +62,14 @@ public class RoundController : MonoBehaviour
     }
 
     public IEnumerator StartRound() {
+      //Round setup
       foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
         Shoot playerShoot = player.GetComponent<Shoot>();
         playerShoot.CurrentAmmo = playerShoot.MaxAmmo;
+        healthController.Health = healthController.MaxHealth;
       }
       roundsRemaining -= 1;
-
+      //Round start
       countdownImages[0].SetActive(true); //Ready-aim-fire countdown
       yield return new WaitForSeconds(3f);
       countdownImages[0].SetActive(false);
@@ -78,8 +80,11 @@ public class RoundController : MonoBehaviour
       roundIsActive = true;
       yield return new WaitForSeconds(1f);
       countdownImages[2].SetActive(false);
-
       yield return new WaitForSeconds(roundLength);
+      //Round end
+      foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Shootable")) {
+        obj.GetComponent<ShootableObject>().VanishOnRoundEnd();
+      }
       roundIsActive = false;
       roundOverImage.SetActive(true);
       compositeScoreText.enabled = true;
@@ -91,7 +96,7 @@ public class RoundController : MonoBehaviour
       yield return new WaitForSeconds(5f);
       roundOverImage.SetActive(false);
       compositeScoreText.enabled = false;
-
+      //Check for end of game
       if (roundsRemaining != 0) {
         StartCoroutine(StartRound());
       } else {

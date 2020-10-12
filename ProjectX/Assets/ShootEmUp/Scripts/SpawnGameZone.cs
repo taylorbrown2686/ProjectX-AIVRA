@@ -36,6 +36,9 @@ public class SpawnGameZone : MonoBehaviour
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler
+      foreach (var plane in planeManager.trackables) {
+        plane.gameObject.SetActive(false);
+      }
       planeManager.enabled = false;
       tutorialText.gameObject.SetActive(false);
       spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();

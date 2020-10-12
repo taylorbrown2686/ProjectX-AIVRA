@@ -30,10 +30,12 @@ public class Shooter : MonoBehaviour
         return shootableObjects[4];
       } else if (value <= 92.5f) { //2.5% chance for Bomb
         return shootableObjects[5];
-      } else if (value <= 97.5f) { //5% chance for 2x Points
+      } else if (value <= 95f) { //5% chance for 2x Points
         return shootableObjects[6];
-      } else if (value <= 100f) { //2.5% chance for No Ammo
+      } else if (value <= 97.5f) { //2.5% chance for No Ammo
         return shootableObjects[7];
+      } else if (value <= 100f) { //2.5% chance for No Ammo
+        return shootableObjects[8];
       }
       return null; //Not reachable, but need for error
     }

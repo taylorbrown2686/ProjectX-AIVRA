@@ -5626,6 +5626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMultiplier: 1.25
   powerupImages: []
+  topJaw: {fileID: 0}
+  bottomJaw: {fileID: 0}
 --- !u!95 &5386800269806330455
 Animator:
   serializedVersion: 3

@@ -16,6 +16,7 @@ public class ShootableObject : MonoBehaviour
     protected Material material;
     protected bool isDying = false; //true when hit with a bullet
     protected bool objectCanBeShot = true; //false when the object begins to vanish
+    protected bool objectIsAttacking = false;
     protected float initialY; //used for enemy vanish
     [SerializeField] protected Image[] powerupImages;
     private float scaleFactor; //This changes the force applied depending on the scale of the GameZone
@@ -39,7 +40,7 @@ public class ShootableObject : MonoBehaviour
     }
 
     public virtual void Update() {
-      if (this.gameObject.transform.position.y > initialY + (scaleFactor / 4) && objectCanBeShot) {
+      if (this.gameObject.transform.position.y > initialY + (scaleFactor / 8) && !objectIsAttacking) {
         StartCoroutine(Attack());
       }
     }
@@ -59,45 +60,55 @@ public class ShootableObject : MonoBehaviour
     }
 
     private IEnumerator Attack() {
+      objectIsAttacking = true;
       rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = false;
+      this.transform.LookAt(Camera.main.transform);
       rb.AddForce(transform.forward * 20);
-      while (Vector3.Distance(this.transform.position, Camera.main.transform.position) > 0.1f) {
-        this.transform.LookAt(Camera.main.transform);
+      while (Vector3.Distance(this.transform.position, Camera.main.transform.position) > 0.1f && !isDying) {
+        this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
         yield return new WaitForSeconds(0.1f);
       }
-      anim.SetTrigger("CloseToPlayer");
-      healthController.DecreaseHealth();
-      yield return new WaitForSeconds(0.833f);
-      //StartCoroutine(Vanish());
-      StartCoroutine(Bite());
-    }
-
-    protected IEnumerator Vanish() {
-      objectCanBeShot = false;
-      while (material.color.a > 0) {
-        material.color -= new Color(0, 0, 0, .01f);
-        yield return new WaitForSeconds(0.05f);
+      if (!isDying) {
+        objectCanBeShot = false;
+        anim.SetTrigger("CloseToPlayer");
+        healthController.DecreaseHealth();
+        yield return new WaitForSeconds(0.833f);
+        StartCoroutine(Bite());
       }
-      Destroy(this.gameObject);
     }
 
     protected IEnumerator Bite() {
+      StartCoroutine(Vanish());
       while (topJaw.gameObject.GetComponent<RectTransform>().sizeDelta.y < Screen.height / 2) {
-        topJaw.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 1f);
-        bottomJaw.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 1f);
-        yield return new WaitForSeconds(0.01f);
+        topJaw.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 200f);
+        bottomJaw.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 200f);
+        yield return new WaitForSeconds(0.001f);
       }
       while (topJaw.color.a > 0) {
         topJaw.color -= new Color(0, 0, 0, 0.01f);
         bottomJaw.color -= new Color(0, 0, 0, 0.01f);
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.001f);
       }
       topJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
       bottomJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
       topJaw.color = new Color(0, 0, 0, 1f);
       bottomJaw.color = new Color(0, 0, 0, 1f);
+    }
+
+    protected IEnumerator Vanish() {
+      isDying = true;
+      while (material.color.a > 0) {
+        material.color -= new Color(0, 0, 0, .01f);
+        yield return new WaitForSeconds(0.01f);
+      }
+      yield return new WaitForSeconds(5f);
+      Destroy(this.gameObject);
+    }
+
+    public void VanishOnRoundEnd() {
+      StartCoroutine(Vanish());
     }
 
     protected IEnumerator EnemyDeath() {

@@ -21,6 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/ShootEmUp.unity
     guid: 96057ea0ccc587f4fb0607d2161c4915
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8abc4507234e0cc43abcec0b961ec41b,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a6fc5e4230ed1964789032fe3445cc1e,
+      type: 2}
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 50225e577c73acd40925721c72ceef0c,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dc4dc8caa000de742aefd2185781a1f1,
