@@ -12,6 +12,9 @@ public class MultiplayerManager : PunBehaviour
 	[SerializeField]
 	private InputField RoomCode;
 
+	[SerializeField]
+	private Text playerName;
+
 	private bool IsCreate=false;
 
 	[Header("UI")]
@@ -23,6 +26,8 @@ public class MultiplayerManager : PunBehaviour
 	private GameObject roomPanel;
 	[SerializeField]
 	private Text shareText;
+
+
     #region MonoBehaviour Callbacks
     private void Awake()
 	{
@@ -77,7 +82,7 @@ public class MultiplayerManager : PunBehaviour
 	}
 
 	public void CreateRoom() {
-		room = "room" + Random.Range(101, 99999);
+		room = Random.Range(101, 99999).ToString();
 		roomName = room;
 		RoomOptions roomOptions = new RoomOptions();
 		roomOptions.IsOpen = true;
@@ -94,20 +99,25 @@ public class MultiplayerManager : PunBehaviour
 		PhotonNetwork.LeaveRoom();
 	}
 
+	
 	public void StartGame() {
 
 	}
     #endregion
 
     #region Photon Callbacks
-    public override void OnConnectedToPhoton()
+ 
+
+    public override void OnConnectedToMaster()
     {
 		Debug.Log("Connected");
+		PhotonNetwork.player.NickName = PlayerPrefs.GetString("Name");
+		playerName.text = PhotonNetwork.player.NickName;
 		loadingPanel.SetActive(false);
 		preJoinPanel.SetActive(true);
-		base.OnConnectedToPhoton();
-    }
+		base.OnConnectedToMaster();
 
+    }
     public override void OnJoinedRoom()
     {
 		roomName = room;
@@ -115,21 +125,22 @@ public class MultiplayerManager : PunBehaviour
 		loadingPanel.SetActive(false);
 		roomPanel.SetActive(true);
 		Debug.Log("Room Joined");
+		
 		preJoinPanel.SetActive(false);
 		GetComponent<InitializeGame>().InitializeGameUI();
 		GetComponent<InitializeGame>().InitializeGameScripts();
 
 		shareText.text = "Invite your friends with room code: " + roomName;
-
+		
 		if (IsCreate)
 			Debug.Log("Invite your friends with room code: " + roomName);
-		else
-			//UIManager.Instance.SharePanel.SetActive(false);
-		
-		GetComponent<SpawnManager>().Spawn();
+		//else
+		//UIManager.Instance.SharePanel.SetActive(false);
 
-        base.OnJoinedRoom();
-    }
+		GameController.instance.StartGame();
+		GetComponent<SpawnManager>().Spawn();
+		// base.OnJoinedRoom();
+	}
 
     public override void OnLeftRoom()
     {
@@ -146,6 +157,11 @@ public class MultiplayerManager : PunBehaviour
 		base.OnPhotonJoinRoomFailed(codeAndMsg);
     }
 
+    public override void OnPhotonCreateRoomFailed(object[] codeAndMsg)
+    {
+		Debug.Log("Room Creation Failed");
+		base.OnPhotonCreateRoomFailed(codeAndMsg);
+    }
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
 		Debug.Log("New Player Arrived. Total Players: " + PhotonNetwork.room.PlayerCount);

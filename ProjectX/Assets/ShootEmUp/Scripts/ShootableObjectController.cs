@@ -9,20 +9,26 @@ public class ShootableObjectController : MonoBehaviour
     private bool canShoot = true;
     private float delay = 0.25f; //This delays how often the objects are shot up
 
-    void Update() {
-      if (canShoot) {
+    //mahnoor
+    public void StartGame()
+    {
         StartCoroutine(Shoot());
-      }
     }
 
+    //end mahnoor
+
     private IEnumerator Shoot() {
-      canShoot = false;
-      Shooter shooter = shooters[Random.Range(0, shooters.Length)];
-      if (!shooter.SpawnedShootable) {
-        shooter.PrepareFire();
-      }
-      yield return new WaitForSeconds(delay);
-      canShoot = true;
+        while (true) {
+
+            Shooter shooter = shooters[Random.Range(0, shooters.Length)];
+
+            yield return new WaitForSeconds(delay);
+            
+            if (!shooter.SpawnedShootable)
+            {
+                shooter.PrepareFire();
+            }
+        } 
     }
 
 }

@@ -11,7 +11,14 @@ public class SpawnGameZone : MonoBehaviour
     private GameObject spawnedGame;
     private bool gameHasSpawned = false;
 
-    public Text tutorialText;
+    [SerializeField]
+    private GameObject tutorialCanvas;
+    //mahnoor
+    [SerializeField]
+    private InputField nameInputField;
+    [SerializeField]
+    private GameObject namePanel;
+    //end mahnoor
     public Slider scaleSlider, rotateSlider;
 
     public ARPlaneManager planeManager;
@@ -19,8 +26,19 @@ public class SpawnGameZone : MonoBehaviour
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     void Start() {
-      tutorialText.gameObject.SetActive(true);
-      spawnedGame = Instantiate(gameZone, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("AR Session Origin").transform);
+        if (!PlayerPrefs.HasKey("Name"))
+        {
+            namePanel.SetActive(true);
+
+            // tutorialCanvas.SetActive(false);
+        }
+        else
+        {
+            tutorialCanvas.SetActive(true);
+            namePanel.SetActive(false);
+        }
+
+        spawnedGame = Instantiate(gameZone, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("AR Session Origin").transform);
     }
 
     void Update() {
@@ -38,11 +56,26 @@ public class SpawnGameZone : MonoBehaviour
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler
-      tutorialText.gameObject.SetActive(false);
+
+        tutorialCanvas.SetActive(false);
     //  spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
-      spawnedGame.GetComponent<InitializeGame>().SwitchMultiplayerUI(true);
+       spawnedGame.GetComponent<InitializeGame>().SwitchMultiplayerUI(true);
+
       Destroy(this);
+
     }
 
-    //public void 
+    //mahnoor
+    public void BeginCallback() {
+
+        string name = nameInputField.text;
+
+        if (!string.IsNullOrEmpty(name) && !string.IsNullOrWhiteSpace(name)) {
+            PlayerPrefs.SetString("Name", name);
+            namePanel.SetActive(false);
+            tutorialCanvas.SetActive(true);
+        }
+
+    }
+    //end mahnoor
 }

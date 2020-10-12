@@ -22,21 +22,21 @@ public class RoundController : MonoBehaviour
 
     public Text compositeScoreText;
 
-    void Awake() {
-      foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
-        Shoot playerShoot = player.GetComponent<Shoot>();
-        playerShoot.enabled = false;
+    void Start() {
+      //foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+      //  Shoot playerShoot = player.GetComponent<Shoot>();
+      //  playerShoot.enabled = false;
 
-        scoreController = player.GetComponent<ScoreController>(); //TEMP
+      //  scoreController = player.GetComponent<ScoreController>(); //TEMP
 
-      }
-      shootableController.enabled = false;
-      foreach (GameObject obj in countdownImages) {
-        obj.SetActive(false);
-      }
-      roundOverImage.SetActive(false);
-      gameOverImage.SetActive(false);
-      compositeScoreText.enabled = false;
+      //}
+      //shootableController.enabled = false;
+      //foreach (GameObject obj in countdownImages) {
+      //  obj.SetActive(false);
+      //}
+      //roundOverImage.SetActive(false);
+      //gameOverImage.SetActive(false);
+      //compositeScoreText.enabled = false;
     }
 
     void Update() {
@@ -83,11 +83,11 @@ public class RoundController : MonoBehaviour
       roundIsActive = false;
       roundOverImage.SetActive(true);
       compositeScoreText.enabled = true;
-      compositeScoreText.text = scoreController.CompositeScore.ToString();
-      for (int i = 0; i < scoreController.CurrentScore; i++) {
-        compositeScoreText.text = "Score: " + i.ToString();
-        yield return new WaitForSeconds(0.01f);
-      }
+//      compositeScoreText.text = scoreController.CompositeScore.ToString();
+      //for (int i = 0; i < scoreController.CurrentScore; i++) {
+      //  compositeScoreText.text = "Score: " + i.ToString();
+      //  yield return new WaitForSeconds(0.01f);
+      //}
       yield return new WaitForSeconds(5f);
       roundOverImage.SetActive(false);
       compositeScoreText.enabled = false;
@@ -96,10 +96,10 @@ public class RoundController : MonoBehaviour
         StartCoroutine(StartRound());
       } else {
         gameOverImage.SetActive(true);
-        for (int i = 0; i < scoreController.CompositeScore; i++) {
-          compositeScoreText.text = "Score: " + i.ToString();
-          yield return new WaitForSeconds(0.01f);
-        }
+        //for (int i = 0; i < scoreController.CompositeScore; i++) {
+        //  compositeScoreText.text = "Score: " + i.ToString();
+        //  yield return new WaitForSeconds(0.01f);
+        //}
       }
     }
 }

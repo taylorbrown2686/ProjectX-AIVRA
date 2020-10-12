@@ -15,7 +15,7 @@ public class ShootableObject : MonoBehaviour
       //We do this because ScoreController is on a prefab, and can't be assigned manually
 
       //TEMP Change how this is assigned for multiplayer (multiple score controllers)
-      scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
+    //  scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
 
     }
 
@@ -27,9 +27,10 @@ public class ShootableObject : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider col) {
       if (col.tag == "Bullet") {
-        int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
-        scoreController.AddScore(scoreToAdd);
-        Destroy(this.gameObject);
+            // int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
+            // scoreController.AddScore(scoreToAdd);
+            GameController.instance.AddScore();
+            Destroy(this.gameObject);
       }
     }
 

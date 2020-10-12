@@ -58,8 +58,12 @@ public class SpawnManager : PunBehaviour
     {
         if (PhotonNetwork.connectedAndReady)
         {
+            Debug.Log("Player spawning");
             playerNumber = PhotonNetwork.playerList.Length - 1;
             SpawnPlayer();
+        }
+        else {
+            Debug.Log("Not Player spawning");
         }
     }
 
@@ -76,10 +80,12 @@ public class SpawnManager : PunBehaviour
        
        // int randomSpawnPoint = Random.Range(0, spawnPositions.Length - 1);
         Vector3 instantiatePosition = spawnPositions[playerNumber].position;
+       
         Quaternion spawnRotation = spawnPositions[playerNumber].rotation;
         GameObject playerGameobject = Instantiate(playerPrefabs[0],instantiatePosition, spawnRotation);
-
+      
         PhotonView _photonView = playerGameobject.GetComponent<PhotonView>();
+        Debug.Log("Player Spawned");
         int viewID = PhotonNetwork.AllocateViewID();
         _photonView.viewID = viewID;
 
