@@ -136,9 +136,9 @@ public class MultiplayerManager : PunBehaviour
 			Debug.Log("Invite your friends with room code: " + roomName);
 		//else
 		//UIManager.Instance.SharePanel.SetActive(false);
-
-		GameController.instance.StartGame();
-		GetComponent<SpawnManager>().Spawn();
+		
+		GameController.instance.StartGameButton.gameObject.SetActive(true);
+	//	GetComponent<SpawnManager>().Spawn();
 		// base.OnJoinedRoom();
 	}
 

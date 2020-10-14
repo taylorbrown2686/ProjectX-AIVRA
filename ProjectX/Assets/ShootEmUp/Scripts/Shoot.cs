@@ -18,6 +18,7 @@ public class Shoot : MonoBehaviour
     public bool useAmmo = true;
     PhotonView photonview;
     private AudioSource source;
+    private GameState gameState;
     [SerializeField] private AudioClip gunshotSound, reloadSound;
 
     void Awake() {
@@ -34,7 +35,7 @@ public class Shoot : MonoBehaviour
 
         if (photonview.isMine)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && gameState == GameState.Started)
             {
                // Debug.Log("here");
                 //s  Touch touch = Input.GetTouch(0);

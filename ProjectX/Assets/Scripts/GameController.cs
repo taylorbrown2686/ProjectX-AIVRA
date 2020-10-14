@@ -4,13 +4,16 @@ using UnityEngine.UI;
 using Photon;
 using ExitGames.Client.Photon;
 
+public enum GameState
+{
+    Started,
+    Ended
+}
+
 public class GameController : PunBehaviour
 {
 
-    public enum GameState {
-        Started,
-        Ended
-    }
+  
 
     public static GameController instance;
     public GameState gameState;
@@ -19,8 +22,17 @@ public class GameController : PunBehaviour
     private Text scoreText;
     [SerializeField]
     private Text otherScoreText;
+    [SerializeField]
+    private GameObject TimeUpImage;
+    [SerializeField]
+    private Text totalScoreText;
 
+    public Button StartGameButton;
+
+    [SerializeField]
+    private SpawnManager spawnManager;
     private int score = 0;
+    private int totalScore = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +49,8 @@ public class GameController : PunBehaviour
     {
         gameState = GameState.Started;
         GetComponent<ShootableObjectController>().StartGame();
+        spawnManager.Spawn();
+        GetComponent<RoundTimeController>().StartTimer();
     }
 
     
@@ -49,7 +63,11 @@ public class GameController : PunBehaviour
             PhotonNetwork.player.SetCustomProperties(hashtable);
         }
     }
-
+    public void RoundOver() {
+        TimeUpImage.SetActive(true);
+        totalScore += score;
+        score = 0;
+    }
 
     public override void OnPhotonPlayerPropertiesChanged(object[] playerAndUpdatedProps)
     {
