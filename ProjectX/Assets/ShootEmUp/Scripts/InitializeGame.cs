@@ -7,18 +7,18 @@ public class InitializeGame : MonoBehaviour
 {
 
     [SerializeField] private GameObject canvas;
-    [SerializeField] private RoundSettings roundSettings;
+    [SerializeField] private RoundController roundController;
     [SerializeField] private GameObject defaultPlayer;
 
     void Awake() {
       canvas.SetActive(false);
-      roundSettings.enabled = false;
-      GameObject newPlayer = Instantiate(defaultPlayer, Vector3.zero, Quaternion.identity, Camera.main.transform);
+      roundController.enabled = false;
       //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
     }
 
     public void InitializeGameScripts() {
-      roundSettings.enabled = true;
+      GameObject newPlayer = Instantiate(defaultPlayer, Vector3.zero, Quaternion.identity, Camera.main.transform);
+      roundController.enabled = true;
     }
 
     public void InitializeUI() {

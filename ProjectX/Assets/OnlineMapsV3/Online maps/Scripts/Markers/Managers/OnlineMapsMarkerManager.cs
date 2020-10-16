@@ -190,7 +190,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
     protected override void Start()
     {
         base.Start();
-        mapPlane = GameObject.Find("MapPlane").GetComponent<AdjustMap>();
+        //mapPlane = GameObject.Find("MapPlane").GetComponent<AdjustMap>();
         provider = GameObject.Find("ARLocationRoot").GetComponent<ARLocationProvider>();
         markerImages = this.gameObject.GetComponent<MarkerImages>();
 
@@ -245,7 +245,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       canUpdatePlayer = true;
     }*/
 
-    public void RemoveMarkerByLabel(string labelToRemove) {
+    /*public void RemoveMarkerByLabel(string labelToRemove) {
       for (int i = 0; i < this.items.Count; i++) {
         if (this.items[i].label == labelToRemove) {
           this.Remove(this.items[i]);
@@ -270,5 +270,5 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
          return "";
        }
        return "";
-    }
+    }*/
 }

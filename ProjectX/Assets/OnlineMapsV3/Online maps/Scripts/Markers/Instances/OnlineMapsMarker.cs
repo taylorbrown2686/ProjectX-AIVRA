@@ -138,7 +138,7 @@ public class OnlineMapsMarker : OnlineMapsMarkerBase
     }
 
     /// <summary>
-    /// Gets or sets the rotation of the marker (0-1). 
+    /// Gets or sets the rotation of the marker (0-1).
     /// </summary>
     /// <value>
     /// The rotation.
@@ -232,7 +232,7 @@ public class OnlineMapsMarker : OnlineMapsMarkerBase
 
     public OnlineMapsMarker()
     {
-        
+
     }
 
     /// <summary>

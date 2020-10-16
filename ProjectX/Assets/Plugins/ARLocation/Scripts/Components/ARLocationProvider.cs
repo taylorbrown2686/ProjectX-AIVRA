@@ -119,7 +119,7 @@ namespace ARLocation
         {
             base.Awake();
 
-/*#if UNITY_EDITOR
+#if UNITY_EDITOR
             Provider = new MockLocationProvider();
 
             if (MockLocationData != null)
@@ -135,7 +135,7 @@ namespace ARLocation
         Provider = new AIVRACustomProvider();
 #else
         Provider = new UnityLocationProvider();
-#endif*/
+#endif
 
             Logger.LogFromMethod("ARLocationProvider", "Awake",": Using provider " + Provider.Name, DebugMode);
         }

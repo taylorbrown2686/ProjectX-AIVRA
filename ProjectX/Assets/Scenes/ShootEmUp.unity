@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 318466578}
   m_Direction: 0
   m_MinValue: 0.05
-  m_MaxValue: 5
+  m_MaxValue: 3
   m_WholeNumbers: 0
   m_Value: 0.1
   m_OnValueChanged:
@@ -1168,7 +1168,6 @@ GameObject:
   - component: {fileID: 881216222}
   - component: {fileID: 881216226}
   - component: {fileID: 881216227}
-  - component: {fileID: 881216228}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -1392,23 +1391,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &881216228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 881216220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 0a9fe965a9e185a40b991dd18f7fc617, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 1
 --- !u!1 &965910398
 GameObject:
   m_ObjectHideFlags: 0

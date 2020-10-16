@@ -24,6 +24,15 @@ public class RoundController : MonoBehaviour
     public Text compositeScoreText;
 
     void Awake() {
+      shootableController.enabled = false;
+      foreach (GameObject obj in countdownImages) {
+        obj.SetActive(false);
+      }
+      roundOverImage.SetActive(false);
+      compositeScoreText.enabled = false;
+    }
+
+    void Start() {
       foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
         Shoot playerShoot = player.GetComponent<Shoot>();
         playerShoot.enabled = false;
@@ -32,13 +41,6 @@ public class RoundController : MonoBehaviour
         scoreController = player.GetComponent<ScoreController>();
         healthController = player.GetComponent<HealthController>();
       }
-      shootableController.enabled = false;
-      foreach (GameObject obj in countdownImages) {
-        obj.SetActive(false);
-      }
-      roundOverImage.SetActive(false);
-      gameOverImage.SetActive(false);
-      compositeScoreText.enabled = false;
     }
 
     void Update() {

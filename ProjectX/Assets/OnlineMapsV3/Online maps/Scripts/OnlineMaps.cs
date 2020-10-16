@@ -32,7 +32,7 @@ public class OnlineMaps : MonoBehaviour, ISerializationCallbackReceiver, IOnline
     /// <summary>
     /// The minimum zoom level
     /// </summary>
-    public const int MINZOOM = 18;
+    public const int MINZOOM = 4;
 
     /// <summary>
     /// The maximum zoom level

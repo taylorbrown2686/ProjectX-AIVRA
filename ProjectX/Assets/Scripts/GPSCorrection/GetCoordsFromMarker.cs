@@ -4,7 +4,7 @@ using UnityEngine;
 //This script gets the coordinates of the touched marker
 public class GetCoordsFromMarker : MonoBehaviour
 {
-    public CorrectGPS correction;
+    /*public CorrectGPS correction;
 
     private void Start()
     {
@@ -24,5 +24,5 @@ public class GetCoordsFromMarker : MonoBehaviour
         correction.ConfirmLocation(); //Turn on the popup
         correction.TrueLat = (float)marker.latitude; //Set the values to the lat/lng of the clicked marker
         correction.TrueLng = (float)marker.longitude;
-    }
+    }*/
 }

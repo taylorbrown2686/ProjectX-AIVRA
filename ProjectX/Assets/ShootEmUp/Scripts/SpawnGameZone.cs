@@ -41,8 +41,8 @@ public class SpawnGameZone : MonoBehaviour
       }
       planeManager.enabled = false;
       tutorialText.gameObject.SetActive(false);
-      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
       spawnedGame.GetComponent<InitializeGame>().InitializeUI();
+      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
       Destroy(this);
     }
 }

@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BallControl.unity
     guid: c342878f57997a54a8737a5b2128184d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShootEmUp.unity
     guid: 96057ea0ccc587f4fb0607d2161c4915
+  - enabled: 1
+    path: Assets/Scenes/AIVRAHome.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8abc4507234e0cc43abcec0b961ec41b,
       type: 2}
