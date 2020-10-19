@@ -1881,13 +1881,14 @@ GameObject:
   - component: {fileID: 2972981770868310874}
   - component: {fileID: 5570941090446732142}
   - component: {fileID: 6951152284931629291}
+  - component: {fileID: 7872346805055640623}
   m_Layer: 5
   m_Name: PowerupImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2972981770868310874
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1944,6 +1945,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7872346805055640623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375896487613702601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdd5e221278c98749a183ed9f1055471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupImage: {fileID: 6951152284931629291}
+  powerupSprites:
+  - {fileID: 21300000, guid: 925ededbf9109d444b1c4ef35678e2b1, type: 3}
+  - {fileID: 21300000, guid: ce0cc4abd4cc4314081c66d9aba771fe, type: 3}
+  - {fileID: 21300000, guid: 0ccc0d80c7920a546b8398c0f450214e, type: 3}
+  - {fileID: 21300000, guid: c02412405ad08ab4fa21e3370d3b8685, type: 3}
 --- !u!1 &6773652012552495964
 GameObject:
   m_ObjectHideFlags: 0

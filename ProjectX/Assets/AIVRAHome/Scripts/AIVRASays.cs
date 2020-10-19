@@ -20,7 +20,7 @@ public class AIVRASays : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
       }
       aivraText.text = message;
-      yield return new WaitForSeconds(10f);
+      yield return new WaitForSeconds(5f);
       aivraText.text = "";
       while (transform.sizeDelta.x > 0) {
         transform.sizeDelta -= new Vector2(15f, 10f);

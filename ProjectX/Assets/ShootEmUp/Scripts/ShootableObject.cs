@@ -22,6 +22,7 @@ public class ShootableObject : MonoBehaviour
     private float scaleFactor; //This changes the force applied depending on the scale of the GameZone
     private Animator anim;
     [SerializeField] private Image topJaw, bottomJaw;
+    [SerializeField] protected PowerupUIController powerupUI;
 
     void Awake() {
       rb = this.gameObject.GetComponent<Rigidbody>();
@@ -80,6 +81,10 @@ public class ShootableObject : MonoBehaviour
     }
 
     protected IEnumerator Bite() {
+      topJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+      bottomJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
+      topJaw.color = new Color(0, 0, 0, 1f);
+      bottomJaw.color = new Color(0, 0, 0, 1f);
       StartCoroutine(Vanish());
       while (topJaw.gameObject.GetComponent<RectTransform>().sizeDelta.y < Screen.height / 2) {
         topJaw.gameObject.GetComponent<RectTransform>().sizeDelta += new Vector2(0, 200f);

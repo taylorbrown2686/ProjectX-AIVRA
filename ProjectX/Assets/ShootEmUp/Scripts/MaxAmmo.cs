@@ -21,8 +21,8 @@ public class MaxAmmo : ShootableObject
       if (col.tag == "Bullet") {
         playerShoot = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<Shoot>();
         playerShoot.StartCoroutine(playerShoot.PowerUp());
-        //StartCoroutine(PowerupUI());
-        StartCoroutine(EnemyDeath());
+        PowerupUI();
+        StartCoroutine(Vanish());
       }
     }
 
@@ -31,9 +31,7 @@ public class MaxAmmo : ShootableObject
       playerShoot.StartCoroutine(playerShoot.PowerUp());
     }
 
-    private IEnumerator PowerupUI() {
-      powerupImages[2].enabled = true;
-      yield return new WaitForSeconds(5f);
-      powerupImages[2].enabled = false;
+    private void PowerupUI() {
+      powerupUI.StartCoroutine(powerupUI.ChangeImage(1));
     }
 }

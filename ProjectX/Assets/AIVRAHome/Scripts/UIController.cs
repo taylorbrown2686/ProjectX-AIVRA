@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuContainer, gamesAndNavContainer;
+    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer;
+
+    void Start() {
+      DisableAllPages();
+      mainMenuContainer.SetActive(true);
+    }
 
     public void ChangePage(string pageToOpen) {
       DisableAllPages();
@@ -13,22 +18,23 @@ public class UIController : MonoBehaviour
           mainMenuContainer.SetActive(true);
         break;
 
+        case "Map":
+          mapContainer.SetActive(true);
+        break;
+
         case "Games":
-          gamesAndNavContainer.SetActive(true);
+          gamesContainer.SetActive(true);
         break;
 
         case "Entertainment":
-          gamesAndNavContainer.SetActive(true);
-        break;
-
-        case "Navigation":
-          gamesAndNavContainer.SetActive(true);
+          gamesContainer.SetActive(true);
         break;
       }
     }
 
     private void DisableAllPages() {
       mainMenuContainer.SetActive(false);
-      gamesAndNavContainer.SetActive(false);
+      mapContainer.SetActive(false);
+      gamesContainer.SetActive(false);
     }
 }

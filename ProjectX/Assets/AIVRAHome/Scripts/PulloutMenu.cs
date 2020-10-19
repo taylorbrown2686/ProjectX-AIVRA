@@ -9,7 +9,7 @@ public class PulloutMenu : MonoBehaviour
     private bool isMenuMoving = false;
 
     public void OpenMenuOnclick() {
-      //StartCoroutine(MoveMenu());
+      StartCoroutine(MoveMenu());
     }
 
     private IEnumerator MoveMenu() {

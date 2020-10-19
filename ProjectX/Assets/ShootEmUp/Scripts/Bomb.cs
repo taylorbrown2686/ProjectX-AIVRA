@@ -26,11 +26,11 @@ public class Bomb : ShootableObject
     public virtual void OnTriggerEnter(Collider col) {
       if (col.tag == "Bullet") {
         StartCoroutine(Explode(col.gameObject.GetComponent<Bullet>().shotBy));
+        PowerupUI();
       }
     }
 
     private IEnumerator Explode(string shotBy) {
-      //StartCoroutine(PowerupUI());
       foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Shootable")) {
         if (Vector3.Distance(obj.transform.position, this.transform.position) < 0.1f) {
           if (Vector3.Distance(obj.transform.position, this.transform.position) == 0) { //The activated bomb is also checked
@@ -58,9 +58,7 @@ public class Bomb : ShootableObject
       StartCoroutine(Explode(shotBy));
     }
 
-    private IEnumerator PowerupUI() {
-      powerupImages[0].enabled = true;
-      yield return new WaitForSeconds(5f);
-      powerupImages[0].enabled = false;
+    private void PowerupUI() {
+      powerupUI.StartCoroutine(powerupUI.ChangeImage(0));
     }
 }

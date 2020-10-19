@@ -245,7 +245,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       canUpdatePlayer = true;
     }*/
 
-    /*public void RemoveMarkerByLabel(string labelToRemove) {
+    public void RemoveMarkerByLabel(string labelToRemove) {
       for (int i = 0; i < this.items.Count; i++) {
         if (this.items[i].label == labelToRemove) {
           this.Remove(this.items[i]);
@@ -254,7 +254,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       }
     }
 
-    private string CheckForCollisionWithMap() {
+    /*private string CheckForCollisionWithMap() {
       if (Input.touchCount == 1) {
          Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
          RaycastHit hit;

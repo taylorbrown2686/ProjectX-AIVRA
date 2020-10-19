@@ -21,8 +21,8 @@ public class DoublePoints : ShootableObject
       if (col.tag == "Bullet") {
         playerHitScore = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<ScoreController>();
         playerHitScore.StartCoroutine(playerHitScore.PowerUp());
-        //StartCoroutine(PowerupUI());
-        StartCoroutine(EnemyDeath());
+        PowerupUI();
+        StartCoroutine(Vanish());
       }
     }
 
@@ -31,9 +31,7 @@ public class DoublePoints : ShootableObject
       playerHitScore.StartCoroutine(playerHitScore.PowerUp());
     }
 
-    private IEnumerator PowerupUI() {
-      powerupImages[1].enabled = true;
-      yield return new WaitForSeconds(5f);
-      powerupImages[1].enabled = false;
+    private void PowerupUI() {
+      powerupUI.StartCoroutine(powerupUI.ChangeImage(2));
     }
 }

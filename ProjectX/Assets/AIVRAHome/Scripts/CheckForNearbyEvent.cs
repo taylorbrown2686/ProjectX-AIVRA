@@ -18,8 +18,8 @@ public class CheckForNearbyEvent : MonoBehaviour
 
     private IEnumerator CheckProximityToEventCoords() {
       canCheckProx = false;
-      float playerLat = 44.812596f;//PlayerCoordinates.Instance.PlayerLat;
-      float playerLng = -91.500021f;//PlayerCoordinates.Instance.PlayerLng;
+      float playerLat = PlayerCoordinates.Instance.PlayerLat;
+      float playerLng = PlayerCoordinates.Instance.PlayerLng;
       /*foreach (KeyValuePair<Vector2, int> entry in EventCoordinates.Instance.coordsWithUID) {
         if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLat, playerLng), entry.Key).magnitude < 0.01f) {
           foreach (MarkerData data in MarkerDataManager.Instance.MarkerData) {
