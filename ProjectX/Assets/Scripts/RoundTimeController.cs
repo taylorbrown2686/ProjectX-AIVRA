@@ -21,11 +21,11 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     [SerializeField]
     private Text TimeText;
 
-    [SerializeField]
-    private Text RemotePlayerText;
+    //[SerializeField]
+    //private Text RemotePlayerText;
 
-    [SerializeField]
-    private Text LocalPlayerText;
+    //[SerializeField]
+    //private Text LocalPlayerText;
     
   
   
@@ -109,7 +109,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 		//}
 
 
-		if (PhotonNetwork.room.PlayerCount>1)
+		if (PhotonNetwork.room.PlayerCount>=1)
 		{
 			if (this.turnManager.IsOver)
 			{
@@ -131,10 +131,10 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
             //    this.TurnText.text = this.turnManager.Turn.ToString();
             //}
 
-			if (this.turnManager.Turn > 0 && this.TimeText != null && ! IsShowingResults)
+			if (this.turnManager.Turn > 0 && this.TimeText != null )
             {
-                
-				this.TimeText.text = this.turnManager.RemainingSecondsInTurn.ToString("F1") + " SECONDS";
+//                Debug.Log("Timer is running");
+				TimeText.text = this.turnManager.RemainingSecondsInTurn.ToString("F1") + " SECONDS";
 
 				//TimerFillImage.anchorMax = new Vector2(1f- this.turnManager.RemainingSecondsInTurn/this.turnManager.TurnDuration,1f);
             }
@@ -142,7 +142,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
             
 		}
 
-		this.UpdatePlayerTexts();
+		
 
         // show local player's selected hand
        
@@ -169,18 +169,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
             // if the turn is not completed by all, we use a random image for the remote hand
             if (this.turnManager.Turn > 0 && !this.turnManager.IsCompletedByAll)
             {
-                // alpha of the remote hand is used as indicator if the remote player "is active" and "made a turn"
-                PhotonPlayer remote = PhotonNetwork.player.GetNext();
-                float alpha = 0.5f;
-                if (this.turnManager.GetPlayerFinishedTurn(remote))
-                {
-                    alpha = 1;
-                }
-                if (remote != null && remote.IsInactive)
-                {
-                    alpha = 0.1f;
-                }
-
+                
             }
         }
 
@@ -192,9 +181,13 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     public void OnTurnBegins(int turn)
     {
         Debug.Log("OnTurnBegins() turn: "+ turn);
-       
+        if (turn <= 10) {
+            GameController.instance.RoundStart();
+        }
 
-		IsShowingResults = false;
+        if (turn == 1) {
+            GameController.instance.ReadyGame();
+        }
 		//ButtonCanvasGroup.interactable = true;
     }
 
@@ -203,8 +196,8 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     {
         Debug.Log("OnTurnCompleted: " + obj);
 
-        
-        this.UpdateScores();
+        GameController.instance.RoundOver();
+      // GameController.instance.
         this.OnEndTurn();
     }
 
@@ -236,10 +229,6 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 		}
 	}
 
-    private void UpdateScores()
-    {
-        
-    }
 
     #endregion
 
@@ -251,6 +240,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     {
         if (PhotonNetwork.isMasterClient)
         {
+            
             this.turnManager.BeginTurn();
         }
     }
@@ -271,7 +261,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
       
 
         yield return new WaitForSeconds(2.0f);
-
+        
         this.StartTurn();
     }
 
@@ -283,7 +273,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 
 
     public void StartTimer() {
-        if (turnManager.Turn == 0)
+        if (turnManager.Turn == 0 )
         {
             StartTurn();
             
@@ -356,23 +346,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 		RefreshUIViews();
     }
 
-    public override void OnJoinedRoom()
-    {
-		RefreshUIViews();
-
-        if (PhotonNetwork.room.PlayerCount == 2)
-        {
-            //if (this.turnManager.Turn == 0)
-            //{
-            //    // when the room has two players, start the first turn (later on, joining players won't trigger a turn)
-            //    StartTurn();
-            //}
-        }
-        else
-        {
-            Debug.Log("Waiting for another player");
-        }
-    }
+  
 
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
@@ -383,7 +357,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
             if (this.turnManager.Turn == 0)
             {
                 // when the room has two players, start the first turn (later on, joining players won't trigger a turn)
-                this.StartTurn();
+               // this.StartTurn();
             }
         }
     }

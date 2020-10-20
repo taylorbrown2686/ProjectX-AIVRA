@@ -12,9 +12,6 @@ public enum GameState
 
 public class GameController : PunBehaviour
 {
-
-  
-
     public static GameController instance;
     public GameState gameState;
 
@@ -33,6 +30,7 @@ public class GameController : PunBehaviour
     private SpawnManager spawnManager;
     private int score = 0;
     private int totalScore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +45,17 @@ public class GameController : PunBehaviour
 
     public void StartGame()
     {
+        StartGameButton.gameObject.SetActive(false);
+       
+        GetComponent<RoundTimeController>().StartTimer();
+        
+    }
+
+    public void ReadyGame() {
         gameState = GameState.Started;
         GetComponent<ShootableObjectController>().StartGame();
         spawnManager.Spawn();
-        GetComponent<RoundTimeController>().StartTimer();
     }
-
     
     public void AddScore() {
         score++;
@@ -63,10 +66,17 @@ public class GameController : PunBehaviour
             PhotonNetwork.player.SetCustomProperties(hashtable);
         }
     }
+
     public void RoundOver() {
         TimeUpImage.SetActive(true);
-        totalScore += score;
-        score = 0;
+        totalScore = score;
+        totalScoreText.text = "Score: "+ totalScore;
+    }
+
+    public void RoundStart() {
+        TimeUpImage.SetActive(false);
+
+      //  score = 0;
     }
 
     public override void OnPhotonPlayerPropertiesChanged(object[] playerAndUpdatedProps)
