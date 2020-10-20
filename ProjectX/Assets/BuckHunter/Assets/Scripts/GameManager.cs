@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     GameObject ui;
     private GameManager()
     {
-       
+
 
     }
 
@@ -52,11 +52,11 @@ public class GameManager : MonoBehaviour
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
-            
+
         }
         else
         {
-            
+            gun = GameObject.Find("Gun(Clone)").GetComponentInChildren<Gun>();
             scale = Mathf.Sqrt(plane.transform.localScale.x* plane.transform.localScale.z)/2;
             gun.SetScale(scale);
             _instance = this;
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
             StartCoroutine(StartNewRound());
 
-            
+
 
         }
     }
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         plane.GetComponent<NavMeshSurface>().BuildNavMesh();
         ActivateTreeRenderers();
         Debug.Log(round[roundIndex].total);
-        animal = new GameObject[round[roundIndex].total]; 
+        animal = new GameObject[round[roundIndex].total];
         for (int i = 0; i < round[roundIndex].numberOfDeers; i++)
             animal[i] = InstantiateDeer();
         for (int i = 0; i < round[roundIndex].numberOfDoes; i++)
@@ -148,12 +148,12 @@ public class GameManager : MonoBehaviour
 
     public void DeerControl(bool endRound)
     {
-        
+
         deerCounter++;
         Debug.Log(deerCounter);
         if (endRound== true || deerCounter >= round[roundIndex].total) {
-     
-            EndRound(); 
+
+            EndRound();
             treeList = new List<GameObject>();
             foodList = new List<GameObject>();
             ui = GameObject.FindGameObjectWithTag("text");
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
             if(bonus == false && score <1)
                 roundIndex++;
             levelText.text = "Round " + (roundIndex+1) + " Loading";
-            if (endRound == true) { 
+            if (endRound == true) {
                 levelText.text += "\nYou killed a doe";
                 bonus = false;
             }
@@ -173,8 +173,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("game over");
                 levelText.gameObject.SetActive(true);
             }
-            else { 
-            
+            else {
+
             levelText.gameObject.SetActive(true);
             StartCoroutine(StartNewRound());
             deerCounter = 0;
@@ -254,7 +254,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 5; i++) {
             foodLocation = Random.Range(0, 5);
             for (int j = 0; j < 5; j++) {
-                if (j == foodLocation) { 
+                if (j == foodLocation) {
                     childObject = Instantiate(food, plane.transform.position, Quaternion.identity) as GameObject;
                     foodList.Add(childObject);
                 }

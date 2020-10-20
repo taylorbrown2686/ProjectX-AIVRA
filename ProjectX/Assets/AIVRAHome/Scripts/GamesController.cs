@@ -41,7 +41,7 @@ public class GamesController : MonoBehaviour
         break;
 
         case "buckHunter":
-          aivraSays.StartCoroutine(aivraSays.Say("Buck Hunter is currently in development, check back later!"));
+          SceneManager.LoadScene("BuckHunter");
         break;
 
         case "arJenga":
