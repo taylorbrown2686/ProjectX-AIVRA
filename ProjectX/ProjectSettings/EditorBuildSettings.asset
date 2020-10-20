@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AIVRAHome.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/BallControl.unity
     guid: c342878f57997a54a8737a5b2128184d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShootEmUp.unity
     guid: 96057ea0ccc587f4fb0607d2161c4915
   - enabled: 1

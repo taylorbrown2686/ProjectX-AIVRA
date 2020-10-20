@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         else
         {
             gun = GameObject.Find("Gun(Clone)").GetComponentInChildren<Gun>();
-            scale = Mathf.Sqrt(plane.transform.localScale.x* plane.transform.localScale.z)/2;
+            scale = Mathf.Sqrt(plane.transform.parent.transform.localScale.x* plane.transform.parent.transform.localScale.z)/2;
             gun.SetScale(scale);
             _instance = this;
             treeList = new List<GameObject>();
@@ -199,9 +199,9 @@ public class GameManager : MonoBehaviour
 
     GameObject InstantiateDeer()
     {
-        GameObject childObject = Instantiate(deer, plane.transform.position, Quaternion.identity) as GameObject;
+        GameObject childObject = Instantiate(deer, plane.transform.localPosition, Quaternion.identity) as GameObject;
         childObject.transform.parent = plane.transform;
-        childObject.transform.localPosition = new Vector3(Random.Range(-3f, 3f), childObject.transform.localPosition.y, Random.Range(-3f, 3f));
+        childObject.transform.localPosition = new Vector3(Random.Range(-3f, 3f), plane.transform.localPosition.y, Random.Range(-3f, 3f));
         childObject.GetComponent<Sheep>().SetExit(exit);
         childObject.GetComponent<Sheep>().SetAgent();
         childObject.GetComponent<Sheep>().SetFood(foodList.ToArray());
