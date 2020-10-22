@@ -10,9 +10,11 @@ public class SpawnGameZone : MonoBehaviour
     public GameObject gameZone; //Make private and have get/set when incorporated into main app
     private GameObject spawnedGame;
     private bool gameHasSpawned = false;
+    private Vector2 previousTouchPos;
+    private float initialDistance;
+    private Vector3 initialScale;
 
     public Text tutorialText;
-    public Slider scaleSlider, rotateSlider;
 
     public ARPlaneManager planeManager;
     public ARRaycastManager raycastManager;
@@ -31,8 +33,31 @@ public class SpawnGameZone : MonoBehaviour
         Vector3 positionToBePlaced = hitPose.position + new Vector3(0, 0.025f, 0);
         spawnedGame.transform.position = positionToBePlaced;
       }
-      spawnedGame.transform.rotation = Quaternion.Euler(0, rotateSlider.value, 0);
-      spawnedGame.transform.localScale = new Vector3(scaleSlider.value, scaleSlider.value, scaleSlider.value);
+      if (Input.touchCount == 1) {
+        Touch touchZero = Input.GetTouch(0);
+        Vector2 currentTouchPos = touchZero.position;
+        spawnedGame.transform.rotation = Quaternion.Euler(0, spawnedGame.transform.rotation.eulerAngles.y + (previousTouchPos.magnitude - currentTouchPos.magnitude), 0);
+        previousTouchPos = currentTouchPos;
+      }
+      if (Input.touchCount == 2) {
+        Touch touchZero = Input.GetTouch(0);
+        Touch touchOne = Input.GetTouch(1);
+
+        if (touchZero.phase == TouchPhase.Ended || touchZero.phase == TouchPhase.Canceled
+           || touchOne.phase == TouchPhase.Ended || touchOne.phase == TouchPhase.Canceled) {
+            return;
+        }
+
+        if (touchZero.phase == TouchPhase.Began || touchOne.phase == TouchPhase.Began) {
+            initialDistance = Vector2.Distance(touchZero.position, touchOne.position);
+            initialScale = spawnedGame.transform.localScale;
+        } else {
+            var currentDistance = Vector2.Distance(touchZero.position, touchOne.position);
+            if(Mathf.Approximately(initialDistance, 0)) return;
+            var factor = currentDistance / initialDistance;
+            spawnedGame.transform.localScale = initialScale * factor;
+        }
+      }
     }
 
     public void StartGameAfterScaling() { //Public onclick button handler

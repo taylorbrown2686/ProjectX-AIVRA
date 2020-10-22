@@ -34,7 +34,7 @@ public class Shooter : MonoBehaviour
         return shootableObjects[6];
       } else if (value <= 97.5f) { //2.5% chance for No Ammo
         return shootableObjects[7];
-      } else if (value <= 100f) { //2.5% chance for No Ammo
+      } else if (value <= 100f) { //2.5% chance for Add Health
         return shootableObjects[8];
       }
       return null; //Not reachable, but need for error

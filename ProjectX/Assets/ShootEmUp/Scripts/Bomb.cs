@@ -8,14 +8,16 @@ public class Bomb : ShootableObject
 
     private int scoreToAdd;
     private ParticleSystem explosion;
+    private AudioSource audio;
 
     void Start() {
       explosion = this.gameObject.GetComponentInChildren<ParticleSystem>();
+      audio = this.GetComponent<AudioSource>();
     }
 
     public override void Update() {
-      if (this.gameObject.transform.position.y > initialY + 0.25f && objectCanBeShot) {
-        StartCoroutine(Vanish());
+      if (this.gameObject.transform.position.y > initialY + (0.25f * scaleFactor) && objectCanBeShot) {
+        Destroy(this.gameObject);
       }
     }
 
@@ -27,6 +29,7 @@ public class Bomb : ShootableObject
       if (col.tag == "Bullet") {
         StartCoroutine(Explode(col.gameObject.GetComponent<Bullet>().shotBy));
         PowerupUI();
+        audio.Play();
       }
     }
 

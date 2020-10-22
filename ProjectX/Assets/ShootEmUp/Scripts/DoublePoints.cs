@@ -6,14 +6,19 @@ public class DoublePoints : ShootableObject
 {
 
     private ScoreController playerHitScore;
+    private AudioSource audio;
+
+    void Start() {
+      audio = this.GetComponent<AudioSource>();
+    }
 
     public override void Fire() {
       rb.AddForce(transform.up * UnityEngine.Random.Range(5,10) * speedMultiplier);
     }
 
     public override void Update() {
-      if (this.gameObject.transform.position.y > initialY + 0.25f && objectCanBeShot) {
-        StartCoroutine(Vanish());
+      if (this.gameObject.transform.position.y > initialY + (0.25f * scaleFactor) && objectCanBeShot) {
+        Destroy(this.gameObject);
       }
     }
 
@@ -22,7 +27,9 @@ public class DoublePoints : ShootableObject
         playerHitScore = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<ScoreController>();
         playerHitScore.StartCoroutine(playerHitScore.PowerUp());
         PowerupUI();
-        StartCoroutine(Vanish());
+        audio.Play();
+        //StartCoroutine(Vanish());
+        Destroy(this.gameObject);
       }
     }
 

@@ -9,6 +9,7 @@ public class ShootableObject : MonoBehaviour
 
     protected Rigidbody rb;
     [SerializeField] protected float speedMultiplier;
+    private RoundController roundController;
     private ScoreController scoreController;
     private HealthController healthController;
     protected ParticleSystem deathParticles;
@@ -19,10 +20,12 @@ public class ShootableObject : MonoBehaviour
     protected bool objectIsAttacking = false;
     protected float initialY; //used for enemy vanish
     [SerializeField] protected Image[] powerupImages;
-    private float scaleFactor; //This changes the force applied depending on the scale of the GameZone
+    protected float scaleFactor; //This changes the force applied depending on the scale of the GameZone
     private Animator anim;
     [SerializeField] private Image topJaw, bottomJaw;
     [SerializeField] protected PowerupUIController powerupUI;
+    private float roundDifficulty;
+    private AudioSource audio;
 
     void Awake() {
       rb = this.gameObject.GetComponent<Rigidbody>();
@@ -32,12 +35,16 @@ public class ShootableObject : MonoBehaviour
       initialY = this.transform.position.y;
       //We do this because ScoreController is on a prefab, and can't be assigned manually
       //TEMP Change how this is assigned for multiplayer (multiple score controllers)
+      roundController = GameObject.Find("_GAMECONTROLLER").GetComponent<RoundController>();
       scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
       healthController = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
       scaleFactor = GameObject.Find("GameZone(Clone)").transform.localScale.x * 20;
       anim = this.GetComponent<Animator>();
       topJaw = GameObject.Find("TopJaw").GetComponent<Image>();
       bottomJaw = GameObject.Find("BottomJaw").GetComponent<Image>();
+      powerupUI = GameObject.Find("PowerupImage").GetComponent<PowerupUIController>();
+      roundDifficulty = 56 - (roundController.RoundsRemaining * 4); //56 - 4x
+      audio = this.GetComponent<AudioSource>();
     }
 
     public virtual void Update() {
@@ -65,17 +72,17 @@ public class ShootableObject : MonoBehaviour
       rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = false;
-      this.transform.LookAt(Camera.main.transform);
-      rb.AddForce(transform.forward * 20);
-      while (Vector3.Distance(this.transform.position, Camera.main.transform.position) > 0.1f && !isDying) {
+      this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
+      rb.AddForce(transform.forward * roundDifficulty);
+      while (Vector3.Distance(this.transform.position, Camera.main.transform.GetChild(0).transform.position) > 0.1f && !isDying) {
         this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.05f);
       }
       if (!isDying) {
         objectCanBeShot = false;
         anim.SetTrigger("CloseToPlayer");
         healthController.DecreaseHealth();
-        yield return new WaitForSeconds(0.833f);
+        //yield return new WaitForSeconds(0.833f);
         StartCoroutine(Bite());
       }
     }
@@ -121,6 +128,7 @@ public class ShootableObject : MonoBehaviour
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = true;
       deathParticles.Play();
+      audio.Play();
       while (this.transform.localScale.x > 0) {
         this.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
         rotateOnY.Speed += 1f;

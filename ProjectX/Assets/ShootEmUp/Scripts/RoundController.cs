@@ -91,12 +91,14 @@ public class RoundController : MonoBehaviour
       roundOverImage.SetActive(true);
       compositeScoreText.enabled = true;
       compositeScoreText.text = scoreController.CompositeScore.ToString();
-      for (int i = 0; i < scoreController.CurrentScore; i++) {
+      for (int i = scoreController.CompositeScore; i < scoreController.CompositeScore + scoreController.CurrentScore; i++) {
         compositeScoreText.text = "Score: " + i.ToString();
         yield return new WaitForSeconds(0.01f);
       }
       yield return new WaitForSeconds(5f);
       roundOverImage.SetActive(false);
+      scoreController.AddScoreToComposite(scoreController.CurrentScore);
+      scoreController.CurrentScore = 0;
       compositeScoreText.enabled = false;
       //Check for end of game
       if (roundsRemaining != 0) {

@@ -17,7 +17,7 @@ public class ShootableObjectController : MonoBehaviour
     }
 
     private IEnumerator Shoot() {
-      delay = (roundController.RoundsRemaining + 1) * 0.2f; //Scale factor for increased spawns each round
+      delay = (-0.00347f * (roundController.RoundsRemaining * roundController.RoundsRemaining)) + (0.17708f * roundController.RoundsRemaining) + 0.57638f; //Scale factor for increased spawns each round
       canShoot = false;
       Shooter shooter = shooters[Random.Range(0, shooters.Length)];
       if (!shooter.SpawnedShootable) {

@@ -11,6 +11,7 @@ public class HealthController : MonoBehaviour
     public int MaxHealth {get => maxHealth;}
 
     private GameObject endOfGameImage;
+    private AudioSource audio;
     [SerializeField] private Sprite[] vignettes;
     [SerializeField] private Image vignetteOverlay;
 
@@ -19,8 +20,9 @@ public class HealthController : MonoBehaviour
     void Start() {
       health = 4;
       //yield return new WaitForSeconds(0.05f); //Delay for canvas to turn on
-      endOfGameImage = GameObject.Find("EndOfGameImage");
+      endOfGameImage = GameObject.Find("EndOfGameContainer");
       endOfGameImage.SetActive(false);
+      audio = this.GetComponent<AudioSource>();
       vignetteOverlay = GameObject.Find("VignetteOverlay").GetComponent<Image>();
       vignetteOverlay.enabled = false;
       gameHasStarted = true;
@@ -28,6 +30,7 @@ public class HealthController : MonoBehaviour
 
     public void DecreaseHealth() {
       health -= 1;
+      audio.Play();
     }
 
     void Update() {

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ScoreController : MonoBehaviour
 {
     private int currentScore, compositeScore;
-    public int CurrentScore {get => currentScore;}
+    public int CurrentScore {get => currentScore; set => currentScore = value;}
     public int CompositeScore {get => compositeScore;}
-    public bool doublePoints; //For the 2x power-up
+    public bool doublePoints = false; //For the 2x power-up
 
     void Update() {
       if (doublePoints) {
