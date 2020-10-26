@@ -18,7 +18,7 @@ public class DoublePoints : ShootableObject
 
     public override void Update() {
       if (this.gameObject.transform.position.y > initialY + (0.25f * scaleFactor) && objectCanBeShot) {
-        Destroy(this.gameObject);
+        StartCoroutine(Vanish());
       }
     }
 
@@ -28,8 +28,23 @@ public class DoublePoints : ShootableObject
         playerHitScore.StartCoroutine(playerHitScore.PowerUp());
         PowerupUI();
         audio.Play();
-        //StartCoroutine(Vanish());
-        Destroy(this.gameObject);
+        StartCoroutine(Vanish());
+      }
+    }
+
+    public override IEnumerator Vanish() {
+      isDying = true;
+      foreach (Renderer renderer in this.gameObject.GetComponentsInChildren<Renderer>()) {
+        StartCoroutine(FadeOut(renderer.material));
+      }
+      yield return new WaitForSeconds(5f);
+      Destroy(this.gameObject);
+    }
+
+    private IEnumerator FadeOut(Material mat) {
+      while (mat.color.a > 0) {
+        mat.color -= new Color(0, 0, 0, .01f);
+        yield return new WaitForSeconds(0.05f);
       }
     }
 

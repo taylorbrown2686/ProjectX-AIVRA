@@ -20,13 +20,13 @@ public class Shooter : MonoBehaviour
       float value = Random.Range(0.0f, 100.0f); //Depending on this value, we will choose an object to shoot
       if (0 <= value && value <= 27.5f) { //27.5% chance for 1pt
         return shootableObjects[0];
-      } else if (value <= 47.5f) { //20% chance for 5pt
+      } else if (value <= 47.5f) { //20% chance for 3pt
         return shootableObjects[1];
-      } else if (value <= 65f) { //17.5% chance for 7pt
+      } else if (value <= 65f) { //17.5% chance for 5pt
         return shootableObjects[2];
-      } else if (value <= 80f) { //15% chance for 9pt
+      } else if (value <= 80f) { //15% chance for 7pt
         return shootableObjects[3];
-      } else if (value <= 90f) { //10% chance for 1pt
+      } else if (value <= 90f) { //10% chance for 9pt
         return shootableObjects[4];
       } else if (value <= 92.5f) { //2.5% chance for Bomb
         return shootableObjects[5];

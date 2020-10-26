@@ -17,7 +17,7 @@ public class Bomb : ShootableObject
 
     public override void Update() {
       if (this.gameObject.transform.position.y > initialY + (0.25f * scaleFactor) && objectCanBeShot) {
-        Destroy(this.gameObject);
+        StartCoroutine(Vanish());
       }
     }
 
@@ -54,6 +54,16 @@ public class Bomb : ShootableObject
       explosion.Play();
       yield return new WaitForSeconds(1f);
       explosion.Stop();
+      Destroy(this.gameObject);
+    }
+
+    public override IEnumerator Vanish() {
+      isDying = true;
+      while (material.color.a > 0) {
+        material.color -= new Color(0, 0, 0, .01f);
+        yield return new WaitForSeconds(0.05f);
+      }
+      yield return new WaitForSeconds(5f);
       Destroy(this.gameObject);
     }
 

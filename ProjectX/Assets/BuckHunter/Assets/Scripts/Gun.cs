@@ -13,6 +13,8 @@ public class Gun : MonoBehaviour
 
     private int ammo = 10;
 
+    private AudioSource source;
+
 
     public GameObject bullet;
  //   Text text;
@@ -21,7 +23,8 @@ public class Gun : MonoBehaviour
     void Start()
     {
         ui = GameObject.FindGameObjectWithTag("text");
- //       text = ui.GetComponent<Text>();
+        source = GetComponent<AudioSource>();
+        //       text = ui.GetComponent<Text>();
 
     }
 
@@ -42,10 +45,11 @@ public class Gun : MonoBehaviour
 
     void Fire()
     {
+        source.Play();
         GameManager.Instance.MakeAllDeersRun();
         reloading = true;
-        Rigidbody bulletClone = Instantiate(bullet, transform.position, transform.rotation).GetComponent<Rigidbody>();
-        bulletClone.velocity = transform.forward * bulletSpeed * scale;
+        Rigidbody bulletClone = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
+        bulletClone.velocity = Camera.main.transform.forward * bulletSpeed * scale;
         // You can also acccess other components / scripts of the clone
         //rocketClone.GetComponent<MyRocketScript>().DoSomething();
     }

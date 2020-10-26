@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -35,6 +36,9 @@ public class SpawnGameZone : MonoBehaviour
       }
       if (Input.touchCount == 1) {
         Touch touchZero = Input.GetTouch(0);
+        if (EventSystem.current.IsPointerOverGameObject(touchZero.fingerId)) {
+          return;
+        }
         Vector2 currentTouchPos = touchZero.position;
         spawnedGame.transform.rotation = Quaternion.Euler(0, spawnedGame.transform.rotation.eulerAngles.y + (previousTouchPos.magnitude - currentTouchPos.magnitude), 0);
         previousTouchPos = currentTouchPos;

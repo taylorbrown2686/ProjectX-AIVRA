@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Level Loading
+  m_Text: Scale the plane
 --- !u!1 &551672005635885931
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,13 +425,13 @@ GameObject:
   - component: {fileID: 551672006569810621}
   - component: {fileID: 551672006569810620}
   - component: {fileID: 551672006569810623}
-  - component: {fileID: 551672006569810622}
+  - component: {fileID: 1168018712080323133}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &551672006569810621
 Transform:
@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 551672006569810609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7801013475938420745}
   m_RootOrder: 1
@@ -474,7 +474,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4f45d3e5244fbc245afddf72f7957b9e, type: 2}
+  - {fileID: 2100000, guid: 16748b5f1e5d54942a2bd8348861c6b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -496,7 +496,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &551672006569810622
+--- !u!114 &1168018712080323133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -510,8 +510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 0
-  m_Size: {x: 25.982399, y: 6.730147, z: 25.789177}
-  m_Center: {x: -0.35927963, y: 0.44408965, z: 0.3448434}
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -521,10 +521,10 @@ MonoBehaviour:
   m_IgnoreNavMeshObstacle: 1
   m_OverrideTileSize: 0
   m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_OverrideVoxelSize: 1
+  m_VoxelSize: 0.01
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: ddcf3ef076062b944bcca0bd7127cdd7, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &6428452830314093147
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ Transform:
   m_GameObject: {fileID: 6428452830314093147}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 551672005635885911}
   - {fileID: 551672006569810621}
@@ -700,6 +700,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8745818296677561497, guid: 2e1a65ba2e1255d41ac28f045a2a9d4a,
         type: 3}
+    - target: {fileID: 5587076485332354859, guid: e9e8fb189d1ce2a429ded94bdc2682b0,
+        type: 3}
+      propertyPath: depthMask
+      value: 
+      objectReference: {fileID: 4800000, guid: 14a3e60fb040c4b4197af3dccd2bccd3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e8fb189d1ce2a429ded94bdc2682b0, type: 3}
 --- !u!4 &551672005534674048 stripped

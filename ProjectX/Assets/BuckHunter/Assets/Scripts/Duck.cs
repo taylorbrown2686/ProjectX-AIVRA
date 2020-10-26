@@ -71,11 +71,13 @@ public class Duck : MonoBehaviour
 
     private void Update()
     {
+        
         if (!alive) {
-           // StopCoroutine(MoveObject);
-            if(transform.localPosition.y > 0.0031f) {
+            GetComponent<Collider>().enabled = false;
+            // StopCoroutine(MoveObject);
+            if (transform.localPosition.y > 0.0031f) {
                 //Debug.Log(transform.localPosition.y);
-                transform.localPosition = Vector3.MoveTowards(transform.localPosition, new Vector3(transform.localPosition.x, 0.003f, transform.localPosition.z), 0.0005f);
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, new Vector3(transform.localPosition.x, 0.003f, transform.localPosition.z), 0.0005f*scale*40);
             }
             else { 
                 animator.SetTrigger("ground");

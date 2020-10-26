@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.AI;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections;
+using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,23 +14,28 @@ public class GameManager : MonoBehaviour
     public GameObject doe;
     public GameObject pig;
     public GameObject duck;
-    public GameObject dog;
+ //   public GameObject dog;
     public GameObject food;
     public GameObject exitPoint;
     private GameObject[] exit;
     public GameObject tree;
+    public Shader depthMask;
     GameObject[] animal;
     public Gun gun;
     List<GameObject> treeList;
     float scale = 1;
     List<GameObject> foodList;
     int roundIndex = 0;
+    int huntCounter = 0;
     int deerCounter = 0;
+    int escapedDeerCounter = 0;
     bool running;
+    int totalNumOfDeers = 3;
     public Text levelText;
     public Text countDown;
     bool bonus = true;
     Round[] round;
+    bool doeKilled = false;
 
 
     private static GameManager _instance;
@@ -56,6 +61,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Renderer planeRenderer = plane.GetComponent<Renderer>();
+            planeRenderer.material.shader = depthMask;
             gun = GameObject.Find("Gun(Clone)").GetComponentInChildren<Gun>();
             scale = Mathf.Sqrt(plane.transform.parent.transform.localScale.x* plane.transform.parent.transform.localScale.z)/2;
             gun.SetScale(scale);
@@ -93,7 +100,7 @@ public class GameManager : MonoBehaviour
         GenerateTrees();
         plane.GetComponent<NavMeshSurface>().BuildNavMesh();
         ActivateTreeRenderers();
-        Debug.Log(round[roundIndex].total);
+  //      Debug.Log(round[roundIndex].total);
         animal = new GameObject[round[roundIndex].total];
         for (int i = 0; i < round[roundIndex].numberOfDeers; i++)
             animal[i] = InstantiateDeer();
@@ -101,7 +108,7 @@ public class GameManager : MonoBehaviour
             animal[round[roundIndex].numberOfDeers + i] = InstantiateDoe();
         for (int i = 0; i < round[roundIndex].numberOfPigs; i++)
             animal[round[roundIndex].numberOfDoes + round[roundIndex].numberOfDeers + i] = InstantiatePig();
-        InstantiateDog();
+//        InstantiateDog();
         for (int i = 0; i < 10; i++)
             InstantiateDuck();
     }
@@ -149,9 +156,10 @@ public class GameManager : MonoBehaviour
     public void DeerControl(bool endRound)
     {
 
-        deerCounter++;
-        Debug.Log(deerCounter);
-        if (endRound== true || deerCounter >= round[roundIndex].total) {
+        Debug.Log("hunt" + huntCounter);
+        huntCounter++;
+  //      Debug.Log(huntCounter);
+        if (endRound== true || huntCounter >= round[roundIndex].total) {
 
             EndRound();
             treeList = new List<GameObject>();
@@ -159,12 +167,21 @@ public class GameManager : MonoBehaviour
             ui = GameObject.FindGameObjectWithTag("text");
             exit = new GameObject[4];
             roundIndex++;
-            if(bonus == false && score <1)
+            Debug.Log("round index " + roundIndex);
+            if(roundIndex == 3 && (bonus == false || score <1))
                 roundIndex++;
+
             levelText.text = "Round " + (roundIndex+1) + " Loading";
-            if (endRound == true) {
+            if (doeKilled == true) {
                 levelText.text += "\nYou killed a doe";
                 bonus = false;
+            }
+            else
+            {
+                if(deerCounter == 0)
+                    levelText.text += "\nThey all got away";
+                else
+                    levelText.text += "\nYou got " + deerCounter +" deers";
             }
 
             if(roundIndex == 4)
@@ -175,9 +192,11 @@ public class GameManager : MonoBehaviour
             }
             else {
 
-            levelText.gameObject.SetActive(true);
-            StartCoroutine(StartNewRound());
-            deerCounter = 0;
+                doeKilled = false;
+                levelText.gameObject.SetActive(true);
+                StartCoroutine(StartNewRound());
+                huntCounter = 0;
+                deerCounter = 0;
             }
 
         }
@@ -199,14 +218,14 @@ public class GameManager : MonoBehaviour
 
     GameObject InstantiateDeer()
     {
-        GameObject childObject = Instantiate(deer, plane.transform.localPosition, Quaternion.identity) as GameObject;
+        GameObject childObject = Instantiate(deer, plane.transform.position , Quaternion.identity) as GameObject;
         childObject.transform.parent = plane.transform;
-        childObject.transform.localPosition = new Vector3(Random.Range(-3f, 3f), plane.transform.localPosition.y, Random.Range(-3f, 3f));
+        childObject.transform.localPosition = new Vector3(Random.Range(-3f, 3f), childObject.transform.localPosition.y, Random.Range(-3f, 3f));
         childObject.GetComponent<Sheep>().SetExit(exit);
-        childObject.GetComponent<Sheep>().SetAgent();
         childObject.GetComponent<Sheep>().SetFood(foodList.ToArray());
         childObject.transform.localScale *= scale;
         childObject.GetComponent<Sheep>().SetScale( scale);
+        childObject.GetComponent<Sheep>().SetAgent();
         return childObject;
 
     }
@@ -239,13 +258,14 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void InstantiateDog()
+   /* void InstantiateDog()
     {
         GameObject childObject = Instantiate(dog, plane.transform.position, Quaternion.identity) as GameObject;
         childObject.transform.parent = plane.transform;
+        childObject.transform.localPosition = new Vector3(Random.Range(-3f, 3f), childObject.transform.localPosition.y, Random.Range(-3f, 3f));
         childObject.GetComponent<Dog>().SetExit(exit);
         childObject.transform.localScale *= scale;
-    }
+    }*/
 
     void GenerateTrees()
     {
@@ -284,18 +304,52 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         countDown.text = "2";
         yield return new WaitForSeconds(1);
+
         countDown.text = "1";
         yield return new WaitForSeconds(1);
         countDown.gameObject.SetActive(false);
         StartRound();
         levelText.gameObject.SetActive(false);
         deerCounter=0;
+        huntCounter = 0;
 
+    }
+
+    public void KilledDeer() {
+        deerCounter++;
+        
+        if (deerCounter + escapedDeerCounter == totalNumOfDeers) {
+            Debug.Log(deerCounter);
+            DeerControl(true);
+            
+        }
+    }
+
+    public void DeerEscaped()
+    {
+        escapedDeerCounter++;
+
+        if (deerCounter + escapedDeerCounter == totalNumOfDeers)
+        {
+            Debug.Log(deerCounter);
+            DeerControl(true);
+            escapedDeerCounter = 0;
+
+        }
+
+    }
+
+    public void DoeKilled()
+    {
+        doeKilled = true;
     }
 
 
 
 }
+
+
+
 
 struct Round
 {

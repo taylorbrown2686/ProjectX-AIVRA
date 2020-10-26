@@ -22,7 +22,8 @@ public class Sheep : MonoBehaviour
     private float scale = 1;
     int eatAttempt = 0;
     public string kind;
-    
+    int runCounter = 3;
+    int tempExit;
 
     Vector3 destination;
     // Start is called before the first frame update
@@ -37,11 +38,17 @@ public class Sheep : MonoBehaviour
         
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 10f);
+       // Destroy(gameObject, 45);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("up") && kind =="deer")
+        {
+            Die();
+        }
+        // Debug.Log(transform.position);
         if (agent == null)
             return;
 
@@ -49,15 +56,37 @@ public class Sheep : MonoBehaviour
             agent.destination = destination;
             if (running == true)
             {
-                if (Vector3.Distance(transform.position, exit[ExitIndex].transform.position) < 2f)
+                if (Vector3.Distance(transform.position, exit[ExitIndex].transform.position) < 2f * scale)
                 {
-                    transform.LookAt(new Vector3(exit[ExitIndex].transform.position.x,transform.position.y, exit[ExitIndex].transform.position.z));
-                    animator.SetTrigger("fade");
-                    agent.enabled = false;
-                    //rb.isKinematic = true;
-                    
-                    Destroy(gameObject, 4);
-                    //enabled = false;
+                    if(runCounter == 0) { 
+                        transform.LookAt(new Vector3(exit[ExitIndex].transform.position.x,transform.position.y, exit[ExitIndex].transform.position.z));
+                        animator.SetTrigger("fade");
+                        agent.enabled = false;
+                        //rb.isKinematic = true;
+
+
+
+                        Destroy(gameObject, 1);
+                        if (kind == "deer")
+                        {
+                            GameManager.Instance.DeerEscaped();
+
+                        }
+                        GameManager.Instance.DeerControl(false);
+                        //enabled = false;
+                    }
+                    else
+                    {
+                        
+                        Debug.Log(runCounter);
+                        runCounter--;
+
+                        tempExit = ExitIndex;
+                        while (ExitIndex == tempExit)
+                            ExitIndex = Random.Range(0, exit.Length);
+
+                        destination = exit[ExitIndex].transform.position;
+                    }
                 }
             }
         }
@@ -121,6 +150,7 @@ public class Sheep : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("eating");
         if (running ==true)
             return;
         if (collider.tag == "food" && eating == false)
@@ -170,10 +200,12 @@ public class Sheep : MonoBehaviour
     {
         if(kind == "deer") { 
             GameManager.Instance.AddScore(1);
+            GameManager.Instance.KilledDeer();
             GameManager.Instance.DeerControl(false);
         }
         else if(kind == "doe"){ 
             GameManager.Instance.AddScore(-1);
+            GameManager.Instance.DoeKilled();
             GameManager.Instance.DeerControl(true);
         }
         else
@@ -191,8 +223,7 @@ public class Sheep : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(agent.enabled == false)
-            GameManager.Instance.DeerControl(false);
+ 
     }
 
 }

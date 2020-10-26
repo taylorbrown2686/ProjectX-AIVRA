@@ -73,10 +73,13 @@ public class ShootableObject : MonoBehaviour
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = false;
       this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
-      rb.AddForce(transform.forward * roundDifficulty);
+      //rb.AddForce(transform.forward * roundDifficulty);
       while (Vector3.Distance(this.transform.position, Camera.main.transform.GetChild(0).transform.position) > 0.1f && !isDying) {
+        rb.AddForce(transform.forward * roundDifficulty);
         this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
         yield return new WaitForSeconds(0.05f);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
       }
       if (!isDying) {
         objectCanBeShot = false;
@@ -109,7 +112,7 @@ public class ShootableObject : MonoBehaviour
       bottomJaw.color = new Color(0, 0, 0, 1f);
     }
 
-    protected IEnumerator Vanish() {
+    public virtual IEnumerator Vanish() {
       isDying = true;
       while (material.color.a > 0) {
         material.color -= new Color(0, 0, 0, .01f);
