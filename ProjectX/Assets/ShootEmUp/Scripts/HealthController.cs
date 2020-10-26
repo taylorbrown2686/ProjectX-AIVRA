@@ -19,11 +19,11 @@ public class HealthController : MonoBehaviour
 
     void Start() {
       health = 4;
-      //yield return new WaitForSeconds(0.05f); //Delay for canvas to turn on
-      endOfGameImage = GameObject.Find("EndOfGameContainer");
+        //yield return new WaitForSeconds(0.05f); //Delay for canvas to turn on
+        endOfGameImage = GameController.instance.endOfGameContainer;
       endOfGameImage.SetActive(false);
       audio = this.GetComponent<AudioSource>();
-      vignetteOverlay = GameObject.Find("VignetteOverlay").GetComponent<Image>();
+        vignetteOverlay = GameController.instance.vintageOverlay;
       vignetteOverlay.enabled = false;
       gameHasStarted = true;
     }
@@ -34,27 +34,28 @@ public class HealthController : MonoBehaviour
     }
 
     void Update() {
-      if (gameHasStarted) {
-        switch (health) {
-          case 4:
-            vignetteOverlay.enabled = false;
-          break;
-          case 3:
-            vignetteOverlay.enabled = true;
-            vignetteOverlay.sprite = vignettes[0];
-          break;
-          case 2:
-            vignetteOverlay.sprite = vignettes[1];
-          break;
-          case 1:
-            vignetteOverlay.sprite = vignettes[2];
-          break;
-          case 0:
-            endOfGameImage.SetActive(true);
-            this.gameObject.GetComponent<Shoot>().enabled = false;
-          break;
-        }
-      }
+
+      //if (gameHasStarted) {
+      //  switch (health) {
+      //    case 4:
+      //      vignetteOverlay.enabled = false;
+      //    break;
+      //    case 3:
+      //      vignetteOverlay.enabled = true;
+      //      vignetteOverlay.sprite = vignettes[0];
+      //    break;
+      //    case 2:
+      //      vignetteOverlay.sprite = vignettes[1];
+      //    break;
+      //    case 1:
+      //      vignetteOverlay.sprite = vignettes[2];
+      //    break;
+      //    case 0:
+      //      endOfGameImage.SetActive(true);
+      //      this.gameObject.GetComponent<Shoot>().enabled = false;
+      //    break;
+      //  }
+      //}
     }
 
     public void ResetHealth() {

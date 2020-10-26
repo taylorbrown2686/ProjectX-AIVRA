@@ -35,15 +35,17 @@ public class ShootableObject : MonoBehaviour
       initialY = this.transform.position.y;
       //We do this because ScoreController is on a prefab, and can't be assigned manually
       //TEMP Change how this is assigned for multiplayer (multiple score controllers)
-      roundController = GameObject.Find("_GAMECONTROLLER").GetComponent<RoundController>();
-      scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
-      healthController = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
+   //   roundController = GameObject.Find("_GAMECONTROLLER").GetComponent<RoundController>();
+    //  scoreController = GameObject.FindGameObjectWithTag("Player").GetComponent<ScoreController>();
+   //   healthController = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
       scaleFactor = GameObject.Find("GameZone(Clone)").transform.localScale.x * 20;
       anim = this.GetComponent<Animator>();
-      topJaw = GameObject.Find("TopJaw").GetComponent<Image>();
-      bottomJaw = GameObject.Find("BottomJaw").GetComponent<Image>();
-      powerupUI = GameObject.Find("PowerupImage").GetComponent<PowerupUIController>();
-      roundDifficulty = 56 - (roundController.RoundsRemaining * 4); //56 - 4x
+        //mahnoor
+      topJaw = GameController.instance.topJaw;
+        bottomJaw = GameController.instance.bottonJaw;
+      powerupUI = GameController.instance.powerUpUI;
+        //endmahnoor
+      roundDifficulty = 56 - (10 * 4); //56 - 4x
       audio = this.GetComponent<AudioSource>();
     }
 
@@ -61,8 +63,9 @@ public class ShootableObject : MonoBehaviour
       if (col.tag == "Bullet" && objectCanBeShot) {
         objectCanBeShot = false;
         isDying = true;
-        int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
-        scoreController.AddScore(scoreToAdd);
+            GameController.instance.AddScore();
+     //   int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
+     //   scoreController.AddScore(scoreToAdd);
         StartCoroutine(EnemyDeath());
       }
     }
@@ -81,13 +84,17 @@ public class ShootableObject : MonoBehaviour
       if (!isDying) {
         objectCanBeShot = false;
         anim.SetTrigger("CloseToPlayer");
-        healthController.DecreaseHealth();
+            //mahnoor
+            GameController.instance.decreaseHealth();
+            //end mahnoor
+       // healthController.DecreaseHealth();
         //yield return new WaitForSeconds(0.833f);
         StartCoroutine(Bite());
       }
     }
 
     protected IEnumerator Bite() {
+
       topJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
       bottomJaw.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
       topJaw.color = new Color(0, 0, 0, 1f);

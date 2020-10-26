@@ -9,10 +9,10 @@ public class RoundSettings : MonoBehaviour
     public RoundController roundController;
     public GameObject startGame;
 
-    public void StartGame() { //Public onclick button handler
-      roundController.RoundsRemaining = 10;
-      roundController.RoundLength = 25;
-      roundController.GameReadyToStart = true;
-      startGame.SetActive(false);
-    }
+    //public void StartGame() { //Public onclick button handler
+    //  roundController.RoundsRemaining = 10;
+    //  roundController.RoundLength = 25;
+    //  roundController.GameReadyToStart = true;
+    //  startGame.SetActive(false);
+    //}
 }
