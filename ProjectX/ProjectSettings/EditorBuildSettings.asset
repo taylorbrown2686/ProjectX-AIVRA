@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BuckHunter.unity
     guid: 79f23efd55cb78f40a8805f57f2069b2
+  - enabled: 1
+    path: Assets/Scenes/BarDice.unity
+    guid: 9265c1506d2229a45b68d8eb4cd48a10
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8abc4507234e0cc43abcec0b961ec41b,
       type: 2}

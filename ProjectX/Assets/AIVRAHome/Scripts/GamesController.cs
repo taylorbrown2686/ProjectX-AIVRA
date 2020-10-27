@@ -44,8 +44,8 @@ public class GamesController : MonoBehaviour
           SceneManager.LoadScene("BuckHunter");
         break;
 
-        case "arJenga":
-          aivraSays.StartCoroutine(aivraSays.Say("AR Jenga is currently in development, check back later!"));
+        case "barDice":
+          SceneManager.LoadScene("BarDice");
         break;
       }
     }

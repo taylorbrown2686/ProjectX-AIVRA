@@ -735,7 +735,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5f6d68e5143e09438b460b5f5ddbc0f, type: 3}
   - {fileID: 21300000, guid: c3c36d68a5dd4aa43a123a85ca7e82dd, type: 3}
   - {fileID: 21300000, guid: c1ac7fce50f3613459acba3ed7401ad7, type: 3}
-  - {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  - {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
 --- !u!1 &391147022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,7 +3517,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5f6d68e5143e09438b460b5f5ddbc0f, type: 3}
   - {fileID: 21300000, guid: c3c36d68a5dd4aa43a123a85ca7e82dd, type: 3}
   - {fileID: 21300000, guid: c1ac7fce50f3613459acba3ed7401ad7, type: 3}
-  - {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  - {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
 --- !u!1 &1255747974
 GameObject:
   m_ObjectHideFlags: 0
@@ -4405,7 +4405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4441,7 +4441,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5f6d68e5143e09438b460b5f5ddbc0f, type: 3}
   - {fileID: 21300000, guid: c3c36d68a5dd4aa43a123a85ca7e82dd, type: 3}
   - {fileID: 21300000, guid: c1ac7fce50f3613459acba3ed7401ad7, type: 3}
-  - {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  - {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
 --- !u!1 &1486670585
 GameObject:
   m_ObjectHideFlags: 0
@@ -5632,7 +5632,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5f6d68e5143e09438b460b5f5ddbc0f, type: 3}
   - {fileID: 21300000, guid: c3c36d68a5dd4aa43a123a85ca7e82dd, type: 3}
   - {fileID: 21300000, guid: c1ac7fce50f3613459acba3ed7401ad7, type: 3}
-  - {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  - {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
 --- !u!1 &1760241738
 GameObject:
   m_ObjectHideFlags: 0
@@ -5727,7 +5727,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f5f6d68e5143e09438b460b5f5ddbc0f, type: 3}
   - {fileID: 21300000, guid: c3c36d68a5dd4aa43a123a85ca7e82dd, type: 3}
   - {fileID: 21300000, guid: c1ac7fce50f3613459acba3ed7401ad7, type: 3}
-  - {fileID: 21300000, guid: 72615f6fcfab9084a8f331559450cb59, type: 3}
+  - {fileID: 21300000, guid: 4cf779f656ab01141b491f4a18c2ccf5, type: 3}
 --- !u!1 &1811678333
 GameObject:
   m_ObjectHideFlags: 0
