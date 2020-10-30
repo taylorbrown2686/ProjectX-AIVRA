@@ -75,7 +75,7 @@ public class ShootableObject : MonoBehaviour
       this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
       //rb.AddForce(transform.forward * roundDifficulty);
       while (Vector3.Distance(this.transform.position, Camera.main.transform.GetChild(0).transform.position) > 0.1f && !isDying) {
-        rb.AddForce(transform.forward * roundDifficulty);
+        rb.AddForce(transform.forward * roundDifficulty * scaleFactor);
         this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
         yield return new WaitForSeconds(0.05f);
         rb.velocity = Vector3.zero;

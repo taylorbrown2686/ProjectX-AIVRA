@@ -35,6 +35,7 @@ public class BuckHunterBullet : MonoBehaviour
             GameManager.Instance.AddScore(-3);
 
         }
+     //   Debug.Log(collision.collider);
         Destroy(this.gameObject);
 
     }

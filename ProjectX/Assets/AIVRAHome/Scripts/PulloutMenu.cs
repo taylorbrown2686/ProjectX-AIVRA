@@ -18,15 +18,15 @@ public class PulloutMenu : MonoBehaviour
         if (menuIsOpen) {
           menuIsOpen = false;
           while (activitiesContainer.anchoredPosition.x < 400f) {
-            activitiesContainer.anchoredPosition += new Vector2(10f, 0);
-            yield return new WaitForSeconds(0.01f * Time.deltaTime);
+            activitiesContainer.anchoredPosition += new Vector2(40f, 0);
+            yield return new WaitForSeconds(0.01f);
           }
           isMenuMoving = false;
         } else {
           menuIsOpen = true;
           while (activitiesContainer.anchoredPosition.x > 0) {
-            activitiesContainer.anchoredPosition -= new Vector2(10f, 0);
-            yield return new WaitForSeconds(0.01f * Time.deltaTime);
+            activitiesContainer.anchoredPosition -= new Vector2(40f, 0);
+            yield return new WaitForSeconds(0.01f);
           }
           isMenuMoving = false;
         }

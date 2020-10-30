@@ -7,9 +7,15 @@ public class GameImage : MonoBehaviour
 {
     [SerializeField] private int index;
     [SerializeField] private Sprite[] gameSprites;
+    [SerializeField] private string[] gameTitles;
+    [SerializeField] private Color[] gameColors;
+    [SerializeField] private Text gameText;
     private Image image;
     private int totalGames = 5;
     private Vector2 originalPosition;
+
+    public string[] GameTitles {get => gameTitles;}
+    public int Index {get => index;}
 
     void Start() {
       image = this.GetComponent<Image>();
@@ -19,9 +25,9 @@ public class GameImage : MonoBehaviour
     public void ChangeSprite(bool left) {
       //StartCoroutine(AnimateImage(left));
       if (left) {
-        index += 1;
-      } else {
         index -= 1;
+      } else {
+        index += 1;
       }
       if (index > totalGames - 1) {
         index = 0;
@@ -30,6 +36,8 @@ public class GameImage : MonoBehaviour
         index = totalGames - 1;
       }
       image.sprite = gameSprites[index];
+      gameText.text = gameTitles[index];
+      this.gameObject.transform.parent.transform.gameObject.GetComponent<Image>().color = gameColors[index];
     }
 
     private IEnumerator AnimateImage(bool left) {

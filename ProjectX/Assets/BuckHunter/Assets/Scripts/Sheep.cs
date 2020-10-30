@@ -24,6 +24,11 @@ public class Sheep : MonoBehaviour
     public string kind;
     int runCounter = 3;
     int tempExit;
+    public DeerShoot deerShot;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClips;
+
+    public int head=0, back=0, neck=0;
 
     Vector3 destination;
     // Start is called before the first frame update
@@ -35,7 +40,8 @@ public class Sheep : MonoBehaviour
         animator = GetComponent<Animator>();
         mCollider = GetComponent<Collider>();
         destination = food[index].transform.position;
-        
+        audioSource = this.gameObject.GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 10f);
        // Destroy(gameObject, 45);
@@ -52,13 +58,13 @@ public class Sheep : MonoBehaviour
         if (agent == null)
             return;
 
-        if(agent.enabled == true) { 
+        if(agent.enabled == true) {
             agent.destination = destination;
             if (running == true)
             {
                 if (Vector3.Distance(transform.position, exit[ExitIndex].transform.position) < 2f * scale)
                 {
-                    if(runCounter == 0) { 
+                    if(runCounter == 0) {
                         transform.LookAt(new Vector3(exit[ExitIndex].transform.position.x,transform.position.y, exit[ExitIndex].transform.position.z));
                         animator.SetTrigger("fade");
                         agent.enabled = false;
@@ -77,8 +83,8 @@ public class Sheep : MonoBehaviour
                     }
                     else
                     {
-                        
-                        Debug.Log(runCounter);
+
+                     //   Debug.Log(runCounter);
                         runCounter--;
 
                         tempExit = ExitIndex;
@@ -90,7 +96,7 @@ public class Sheep : MonoBehaviour
                 }
             }
         }
-        else { 
+        else {
             rb.AddForce(transform.forward * 20f * scale);
         }
 
@@ -121,7 +127,7 @@ public class Sheep : MonoBehaviour
     {
 
         yield return new WaitForSeconds(3);
-        if (running == false) { 
+        if (running == false) {
             destination = food[index].transform.position;
             animator.SetTrigger("walk");
             GetComponent<NavMeshAgent>().speed = 1* scale;
@@ -141,7 +147,7 @@ public class Sheep : MonoBehaviour
 
         }
         int currentIndex = index;
-        
+
         while (currentIndex == index)
             index = Random.Range(0, numberofFoods);
         StartCoroutine(Wait());
@@ -150,7 +156,7 @@ public class Sheep : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("eating");
+      //  Debug.Log("eating");
         if (running ==true)
             return;
         if (collider.tag == "food" && eating == false)
@@ -161,7 +167,7 @@ public class Sheep : MonoBehaviour
             agent.speed = 0;
             ChangeVAlue();
         }
-        
+
 
     }
 
@@ -175,11 +181,11 @@ public class Sheep : MonoBehaviour
     {
         if (hp <= 0)
             return 0;
-        Debug.Log("Hit!!!!");
+   //     Debug.Log("Hit!!!!");
        // animator.SetTrigger("run");
         hp--;
-        
-        if (hp <= 0) { 
+
+        if (hp <= 0) {
             Die();
             return 0;
         }
@@ -198,32 +204,56 @@ public class Sheep : MonoBehaviour
 
     public void Die()
     {
-        if(kind == "deer") { 
+        if(kind == "deer") {
+          deerShot = GameManager.Instance.GetDeerShoot(back, neck, head);
+            deerShot.gameObject.SetActive(true);
+            audioSource.clip = audioClips[0];
             GameManager.Instance.AddScore(1);
             GameManager.Instance.KilledDeer();
             GameManager.Instance.DeerControl(false);
         }
-        else if(kind == "doe"){ 
+        else if(kind == "doe"){
+            audioSource.clip = audioClips[1];
             GameManager.Instance.AddScore(-1);
             GameManager.Instance.DoeKilled();
             GameManager.Instance.DeerControl(true);
         }
         else
         {
+            audioSource.clip = audioClips[2];
             GameManager.Instance.AddScore(2);
             GameManager.Instance.DeerControl(false);
         }
-            
+        audioSource.Play();
+
         hp = 0;
         GetComponent<NavMeshAgent>().speed = 0;
         animator.SetTrigger("death");
-        Debug.Log("died");
+       // Debug.Log("died");
         enabled = false;
+    }
+
+    public void Headshot()
+    {
+        deerShot.gameObject.SetActive(true);
+        deerShot.ActivatePoint(0);
+    }
+
+    public void Neckshot()
+    {
+        deerShot.gameObject.SetActive(true);
+        deerShot.ActivatePoint(Random.Range(1,4));
+    }
+
+    public void Backshot()
+    {
+        deerShot.gameObject.SetActive(true);
+        deerShot.ActivatePoint(Random.Range(4, 7));
     }
 
     private void OnDestroy()
     {
- 
+
     }
 
 }

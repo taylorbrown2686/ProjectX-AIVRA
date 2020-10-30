@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 2036412634414328392}
+  type: 
 --- !u!1 &2036412634414282424
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,7 +697,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036412634414306252}
-  m_LocalRotation: {x: -0.00000006630177, y: -0.000000081655266, z: -0.060245626, w: 0.9981836}
+  m_LocalRotation: {x: -0.00000006630177, y: -0.000000081655266, z: -0.060245626,
+    w: 0.9981836}
   m_LocalPosition: {x: -0.39206576, y: 0.028281402, z: 0.00000007844996}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_Children:
@@ -1119,6 +1121,7 @@ GameObject:
   - component: {fileID: 2036412634401713149}
   - component: {fileID: 2036412634401713150}
   - component: {fileID: 1514146749348029675}
+  - component: {fileID: 1123417506194756570}
   m_Layer: 0
   m_Name: Pig_PBR
   m_TagString: Untagged
@@ -1174,6 +1177,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kind: pig
+  deerShot: {fileID: 0}
+  audioClips:
+  - {fileID: 8300000, guid: f55c0fe20467e6a439c8d448a0af08c5, type: 3}
+  - {fileID: 8300000, guid: 8eda1ab55ba29e245bfe8065bf5d61fe, type: 3}
+  - {fileID: 8300000, guid: 95e8e1f4b296a444bb5a7447ca83a55e, type: 3}
 --- !u!195 &2036412634401713150
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1211,7 +1219,103 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!82 &1123417506194756570
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036412634414328392}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2036412634414330974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1370,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2036412634414335142}
-  m_LocalRotation: {x: -0.000000023493229, y: -0.000000011301592, z: -0.40239978, w: 0.91546404}
+  m_LocalRotation: {x: -0.000000023493229, y: -0.000000011301592, z: -0.40239978,
+    w: 0.91546404}
   m_LocalPosition: {x: -0.22473215, y: -0.000000076293944, z: 0}
   m_LocalScale: {x: 0.99999994, y: 1, z: 1}
   m_Children:

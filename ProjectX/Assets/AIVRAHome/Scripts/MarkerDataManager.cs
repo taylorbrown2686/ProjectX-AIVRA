@@ -11,11 +11,11 @@ public class MarkerDataManager : MonoBehaviour
     public static MarkerDataManager Instance {get => _instance;}
 
     void Start() {
-      markerData = FindObjectsOfType(typeof(MarkerData)) as MarkerData[];
-
       if (_instance != null && _instance != this) {
         Destroy(_instance);
       } else {
+        markerData = FindObjectsOfType(typeof(MarkerData)) as MarkerData[];
+        Debug.Log(markerData.Length);
         _instance = this;
       }
     }

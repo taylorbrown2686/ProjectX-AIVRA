@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
     
     public float bulletSpeed = 150.0f;
 
-    bool reloading = false;
+    bool reloading = true;
 
     private int ammo = 10;
 
@@ -31,41 +31,51 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        // Check if the player has pressed the fire button and if enough time has elapsed since they last fired
+    
         if (Input.GetButtonDown("Fire1") && reloading == false)
         {
+            reloading = true;
             ammo--;
             Fire();
-            StartCoroutine(Reload());
+            StartCoroutine(Reload(0.5f));
         }
-            //Debug.Log("sdfsd");
-
-
+    
     }
 
     void Fire()
     {
         source.Play();
         GameManager.Instance.MakeAllDeersRun();
-        reloading = true;
         Rigidbody bulletClone = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
-        bulletClone.velocity = Camera.main.transform.forward * bulletSpeed * scale;
-        // You can also acccess other components / scripts of the clone
-        //rocketClone.GetComponent<MyRocketScript>().DoSomething();
+        bulletClone.velocity = Camera.main.transform.forward * bulletSpeed * scale *2;
+        
     }
 
     public void SetScale(float scale)
     {
         this.scale = scale/2;
         transform.localScale *= (scale / 2);
+        bullet.transform.localScale *= scale/2;
     }
 
-    IEnumerator Reload()
+    public void setAmmo(int amount)
     {
-      
-        yield return new WaitForSeconds(0.5f);
-        reloading = false;
-        
+        ammo = amount;
+    }
+
+    IEnumerator Reload(float delay)
+    {
+
+
+        yield return new WaitForSeconds(delay);
+        {
+            reloading = false;
+        }
+    }
+
+    public void CanShoot(bool active)
+    {
+        reloading = !active;
     }
 
 }

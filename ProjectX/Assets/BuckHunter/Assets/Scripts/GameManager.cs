@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject doe;
     public GameObject pig;
     public GameObject duck;
- //   public GameObject dog;
+    public DeerShoot[] deerShoot;
+    int deerShootCounter = -1;
+    //   public GameObject dog;
     public GameObject food;
     public GameObject exitPoint;
     private GameObject[] exit;
@@ -32,10 +34,15 @@ public class GameManager : MonoBehaviour
     bool running;
     int totalNumOfDeers = 3;
     public Text levelText;
-    public Text countDown;
+    //public Text countDown;
     bool bonus = true;
     Round[] round;
     bool doeKilled = false;
+    private AudioSource audioSource;
+    [SerializeField] private Sprite[] countdownSprites;
+    [SerializeField] private Sprite gameOverSprite;
+    [SerializeField] private Image imageToDisplay;
+
 
 
     private static GameManager _instance;
@@ -72,6 +79,9 @@ public class GameManager : MonoBehaviour
             ui = GameObject.FindGameObjectWithTag("text");
             text = ui.GetComponent<Text>();
             exit = new GameObject[4];
+            audioSource = this.gameObject.GetComponent<AudioSource>();
+            imageToDisplay = GameObject.Find("CenterImage").GetComponent<Image>();
+            imageToDisplay.gameObject.SetActive(false);
 
             levelText.text = "Round 1 Loading";
             levelText.gameObject.SetActive(true);
@@ -95,6 +105,9 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
+        foreach (DeerShoot ds in deerShoot){
+            ds.DeActivateAll();
+        }
         running = false;
         CreateExitPoints();
         GenerateTrees();
@@ -102,15 +115,19 @@ public class GameManager : MonoBehaviour
         ActivateTreeRenderers();
   //      Debug.Log(round[roundIndex].total);
         animal = new GameObject[round[roundIndex].total];
-        for (int i = 0; i < round[roundIndex].numberOfDeers; i++)
+        for (int i = 0; i < round[roundIndex].numberOfDeers; i++) {
             animal[i] = InstantiateDeer();
+         //   animal[i].GetComponent<Sheep>().deerShot = deerShoot[i];
+        }
+        foreach (DeerShoot ds in deerShoot)
+            ds.gameObject.SetActive(false);
         for (int i = 0; i < round[roundIndex].numberOfDoes; i++)
             animal[round[roundIndex].numberOfDeers + i] = InstantiateDoe();
         for (int i = 0; i < round[roundIndex].numberOfPigs; i++)
             animal[round[roundIndex].numberOfDoes + round[roundIndex].numberOfDeers + i] = InstantiatePig();
 //        InstantiateDog();
-        for (int i = 0; i < 10; i++)
-            InstantiateDuck();
+      /*  for (int i = 0; i < 10; i++)
+            InstantiateDuck();*/
     }
 
     public void MakeAllDeersRun()
@@ -124,6 +141,7 @@ public class GameManager : MonoBehaviour
 
     void EndRound()
     {
+        audioSource.Play();
         foreach (Transform child in plane.transform)
         {
             Destroy(child.gameObject);
@@ -156,18 +174,18 @@ public class GameManager : MonoBehaviour
     public void DeerControl(bool endRound)
     {
 
-        Debug.Log("hunt" + huntCounter);
+      //  Debug.Log("hunt" + huntCounter);
         huntCounter++;
   //      Debug.Log(huntCounter);
         if (endRound== true || huntCounter >= round[roundIndex].total) {
-
+            gun.CanShoot(false);
             EndRound();
             treeList = new List<GameObject>();
             foodList = new List<GameObject>();
             ui = GameObject.FindGameObjectWithTag("text");
             exit = new GameObject[4];
             roundIndex++;
-            Debug.Log("round index " + roundIndex);
+    //        Debug.Log("round index " + roundIndex);
             if(roundIndex == 3 && (bonus == false || score <1))
                 roundIndex++;
 
@@ -187,7 +205,9 @@ public class GameManager : MonoBehaviour
             if(roundIndex == 4)
             {
                 levelText.text = "Total score: " + score;
-                Debug.Log("game over");
+            //    Debug.Log("game over");
+                imageToDisplay.gameObject.SetActive(true);
+                imageToDisplay.sprite = gameOverSprite;
                 levelText.gameObject.SetActive(true);
             }
             else {
@@ -299,29 +319,30 @@ public class GameManager : MonoBehaviour
     IEnumerator StartNewRound()
     {
 
-        countDown.gameObject.SetActive(true);
-        countDown.text = "3";
+        imageToDisplay.gameObject.SetActive(true);
+        imageToDisplay.sprite = countdownSprites[0];
         yield return new WaitForSeconds(1);
-        countDown.text = "2";
+        imageToDisplay.sprite = countdownSprites[1];
         yield return new WaitForSeconds(1);
-
-        countDown.text = "1";
+        imageToDisplay.sprite = countdownSprites[2];
         yield return new WaitForSeconds(1);
-        countDown.gameObject.SetActive(false);
+        imageToDisplay.gameObject.SetActive(false);
         StartRound();
+        gun.CanShoot(true);
         levelText.gameObject.SetActive(false);
         deerCounter=0;
+        deerShootCounter = -1;
         huntCounter = 0;
 
     }
 
     public void KilledDeer() {
         deerCounter++;
-        
+
         if (deerCounter + escapedDeerCounter == totalNumOfDeers) {
             Debug.Log(deerCounter);
             DeerControl(true);
-            
+
         }
     }
 
@@ -344,6 +365,21 @@ public class GameManager : MonoBehaviour
         doeKilled = true;
     }
 
+    public DeerShoot GetDeerShoot(int back,int neck,int head)
+    {
+        deerShootCounter++;
+
+        for (int i = 0; i < back; i++)
+            deerShoot[deerShootCounter].ActivatePoint(Random.Range(4, 7));
+
+        for (int i = 0; i < neck; i++)
+            deerShoot[deerShootCounter].ActivatePoint(Random.Range(1, 4));
+
+        for (int i = 0; i < head; i++)
+            deerShoot[deerShootCounter].ActivatePoint(0);
+
+        return deerShoot[deerShootCounter];
+    }
 
 
 }

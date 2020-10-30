@@ -9,19 +9,24 @@ public class GamesController : MonoBehaviour
     [SerializeField] protected Image[] gameImages; //The ones shown in the wheel
     private int selectedGameIndex = 0;
     [SerializeField] private AIVRASays aivraSays;
+    [SerializeField] private MarkerCreator markerCreator;
 
-    void Update() {
-
+    void OnEnable() {
+      SwitchMarkers();
     }
 
     public void Arrow(bool left) {
       if (left) {
         foreach (Image image in gameImages) {
-          image.gameObject.GetComponent<GameImage>().ChangeSprite(true);
+          GameImage gameImg = image.gameObject.GetComponent<GameImage>();
+          gameImg.ChangeSprite(true);
+          SwitchMarkers();
         }
       } else {
         foreach (Image image in gameImages) {
-          image.gameObject.GetComponent<GameImage>().ChangeSprite(false);
+          GameImage gameImg = image.gameObject.GetComponent<GameImage>();
+          gameImg.ChangeSprite(false);
+          SwitchMarkers();
         }
       }
     }
@@ -46,6 +51,30 @@ public class GamesController : MonoBehaviour
 
         case "barDice":
           SceneManager.LoadScene("BarDice");
+        break;
+      }
+    }
+
+    public void SwitchMarkers() {
+      switch (gameImages[2].sprite.name) {
+        case "ghostsInTheGraveyard":
+          markerCreator.PlaceMarkersOnMap("Ghosts in the Graveyard");
+        break;
+
+        case "arFishin":
+          markerCreator.PlaceMarkersOnMap("AR Fishin'");
+        break;
+
+        case "arTetris":
+          markerCreator.PlaceMarkersOnMap("AR Tetris");
+        break;
+
+        case "buckHunter":
+          markerCreator.PlaceMarkersOnMap("HuntAR");
+        break;
+
+        case "barDice":
+          markerCreator.PlaceMarkersOnMap("Bar Dice");
         break;
       }
     }

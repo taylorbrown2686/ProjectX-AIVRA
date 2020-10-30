@@ -5,9 +5,17 @@ using UnityEngine;
 public class RollResult
 {
     private List<int> diceValues = new List<int>();
+    private int wilds;
 
     public string GetResult(List<GameObject> activeDice) {
+      diceValues.Clear();
+      wilds = 0;
+
       foreach (GameObject die in activeDice) {
+        if (die.GetComponent<Die>().Value == 1) {
+          wilds += 1;
+          continue;
+        }
         diceValues.Add(die.GetComponent<Die>().Value);
       }
 
@@ -28,6 +36,6 @@ public class RollResult
           highestCount = pair.Value;
         }
       }
-      return "You got " + highestCount + " " + mostCommonValue + "'s!";
+      return "You got " + (highestCount + wilds) + " " + mostCommonValue + "'s!";
     }
 }

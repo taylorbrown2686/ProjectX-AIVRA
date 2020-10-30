@@ -6,10 +6,16 @@ public class GetLocationFromCoordinate : MonoBehaviour
 {
       private string apiKey = "AIzaSyBaYR5jsJKXg12zxgJ-OtND6rMQsYikjWM";
 
-      public IEnumerator GetLocationName(Vector2 coords) {
+      public IEnumerator GetLocationName(Vector2 coords, bool placingMarker) {
         WWW www = new WWW("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + coords.x + "," + coords.y + "&key=" + apiKey);
         yield return www;
-        this.gameObject.GetComponent<MarkerData>().Address = ExtractString(www.text, "formatted_address", "geometry", 5, 18);
+        if (placingMarker) {
+          Debug.Log(ExtractString(www.text, "formatted_address", "geometry", 5, 18));
+          this.gameObject.GetComponent<MarkerData>().Address = ExtractString(www.text, "formatted_address", "geometry", 5, 18);
+        } else {
+          Debug.Log(ExtractString(www.text, "formatted_address", "geometry", 5, 18));
+          this.gameObject.GetComponent<GetDirections>().yourAddress = ExtractString(www.text, "formatted_address", "geometry", 5, 18);
+        }
         Destroy(this);
         //StartCoroutine(GetLocationImageDetails(this.gameObject.GetComponent<MarkerData>().Address));
       }
