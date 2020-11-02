@@ -143,6 +143,8 @@ public class MultiplayerManager : PunBehaviour
 		{
 			GameController.instance.StartGameButton.gameObject.SetActive(false);
 			GameController.instance.waitingForHost.gameObject.SetActive(true);
+			GameController.instance.multiplayerUI.SetActive(false);
+			GameController.instance.GameUI.SetActive(true);
 		}
 		//	GetComponent<SpawnManager>().Spawn();
 		// base.OnJoinedRoom();

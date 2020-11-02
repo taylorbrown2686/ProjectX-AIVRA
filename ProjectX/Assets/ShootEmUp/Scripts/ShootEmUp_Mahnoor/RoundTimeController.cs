@@ -41,7 +41,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
   //  public Hand randomHand;    // used to show remote player's "hand" while local player didn't select anything
 
 	// keep track of when we show the results to handle game logic.
-	private bool IsShowingResults;
+	//private bool IsShowingResults;
 	
     //public enum Hand
     //{
@@ -181,25 +181,20 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     public void OnTurnBegins(int turn)
     {
         Debug.Log("OnTurnBegins() turn: "+ turn);
-        if (turn <= 10)
-        {
-            GameController.instance.RoundStart();
-        }
-        else {
-            GameController.instance.endGame();
-        }
 
-        if (turn == 1) {
+        if (turn == 1)
+        {
             GameController.instance.ReadyGame();
         }
-		//ButtonCanvasGroup.interactable = true;
+        //ButtonCanvasGroup.interactable = true;
     }
 
 
     public void OnTurnCompleted(int obj)
     {
+       
         Debug.Log("OnTurnCompleted: " + obj);
-
+       
         GameController.instance.RoundOver();
       // GameController.instance.
         this.OnEndTurn();
@@ -226,11 +221,11 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 
     public void OnTurnTimeEnds(int obj)
     {
-		if (!IsShowingResults)
-		{
-			Debug.Log("OnTurnTimeEnds: Calling OnTurnCompleted");
+		//if (!IsShowingResults)
+		//{
+		//	Debug.Log("OnTurnTimeEnds: Calling OnTurnCompleted");
 			OnTurnCompleted(-1);
-		}
+		//}
 	}
 
 
@@ -253,19 +248,25 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 	
     public void OnEndTurn()
     {
-        this.StartCoroutine("ShowResultsBeginNextTurnCoroutine");
+      StartCoroutine("ShowResultsBeginNextTurnCoroutine");
     }
 
     public IEnumerator ShowResultsBeginNextTurnCoroutine()
     {
-		
-		IsShowingResults = true;
-       // yield return new WaitForSeconds(1.5f);
 
-      
-
+        //	IsShowingResults = true;
+        int turn = turnManager.Turn;
         yield return new WaitForSeconds(2.0f);
-        
+        Debug.Log("New Turn Starts");
+       
+        if (turn <= 10)
+        {
+            GameController.instance.RoundStart();
+        }
+        else
+        {
+            GameController.instance.endGame();
+        }
         this.StartTurn();
     }
 

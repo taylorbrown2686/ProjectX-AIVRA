@@ -9,9 +9,12 @@ public class Shooter : MonoBehaviour
     public GameObject SpawnedShootable {get => spawnedShootable;}
     [SerializeField] private GameObject[] shootableObjects;
 
+
     public void PrepareFire() {
-      spawnedShootable = Instantiate(GetRandomShootableObject(),
-        this.transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity, this.transform);
+        
+      spawnedShootable = PhotonNetwork.Instantiate(GetRandomShootableObject().name,
+        this.transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity,0);
+    //    spawnedShootable.transform.SetParent(this.transform);
       spawnedShootable.GetComponent<ShootableObject>().Fire();
     }
 

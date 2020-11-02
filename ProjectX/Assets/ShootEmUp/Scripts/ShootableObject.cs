@@ -75,12 +75,17 @@ public class ShootableObject : MonoBehaviour
       rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = false;
+
       this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
+
       rb.AddForce(transform.forward * roundDifficulty);
+
       while (Vector3.Distance(this.transform.position, Camera.main.transform.GetChild(0).transform.position) > 0.1f && !isDying) {
         this.transform.LookAt(Camera.main.transform.GetChild(0).transform);
+
         yield return new WaitForSeconds(0.05f);
       }
+
       if (!isDying) {
         objectCanBeShot = false;
         anim.SetTrigger("CloseToPlayer");
@@ -91,6 +96,7 @@ public class ShootableObject : MonoBehaviour
         //yield return new WaitForSeconds(0.833f);
         StartCoroutine(Bite());
       }
+
     }
 
     protected IEnumerator Bite() {

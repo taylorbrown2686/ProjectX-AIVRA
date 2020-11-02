@@ -38,10 +38,10 @@ public class GameController : PunBehaviour
 
     private int health = 4;
 
-    [SerializeField]
-    private GameObject GameUI;
-    [SerializeField]
-    private GameObject multiplayerUI;
+    
+    public GameObject GameUI;
+   
+    public GameObject multiplayerUI;
 
     //to be used in HealthController.cs
     public Image vintageOverlay;   
@@ -64,7 +64,7 @@ public class GameController : PunBehaviour
         multiplayerUI.SetActive(false);
         GameUI.SetActive(true);
         GetComponent<RoundTimeController>().StartTimer();
-       
+        GetComponent<ShootableObjectController>().StartShootingGhost();
     }
 
     //will be called on all of the players in the game 
@@ -73,7 +73,6 @@ public class GameController : PunBehaviour
         GetComponent<RoundController>().startCountDown();
         gameState = GameState.Started;
         waitingForHost.gameObject.SetActive(false);
-        GetComponent<ShootableObjectController>().StartShootingGhost();
         spawnManager.Spawn();
     }
     
@@ -92,7 +91,7 @@ public class GameController : PunBehaviour
             health--;
         else
         {
-            endGame();
+           // endGame();
         }
     }
 
@@ -121,7 +120,6 @@ public class GameController : PunBehaviour
         PhotonPlayer player = playerAndUpdatedProps[0] as PhotonPlayer;
         Hashtable props = playerAndUpdatedProps[1] as Hashtable;
 
-
         if (props.ContainsKey("S")) {
             if (player != PhotonNetwork.player)
             {
@@ -135,4 +133,6 @@ public class GameController : PunBehaviour
     void ShowPlayerScore(string name, int score) {
         otherScoreText.text = name + ": " + score;
     }
+
+   
 }

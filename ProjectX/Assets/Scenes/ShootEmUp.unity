@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 196559227}
   - component: {fileID: 196559226}
   m_Layer: 5
-  m_Name: namePanel
+  m_Name: NamePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 509443869}
   - component: {fileID: 509443868}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: nameInputField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,6 +899,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2019552594445765068, guid: a0ee32662370b6e40b3f06d00fbb47c7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4876417860879920341, guid: a0ee32662370b6e40b3f06d00fbb47c7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

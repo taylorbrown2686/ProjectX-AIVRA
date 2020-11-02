@@ -37,12 +37,12 @@ public class Shoot : MonoBehaviour
       if (!useAmmo) {
         Debug.Log("inf ammo");
       }
-
         if (photonview.isMine)
         {
             if (Input.GetMouseButtonDown(0) && GameController.instance.gameState == GameState.Started)
             {
-                Fire();
+                photonview.RPC("Fire", PhotonTargets.AllBuffered);
+                //Fire();
             }
       }
 
@@ -53,6 +53,7 @@ public class Shoot : MonoBehaviour
         ammoText.text = currentAmmo + "/" + maxAmmo;
     }
 
+    [PunRPC]
     private void Fire() {
         
         if (canShoot && currentAmmo != 0)
@@ -65,6 +66,7 @@ public class Shoot : MonoBehaviour
             {
                 currentAmmo = currentAmmo;
             }
+
             GameObject newBullet = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation);
             //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
             newBullet.GetComponent<Bullet>().shotBy = playerName;
@@ -73,6 +75,7 @@ public class Shoot : MonoBehaviour
             StartCoroutine(DelayShooting());
         }
     }
+
     private IEnumerator DelayShooting() {
       canShoot = false;
       yield return new WaitForSeconds(0.5f);
