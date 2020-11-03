@@ -655,6 +655,7 @@ GameObject:
   - component: {fileID: 881216222}
   - component: {fileID: 881216226}
   - component: {fileID: 881216227}
+  - component: {fileID: 881216228}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -876,6 +877,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &881216228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881216220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fa1826050bc74439f573619aea9b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adPlane: {fileID: 6460510031486074463, guid: c5b578ad1c0e8cd438eed75849279eb5, type: 3}
+  spawnedAdPlane: {fileID: 0}
+  adPlaneAnchorPoint: {fileID: 0}
+  adToDisplay: {fileID: 2800000, guid: b9d15664f2d3c4844a3ce68cd62f4ecd, type: 3}
 --- !u!1 &1018295426
 GameObject:
   m_ObjectHideFlags: 0

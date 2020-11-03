@@ -100,6 +100,12 @@ public class RoundController : MonoBehaviour
       scoreController.AddScoreToComposite(scoreController.CurrentScore);
       scoreController.CurrentScore = 0;
       compositeScoreText.enabled = false;
+      //Play ad if on the correct round (every 3)
+      if (roundsRemaining % 3 == 0) {
+        Camera.main.GetComponent<BillboardedAd>().PopulateScreenWithAd();
+        yield return new WaitForSeconds(10f);
+        Camera.main.GetComponent<BillboardedAd>().DestroyAd();
+      }
       //Check for end of game
       if (roundsRemaining != 0) {
         StartCoroutine(StartRound());

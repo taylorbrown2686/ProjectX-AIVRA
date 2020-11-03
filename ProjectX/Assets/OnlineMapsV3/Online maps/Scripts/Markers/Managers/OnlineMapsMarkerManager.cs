@@ -254,6 +254,14 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
       }
     }
 
+    public bool IsInstanceNull() {
+      if (instance == null) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     /*private string CheckForCollisionWithMap() {
       if (Input.touchCount == 1) {
          Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);

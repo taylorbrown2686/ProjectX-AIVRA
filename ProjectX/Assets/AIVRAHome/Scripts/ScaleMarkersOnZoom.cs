@@ -6,6 +6,7 @@ public class ScaleMarkersOnZoom : MonoBehaviour
 {
       public int defaultZoom = 18;
       [SerializeField] private OnlineMapsMarkerManager markerManager;
+      [SerializeField] private MarkerCreator markerCreator;
 
       private void Start()
       {
@@ -15,15 +16,10 @@ public class ScaleMarkersOnZoom : MonoBehaviour
 
       private void OnChangeZoom()
       {
+          OnlineMaps map = this.GetComponent<OnlineMaps>();
           foreach (OnlineMapsMarker marker in markerManager.items)
           {
-            float originalScale = 1 << defaultZoom;
-            float currentScale = 1 << OnlineMaps.instance.zoom;
-            if (originalScale / currentScale < 0.5f) {
-              marker.scale = currentScale / originalScale;
-            } else {
-              marker.scale = 1f;
-            }
+            marker.scale = marker.originalRadius / (.0008f * Mathf.Pow(2, 22 - map.zoom));
           }
       }
 }

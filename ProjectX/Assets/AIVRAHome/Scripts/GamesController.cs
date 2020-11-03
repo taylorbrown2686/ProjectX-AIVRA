@@ -58,23 +58,23 @@ public class GamesController : MonoBehaviour
     public void SwitchMarkers() {
       switch (gameImages[2].sprite.name) {
         case "ghostsInTheGraveyard":
-          markerCreator.PlaceMarkersOnMap("Ghosts in the Graveyard");
+          markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("Ghosts in the Graveyard"));
         break;
 
         case "arFishin":
-          markerCreator.PlaceMarkersOnMap("AR Fishin'");
+          markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("AR Fishin'"));
         break;
 
         case "arTetris":
-          markerCreator.PlaceMarkersOnMap("AR Tetris");
+          markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("AR Tetris"));
         break;
 
         case "buckHunter":
-          markerCreator.PlaceMarkersOnMap("HuntAR");
+          markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("HuntAR"));
         break;
 
         case "barDice":
-          markerCreator.PlaceMarkersOnMap("Bar Dice");
+          markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("Bar Dice"));
         break;
       }
     }

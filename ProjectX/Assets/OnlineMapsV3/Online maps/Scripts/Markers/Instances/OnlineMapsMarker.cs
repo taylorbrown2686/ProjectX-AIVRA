@@ -48,6 +48,8 @@ public class OnlineMapsMarker : OnlineMapsMarkerBase
     private float _lastRotation;
     private float _lastScale;
 
+    public float originalRadius;
+
     /// <summary>
     /// Gets the marker colors.
     /// </summary>

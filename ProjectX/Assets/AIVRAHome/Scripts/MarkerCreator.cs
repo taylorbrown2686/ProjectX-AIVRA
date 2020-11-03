@@ -8,8 +8,9 @@ public class MarkerCreator : MonoBehaviour
     [SerializeField] private Texture2D[] markers;
     [SerializeField] private OnlineMapsMarkerManager markerManager;
     private bool updatePlayer = true;
+    private string lastEventTitleFilter;
 
-    public string MapType  {get => mapType;}
+    public string MapType {get => mapType;}
 
     IEnumerator Start() {
       yield return new WaitForSeconds(0.25f); //Gives MarkerData time to initialize
@@ -21,15 +22,26 @@ public class MarkerCreator : MonoBehaviour
       }
     }
 
-    public void PlaceMarkersOnMap(string eventTitleFilter) {
+    public void ResetMarkersWithLastFilter() {
+      StartCoroutine(PlaceMarkersOnMap(lastEventTitleFilter));
+    }
+
+    public IEnumerator PlaceMarkersOnMap(string eventTitleFilter) {
+      lastEventTitleFilter = eventTitleFilter;
       markerManager.RemoveAll();
       foreach (MarkerData data in MarkerDataManager.Instance.MarkerData) {
         foreach (EventAtLocation eventAL in data.HostedEvents) {
           if (eventAL.EventType == mapType) {
             if (eventAL.EventTitle == eventTitleFilter) {
-              markerManager.Create(new Vector2(data.Longitude, data.Latitude),
+              while (markerManager.IsInstanceNull() == true) {
+                yield return new WaitForSeconds(0.01f);
+              }
+              OnlineMapsMarker marker = markerManager.Create(new Vector2(data.Longitude, data.Latitude),
                 markers[GetMarkerFromName(eventAL.EventTitle)],
                 data.UID.ToString());
+              OnlineMaps map = this.GetComponent<OnlineMaps>();
+              marker.originalRadius = eventAL.EventRadius;
+              marker.scale = eventAL.EventRadius / GetScaleFactor(map.zoom); //Scale of marker with 1 size at 22 zoom
             }
           }
         }
@@ -46,7 +58,7 @@ public class MarkerCreator : MonoBehaviour
       markerManager.RemoveMarkerByLabel("You");
       markerManager.Create(new Vector2(PlayerCoordinates.Instance.PlayerLng, PlayerCoordinates.Instance.PlayerLat),
         markers[3], "You");
-      this.gameObject.GetComponent<OnlineMaps>().SetPosition(PlayerCoordinates.Instance.PlayerLng, PlayerCoordinates.Instance.PlayerLat);
+      //this.gameObject.GetComponent<OnlineMaps>().SetPosition(PlayerCoordinates.Instance.PlayerLng, PlayerCoordinates.Instance.PlayerLat);
       yield return new WaitForSeconds(5f);
       updatePlayer = true;
     }
@@ -77,5 +89,9 @@ public class MarkerCreator : MonoBehaviour
           return -1;
         break;
       }
+    }
+
+    private float GetScaleFactor(float zoom) {
+      return 0.0008f * Mathf.Pow(2, 22 - zoom);
     }
 }

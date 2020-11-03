@@ -2245,6 +2245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultZoom: 18
   markerManager: {fileID: 256111900}
+  markerCreator: {fileID: 256111893}
 --- !u!114 &256111893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3787,7 +3788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 0.78431374}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6357,6 +6358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultZoom: 18
   markerManager: {fileID: 745432500}
+  markerCreator: {fileID: 0}
 --- !u!1 &746442576
 GameObject:
   m_ObjectHideFlags: 0
@@ -9651,7 +9653,7 @@ MonoBehaviour:
   eventDesc: Shoot down cartoon ghosts in this action packed, multiplayer shoot'em
     up!
   eventSubDesc: 'Recommended Players: 1-4'
-  eventRadius: 0.025
+  eventRadius: 0.04
 --- !u!114 &1128636497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15602,6 +15604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultZoom: 18
   markerManager: {fileID: 1862963759}
+  markerCreator: {fileID: 0}
 --- !u!114 &1862963761
 MonoBehaviour:
   m_ObjectHideFlags: 0

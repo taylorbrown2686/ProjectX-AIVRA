@@ -12,7 +12,7 @@ public class SetTextWithShadows : MonoBehaviour
     }
 
     private void SetText() {
-      this.GetComponent<Text>().text = textToSet;
+      textToSet = this.GetComponent<Text>().text;
       foreach (Text text in this.GetComponentsInChildren<Text>()) {
         text.text = textToSet;
       }
