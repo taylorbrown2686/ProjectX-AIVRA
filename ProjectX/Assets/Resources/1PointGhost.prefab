@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 332099350436597720}
   - component: {fileID: 7123959204431904042}
   - component: {fileID: -8523223207789375282}
+  - component: {fileID: -1711371504231612284}
   m_Layer: 0
   m_Name: 1PointGhost
   m_TagString: Shootable
@@ -324,6 +325,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: -8523223207789375282}
+  - {fileID: 2858780633031272369}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -388,6 +390,7 @@ MonoBehaviour:
   topJaw: {fileID: 0}
   bottomJaw: {fileID: 0}
   powerupUI: {fileID: 0}
+  canAttack: 0
 --- !u!95 &332099350436597720
 Animator:
   serializedVersion: 3
@@ -516,9 +519,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   synchronizeVelocity: 1
-  synchronizeAngularVelocity: 1
+  synchronizeAngularVelocity: 0
   isTeleportEnabled: 1
   teleportIfDistanceGreaterThan: 1
+--- !u!114 &-1711371504231612284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858780633031768977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35306aa566304c9cabeb7fe6154581c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 15
 --- !u!1 &2858780633031768979
 GameObject:
   m_ObjectHideFlags: 0

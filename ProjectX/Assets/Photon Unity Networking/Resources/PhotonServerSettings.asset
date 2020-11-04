@@ -45,4 +45,5 @@ MonoBehaviour:
   - TaggedPlayer
   - Fire
   - PrepareFire
+  - Die
   DisableAutoOpenWizard: 1

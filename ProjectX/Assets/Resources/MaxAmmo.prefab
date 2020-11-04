@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: -296384461236420930}
   - component: {fileID: -3113320661380789498}
   - component: {fileID: -2798391672351243047}
+  - component: {fileID: -8914599655699181418}
+  - component: {fileID: -1489579193256288121}
   m_Layer: 0
   m_Name: MaxAmmo
   m_TagString: Shootable
@@ -223,7 +225,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 3400244810066292766}
+  - {fileID: -8914599655699181418}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -275,6 +277,7 @@ MonoBehaviour:
   topJaw: {fileID: 0}
   bottomJaw: {fileID: 0}
   powerupUI: {fileID: 0}
+  canAttack: 1
 --- !u!114 &-3113320661380789498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +387,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8914599655699181418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702104973826641303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10884c3e61ff44bb930038cab5044dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  synchronizeVelocity: 1
+  synchronizeAngularVelocity: 1
+  isTeleportEnabled: 1
+  teleportIfDistanceGreaterThan: 1
+--- !u!114 &-1489579193256288121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4702104973826641303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35306aa566304c9cabeb7fe6154581c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10
 --- !u!1 &7496175236458821857
 GameObject:
   m_ObjectHideFlags: 0

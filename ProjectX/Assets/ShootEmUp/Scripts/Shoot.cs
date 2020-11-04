@@ -41,7 +41,7 @@ public class Shoot : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && GameController.instance.gameState == GameState.Started)
             {
-                photonview.RPC("Fire", PhotonTargets.AllBuffered);
+                photonview.RPC("Fire", PhotonTargets.All);
                 //Fire();
             }
       }
@@ -55,25 +55,32 @@ public class Shoot : MonoBehaviour
 
     [PunRPC]
     private void Fire() {
-        
-        if (canShoot && currentAmmo != 0)
-        {
-            if (useAmmo)
-            {
-                currentAmmo -= 1;
-            }
-            else
-            {
-                currentAmmo = currentAmmo;
-            }
 
-            GameObject newBullet = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation);
-            //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
-            newBullet.GetComponent<Bullet>().shotBy = playerName;
-            newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1000);
-            PlaySound(gunshotSound);
-            StartCoroutine(DelayShooting());
+
+        if (photonview.isMine)
+        {
+            if (canShoot && currentAmmo != 0)
+            {
+
+                if (useAmmo)
+                {
+                    currentAmmo -= 1;
+                }
+                else
+                {
+                    currentAmmo = currentAmmo;
+                }
+
+                GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, Camera.main.transform.position, Camera.main.transform.rotation, 0);
+                //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
+                newBullet.GetComponent<Bullet>().shotBy = playerName;
+                newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1000);
+                StartCoroutine(DelayShooting());
+            }
         }
+
+        PlaySound(gunshotSound);
+        
     }
 
     private IEnumerator DelayShooting() {

@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 7554618691278830736}
   - component: {fileID: 6987656804912081267}
   - component: {fileID: -4921822219652874633}
+  - component: {fileID: -3195272764024391164}
   m_Layer: 0
   m_Name: 2X
   m_TagString: Shootable
@@ -237,6 +238,7 @@ MonoBehaviour:
   topJaw: {fileID: 0}
   bottomJaw: {fileID: 0}
   powerupUI: {fileID: 0}
+  canAttack: 0
 --- !u!82 &6987656804912081267
 AudioSource:
   m_ObjectHideFlags: 0
@@ -349,6 +351,19 @@ MonoBehaviour:
   synchronizeAngularVelocity: 1
   isTeleportEnabled: 1
   teleportIfDistanceGreaterThan: 1
+--- !u!114 &-3195272764024391164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912324462493944343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35306aa566304c9cabeb7fe6154581c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10
 --- !u!1 &5838009499865670002
 GameObject:
   m_ObjectHideFlags: 0

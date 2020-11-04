@@ -1,4 +1,4 @@
-using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +26,11 @@ public class ShootableObject : MonoBehaviour
     [SerializeField] protected PowerupUIController powerupUI;
     private float roundDifficulty;
     private AudioSource audio;
-
+    
+    public bool canAttack = false;
+    private PhotonView photonView;
     void Awake() {
+
       rb = this.gameObject.GetComponent<Rigidbody>();
       deathParticles = this.gameObject.GetComponentInChildren<ParticleSystem>();
       rotateOnY = this.GetComponent<RotateOnY>();
@@ -40,19 +43,34 @@ public class ShootableObject : MonoBehaviour
    //   healthController = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
       scaleFactor = GameObject.Find("GameZone(Clone)").transform.localScale.x * 20;
       anim = this.GetComponent<Animator>();
+
         //mahnoor
+        photonView = GetComponent<PhotonView>();
       topJaw = GameController.instance.topJaw;
         bottomJaw = GameController.instance.bottonJaw;
       powerupUI = GameController.instance.powerUpUI;
         //endmahnoor
       roundDifficulty = 56 - (10 * 4); //56 - 4x
       audio = this.GetComponent<AudioSource>();
+        
     }
 
     public virtual void Update() {
       if (this.gameObject.transform.position.y > initialY + (scaleFactor / 8) && !objectIsAttacking) {
-        StartCoroutine(Attack());
-      }
+            //if (PhotonNetwork.isMasterClient)
+            //{
+                if (canAttack)
+                {
+                    StartCoroutine(Attack());
+                   // return;
+                }
+            //}
+            //else {
+            //    Debug.Log("Non master");
+            //    StartCoroutine(Attack());
+            //}
+          
+        }
     }
 
     public virtual void Fire() {
@@ -60,17 +78,25 @@ public class ShootableObject : MonoBehaviour
     }
 
     public virtual void OnTriggerEnter(Collider col) {
+
       if (col.tag == "Bullet" && objectCanBeShot) {
         objectCanBeShot = false;
         isDying = true;
-            GameController.instance.AddScore();
-     //   int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
-     //   scoreController.AddScore(scoreToAdd);
-        StartCoroutine(EnemyDeath());
+           
+            //   int scoreToAdd = Convert.ToInt32(this.gameObject.name.Substring(0, 1));
+            //   scoreController.AddScore(scoreToAdd);
+            if (PhotonNetwork.player.IsLocal)
+            {
+                Debug.Log("I killed ghost");
+                GameController.instance.AddScore();
+                photonView.RPC("Die", PhotonTargets.All);
+            }
       }
+
     }
 
     private IEnumerator Attack() {
+
       objectIsAttacking = true;
       rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
@@ -135,9 +161,17 @@ public class ShootableObject : MonoBehaviour
     public void VanishOnRoundEnd() {
       StartCoroutine(Vanish());
     }
-
+    //dieing
+    //mahnoor
+    [PunRPC]
+    void Die() {
+        Debug.Log("Die RPC is called");
+        StartCoroutine(EnemyDeath());
+    }
+    //end mahnoor
     protected IEnumerator EnemyDeath() {
-      rb.velocity = Vector3.zero;
+        Debug.Log("Die RPC is here");
+        rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
       rotateOnY.enabled = true;
       deathParticles.Play();
@@ -147,6 +181,8 @@ public class ShootableObject : MonoBehaviour
         rotateOnY.Speed += 1f;
         yield return new WaitForSeconds(0.01f);
       }
+
       Destroy(this.gameObject);
+
     }
 }

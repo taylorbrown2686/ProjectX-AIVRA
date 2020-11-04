@@ -11,11 +11,18 @@ public class Shooter : MonoBehaviour
 
 
     public void PrepareFire() {
-        
-      spawnedShootable = PhotonNetwork.Instantiate(GetRandomShootableObject().name,
-        this.transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity,0);
-    //    spawnedShootable.transform.SetParent(this.transform);
-      spawnedShootable.GetComponent<ShootableObject>().Fire();
+
+        if (PhotonNetwork.isMasterClient) {
+            spawnedShootable = PhotonNetwork.Instantiate(GetRandomShootableObject().name,
+              this.transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity, 0);
+            //    spawnedShootable.transform.SetParent(this.transform);
+          //  if (PhotonNetwork.isMasterClient) {
+            
+               spawnedShootable.GetComponent<ShootableObject>().canAttack = false;
+           
+          //  }
+            spawnedShootable.GetComponent<ShootableObject>().Fire();
+        }
     }
 
     //This method returns an object in shootableObjects, with weights to modify frequency of certain objects

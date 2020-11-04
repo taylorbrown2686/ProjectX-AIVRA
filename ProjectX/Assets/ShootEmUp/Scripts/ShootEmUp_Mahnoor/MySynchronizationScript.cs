@@ -36,8 +36,8 @@ public class MySynchronizationScript : PunBehaviour, IPunObservable
     {
         if (!photonView.isMine)
         {
-            rb.position = Vector3.MoveTowards(rb.position, networkedPosition, distance * (1.0f / PhotonNetwork.sendRateOnSerialize));
-            rb.rotation = Quaternion.RotateTowards(rb.rotation, networkedRotation, angle * (1.0f / PhotonNetwork.sendRateOnSerialize));
+            rb.position = Vector3.MoveTowards(rb.position, networkedPosition, distance * (1.0f / PhotonNetwork.sendRate));
+            rb.rotation = Quaternion.RotateTowards(rb.rotation, networkedRotation, angle * (1.0f / PhotonNetwork.sendRate));
         }
     }
 
@@ -55,7 +55,8 @@ public class MySynchronizationScript : PunBehaviour, IPunObservable
               
             }
 
-            if (synchronizeAngularVelocity) {
+            if (synchronizeAngularVelocity)
+            {
                 stream.SendNext(rb.angularVelocity);
             }
 

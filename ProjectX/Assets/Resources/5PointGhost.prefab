@@ -4929,6 +4929,8 @@ GameObject:
   - component: {fileID: -5095634511005201607}
   - component: {fileID: -8565869560121868368}
   - component: {fileID: 2608294413419501109}
+  - component: {fileID: -7995309125218244666}
+  - component: {fileID: 8644504857854702675}
   m_Layer: 0
   m_Name: 5PointGhost
   m_TagString: Shootable
@@ -4990,6 +4992,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
+  - {fileID: -7995309125218244666}
   - {fileID: 6960575541199589923}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
@@ -5055,6 +5058,7 @@ MonoBehaviour:
   topJaw: {fileID: 0}
   bottomJaw: {fileID: 0}
   powerupUI: {fileID: 0}
+  canAttack: 0
 --- !u!95 &-8565869560121868368
 Animator:
   serializedVersion: 3
@@ -5170,6 +5174,35 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-7995309125218244666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960575541199949315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10884c3e61ff44bb930038cab5044dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  synchronizeVelocity: 1
+  synchronizeAngularVelocity: 0
+  isTeleportEnabled: 1
+  teleportIfDistanceGreaterThan: 1
+--- !u!114 &8644504857854702675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6960575541199949315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d35306aa566304c9cabeb7fe6154581c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 15
 --- !u!1 &6960575541199949317
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class RotateOnY : MonoBehaviour
     public float Speed {get => speed; set => speed = value;}
 
     void Update() {
+      //  GetComponent<Rigidbody>().rotation = 
       this.transform.Rotate(0, speed, 0);
     }
 }
