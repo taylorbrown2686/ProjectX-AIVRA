@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5587076485332354857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5587076485332354858}
+  - component: {fileID: 5587076485332354859}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5587076485332354858
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587076485332354857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 317.56247, y: -143.61673, z: -415.25894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5587076485332354859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5587076485332354857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894d3010696573149a4f8bb17c58e4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plane: {fileID: 0}
+  deer: {fileID: 7072161013622311486, guid: 5ce3eee861299ca49acfeab8a6040fb4, type: 3}
+  doe: {fileID: 8035404180467916986, guid: 6d6b5872c20b02f47b27f8b3a0608d56, type: 3}
+  pig: {fileID: 0}
+  duck: {fileID: 483428839540628621, guid: c7f7a51ca7d39b945845d5e551578441, type: 3}
+  deerShoot: []
+  food: {fileID: 7025767334833023883, guid: b9b0a22f49ba82f47baf70cb63d17af2, type: 3}
+  exitPoint: {fileID: 6021979767419132767, guid: 2c6c221e3f752504f9fd8eb43075397e,
+    type: 3}
+  tree: {fileID: 4233598624521623350, guid: 87c2633e76ece5440a52168e911b006d, type: 3}
+  depthMask: {fileID: 0}
+  gun: {fileID: 0}
+  levelText: {fileID: 0}
+  countdownSprites:
+  - {fileID: 21300000, guid: 0cb6246b2204e3040800db513f2f8999, type: 3}
+  - {fileID: 21300000, guid: d2c69648a864b22458a648bf76d4270b, type: 3}
+  - {fileID: 21300000, guid: dfe126a14fab9934a90dd1cafa64b3f4, type: 3}
+  gameOverSprite: {fileID: 21300000, guid: 64c7685bfcfb532498f7a577dbbf6ddc, type: 3}
+  imageToDisplay: {fileID: 0}
