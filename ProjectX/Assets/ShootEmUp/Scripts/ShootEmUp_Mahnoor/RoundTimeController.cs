@@ -63,7 +63,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     {
 		this.turnManager = this.gameObject.AddComponent<PunTurnManager>();
         this.turnManager.TurnManagerListener = this;
-        this.turnManager.TurnDuration = 30f;
+        this.turnManager.TurnDuration = 15f;
         
        
         //this.localSelectionImage.gameObject.SetActive(false);
@@ -256,7 +256,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 
         //	IsShowingResults = true;
         int turn = turnManager.Turn;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(5.0f);
         Debug.Log("New Turn Starts");
        
         if (turn <= 10)

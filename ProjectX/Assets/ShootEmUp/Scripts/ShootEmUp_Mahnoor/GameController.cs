@@ -7,6 +7,7 @@ using ExitGames.Client.Photon;
 public enum GameState
 {
     Started,
+    Paused,
     Ended
 }
 
@@ -100,13 +101,15 @@ public class GameController : PunBehaviour
         TimeUpImage.SetActive(true);
         totalScore = score;
         totalScoreText.text = "Score: "+ totalScore;
+        gameState = GameState.Paused;
     }
 
     //called after every round
     public void RoundStart() {
         TimeUpImage.SetActive(false);
         health = 4;
-      //  score = 0;
+        gameState = GameState.Started;
+        //  score = 0;
     }
 
     //call this to end the game
