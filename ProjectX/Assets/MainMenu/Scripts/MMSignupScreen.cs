@@ -10,6 +10,10 @@ public class MMSignupScreen : MonoBehaviour
     [SerializeField] private Text errorText;
     private bool isBusiness = false;
 
+    void OnEnable() {
+      MMUIController.Instance.storedFields.Clear();
+    }
+
     void Update() {
       if (Input.GetKeyDown(KeyCode.Escape)) {
         MMUIController.Instance.ChangeScreen(0); //Main
@@ -25,6 +29,8 @@ public class MMSignupScreen : MonoBehaviour
         MMUIController.Instance.AddValueToStoredFields("phoneNumber", phoneNumber.text);
         MMUIController.Instance.AddValueToStoredFields("businessName", businessName.text);
         MMUIController.Instance.AddValueToStoredFields("businessAddress", businessAddress.text);
+        MMUIController.Instance.businessAddress = businessAddress.text;
+        MMUIController.Instance.email = email.text;
         if (isBusiness) {
           MMUIController.Instance.ChangeScreen(5);
         } else {

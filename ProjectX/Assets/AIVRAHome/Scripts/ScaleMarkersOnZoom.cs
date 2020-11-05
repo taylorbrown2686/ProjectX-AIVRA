@@ -6,7 +6,7 @@ public class ScaleMarkersOnZoom : MonoBehaviour
 {
       public int defaultZoom = 18;
       [SerializeField] private OnlineMapsMarkerManager markerManager;
-      [SerializeField] private MarkerCreator markerCreator;
+      //[SerializeField] private MarkerCreator markerCreator;
 
       private void Start()
       {

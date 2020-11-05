@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer;
+    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, businessContainer;
     private string previousPage, currentPage;
 
     void Start() {
@@ -45,6 +45,12 @@ public class UIController : MonoBehaviour
           currentPage = "Entertainment";
           gamesContainer.SetActive(true);
         break;
+
+        case "Business":
+          previousPage = currentPage;
+          currentPage = "Business";
+          businessContainer.SetActive(true);
+        break;
       }
     }
 
@@ -53,5 +59,6 @@ public class UIController : MonoBehaviour
       mapContainer.SetActive(false);
       gamesContainer.SetActive(false);
       dealsContainer.SetActive(false);
+      businessContainer.SetActive(false);
     }
 }

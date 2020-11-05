@@ -9,8 +9,10 @@ namespace InfinityCode.OnlineMapsExamples
     /// Example of how to create a marker on click.
     /// </summary>
     [AddComponentMenu("Infinity Code/Online Maps/Examples (API Usage)/CreateMarkerOnClick")]
-    public class CreateMarkerOnClick:MonoBehaviour
+    public class CreateAndScaleMarker:MonoBehaviour
     {
+        private OnlineMapsMarker createdMarker;
+
         private void Start()
         {
             // Subscribe to the click event.
@@ -22,10 +24,8 @@ namespace InfinityCode.OnlineMapsExamples
             // Get the coordinates under the cursor.
             double lng, lat;
             OnlineMapsControlBase.instance.GetCoords(out lng, out lat);
-
             // Create a label for the marker.
             string label = "Marker " + (OnlineMapsMarkerManager.CountItems + 1);
-
             // Create a new marker.
             OnlineMapsMarkerManager.CreateItem(lng, lat, label);
         }

@@ -27,7 +27,13 @@ public class MMLoginScreen : MonoBehaviour
     }
 
     public void ForgotPassword() {
-      MMUIController.Instance.ChangeScreen(3); //Forgot Pass
+      if (username.text.Contains("@") && username.text.Contains(".")) {
+        Email email = new Email();
+        email.SendResetPasswordEmail(username.text, Random.Range(100000, 999999));
+        MMUIController.Instance.ChangeScreen(3); //Forgot Pass
+      } else {
+        errorText.text = "Please enter a valid email address to send a confirmation email to.";
+      }
     }
 
     private string VerifyFields() {

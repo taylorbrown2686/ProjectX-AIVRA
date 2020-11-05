@@ -2,13 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 //PAGE INDEXES: Main-0, Login-1, ConfirmAccount-2, ForgotPassword-3, Signup-4, BusinessMap-5, Credentials-6, VerifyingCreation-7
 public class MMUIController : MonoBehaviour
 {
     [SerializeField] private GameObject[] screens;
-    protected Dictionary<string, string> storedFields = new Dictionary<string, string>();
+    public Dictionary<string, string> storedFields = new Dictionary<string, string>();
+    public string businessAddress; //needed for geocoding with google
+    public string email; //needed for sending confirmation email
 
     private static MMUIController instance = null;
 
@@ -34,62 +37,36 @@ public class MMUIController : MonoBehaviour
     }
 
     public void AddValueToStoredFields(string fieldKey, string fieldValue) {
+      string formattedValue = null;
+      TextInfo ti = new CultureInfo("en-US", false).TextInfo;
       int i = 0;
       switch (fieldKey) {
-
-        case "FirstName":
-          foreach (char c in fieldValue) {
-            if (i == 0) {
-              Char.ToUpper(c);
-            } else {
-              Char.ToLower(c);
-            }
-            i++;
-          }
-          //storedFields.Add();
+        case "birthday":
+          formattedValue = DateTime.Parse(fieldValue).ToString("MM/dd/yyyy");
         break;
 
-        case "LastName":
-          foreach (char c in fieldValue) {
-            if (i == 0) {
-              Char.ToUpper(c);
-            } else {
-              Char.ToLower(c);
-            }
-            i++;
-          }
-          //storedFields.Add();
+        case "phoneNumber":
+          formattedValue = fieldValue.Replace(@"/[^0-9]/g", "");
         break;
 
-        case "Birthday":
-          fieldValue = DateTime.Parse(fieldValue).ToString("MM/dd/yyyy");
-          //storedFields.Add();
+        case "businessName":
+          formattedValue = ti.ToTitleCase(fieldValue);
         break;
 
-        case "Email":
-          //storedFields.Add();
+        case "businessAddress":
+          formattedValue = ti.ToTitleCase(fieldValue);
         break;
+      }
+      if (formattedValue == null) {
+        storedFields.Add(fieldKey, fieldValue);
+      } else {
+        storedFields.Add(fieldKey, formattedValue);
+      }
+    }
 
-        case "PhoneNumber":
-          //storedFields.Add();
-        break;
-
-        case "BusinessName":
-          //storedFields.Add();
-        break;
-
-        case "BusinessAddress":
-          //storedFields.Add();
-        break;
-
-        case "Username":
-          //storedFields.Add();
-        break;
-
-        case "Password":
-          //storedFields.Add();
-        break;
-
+    public void DebugAllDictValues() {
+      foreach (KeyValuePair<string, string> pair in storedFields) {
+        Debug.Log(pair.Key + ", " + pair.Value);
       }
     }
 }

@@ -191,7 +191,7 @@ public class OnlineMapsMarkerManager : OnlineMapsMarkerManagerBase<OnlineMapsMar
     {
         base.Start();
         //mapPlane = GameObject.Find("MapPlane").GetComponent<AdjustMap>();
-        provider = GameObject.Find("ARLocationRoot").GetComponent<ARLocationProvider>();
+        //provider = GameObject.Find("ARLocationRoot").GetComponent<ARLocationProvider>();
         markerImages = this.gameObject.GetComponent<MarkerImages>();
 
         foreach (OnlineMapsMarker marker in items)
