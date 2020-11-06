@@ -15,14 +15,31 @@ public class SpawnGameZone : MonoBehaviour
     private float initialDistance;
     private Vector3 initialScale;
 
-    public Text tutorialText;
+    public GameObject tutorialPanel;
 
     public ARPlaneManager planeManager;
     public ARRaycastManager raycastManager;
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    //mahnoor
+    [SerializeField]
+    private InputField nameInputField;
+    [SerializeField]
+    private GameObject namePanel;
+    //end mahnoor
 
     void Start() {
-      tutorialText.gameObject.SetActive(true);
+        if (!PlayerPrefs.HasKey("Name"))
+        {
+            namePanel.SetActive(true);
+
+            // tutorialCanvas.SetActive(false);
+        }
+        else
+        {
+            tutorialPanel.SetActive(true);
+            namePanel.SetActive(false);
+        }
+    //    tutorialText.gameObject.SetActive(true);
       spawnedGame = Instantiate(gameZone, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("AR Session Origin").transform);
     }
 
@@ -69,9 +86,25 @@ public class SpawnGameZone : MonoBehaviour
         plane.gameObject.SetActive(false);
       }
       planeManager.enabled = false;
-      tutorialText.gameObject.SetActive(false);
-      spawnedGame.GetComponent<InitializeGame>().InitializeUI();
-      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
+        tutorialPanel.gameObject.SetActive(false);
+      spawnedGame.GetComponent<InitializeGame>().InitializeGameUI();
+     // spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
       Destroy(this);
     }
+
+    //mahnoor
+    public void BeginCallback()
+    {
+
+        string name = nameInputField.text;
+
+        if (!string.IsNullOrEmpty(name) && !string.IsNullOrWhiteSpace(name))
+        {
+            PlayerPrefs.SetString("Name", name);
+            namePanel.SetActive(false);
+            tutorialPanel.SetActive(true);
+        }
+
+    }
+    //end mahnoor
 }

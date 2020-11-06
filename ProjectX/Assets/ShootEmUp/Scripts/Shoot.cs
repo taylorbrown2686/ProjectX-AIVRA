@@ -15,44 +15,72 @@ public class Shoot : MonoBehaviour
     public int CurrentAmmo {set => currentAmmo = value;} //Used for RoundController to reset ammo at each round
     public string playerName; //Set when players enter game
     public bool useAmmo = true;
-
+   
     private AudioSource source;
+    PhotonView photonview;
     [SerializeField] private AudioClip gunshotSound, reloadSound;
 
     void Awake() {
       source = Camera.main.GetComponent<AudioSource>();
-      playerName = this.gameObject.name; //Ambiguous, but assigning to a variable improves readability
+        photonview = GetComponent<PhotonView>();
+       // playerName = this.gameObject.name; //Ambiguous, but assigning to a variable improves readability
+        if (ammoText == null)
+        {
+            //mahnoor
+            ammoText = GameController.instance.AmmoText;
+            //end mahnoor
+        }
+
     }
 
     void Update() {
       if (!useAmmo) {
         Debug.Log("inf ammo");
       }
-
-      if (ammoText == null) {
-        ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+        if (photonview.isMine)
+        {
+            if (Input.GetMouseButtonDown(0) && GameController.instance.gameState == GameState.Started)
+            {
+                photonview.RPC("Fire", PhotonTargets.All);
+                //Fire();
+            }
       }
 
-      if (Input.touchCount == 1) {
-        Touch touch = Input.GetTouch(0);
-        if (canShoot && currentAmmo != 0) {
-          if (useAmmo) {
-            currentAmmo -= 1;
-          } else {
-            currentAmmo = currentAmmo;
-          }
-          GameObject newBullet = Instantiate(bullet, Camera.main.transform.position, Camera.main.transform.rotation);
-          //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
-          newBullet.GetComponent<Bullet>().shotBy = playerName;
-          newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1000);
-          PlaySound(gunshotSound);
-          StartCoroutine(DelayShooting());
-        }
-      }
       if (currentAmmo == 0 && !isReloading) {
         StartCoroutine(Reload());
       }
-      ammoText.text = currentAmmo + "/" + maxAmmo;
+      if(ammoText != null)
+        ammoText.text = currentAmmo + "/" + maxAmmo;
+    }
+
+    [PunRPC]
+    private void Fire() {
+
+
+        if (photonview.isMine)
+        {
+            if (canShoot && currentAmmo != 0)
+            {
+
+                if (useAmmo)
+                {
+                    currentAmmo -= 1;
+                }
+                else
+                {
+                    currentAmmo = currentAmmo;
+                }
+
+                GameObject newBullet = PhotonNetwork.Instantiate(bullet.name, Camera.main.transform.position, Camera.main.transform.rotation, 0);
+                //newBullet.transform.rotation = Quaternion.Euler(0, 90, 0);
+                newBullet.GetComponent<Bullet>().shotBy = playerName;
+                newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1000);
+                StartCoroutine(DelayShooting());
+            }
+        }
+
+        PlaySound(gunshotSound);
+        
     }
 
     private IEnumerator DelayShooting() {

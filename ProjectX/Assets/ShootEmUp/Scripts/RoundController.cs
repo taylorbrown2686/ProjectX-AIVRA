@@ -33,6 +33,7 @@ public class RoundController : MonoBehaviour
     }
 
     void Start() {
+
       foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
         Shoot playerShoot = player.GetComponent<Shoot>();
         playerShoot.enabled = false;
@@ -41,9 +42,11 @@ public class RoundController : MonoBehaviour
         scoreController = player.GetComponent<ScoreController>();
         healthController = player.GetComponent<HealthController>();
       }
+      
     }
 
     void Update() {
+
       if (roundIsActive) {
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
           Shoot playerShoot = player.GetComponent<Shoot>();
@@ -61,6 +64,7 @@ public class RoundController : MonoBehaviour
         StartCoroutine(StartRound());
         gameReadyToStart = false;
       }
+
     }
 
     public IEnumerator StartRound() {
@@ -116,5 +120,24 @@ public class RoundController : MonoBehaviour
           yield return new WaitForSeconds(0.01f);
         }
       }
+    }
+
+    public void startCountDown() {
+        StartCoroutine(CountDownRoutine());
+    }
+    IEnumerator CountDownRoutine() {
+        //Round start
+        countdownImages[0].SetActive(true); //Ready-aim-fire countdown
+        yield return new WaitForSeconds(1.5f);
+        countdownImages[0].SetActive(false);
+        countdownImages[1].SetActive(true);
+        yield return new WaitForSeconds(1.25f);
+        countdownImages[1].SetActive(false);
+        countdownImages[2].SetActive(true);
+        roundIsActive = true;
+        yield return new WaitForSeconds(1f);
+        countdownImages[2].SetActive(false);
+        yield return new WaitForSeconds(roundLength);
+        //Round end
     }
 }
