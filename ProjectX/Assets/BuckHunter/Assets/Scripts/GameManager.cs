@@ -1,14 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
 
     private int score = 0;
 
+    public Canvas StateSelectionCanvas;
+
+
+    State[] state;
+    State selectedState;
+
+    DeerStats[] smallDeer;
+    DeerStats[] mediumDeer;
+    DeerStats[] largeDeer;
     public GameObject plane;
     public GameObject deer;
     public GameObject doe;
@@ -21,6 +32,8 @@ public class GameManager : MonoBehaviour
     public GameObject exitPoint;
     private GameObject[] exit;
     public GameObject tree;
+    public GameObject tree1;
+    public GameObject tree2;
     public Shader depthMask;
     GameObject[] animal;
     public Gun gun;
@@ -42,7 +55,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite[] countdownSprites;
     [SerializeField] private Sprite gameOverSprite;
     [SerializeField] private Image imageToDisplay;
+    int[] deerScores;
 
+    public ButtonManager buttonManager;
+    public RoundEndManager rem;
 
 
     private static GameManager _instance;
@@ -74,29 +90,44 @@ public class GameManager : MonoBehaviour
             scale = Mathf.Sqrt(plane.transform.parent.transform.localScale.x* plane.transform.parent.transform.localScale.z)/2;
             gun.SetScale(scale);
             _instance = this;
-            treeList = new List<GameObject>();
-            foodList = new List<GameObject>();
-            ui = GameObject.FindGameObjectWithTag("text");
-            text = ui.GetComponent<Text>();
-            exit = new GameObject[4];
+            
             audioSource = this.gameObject.GetComponent<AudioSource>();
             imageToDisplay = GameObject.Find("CenterImage").GetComponent<Image>();
             imageToDisplay.gameObject.SetActive(false);
 
+            smallDeer = new DeerStats[5];
+            mediumDeer = new DeerStats[5];
+            largeDeer = new DeerStats[5];
 
-            levelText.text = "Round 1 Loading";
-            levelText.gameObject.SetActive(true);
+            smallDeer[0] = new DeerStats(160, 6, 380);
+            smallDeer[1] = new DeerStats(165, 6, 400);
+            smallDeer[2] = new DeerStats(170, 6, 420);
+            smallDeer[3] = new DeerStats(172, 6, 425);
+            smallDeer[4] = new DeerStats(175, 6, 430);
 
-            round = new Round[4];
+            mediumDeer[0] = new DeerStats(179, 10, 458);
+            mediumDeer[1] = new DeerStats(181, 8, 462);
+            mediumDeer[2] = new DeerStats(182, 6, 468);
+            mediumDeer[3] = new DeerStats(185, 8, 480);
+            mediumDeer[4] = new DeerStats(189, 8, 499);
 
-            round[0] = new Round(3, 3, 0);// number of deers,does,pigs
-            round[1] = new Round(3, 4, 0);
-            round[2] = new Round(3, 5, 0);
-            round[3] = new Round(0, 0, 6);
+            largeDeer[0] = new DeerStats(220, 10, 620);
+            largeDeer[1] = new DeerStats(236, 12, 682);
+            largeDeer[2] = new DeerStats(292, 14, 807);
+            largeDeer[3] = new DeerStats(325, 12, 932);
+            largeDeer[4] = new DeerStats(366, 14, 1095);
 
-            StartCoroutine(StartNewRound());
+            state = new State[5];
 
+            state[0] = new State("wisconsin", tree1, null);
+            state[1] = new State("michigan", tree1, null);
+            state[2] = new State("minnesota", tree2, null);
+            state[3] = new State("awoi", tree2, null);
+            state[4] = new State("illinois", tree2, null);
 
+        //    buttonManager.StateCompleted("michigan",1556);
+
+            StateSelectionCanvas.gameObject.SetActive(true);
 
         }
     }
@@ -117,6 +148,7 @@ public class GameManager : MonoBehaviour
         animal = new GameObject[round[roundIndex].total];
         for (int i = 0; i < round[roundIndex].numberOfDeers; i++) {
             animal[i] = InstantiateDeer();
+            animal[i].GetComponent<Sheep>().SetScore(deerScores[i]);
          //   animal[i].GetComponent<Sheep>().deerShot = deerShoot[i];
         }
         foreach (DeerShoot ds in deerShoot)
@@ -180,6 +212,9 @@ public class GameManager : MonoBehaviour
         if (endRound== true || huntCounter >= round[roundIndex].total) {
             gun.CanShoot(false);
             EndRound();
+
+            
+
             treeList = new List<GameObject>();
             foodList = new List<GameObject>();
             ui = GameObject.FindGameObjectWithTag("text");
@@ -209,18 +244,43 @@ public class GameManager : MonoBehaviour
                 imageToDisplay.gameObject.SetActive(true);
                 imageToDisplay.sprite = gameOverSprite;
                 levelText.gameObject.SetActive(true);
+                selectedState.score = score;
+                buttonManager.StateCompleted(selectedState.name, selectedState.score);
+
+                roundIndex = 0;
+                huntCounter = 0;
+                deerCounter = 0;
+                escapedDeerCounter = 0;
+                bonus = true;
+
+                StateSelectionCanvas.gameObject.SetActive(true);
             }
             else {
 
                 doeKilled = false;
                 levelText.gameObject.SetActive(true);
-                StartCoroutine(StartNewRound());
-                huntCounter = 0;
-                deerCounter = 0;
+
+                rem.gameObject.SetActive(true);
+                rem.Transfer();
+                Debug.Log("sdfsdfds");
+                StartCoroutine(RoundBreak());
+                
             }
 
         }
 
+    }
+
+    IEnumerator RoundBreak()
+    {
+
+        
+        yield return new WaitForSeconds(5);
+        rem.Restart();
+        rem.gameObject.SetActive(false);
+        StartCoroutine(StartNewRound());
+        huntCounter = 0;
+        deerCounter = 0;
     }
 
     public void AddScore(int value)
@@ -365,13 +425,22 @@ public class GameManager : MonoBehaviour
         doeKilled = true;
     }
 
-    public DeerShoot GetDeerShoot(int back,int neck,int head)
+    public DeerShoot GetDeerShoot(int back, int neck, int head, int score, int weight, int antlerPoint)
     {
+     
+        
+        
+
         deerShootCounter++;
 
-        for (int i = 0; i < back; i++)
-            deerShoot[deerShootCounter].ActivatePoint(Random.Range(4, 7));
-
+        rem.text[deerShootCounter].text = antlerPoint + " point\n" +
+                                          weight +  " 234 lbs\n" +
+                                           "shots: "+ back + neck + head +"\n" +
+                                           "score: " + (score + head*50) ;
+        deerShoot[deerShootCounter].gameObject.SetActive(true);
+        for (int i = 0; i < back; i++) { 
+            deerShoot[deerShootCounter].ActivatePoint(Random.Range(4, 7));  
+        }
         for (int i = 0; i < neck; i++)
             deerShoot[deerShootCounter].ActivatePoint(Random.Range(1, 4));
 
@@ -381,13 +450,114 @@ public class GameManager : MonoBehaviour
         return deerShoot[deerShootCounter];
     }
 
+    public void ChooseState(string stateName)
+    {
+        Debug.Log(stateName);
+
+        selectedState = state[0];
+
+        foreach (State st in state)
+            if(st.name == stateName)
+            {
+                selectedState = st;
+                break;
+            }
+
+        
+        tree = selectedState.tree;
+
+
+        StateSelectionCanvas.gameObject.SetActive(false);
+        treeList = new List<GameObject>();
+        foodList = new List<GameObject>();
+        ui = GameObject.FindGameObjectWithTag("text");
+        text = ui.GetComponent<Text>();
+        exit = new GameObject[4];
+        levelText.text = "Round 1 Loading";
+        levelText.gameObject.SetActive(true);
+
+        round = new Round[4];
+
+        round[0] = new Round(3, 3, 0);// number of deers,does,pigs
+        round[1] = new Round(3, 4, 0);
+        round[2] = new Round(3, 5, 0);
+        round[3] = new Round(0, 0, 6);
+
+        int smallDeerIndex, mediumDeerIndex, largeDeerIndex;
+
+        do
+        {
+            smallDeerIndex = Random.Range(0, 5);
+        }while (smallDeer[smallDeerIndex].available == false);
+
+        do
+        {
+            mediumDeerIndex = Random.Range(0, 5);
+        } while (mediumDeer[mediumDeerIndex].available == false);
+
+        do
+        {
+            largeDeerIndex = Random.Range(0, 5);
+        } while (largeDeer[largeDeerIndex].available == false);
+
+
+        deerScores = new int[3];
+
+        smallDeer[smallDeerIndex].available = false;
+        deerScores[0] = smallDeer[smallDeerIndex].point;
+
+        mediumDeer[mediumDeerIndex].available = false;
+        deerScores[1] = mediumDeer[mediumDeerIndex].point;
+
+        largeDeer[largeDeerIndex].available = false;
+        deerScores[2] = largeDeer[largeDeerIndex].point;
+
+        StartCoroutine(StartNewRound());
+    }
+
 
 }
 
 
 struct State
 {
-    public string tree;
+    public string name;
+    public GameObject tree;
+    public GameObject ground;
+    public bool cleared;
+    public int score;
+
+    public State(string name,GameObject tree, GameObject ground)
+    {
+        this.name = name;
+        this.tree = tree;
+        this.ground = ground;
+        cleared = false;
+        score = 0;
+    }
+
+    public void SetScore(int score)
+    {
+        this.score = score;
+    }
+
+}
+
+struct DeerStats
+{
+    public int weight;
+    public int antlerPoint;
+    public int point;
+    public bool available;
+
+    public DeerStats(int weight, int antlerPoint, int point)
+    {
+        this.weight = weight;
+        this.antlerPoint = antlerPoint;
+        this.point = point;
+        available = true;
+    }
+
 }
 
 

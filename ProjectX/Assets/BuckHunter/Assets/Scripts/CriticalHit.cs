@@ -18,17 +18,17 @@ public class CriticalHit : MonoBehaviour
             Sheep deer = parent.gameObject.GetComponent<Sheep>();
             if (type == "head") {
                 deer.head++;
-                deer.Headshot();
+            //    deer.Headshot();
             }
             if (type == "neck") {
                 deer.neck++;
-                deer.Neckshot();
+               // deer.Neckshot();
 
             }
 
             if (deer.enabled == true) {
                 if(deer.kind == "deer")
-                    GameManager.Instance.AddScore(3);
+                    GameManager.Instance.AddScore(50);
                 deer.Die();
             }
         }

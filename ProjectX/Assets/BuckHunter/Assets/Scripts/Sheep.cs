@@ -27,6 +27,9 @@ public class Sheep : MonoBehaviour
     public DeerShoot deerShot;
     private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClips;
+    int weight;
+    int score = 0;
+    int antlerPoint;
 
     public int head=0, back=0, neck=0;
 
@@ -100,6 +103,21 @@ public class Sheep : MonoBehaviour
             rb.AddForce(transform.forward * 20f * scale);
         }
 
+    }
+
+    public void SetScore(int score)
+    {
+        this.score = score;
+    }
+
+    public void SetWeight(int weight)
+    {
+        this.weight = weight;
+    }
+
+    public void SetAntlerPoint(int antlerPoint)
+    {
+        this.antlerPoint = antlerPoint;
     }
 
     public void SetFood(GameObject[] food)
@@ -205,22 +223,22 @@ public class Sheep : MonoBehaviour
     public void Die()
     {
         if(kind == "deer") {
-          deerShot = GameManager.Instance.GetDeerShoot(back, neck, head);
-            deerShot.gameObject.SetActive(true);
-            audioSource.clip = audioClips[0];
-            GameManager.Instance.AddScore(1);
+          deerShot = GameManager.Instance.GetDeerShoot(back, neck, head,score,weight,antlerPoint);
+            //deerShot.gameObject.SetActive(true);
+         //   audioSource.clip = audioClips[0];
+            GameManager.Instance.AddScore(score);
             GameManager.Instance.KilledDeer();
             GameManager.Instance.DeerControl(false);
         }
         else if(kind == "doe"){
-            audioSource.clip = audioClips[1];
+         //   audioSource.clip = audioClips[1];
             GameManager.Instance.AddScore(-1);
             GameManager.Instance.DoeKilled();
             GameManager.Instance.DeerControl(true);
         }
         else
         {
-            audioSource.clip = audioClips[2];
+        //    audioSource.clip = audioClips[2];
             GameManager.Instance.AddScore(2);
             GameManager.Instance.DeerControl(false);
         }
@@ -233,23 +251,6 @@ public class Sheep : MonoBehaviour
         enabled = false;
     }
 
-    public void Headshot()
-    {
-        deerShot.gameObject.SetActive(true);
-        deerShot.ActivatePoint(0);
-    }
-
-    public void Neckshot()
-    {
-        deerShot.gameObject.SetActive(true);
-        deerShot.ActivatePoint(Random.Range(1,4));
-    }
-
-    public void Backshot()
-    {
-        deerShot.gameObject.SetActive(true);
-        deerShot.ActivatePoint(Random.Range(4, 7));
-    }
 
     private void OnDestroy()
     {
