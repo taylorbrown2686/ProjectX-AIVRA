@@ -44,7 +44,7 @@ public class RoundEndManager : MonoBehaviour
             pointTransfer = transferBuckList[k].GetComponent<DeerShoot>().point;
 
 
-            for (int j = 0; j < point.Length; j++) { 
+            for (int j = 0; j  < point.Length; j++) { 
                 point[j].gameObject.SetActive(pointTransfer[j].activeSelf);
                
             }

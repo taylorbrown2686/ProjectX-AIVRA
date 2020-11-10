@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
     bool running;
     int totalNumOfDeers = 3;
     public Text levelText;
+    public Text RoundEndText;
+
     //public Text countDown;
     bool bonus = true;
     Round[] round;
@@ -55,7 +57,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite[] countdownSprites;
     [SerializeField] private Sprite gameOverSprite;
     [SerializeField] private Image imageToDisplay;
+
     int[] deerScores;
+    int[] deerPoints;
+    int[] deerWeights;
 
     public ButtonManager buttonManager;
     public RoundEndManager rem;
@@ -122,7 +127,7 @@ public class GameManager : MonoBehaviour
             state[0] = new State("wisconsin", tree1, null);
             state[1] = new State("michigan", tree1, null);
             state[2] = new State("minnesota", tree2, null);
-            state[3] = new State("awoi", tree2, null);
+            state[3] = new State("iowa", tree2, null);
             state[4] = new State("illinois", tree2, null);
 
         //    buttonManager.StateCompleted("michigan",1556);
@@ -149,7 +154,10 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < round[roundIndex].numberOfDeers; i++) {
             animal[i] = InstantiateDeer();
             animal[i].GetComponent<Sheep>().SetScore(deerScores[i]);
-         //   animal[i].GetComponent<Sheep>().deerShot = deerShoot[i];
+            animal[i].GetComponent<Sheep>().SetScore(deerPoints[i]);
+            animal[i].GetComponent<Sheep>().SetScore(deerWeights[i]);
+            //   animal[i].GetComponent<Sheep>().deerShot = deerShoot[i];
+
         }
         foreach (DeerShoot ds in deerShoot)
             ds.gameObject.SetActive(false);
@@ -226,13 +234,13 @@ public class GameManager : MonoBehaviour
 
             levelText.text = "Round " + (roundIndex+1) + " Loading";
             if (doeKilled == true) {
-                levelText.text += "\nYou killed a doe";
+                levelText.text += "\nYou killed a doe!";
                 bonus = false;
             }
             else
             {
                 if(deerCounter == 0)
-                    levelText.text += "\nThey all got away";
+                    levelText.text += "\nThey all got away!";
                 else
                     levelText.text += "\nYou got " + deerCounter +" deers";
             }
@@ -259,6 +267,7 @@ public class GameManager : MonoBehaviour
 
                 doeKilled = false;
                 levelText.gameObject.SetActive(true);
+                RoundEndText.text = levelText.text;
 
                 rem.gameObject.SetActive(true);
                 rem.Transfer();
@@ -434,8 +443,8 @@ public class GameManager : MonoBehaviour
         deerShootCounter++;
 
         rem.text[deerShootCounter].text = antlerPoint + " point\n" +
-                                          weight +  " 234 lbs\n" +
-                                           "shots: "+ back + neck + head +"\n" +
+                                          weight +  " lbs\n" +
+                                           "shots: "+ (back + neck + head) +"\n" +
                                            "score: " + (score + head*50) ;
         deerShoot[deerShootCounter].gameObject.SetActive(true);
         for (int i = 0; i < back; i++) { 
@@ -502,15 +511,23 @@ public class GameManager : MonoBehaviour
 
 
         deerScores = new int[3];
+        deerPoints = new int[3];
+        deerWeights = new int[3];
 
         smallDeer[smallDeerIndex].available = false;
         deerScores[0] = smallDeer[smallDeerIndex].point;
+        deerPoints[0] = smallDeer[smallDeerIndex].antlerPoint;
+        deerWeights[0] = smallDeer[smallDeerIndex].weight;
 
         mediumDeer[mediumDeerIndex].available = false;
         deerScores[1] = mediumDeer[mediumDeerIndex].point;
+        deerPoints[1] = mediumDeer[mediumDeerIndex].antlerPoint;
+        deerWeights[1] = mediumDeer[mediumDeerIndex].weight;
 
         largeDeer[largeDeerIndex].available = false;
         deerScores[2] = largeDeer[largeDeerIndex].point;
+        deerPoints[2] = largeDeer[largeDeerIndex].antlerPoint;
+        deerWeights[2] = largeDeer[largeDeerIndex].weight;
 
         StartCoroutine(StartNewRound());
     }
