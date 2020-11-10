@@ -21,6 +21,10 @@ public class InitializeGame : MonoBehaviour
         case "RoundController":
           superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoundController>();
         break;
+
+        case "SSRoundController":
+          superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ARMenuEnable>();
+        break;
       }
       superGameManager.enabled = false;
       //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
