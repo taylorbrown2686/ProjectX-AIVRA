@@ -3,7 +3,13 @@ guid: fca5ece2a0c7af349a72b04cbbd9beff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - levelContainer: {instanceID: 0}
+  - mainMenuScene: {instanceID: 0}
+  - player: {instanceID: 0}
+  - playerUI: {fileID: 2094304593617422625, guid: 1b42d1f57e9387944825a6b0ad364d93,
+      type: 3}
+  - areas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

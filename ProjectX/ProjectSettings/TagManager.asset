@@ -17,6 +17,7 @@ TagManager:
   - bullet
   - text
   - GameManager
+  - AttackZone
   layers:
   - Default
   - TransparentFX

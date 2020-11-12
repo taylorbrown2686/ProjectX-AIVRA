@@ -4,33 +4,38 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected float health, currentHealth, speed, timeAlive, points;
+    protected float health, currentHealth, speed, timeAlive, difficultyCurve;
+    protected int points;
     private bool timerCanTick = true;
     protected bool isDying = false;
+    protected bool isAttacking = false;
     protected Rigidbody rb;
     [SerializeField] private GameObject healthBarPlane;
-    private Animator animator;
-    private bool rotateToPathfind = false;
+    protected Animator animator;
+    protected bool rotateToPathfind = false;
+    protected GameObject player;
 
     public virtual void Start() {
       timeAlive = 0;
       points = 1000;
+      difficultyCurve = 1;
       rb = this.GetComponent<Rigidbody>();
       animator = this.gameObject.GetComponent<Animator>();
+      player = GameObject.FindGameObjectWithTag("Player"); //CHANGE IN MULTIPLAYER
       currentHealth = health;
       StartCoroutine(DiminishPoints());
     }
 
-    void Update() {
-      if (Input.GetKeyDown(KeyCode.Y)) {
-        Damage(3);
-      }
+    public virtual void Update() {
       if (timerCanTick) {
         StartCoroutine(TimeAlive());
       }
+      if (ArcadeRoundController.Instance != null) {
+        difficultyCurve = ArcadeRoundController.Instance.difficultyCurve;
+      }
       healthBarPlane.transform.localScale = new Vector3(currentHealth / health, 1, 1);
-      if (currentHealth <= 0) {
-        Death();
+      if (healthBarPlane.transform.localScale.x < 0) {
+        healthBarPlane.transform.localScale = new Vector3(0, 1, 1);
       }
     }
 
@@ -51,11 +56,19 @@ public class Enemy : MonoBehaviour
     protected virtual void Move() {}
     protected virtual void Attack() {}
     protected void Damage(int damage) {
-      animator.SetTrigger("enemyHit");
       currentHealth -= damage;
+      if (currentHealth <= 0) {
+        Death();
+      } else {
+        animator.SetTrigger("enemyHit");
+      }
     }
+
     protected void Death() {
-      animator.SetTrigger("enemyDeath");
+      isDying = true;
+      StartCoroutine(DisableInteractionAndDestroy());
+      SamhainScoreController.Instance.AddScore(points);
+      animator.SetTrigger("enemyDied");
     }
 
     void OnTriggerEnter(Collider col) {
@@ -67,10 +80,14 @@ public class Enemy : MonoBehaviour
         rotateToPathfind = true;
         StartCoroutine(RotateToPathfind());
       }
+      if (col.tag == "AttackZone") {
+        isAttacking = true;
+      }
     }
 
-    void OnTriggerExit(Collider col) {
+    IEnumerator OnTriggerExit(Collider col) {
       if (col.tag == "Obstacle") {
+        yield return new WaitForSeconds(2f);
         rotateToPathfind = false;
       }
     }
@@ -78,7 +95,15 @@ public class Enemy : MonoBehaviour
     private IEnumerator RotateToPathfind() {
       while (rotateToPathfind) {
         this.transform.Rotate(0, 1, 0);
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.05f);
       }
+    }
+
+    private IEnumerator DisableInteractionAndDestroy() {
+      rb.isKinematic = true;
+      rb.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+      this.GetComponent<CapsuleCollider>().enabled = false;
+      yield return new WaitForSeconds(2f);
+      Destroy(this.gameObject);
     }
 }

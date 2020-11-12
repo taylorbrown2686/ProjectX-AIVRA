@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2542642097927648504}
   m_Layer: 0
   m_Name: DEFAULT_PLAYER
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   maxAmmo: 12
   bulletDelay: 0.5
   reloadSpeed: 0.5
+  mapIsOpen: 0
   bullets:
   - {fileID: 3315686521224031360, guid: 03a2afd1ccfa18f4ea469b7ce78a0d9c, type: 3}
   - {fileID: 2710200085869240646, guid: f34ab43ae197d414eaa6ebf957982e80, type: 3}

@@ -20,7 +20,7 @@ public class MasterSpawner : MonoBehaviour
     private IEnumerator StartSpawn() {
       dontFire = true;
       monsterSpawners[Random.Range(0, monsterSpawners.Length - 1)].Spawn();
-      yield return new WaitForSeconds(2.5f);
+      yield return new WaitForSeconds(3f);
       dontFire = false;
     }
 }

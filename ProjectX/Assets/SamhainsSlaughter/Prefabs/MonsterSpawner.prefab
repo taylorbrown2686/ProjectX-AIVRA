@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96ae68efe18bb8b41b160c114f41249c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 8740318895123758382, guid: 6a15d1bfb40614d4ca4ddc5a9afa1b97, type: 3}
   monsterToSpawn: {fileID: 0}

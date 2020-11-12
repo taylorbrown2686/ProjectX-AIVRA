@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SamhainGun : MonoBehaviour
 {
     //Gun Fields
     [SerializeField] private int maxAmmo;
     private int currentAmmo;
-    [SerializeField] private float bulletDelay; //firerate
+    [SerializeField] private float bulletDelay = 1; //firerate
     [SerializeField] private float reloadSpeed;
     private bool canShoot = true;
     private bool isReloading = false;
+    public bool mapIsOpen = false;
+    private Text ammoText;
 
     //Bullet Fields
     private int damage;
@@ -26,19 +29,29 @@ public class SamhainGun : MonoBehaviour
       if (Input.touchCount == 1 && canShoot) {
         StartCoroutine(Shoot());
       }
+
+      if (ammoText != null) {
+        ammoText.text = currentAmmo + "/" + maxAmmo;
+      } else {
+        if (GameObject.Find("AmmoText") != null) {
+          ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+        }
+      }
     }
 
     private IEnumerator Shoot() {
-      if (currentAmmo != 0) {
-        canShoot = false;
-        GameObject newBullet = Instantiate(activeBullet, Camera.main.transform.position, Camera.main.transform.rotation);
-        newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 2);
-        newBullet.GetComponent<Bullet>().damage = damage;
-        currentAmmo -= 1;
-        yield return new WaitForSeconds(bulletDelay);
-        canShoot = true;
-      } else {
-        StartCoroutine(Reload());
+      if (!mapIsOpen) {
+        if (currentAmmo != 0) {
+          canShoot = false;
+          GameObject newBullet = Instantiate(activeBullet, Camera.main.transform.position, Camera.main.transform.rotation);
+          newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 5);
+          newBullet.GetComponent<Bullet>().damage = damage;
+          currentAmmo -= 1;
+          yield return new WaitForSeconds(bulletDelay);
+          canShoot = true;
+        } else {
+          StartCoroutine(Reload());
+        }
       }
     }
 
