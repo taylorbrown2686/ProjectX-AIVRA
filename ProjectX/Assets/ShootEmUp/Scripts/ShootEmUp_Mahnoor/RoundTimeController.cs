@@ -63,7 +63,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
     {
 		this.turnManager = this.gameObject.AddComponent<PunTurnManager>();
         this.turnManager.TurnManagerListener = this;
-        this.turnManager.TurnDuration = 15f;
+        this.turnManager.TurnDuration = 20f;
         
        
         //this.localSelectionImage.gameObject.SetActive(false);
@@ -259,7 +259,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
         yield return new WaitForSeconds(5.0f);
         Debug.Log("New Turn Starts");
        
-        if (turn <= 10)
+        if (turn <= 5)
         {
             GameController.instance.RoundStart();
         }
@@ -353,26 +353,7 @@ public class RoundTimeController : PunBehaviour, IPunTurnManagerCallbacks
 
   
 
-    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
-    {
-		Debug.Log("Other player arrived");
-
-        if (PhotonNetwork.room.PlayerCount == 2)
-        {
-            if (this.turnManager.Turn == 0)
-            {
-                // when the room has two players, start the first turn (later on, joining players won't trigger a turn)
-               // this.StartTurn();
-            }
-        }
-    }
-
-
-    public override void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
-    {
-		Debug.Log("Other player disconnected! "+otherPlayer.ToStringFull());
-    }
-
+    
 
     public override void OnConnectionFail(DisconnectCause cause)
     {

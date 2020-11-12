@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d35306aa566304c9cabeb7fe6154581c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 15
+  time: 20
 --- !u!1 &2858780633031768979
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,7 +6164,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -24,7 +24,7 @@ public class AddHealth : ShootableObject
 
     public virtual void OnTriggerEnter(Collider col) {
       if (col.tag == "Bullet") {
-        healthController = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<HealthController>();
+      //  healthController = GameObject.Find(col.gameObject.GetComponent<Bullet>().shotBy).GetComponent<HealthController>();
         healthController.PowerUp();
         PowerupUI();
         audio.Play();

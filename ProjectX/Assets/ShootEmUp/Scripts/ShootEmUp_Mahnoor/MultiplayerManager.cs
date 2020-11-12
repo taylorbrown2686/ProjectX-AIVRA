@@ -126,7 +126,8 @@ public class MultiplayerManager : PunBehaviour
 		loadingPanel.SetActive(false);
 		roomPanel.SetActive(true);
 		Debug.Log("Room Joined");
-		
+		PhotonNetwork.player.NickName = PlayerPrefs.GetString("Name");
+		playerName.text = PhotonNetwork.player.NickName;
 		preJoinPanel.SetActive(false);
 		GetComponent<InitializeGame>().InitializeGameUI();
 		GetComponent<InitializeGame>().InitializeGameScripts();

@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿//mahnoor script
+
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon;
 using ExitGames.Client.Photon;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public enum GameState
 {
@@ -31,7 +35,8 @@ public class GameController : PunBehaviour
     [SerializeField]
     private SpawnManager spawnManager;
 
-   
+    public Text messageToPopUp;
+    public GameObject MessagePanel;
     public Text AmmoText; //for shoot.cs
 
     private int score = 0;
@@ -56,6 +61,7 @@ public class GameController : PunBehaviour
     void Start()
     {
         instance = this;
+        //StartCoroutine(PopMessage("THis is a test message"));
     }
 
     //start game button callback (only called by host)
@@ -75,6 +81,7 @@ public class GameController : PunBehaviour
         gameState = GameState.Started;
         waitingForHost.gameObject.SetActive(false);
         spawnManager.Spawn();
+
     }
     
     public void AddScore() {
@@ -118,6 +125,29 @@ public class GameController : PunBehaviour
         endOfGameContainer.SetActive(true);
     }
 
+    private IEnumerator PopMessage(string msg) {
+
+        messageToPopUp.text = msg;
+        MessagePanel.transform.localScale = Vector3.zero;
+        MessagePanel.SetActive(true);
+        while (MessagePanel.transform.localScale.x <= 1)
+        {
+            MessagePanel.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            yield return new WaitForSeconds(0.001f);
+        }
+
+            yield return new WaitForSeconds(5f);
+
+            while (MessagePanel.transform.localScale.x >= 0)
+            {
+                MessagePanel.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+
+                yield return new WaitForSeconds(0.001f);
+            }
+
+        MessagePanel.SetActive(false);
+    }
+
     public override void OnPhotonPlayerPropertiesChanged(object[] playerAndUpdatedProps)
     {
         PhotonPlayer player = playerAndUpdatedProps[0] as PhotonPlayer;
@@ -137,5 +167,17 @@ public class GameController : PunBehaviour
         otherScoreText.text = name + ": " + score;
     }
 
-   
+    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+        Debug.Log("Other player arrived: "+ newPlayer.NickName);
+        
+        StartCoroutine(PopMessage("New Player Arrived: " + newPlayer.NickName));
+    }
+
+
+    public override void OnPhotonPlayerDisconnected(PhotonPlayer otherPlayer)
+    {
+        Debug.Log("Other player disconnected! " + otherPlayer.ToStringFull());
+    }
+
 }

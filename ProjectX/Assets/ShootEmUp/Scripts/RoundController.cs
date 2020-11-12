@@ -29,7 +29,7 @@ public class RoundController : MonoBehaviour
         obj.SetActive(false);
       }
       roundOverImage.SetActive(false);
-      compositeScoreText.enabled = false;
+   //   compositeScoreText.enabled = false;
     }
 
     void Start() {
@@ -93,17 +93,17 @@ public class RoundController : MonoBehaviour
       }
       roundIsActive = false;
       roundOverImage.SetActive(true);
-      compositeScoreText.enabled = true;
-      compositeScoreText.text = scoreController.CompositeScore.ToString();
+      //compositeScoreText.enabled = true;
+     // compositeScoreText.text = scoreController.CompositeScore.ToString();
       for (int i = scoreController.CompositeScore; i < scoreController.CompositeScore + scoreController.CurrentScore; i++) {
-        compositeScoreText.text = "Score: " + i.ToString();
+       // compositeScoreText.text = "Score: " + i.ToString();
         yield return new WaitForSeconds(0.01f);
       }
       yield return new WaitForSeconds(5f);
       roundOverImage.SetActive(false);
-      scoreController.AddScoreToComposite(scoreController.CurrentScore);
+    //  scoreController.AddScoreToComposite(scoreController.CurrentScore);
       scoreController.CurrentScore = 0;
-      compositeScoreText.enabled = false;
+    //  compositeScoreText.enabled = false;
       //Play ad if on the correct round (every 3)
       if (roundsRemaining % 3 == 0) {
         Camera.main.GetComponent<BillboardedAd>().PopulateScreenWithAd();
@@ -115,10 +115,10 @@ public class RoundController : MonoBehaviour
         StartCoroutine(StartRound());
       } else {
         gameOverImage.SetActive(true);
-        for (int i = 0; i < scoreController.CompositeScore; i++) {
-          compositeScoreText.text = "Score: " + i.ToString();
-          yield return new WaitForSeconds(0.01f);
-        }
+        //for (int i = 0; i < scoreController.CompositeScore; i++) {
+        //  compositeScoreText.text = "Score: " + i.ToString();
+        //  yield return new WaitForSeconds(0.01f);
+        //}
       }
     }
 

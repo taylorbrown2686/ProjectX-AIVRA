@@ -148,7 +148,7 @@ public class ShootableObject : MonoBehaviour
       bottomJaw.color = new Color(0, 0, 0, 1f);
     }
 
-    protected IEnumerator Vanish() {
+    public virtual IEnumerator Vanish() {
       isDying = true;
       while (material.color.a > 0) {
         material.color -= new Color(0, 0, 0, .01f);
@@ -172,17 +172,18 @@ public class ShootableObject : MonoBehaviour
     protected IEnumerator EnemyDeath() {
         Debug.Log("Die RPC is here");
         rb.velocity = Vector3.zero;
-      rb.angularVelocity = Vector3.zero;
-      rotateOnY.enabled = true;
-      deathParticles.Play();
-      audio.Play();
-      while (this.transform.localScale.x > 0) {
-        this.transform.localScale -= new Vector3(0.01f, 0.01f, 0.01f);
-        rotateOnY.Speed += 1f;
-        yield return new WaitForSeconds(0.01f);
-      }
+        rb.angularVelocity = Vector3.zero;
+        rotateOnY.enabled = true;
+        deathParticles.Play();
+        audio.Play();
+        while (this.transform.localScale.x > 0)
+        {
+            this.transform.localScale -= new Vector3(0.001f, 0.001f, 0.001f);
+            rotateOnY.Speed += 1f;
+            yield return new WaitForSeconds(0.01f);
+        }
 
-      Destroy(this.gameObject);
+        Destroy(this.gameObject);
 
     }
 }

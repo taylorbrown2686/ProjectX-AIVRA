@@ -12,7 +12,8 @@ public class Shooter : MonoBehaviour
 
     public void PrepareFire() {
 
-        if (PhotonNetwork.isMasterClient) {
+        if (PhotonNetwork.isMasterClient && GameController.instance.gameState == GameState.Started) {
+
             spawnedShootable = PhotonNetwork.Instantiate(GetRandomShootableObject().name,
               this.transform.position + new Vector3(0, 0.2f, 0), Quaternion.identity, 0);
             //    spawnedShootable.transform.SetParent(this.transform);
