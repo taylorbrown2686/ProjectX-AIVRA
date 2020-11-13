@@ -33,11 +33,11 @@ public class Bat : Enemy
     protected override void Attack() {
       animator.SetTrigger("jump");
       rb.useGravity = false;
-      this.transform.LookAt(player.transform);
+      this.transform.LookAt(flyTowards.transform);
       rb.AddForce(transform.forward * speed * 2 * (ScaleFactor.Instance.scaleFactor * 20));
       rb.velocity = Vector3.zero;
       rb.angularVelocity = Vector3.zero;
-      if (Vector3.Distance(this.transform.position, player.transform.position) < 0.1f) {
+      if (Vector3.Distance(this.transform.position, flyTowards.transform.position) < 0.25f) {
         animator.SetTrigger("attackPlayer");
         SamhainHealthController.Instance.DamagePlayer();
         Die();

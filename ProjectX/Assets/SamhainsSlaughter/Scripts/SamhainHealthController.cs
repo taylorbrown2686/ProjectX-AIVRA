@@ -9,6 +9,7 @@ public class SamhainHealthController : MonoBehaviour
     public Image smiley;
     [SerializeField] private Sprite[] smilies;
     private static SamhainHealthController _instance;
+    private bool dead = false;
 
     public static SamhainHealthController Instance {get => _instance;}
 
@@ -25,20 +26,28 @@ public class SamhainHealthController : MonoBehaviour
       smiley.sprite = smilies[health - 1];
     }
 
-    public void DamagePlayer() {
-      health -= 1;
-      if (health <= 0) {
-        EndGame();
-        return;
+    void Update() {
+      if (Input.GetKeyDown(KeyCode.I)) {
+        DamagePlayer();
       }
-      smiley.sprite = smilies[health - 1];
+    }
+
+    public void DamagePlayer() {
+      if (!dead) {
+        health -= 1;
+        if (health <= 0) {
+          dead = true;
+          EndGame();
+          return;
+        }
+        smiley.sprite = smilies[health - 1];
+      }
     }
 
     private void EndGame() {
-      //destroy round controller
-      //turn on death screen
-      //death screen then handles all interactions
-      Debug.Log("you died");
+      var deathUI = Instantiate(GlobalSamhainAssets.Instance.deathUI, Vector3.zero, Quaternion.identity);
+      deathUI.transform.SetParent(GameObject.Find("GameUI").transform, false);
+      Destroy(ArcadeRoundController.Instance);
     }
 
 }

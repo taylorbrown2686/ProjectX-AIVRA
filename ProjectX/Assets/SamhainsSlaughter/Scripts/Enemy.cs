@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     protected bool rotateToPathfind = false;
     protected GameObject player;
+    protected GameObject flyTowards;
 
     public virtual void Start() {
       timeAlive = 0;
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
       rb = this.GetComponent<Rigidbody>();
       animator = this.gameObject.GetComponent<Animator>();
       player = GameObject.FindGameObjectWithTag("Player"); //CHANGE IN MULTIPLAYER
+      flyTowards = GameObject.Find("FlyTowards");
       currentHealth = health;
       StartCoroutine(DiminishPoints());
     }

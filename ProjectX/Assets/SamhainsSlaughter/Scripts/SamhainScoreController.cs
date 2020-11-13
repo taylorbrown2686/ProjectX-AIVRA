@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SamhainScoreController : MonoBehaviour
 {
-    private int score;
+    public int score;
     private static SamhainScoreController _instance;
 
     public static SamhainScoreController Instance {get => _instance;}

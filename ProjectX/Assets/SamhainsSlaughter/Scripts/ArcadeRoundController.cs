@@ -11,7 +11,7 @@ public class ArcadeRoundController : MonoBehaviour
     public GameObject levelContainer;
     public GameObject player;
     public float difficultyCurve = 1;
-    private bool gameHasStarted = false;
+    //private bool gameHasStarted = false;
     private bool increaseDifficulty = true;
     private static ArcadeRoundController _instance;
 
@@ -29,7 +29,7 @@ public class ArcadeRoundController : MonoBehaviour
       levelContainer = GameObject.Find("LevelContainer");
       player = GameObject.FindGameObjectWithTag("Player");
       levels = GlobalSamhainAssets.Instance.areas;
-      var playerUI = Instantiate(GlobalSamhainAssets.Instance.playerUI, Vector3.zero, Quaternion.identity, GameObject.Find("GameUI").transform);
+      var playerUI = Instantiate(GlobalSamhainAssets.Instance.playerUI, Vector3.zero, Quaternion.identity);
       playerUI.transform.SetParent(GameObject.Find("GameUI").transform, false);
       player.AddComponent<SamhainScoreController>();
       var healthCon = player.AddComponent<SamhainHealthController>();
@@ -92,7 +92,7 @@ public class ArcadeRoundController : MonoBehaviour
         break;
         case "Castle":
           selectedLevel = levels[5];
-          //Tell them they can't go here in arcade
+          StartCoroutine(AreaUnavailable());
         break;
         case "MainMenu":
           selectedLevel = levels[6];
@@ -108,8 +108,13 @@ public class ArcadeRoundController : MonoBehaviour
       increaseDifficulty = true;
     }
 
+    private IEnumerator AreaUnavailable() {
+      GameObject.Find("ErrorText").GetComponent<Text>().text = "That area is not available in this mode.";
+      yield return new WaitForSeconds(5f);
+      GameObject.Find("ErrorText").GetComponent<Text>().text = "";
+    }
+
     private IEnumerator NowEnteringCutscene(string level, int areaIndex, string areaName, int enemyIndexOne, int enemyIndexTwo) {
-      //turn on nowenteringscreen, make everything 0 opacity, fade in cooltext, then image and area name, then enemies, then enemy images 1 by 1
       var screen = Instantiate(GlobalSamhainAssets.Instance.nowEnteringUI, Vector3.zero, Quaternion.identity);
       screen.transform.SetParent(GameObject.Find("GameUI").transform, false);
       //play sound
