@@ -14,6 +14,8 @@ public class SamhainGun : MonoBehaviour
     private bool isReloading = false;
     public bool mapIsOpen = false;
     private Text ammoText;
+    private AudioSource audioSource;
+    public AudioClip gunshotSound, reloadSound;
 
     //Bullet Fields
     private int damage;
@@ -22,6 +24,7 @@ public class SamhainGun : MonoBehaviour
     [SerializeField] private GameObject[] bullets;
 
     void Start() {
+      audioSource = Camera.main.gameObject.GetComponent<AudioSource>();
       SwapBulletType("10mm");
     }
 
@@ -46,7 +49,13 @@ public class SamhainGun : MonoBehaviour
           GameObject newBullet = Instantiate(activeBullet, Camera.main.transform.position, Camera.main.transform.rotation);
           newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 5);
           newBullet.GetComponent<Bullet>().damage = damage;
-          currentAmmo -= 1;
+          audioSource.clip = gunshotSound;
+          audioSource.Play();
+          if (GameObject.Find("LevelContainer").transform.GetChild(0).gameObject.name == "MainMenu") {
+            currentAmmo -= 0;
+          } else {
+            currentAmmo -= 1;
+          }
           yield return new WaitForSeconds(bulletDelay);
           canShoot = true;
         } else {
@@ -64,7 +73,8 @@ public class SamhainGun : MonoBehaviour
     public IEnumerator Reload() {
       canShoot = false;
       isReloading = true;
-      //play sound
+      audioSource.clip = reloadSound;
+      audioSource.Play();
       yield return new WaitForSeconds(reloadSpeed);
       currentAmmo = maxAmmo;
       isReloading = false;

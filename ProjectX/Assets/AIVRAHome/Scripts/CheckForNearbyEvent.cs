@@ -39,7 +39,7 @@ public class CheckForNearbyEvent : MonoBehaviour
             }
             gameLockController.UnlockGames(hostedGameTitles);
             //data.OnRadiusEnter.Invoke();
-            aivraSays.StartCoroutine(aivraSays.Say("You are near an event! " + data.HostedEvents[0].EventType + ": " + data.HostedEvents[0].EventTitle));
+            aivraSays.StartCoroutine(aivraSays.Say("You are at: " + data.businessName));
         }
       }
       yield return new WaitForSeconds(5f);
@@ -58,7 +58,7 @@ public class CheckForNearbyEvent : MonoBehaviour
               recentUID = 0;
               gameLockController.LockGames();
               //data.OnRadiusExit.Invoke();
-              aivraSays.StartCoroutine(aivraSays.Say("You are leaving an event area!"));
+              aivraSays.StartCoroutine(aivraSays.Say("You are leaving " + data.businessName + ". Come back soon!"));
           }
         }
       }

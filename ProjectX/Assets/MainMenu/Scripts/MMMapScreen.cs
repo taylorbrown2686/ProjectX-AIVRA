@@ -47,9 +47,9 @@ public class MMMapScreen : MonoBehaviour
           secondStepText.SetActive(true);
         }
       } else {
-        MMUIController.Instance.AddValueToStoredFields("latitude", createdMarker.latitude.ToString());
-        MMUIController.Instance.AddValueToStoredFields("longitude", createdMarker.longitude.ToString());
-        MMUIController.Instance.AddValueToStoredFields("radius", createdMarker.scale.ToString());
+        MMUIController.Instance.AddValueToStoredFields("businessLat", createdMarker.latitude.ToString(), true);
+        MMUIController.Instance.AddValueToStoredFields("businessLng", createdMarker.longitude.ToString(), true);
+        MMUIController.Instance.AddValueToStoredFields("radius", /*createdMarker.scale.ToString()*/"3", true);
         MMUIController.Instance.ChangeScreen(6);
       }
     }
@@ -62,8 +62,6 @@ public class MMMapScreen : MonoBehaviour
           createdMarker = OnlineMapsMarkerManager.CreateItem(lng, lat, label);
         } else {
           createdMarker.SetPosition(lng, lat);
-          //createdMarker.latitude = lat;
-          //createdMarker.longitude = lng;
         }
     }
 }

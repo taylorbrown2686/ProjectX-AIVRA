@@ -644,6 +644,9 @@ MonoBehaviour:
   scoreText: {fileID: 7150398237024448301}
   mainMenuButton: {fileID: 2833550793119183782}
   aivraButton: {fileID: 3370124604800093404}
+  evilLaugh: {fileID: 8300000, guid: 879e0a285bc6c1746b20a08e263fc73d, type: 3}
+  arcadeBlip: {fileID: 8300000, guid: b858e08ac865dd7429872b8bfef02536, type: 3}
+  pizzaAd: {fileID: 8319126262270245720, guid: 66d759d48cf0abd44b17266624408eec, type: 3}
 --- !u!1 &3578541064277697857
 GameObject:
   m_ObjectHideFlags: 0

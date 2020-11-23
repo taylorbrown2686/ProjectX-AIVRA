@@ -16,8 +16,10 @@ public class Bullet : MonoBehaviour
       Destroy(this.gameObject);
     }
 
-    void OnTriggerEnter() {
-      Destroy(this.gameObject);
+    void OnTriggerEnter(Collider col) {
+      if (col.tag != "AttackZone") {
+        Destroy(this.gameObject);
+      }
     }
 
     private IEnumerator DestroyAfterTime() {

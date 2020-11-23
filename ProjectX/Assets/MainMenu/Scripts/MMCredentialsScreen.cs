@@ -17,9 +17,7 @@ public class MMCredentialsScreen : MonoBehaviour
 
     public void Continue() {
       if (VerifyFields() == "No Errors") {
-        MMUIController.Instance.AddValueToStoredFields("username", username.text);
-        MMUIController.Instance.AddValueToStoredFields("password", password.text);
-        MMUIController.Instance.ChangeScreen(7); //Verifying
+        StartCoroutine(CheckDBForDuplicates());
       } else {
         errorText.text = VerifyFields();
       }
@@ -45,5 +43,22 @@ public class MMCredentialsScreen : MonoBehaviour
 
       //}
       return "No Errors";
+    }
+
+    private IEnumerator CheckDBForDuplicates()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("username", username.text);
+        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/checkUsernameExists.php", form);
+        yield return www;
+        if (www.text == "1")
+        {
+            errorText.text = "Your username is already in use.";
+            yield break;
+        }
+        //Add fields and load next screen
+        MMUIController.Instance.AddValueToStoredFields("username", username.text, false);
+        MMUIController.Instance.AddValueToStoredFields("password", password.text, false);
+        MMUIController.Instance.ChangeScreen(7); //Verifying
     }
 }

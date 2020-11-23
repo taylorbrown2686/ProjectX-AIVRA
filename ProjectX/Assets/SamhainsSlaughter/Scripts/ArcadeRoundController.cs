@@ -71,7 +71,7 @@ public class ArcadeRoundController : MonoBehaviour
           areaName = "Haunted Hills";
           areaIndex = 2;
           enemyIndexOne = 2;
-          enemyIndexTwo = -1;
+          enemyIndexTwo = 9;
           StartCoroutine(NowEnteringCutscene(level, areaIndex, areaName, enemyIndexOne, enemyIndexTwo));
         break;
         case "Toxic":
@@ -79,7 +79,7 @@ public class ArcadeRoundController : MonoBehaviour
           areaName = "Cherbonyl Disposal Site";
           areaIndex = 3;
           enemyIndexOne = 3;
-          enemyIndexTwo = -1;
+          enemyIndexTwo = 8;
           StartCoroutine(NowEnteringCutscene(level, areaIndex, areaName, enemyIndexOne, enemyIndexTwo));
         break;
         case "City":
@@ -87,11 +87,11 @@ public class ArcadeRoundController : MonoBehaviour
           areaName = "Necropolis";
           areaIndex = 4;
           enemyIndexOne = 4;
-          enemyIndexTwo = -1;
+          enemyIndexTwo = 7;
           StartCoroutine(NowEnteringCutscene(level, areaIndex, areaName, enemyIndexOne, enemyIndexTwo));
         break;
         case "Castle":
-          selectedLevel = levels[5];
+          //selectedLevel = levels[5];
           StartCoroutine(AreaUnavailable());
         break;
         case "MainMenu":

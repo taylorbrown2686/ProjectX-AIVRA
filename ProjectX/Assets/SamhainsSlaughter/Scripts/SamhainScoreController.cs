@@ -17,6 +17,14 @@ public class SamhainScoreController : MonoBehaviour
       }
     }
 
+    void Update() {
+      if (FindObjectsOfType(typeof(DealProviderFromScore)) != null) {
+        foreach (DealProviderFromScore provider in FindObjectsOfType(typeof(DealProviderFromScore))) {
+          provider.GiveScore(score);
+        }
+      }
+    }
+
     public void AddScore(int scoreToAdd) {
       score += scoreToAdd;
     }

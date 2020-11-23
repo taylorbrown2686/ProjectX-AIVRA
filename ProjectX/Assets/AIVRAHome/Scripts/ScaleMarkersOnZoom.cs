@@ -16,10 +16,11 @@ public class ScaleMarkersOnZoom : MonoBehaviour
 
       private void OnChangeZoom()
       {
-          OnlineMaps map = this.GetComponent<OnlineMaps>();
-          foreach (OnlineMapsMarker marker in markerManager.items)
-          {
+        OnlineMaps map = this.GetComponent<OnlineMaps>();
+        foreach (OnlineMapsMarker marker in markerManager.items)
+        {
             marker.scale = marker.originalRadius / (.0008f * Mathf.Pow(2, 22 - map.zoom));
-          }
+        }
+        
       }
 }

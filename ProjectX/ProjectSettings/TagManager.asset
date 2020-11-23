@@ -18,6 +18,7 @@ TagManager:
   - text
   - GameManager
   - AttackZone
+  - Canvas
   layers:
   - Default
   - TransparentFX
