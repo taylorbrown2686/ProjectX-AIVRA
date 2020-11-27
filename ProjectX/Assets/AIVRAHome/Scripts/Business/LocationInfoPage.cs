@@ -14,18 +14,21 @@ public class LocationInfoPage : MonoBehaviour
     private bool updatingMarker = false;
     private bool updatingLocationInfo = false;
     [SerializeField] private BusinessController businessController;
+    [SerializeField] private OnlineMaps map;
 
     void Start()
     {
         //CHANGE BELOW LATER (FOR MULTIPLE BUSINESSES)
         businessDropdown.ClearOptions();
-        businessDropdown.options.Add(new Dropdown.OptionData() { text = businessController.businessName });
+        foreach (KeyValuePair<string, string> pair in businessController.businessNamesAndAddresses)
+        {
+            businessDropdown.options.Add(new Dropdown.OptionData() { text = pair.Key });
+        }
         currentBusinessAddress.text = businessController.businessAddress;
-
-        FocusedBusinessChanged();
+        businessDropdown.value = 1;
     }
 
-    public void UpdateLocation()
+    /*public void UpdateLocation()
     {
         if (!updatingLocationInfo)
         {
@@ -38,9 +41,38 @@ public class LocationInfoPage : MonoBehaviour
         {
             updatingLocationInfo = false;
             updateLocationInfoWindow.SetActive(false);
-            //send changes to DB
+            if (businessController.businessName != editBusinessName.text)
+            {
+                if (businessController.businessAddress != editBusinessAddress.text)
+                {
+                    Debug.Log("UPDATE BOTH");
+                } 
+                else
+                {
+                    Debug.Log("UPDATE NAME");
+                }
+            }
+            else
+            {
+                Debug.Log("UPDATE ADDY");
+            }
         }
     }
+
+    private IEnumerator SendLocationUpdatesToDB(string fieldType, string fieldUpdateValue, bool changeBoth, string fieldUpdateValue2)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("fieldType", fieldType);
+        form.AddField("fieldToUpdate", fieldUpdateValue);
+        if (changeBoth)
+        {
+            form.AddField("fieldToUpdate2", fieldUpdateValue2);
+        }
+        form.AddField("businessName", businessController.businessName);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateBusinessNameOrAddress.php", form);
+        yield return www;
+        break;
+    }*/ //REQUIRES SPECIAL CONTACT, TOO MANY DB FIELDS TO UPDATE
 
     public void UpdateMarker()
     {
@@ -66,6 +98,23 @@ public class LocationInfoPage : MonoBehaviour
     {
         List<Dropdown.OptionData> menuOptions = businessDropdown.options;
         currentBusinessName = menuOptions[businessDropdown.value].text;
-        //businessDropdown.value = 1;
+        businessController.businessName = currentBusinessName;
+        foreach (KeyValuePair<string, string> pair in businessController.businessNamesAndAddresses)
+        {
+            if (pair.Key == currentBusinessName)
+            {
+                currentBusinessAddress.text = pair.Value;
+                businessController.businessAddress = pair.Value;
+                foreach (KeyValuePair<string, string> pair2 in businessController.businessCoordinates)
+                {
+                    if (pair2.Key == currentBusinessName)
+                    {
+                        string[] splitString = pair2.Value.Split(',');
+                        map.SetPosition(Convert.ToDouble(splitString[1]), Convert.ToDouble(splitString[0]));
+                    }
+                }
+                break;
+            }
+        }
     }
 }

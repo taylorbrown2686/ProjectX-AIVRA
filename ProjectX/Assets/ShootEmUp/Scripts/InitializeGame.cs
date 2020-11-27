@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 //This script initializes the game. Each game will have one of these that handles turning on scripts and UI when the game starts
 public class InitializeGame : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class InitializeGame : MonoBehaviour
     [SerializeField] private string gameManager;
     [SerializeField] private GameObject defaultPlayer;
     private MonoBehaviour superGameManager;
+    public bool multiplayer = false;
 
     void Awake() {
       canvas.SetActive(false);
@@ -23,19 +25,32 @@ public class InitializeGame : MonoBehaviour
         break;
 
         case "SSRoundController":
-          superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ARMenuEnable>();
+          //superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ARMenuEnable>();
         break;
       }
-      superGameManager.enabled = false;
-      //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
+        if (superGameManager != null)
+            superGameManager.enabled = false;
+        //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
     }
 
-    public void InitializeGameScripts() {
-      GameObject newPlayer = Instantiate(defaultPlayer, Vector3.zero, Quaternion.identity, Camera.main.transform);
-      superGameManager.enabled = true;
+    public void InitializeGameScripts()
+    {
+        if (multiplayer == false)
+            Instantiate(defaultPlayer, new Vector3(transform.position.x + 4, transform.position.y + 4, transform.position.z + 0), Quaternion.identity, Camera.main.transform);
+        else
+            InitializeNetworkGameScripts();
+        if (superGameManager != null)
+            superGameManager.enabled = true;
+
     }
 
     public void InitializeUI() {
       canvas.SetActive(true);
+    }
+
+    public void InitializeNetworkGameScripts()
+    { 
+        GameObject newPlayer = PhotonNetwork.Instantiate(defaultPlayer.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        //   newPlayer.transform.SetParent(Camera.main.transform,true);
     }
 }

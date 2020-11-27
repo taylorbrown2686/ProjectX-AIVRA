@@ -30,7 +30,7 @@ public class Duck : MonoBehaviour
             pointB = new Vector3(randomX, randomY, randomZ);
             
            // transform.LookAt(new Vector3(look.x, transform.position.y, look.z));
-            speed = Random.Range(1.0f / scale, 3.0f / scale);
+            speed = Random.Range(3f / scale, 4.5f / scale);
             yield return StartCoroutine(MoveObject(transform, pointA, pointB, speed));
             pointA = pointB;
             

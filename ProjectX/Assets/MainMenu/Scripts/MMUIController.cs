@@ -99,7 +99,7 @@ public class MMUIController : MonoBehaviour
         {
             form.AddField(pair.Key, pair.Value);
         }
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/uploadUserAccount.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/uploadUserAccount.php", form);
         yield return www;
 
         if (storedBusinessFields.Count != 0)
@@ -109,7 +109,7 @@ public class MMUIController : MonoBehaviour
             {
                 form2.AddField(pair.Key, pair.Value);
             }
-            WWW www2 = new WWW("http://localhost:8080/AIVRA-PHP/uploadBusinessAccount.php", form2);
+            WWW www2 = new WWW("http://65.52.195.169/AIVRA-PHP/uploadBusinessAccount.php", form2);
             yield return www2;
         }
     }

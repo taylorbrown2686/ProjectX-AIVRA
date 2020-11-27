@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +12,7 @@ public class CreateEventPage : MonoBehaviour
     [SerializeField] private GameObject[] wizards;
     [SerializeField] private BusinessController businessController;
     [SerializeField] private GameObject creatingEventPopup;
-    [SerializeField] private Text creatingEventText;
+    [SerializeField] private Text creatingEventText, errorText;
 
     //Deal eventType
     [SerializeField] private Text audienceText, discountText;
@@ -83,8 +85,115 @@ public class CreateEventPage : MonoBehaviour
 
     public void Create(string eventType)
     {
+        if (VerifyFields(eventType) == "No Errors")
+        {
+            StartCoroutine(CheckForDuplicates(eventType));
+        } else
+        {
+            errorText.text = VerifyFields(eventType);
+        }
+    }
+
+    private string VerifyFields(string eventType)
+    {
+        DateTime date;
+        switch (eventType)
+        {
+            case "Deal":
+                if (dealPrivateName.text == "" || dealPublicName.text == "" || dealTags.text == "" || discountAmount.text == "" || dealAmt.text == "" || dealOrigPrice.text == "")
+                {
+                    return "A field was left blank.";
+                }
+                if (dealExpiry.text == "")
+                {
+                    dealExpiry.text = "01/01/2050";
+                }
+                if (!Regex.IsMatch(dealPublicName.text, "^[a-zA-Z0-9 ]*$") || !Regex.IsMatch(dealPrivateName.text, "^[a-zA-Z0-9]*$"))
+                {
+                    return "Please avoid symbols in the internal and external name. Avoid spaces in the internal name.";
+                }
+                if (currentDiscountType == "Percentage")
+                {
+                    if (float.Parse(discountAmount.text) > 100)
+                    {
+                        return "You cannot discount over 100%.";
+                    }
+                } else
+                {
+                    if (float.Parse(discountAmount.text) > float.Parse(dealOrigPrice.text))
+                    {
+                        return "You cannot discount the full price.";
+                    }
+                }
+                if (!DateTime.TryParse(dealExpiry.text, out date))
+                {
+                    return "Your expiration was invalid, use format MM/DD/YYYY";
+                }
+                break;
+            case "Reward":
+                if (rewardPrivateName.text == "" || rewardPublicName.text == "" || rewardTags.text == "" || howMuch.text == "" || scoreRequired.text == "" || rewardExpiry.text == "" || rewardAmt.text == "")
+                {
+                    return "A field was left blank.";
+                }
+                if (rewardExpiry.text == "")
+                {
+                    rewardExpiry.text = "01/01/2050";
+                }
+                if (!Regex.IsMatch(rewardPrivateName.text, "^[a-zA-Z0-9]*$") || !Regex.IsMatch(rewardPublicName.text, "^[a-zA-Z0-9 ]*$"))
+                {
+                    return "Please avoid symbols in the internal and external name. Avoid spaces in the internal name.";
+                }
+                if (!DateTime.TryParse(rewardExpiry.text, out date))
+                {
+                    return "Your expiration was invalid, use format MM/DD/YYYY";
+                }
+                break;
+            case "Game":
+                if (gameEventName.text == "" || gameTags.text == "" || gameDesc.text == "" || gameSubDesc.text == "")
+                {
+                    return "A field was left blank.";
+                }
+                if (gameEndOf.text == "")
+                {
+                    gameEndOf.text = "01/01/2050";
+                }
+                if (!Regex.IsMatch(gameEventName.text, "^[a-zA-Z0-9 ]*$"))
+                {
+                    return "Please avoid symbols in the event name.";
+                }
+                if (!DateTime.TryParse(gameEndOf.text, out date))
+                {
+                    return "Your expiration was invalid, use format MM/DD/YYYY";
+                }
+                break;
+            case "Event":
+                if (eventEventName.text == "" || eventTags.text == "" || eventDesc.text == "" || eventSubDesc.text == "")
+                {
+                    return "A field was left blank.";
+                }
+                if (eventEndOf.text == "")
+                {
+                    eventEndOf.text = "01/01/2050";
+                }
+                if (!Regex.IsMatch(eventEventName.text, "^[a-zA-Z0-9 ]*$"))
+                {
+                    return "Please avoid symbols in the event name.";
+                }
+                if (!DateTime.TryParse(eventEndOf.text, out date))
+                {
+                    return "Your expiration was invalid, use format MM/DD/YYYY";
+                }
+                break;
+        }
+        return "No Errors";
+    }
+
+    private IEnumerator CheckForDuplicates(string eventType)
+    {
+        //if no dupes
         StartCoroutine(CreateInDB(eventType));
         StartCoroutine(CreatingDealPopup(eventType));
+        yield return null;
     }
 
     private IEnumerator CreateInDB(string eventType)
@@ -92,7 +201,7 @@ public class CreateEventPage : MonoBehaviour
         switch (eventType)
         {
             case "Deal":
-                /*WWWForm form = new WWWForm();
+                WWWForm form = new WWWForm();
                 form.AddField("businessName", businessController.businessName);
                 form.AddField("internalName", dealPrivateName.text);
                 form.AddField("externalName", dealPublicName.text);
@@ -104,10 +213,8 @@ public class CreateEventPage : MonoBehaviour
                 form.AddField("expiry", dealExpiry.text);
                 form.AddField("amountDistributed", dealAmt.text);
                 form.AddField("priceOfDiscountedItem", dealOrigPrice.text);
-                WWW www = new WWW("http://localhost:8080/AIVRA-PHP/uploadNewDeal.php", form);
+                WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/uploadNewDeal.php", form);
                 yield return www;
-                Debug.Log(www.text);*/
-                Debug.Log("hacky");
                 break;
 
             case "Reward":
@@ -122,9 +229,8 @@ public class CreateEventPage : MonoBehaviour
                 form2.AddField("requiredScore", scoreRequired.text);
                 form2.AddField("expiry", rewardExpiry.text);
                 form2.AddField("amountDistributed", rewardAmt.text);
-                WWW www2 = new WWW("http://localhost:8080/AIVRA-PHP/uploadNewReward.php", form2);
+                WWW www2 = new WWW("http://65.52.195.169/AIVRA-PHP/uploadNewReward.php", form2);
                 yield return www2;
-                Debug.Log(www2.text);
                 break;
 
             case "Game":
@@ -136,9 +242,8 @@ public class CreateEventPage : MonoBehaviour
                 form3.AddField("description", gameDesc.text);
                 form3.AddField("subDescription", gameSubDesc.text);
                 form3.AddField("endDate", gameEndOf.text);
-                WWW www3 = new WWW("http://localhost:8080/AIVRA-PHP/uploadNewHostedGame.php", form3);
+                WWW www3 = new WWW("http://65.52.195.169/AIVRA-PHP/uploadNewHostedGame.php", form3);
                 yield return www3;
-                Debug.Log(www3.text);
                 break;
 
             case "Event":
@@ -150,9 +255,8 @@ public class CreateEventPage : MonoBehaviour
                 form4.AddField("description", eventDesc.text);
                 form4.AddField("subDescription", eventSubDesc.text);
                 form4.AddField("endDate", eventEndOf.text);
-                WWW www4 = new WWW("http://localhost:8080/AIVRA-PHP/uploadNewHostedEvent.php", form4);
+                WWW www4 = new WWW("http://65.52.195.169/AIVRA-PHP/uploadNewHostedEvent.php", form4);
                 yield return www4;
-                Debug.Log(www4.text);
                 break;
         }
     }
@@ -162,9 +266,9 @@ public class CreateEventPage : MonoBehaviour
         creatingEventPopup.SetActive(true);
         creatingEventText.text = "";
         creatingEventText.text += "Creating your " + eventType + "...";
-        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.5f));
         creatingEventText.text += "\nSaving to database...";
-        yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.5f));
         creatingEventText.text += "\nDone!";
         yield return new WaitForSeconds(2f);
         creatingEventPopup.SetActive(false);

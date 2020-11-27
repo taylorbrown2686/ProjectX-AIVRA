@@ -18,7 +18,7 @@ public class CreateMarkersForEvents : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("maptype", mapType);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/getCoordinatesFromAnyEvent.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/getCoordinatesFromAnyEvent.php", form);
         yield return www;
         string[] splitString = www.text.Split('&');
         Array.Resize(ref splitString, splitString.Length - 1);
@@ -34,6 +34,13 @@ public class CreateMarkersForEvents : MonoBehaviour
                 new Vector2(float.Parse(splitString[i+1]), float.Parse(splitString[i])), markers[0], "999999");
             marker.originalRadius = 0.01f;
             marker.scale = 0.01f;
+        }
+    }
+
+    private IEnumerator PlaceMarkersAtSpecificCoords(Vector2[] coords) {
+        foreach (Vector2 vec in coords) {
+            Debug.Log(vec);
+            yield return null;
         }
     }
 }

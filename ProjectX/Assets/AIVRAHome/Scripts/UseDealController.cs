@@ -39,7 +39,7 @@ public class UseDealController : MonoBehaviour
         writer.Format = BarcodeFormat.QR_CODE;
         writer.Options = options;
 
-        Color32[] pixels = writer.Write(CrossSceneVariables.Instance + "&" + internalName + "&" + issuer.text + "&" + amount.text + "&" + expiry.text);
+        Color32[] pixels = writer.Write(CrossSceneVariables.Instance.email + "&" + internalName + "&" + issuer.text + "&" + amount.text + "&" + expiry.text);
         Texture2D tex = new Texture2D(200, 200);
         tex.SetPixels32(pixels);
         tex.Apply();

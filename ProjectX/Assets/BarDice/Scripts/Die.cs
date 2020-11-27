@@ -6,12 +6,19 @@ using UnityEngine;
 public class Die : MonoBehaviour
 {
     private int value;
-    public Rigidbody rigidbody;
+   // private Rigidbody rigidbody;
 
     public int Value {get => value;}
+    GameObject gameZone;
 
-    void Start() {
-      rigidbody = this.GetComponent<Rigidbody>();
+    private void Start()
+    {
+        gameZone = GameObject.FindGameObjectWithTag("GameZone");
+        GameObject plane = gameZone.transform.GetChild(0).gameObject;
+      //  var emptyObject = new GameObject();
+        transform.SetParent(plane.transform);
+     //   emptyObject.transform.parent = plane.transform;
+     //   transform.parent = emptyObject.transform;
     }
 
     public void ReadDie() {

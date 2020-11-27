@@ -12,20 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
   m_Name: PhotonServerSettings
   m_EditorClassIdentifier: 
-  AppID: 
-  VoiceAppID: 
-  ChatAppID: 
-  HostType: 0
-  PreferredRegion: 0
-  EnabledRegions: -1
-  Protocol: 0
-  ServerAddress: 
-  ServerPort: 5055
-  VoiceServerPort: 5055
-  JoinLobby: 0
-  EnableLobbyStatistics: 0
+  AppSettings:
+    AppIdRealtime: b164c615-2ec2-4630-9cf4-73d1b118a56f
+    AppIdChat: 
+    AppIdVoice: 
+    AppVersion: 
+    UseNameServer: 1
+    FixedRegion: 
+    Server: 
+    Port: 0
+    ProxyServer: 
+    Protocol: 0
+    EnableProtocolFallback: 1
+    AuthMode: 0
+    EnableLobbyStatistics: 0
+    NetworkLogging: 1
+  DevRegion: usw
   PunLogging: 0
-  NetworkLogging: 1
+  EnableSupportLogger: 0
   RunInBackground: 1
+  StartInOfflineMode: 0
   RpcList: []
   DisableAutoOpenWizard: 1
+  ShowSettings: 0
+  DevRegionSetOnce: 1

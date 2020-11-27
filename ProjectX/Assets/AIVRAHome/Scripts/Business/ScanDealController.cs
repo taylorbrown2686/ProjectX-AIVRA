@@ -33,7 +33,6 @@ public class ScanDealController : MonoBehaviour
                 }
                 IBarcodeReader barcodeReader = new BarcodeReader();
                 var result = barcodeReader.Decode(pixels, image.width, image.height);
-                Debug.Log(FindObjectsOfType(typeof(ScanningDealController)));
                 if (result != null && FindObjectsOfType(typeof(ScanningDealController)).Length == 0)
                 {
                     string[] splitString = result.Text.Split('&');

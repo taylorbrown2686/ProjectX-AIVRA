@@ -44,7 +44,7 @@ public class GameDescription : MonoBehaviour
           screenshot.sprite = gameScreenshots[index];
         break;
         case 4:
-          title.text = "Bar Dice";
+          title.text = "AR Bar Dice";
           maxPlayers.text = "Max Players: Unlimited";
           rating.text = "Rating: T";
           description.text = "Is it happy hour? What better time to play bar dice! Play with an unlimited amount of people to roll the highest matching dice. Last player remaining loses.";

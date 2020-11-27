@@ -6,6 +6,7 @@ public class RollResult
 {
     private List<int> diceValues = new List<int>();
     private int wilds;
+    public int score;
 
     public string GetResult(List<GameObject> activeDice) {
       diceValues.Clear();
@@ -36,6 +37,7 @@ public class RollResult
           highestCount = pair.Value;
         }
       }
-      return "You got " + (highestCount + wilds) + " " + mostCommonValue + "'s!";
+      score = (highestCount + wilds) * 100 + mostCommonValue;
+      return (highestCount + wilds) + " " + mostCommonValue + "'s!";
     }
 }

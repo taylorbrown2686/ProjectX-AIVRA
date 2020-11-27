@@ -27,14 +27,14 @@ public class ScanningDealController : MonoBehaviour
             if (amount.text.Contains("%"))
             {
                 totalPrice = float.Parse(price.text) - (float.Parse(price.text) * float.Parse(amount.text.Trim(new Char[] {'%'})));
-                originalPrice.text = price.text;
-                newPrice.text = totalPrice.ToString();
+                originalPrice.text = "Original Price: " + price.text;
+                newPrice.text = "Price After Deal: " + totalPrice.ToString();
             }
             else
             {
                 totalPrice = float.Parse(price.text) - float.Parse(amount.text.Trim(new Char[] {'$'}));
-                originalPrice.text = price.text;
-                newPrice.text = totalPrice.ToString();
+                originalPrice.text = "Original Price: " + price.text;
+                newPrice.text = "Price After Deal: " + totalPrice.ToString();
             }
         } 
         else
@@ -48,8 +48,9 @@ public class ScanningDealController : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("email", email);
         form.AddField("dealInternalName", internalName.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/saveDealToCustomerAccount.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/removeDealFromSavedCustomerDeals.php", form);
         yield return www;
+        Debug.Log(www.text);
     }
 
     public void Done()

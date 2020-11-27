@@ -98,7 +98,7 @@ public class MMSignupScreen : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("email", email.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/checkEmailExists.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/checkEmailExists.php", form);
         yield return www;
         Debug.Log(www.text);
         if (www.text == "1")
@@ -108,7 +108,7 @@ public class MMSignupScreen : MonoBehaviour
         }
         WWWForm form2 = new WWWForm();
         form2.AddField("phoneNumber", phoneNumber.text);
-        WWW www2 = new WWW("http://localhost:8080/AIVRA-PHP/checkPhoneExists.php", form2);
+        WWW www2 = new WWW("http://65.52.195.169/AIVRA-PHP/checkPhoneExists.php", form2);
         yield return www2;
         if (www2.text == "1")
         {

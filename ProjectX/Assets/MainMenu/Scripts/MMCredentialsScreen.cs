@@ -49,7 +49,7 @@ public class MMCredentialsScreen : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("username", username.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/checkUsernameExists.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/checkUsernameExists.php", form);
         yield return www;
         if (www.text == "1")
         {

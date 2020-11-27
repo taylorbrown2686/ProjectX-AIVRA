@@ -9,7 +9,7 @@ public class DealsFilteredByBusinessController : MonoBehaviour
     [SerializeField] private GameObject dealsMapCover, businessDeals, customerDeals;
     [SerializeField] private DealsController dealsController;
     [SerializeField] private DealCouponPopulator[] couponPopulators;
-    [SerializeField] private InputField search;
+    [SerializeField] public InputField search;
     public List<Deal> filteredDeals = new List<Deal>();
     private int dealIndex = 0;
     private int totalDeals;
@@ -19,7 +19,7 @@ public class DealsFilteredByBusinessController : MonoBehaviour
         filteredDeals.Clear();
         foreach (Deal deal in dealsController.deals)
         {
-            if (deal.businessName.Contains(businessName))
+            if (deal.businessName.ToUpper().Contains(businessName.ToUpper()))
             {
                 filteredDeals.Add(deal);
             }
@@ -46,7 +46,7 @@ public class DealsFilteredByBusinessController : MonoBehaviour
 
     public void OnSearch()
     {
-        //GetListOfFilteredDeals(search.text);
+        GetListOfFilteredDeals(search.text);
         dealsMapCover.SetActive(true);
         businessDeals.SetActive(true);
         customerDeals.SetActive(false);
@@ -59,7 +59,6 @@ public class DealsFilteredByBusinessController : MonoBehaviour
         {
             dealIndex = ((totalDeals / 3) * 3);
         }
-        Debug.Log(dealIndex);
         DisplayDealList();
     }
 
@@ -70,7 +69,6 @@ public class DealsFilteredByBusinessController : MonoBehaviour
         {
             dealIndex = 0;
         }
-        Debug.Log(dealIndex);
         DisplayDealList();
     }
 }

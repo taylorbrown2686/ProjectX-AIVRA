@@ -16,19 +16,18 @@ public class CriticalHit : MonoBehaviour
             Destroy(other.gameObject);
             gameObject.GetComponent<Collider>().enabled = false;
             Sheep deer = parent.gameObject.GetComponent<Sheep>();
-            if (type == "head") {
-                deer.head++;
-                deer.Headshot();
-            }
-            if (type == "neck") {
-                deer.neck++;
-                deer.Neckshot();
-
+            if (deer.kind == "deer") { 
+                if (type == "head") {
+                    deer.head++;
+                }
+                if (type == "neck") {
+                    deer.neck++;
+                }
             }
 
             if (deer.enabled == true) {
                 if(deer.kind == "deer")
-                    GameManager.Instance.AddScore(3);
+                    GameManager.Instance.AddScore(50);
                 deer.Die();
             }
         }

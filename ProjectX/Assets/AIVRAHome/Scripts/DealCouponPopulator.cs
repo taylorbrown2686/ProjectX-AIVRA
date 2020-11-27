@@ -11,6 +11,7 @@ public class DealCouponPopulator : MonoBehaviour
     private bool overlayIsOn = false;
     [SerializeField] private GameObject businessOverlay, customerOverlay;
     [SerializeField] private GameObject useDealScreen;
+    [SerializeField] private DealsController dealController;
 
     public bool isSavedDeal;
 
@@ -53,9 +54,9 @@ public class DealCouponPopulator : MonoBehaviour
         form.AddField("dealIssuer", issuer.text);
         form.AddField("dealDiscount", amount.text);
         form.AddField("dealExpiry", expiry.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/saveDealToCustomerAccount.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/saveDealToCustomerAccount.php", form);
         yield return www;
-        Debug.Log(www.text);
+        dealController.RecallAfterAction(false);
     }
 
     public void UseDeal()
@@ -63,5 +64,20 @@ public class DealCouponPopulator : MonoBehaviour
         GameObject newScreen = Instantiate(useDealScreen, Vector3.zero, Quaternion.identity);
         newScreen.transform.SetParent(GameObject.Find("Deals").transform, false);
         newScreen.GetComponent<UseDealController>().Populate(dealInternalName, issuer.text, amount.text, expiry.text);
+    }
+
+    public void RemoveDealOnClick() {
+        StartCoroutine(RemoveDeal());
+    }
+
+    private IEnumerator RemoveDeal() {
+        Overlay();
+        WWWForm form = new WWWForm();
+        form.AddField("email", CrossSceneVariables.Instance.email);
+        form.AddField("dealInternalName", dealInternalName);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/removeDealFromSavedCustomerDeals.php", form);
+        yield return www;
+        Debug.Log(www.text);
+        dealController.RecallAfterAction(true);
     }
 }

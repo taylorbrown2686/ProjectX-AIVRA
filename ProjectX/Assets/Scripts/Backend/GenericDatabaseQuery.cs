@@ -11,7 +11,7 @@ public class GenericDatabaseQuery : MonoBehaviour
         {
             form.AddField(pair.Key, pair.Value);
         }
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/" + phpToRun + ".php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/" + phpToRun + ".php", form);
         yield return www;
         if (www.text != "0")
         {

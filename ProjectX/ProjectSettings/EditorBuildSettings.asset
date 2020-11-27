@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 696406c9e39c6da4880f655a813f9d2b
   - enabled: 1
@@ -29,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarDice.unity
     guid: 9265c1506d2229a45b68d8eb4cd48a10
-  - enabled: 1
-    path: Assets/Scenes/SamhainsRevenge.unity
-    guid: 8f6a0ec345428e1468c111b91a831f8d
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8abc4507234e0cc43abcec0b961ec41b,
       type: 2}

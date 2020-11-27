@@ -5,18 +5,15 @@ using UnityEngine;
 public class DeerShoot : MonoBehaviour
 {
     public GameObject[] point;
-    public bool shot;
+    public bool shot = false;
     public DeerShoot[] ds;
     static int shootCounter = 0;
-    RectTransform first, second, third;
     // Start is called before the first frame update
     void Start()
     {
-        DeActivateAll();
+       // DeActivateAll();
 
-        first = ds[0].GetComponent<RectTransform>();
-        second = ds[1].GetComponent<RectTransform>();
-        third = ds[2].GetComponent<RectTransform>();
+
 
     }
 
@@ -28,20 +25,11 @@ public class DeerShoot : MonoBehaviour
 
     public void ActivatePoint(int number)
     {
-        /*if (shot == false) {
-            RectTransform rt = GetComponent<RectTransform>();
-            if (shootCounter == 0) {
 
-                rt = first;
-            }
-            if (shootCounter == 1)
-                rt = second;
-            if (shootCounter == 2)
-                rt = third;
-            shootCounter++;
-        }*/
         
         point[number].gameObject.SetActive(true);
+        Debug.Log(point[number] + " " +  point[number].activeSelf);
+
         shot = true;
 
         

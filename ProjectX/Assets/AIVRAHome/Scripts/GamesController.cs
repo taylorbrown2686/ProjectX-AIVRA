@@ -12,7 +12,7 @@ public class GamesController : MonoBehaviour
     [SerializeField] private MarkerCreator markerCreator;
 
     void OnEnable() {
-      SwitchMarkers();
+      //SwitchMarkers();
     }
 
     public void Arrow(bool left) {
@@ -20,13 +20,13 @@ public class GamesController : MonoBehaviour
         foreach (Image image in gameImages) {
           GameImage gameImg = image.gameObject.GetComponent<GameImage>();
           gameImg.ChangeSprite(true);
-          SwitchMarkers();
+          //SwitchMarkers();
         }
       } else {
         foreach (Image image in gameImages) {
           GameImage gameImg = image.gameObject.GetComponent<GameImage>();
           gameImg.ChangeSprite(false);
-          SwitchMarkers();
+          //SwitchMarkers();
         }
       }
     }
@@ -55,7 +55,7 @@ public class GamesController : MonoBehaviour
       }
     }
 
-    public void SwitchMarkers() {
+    /*public void SwitchMarkers() {
       switch (gameImages[2].sprite.name) {
         case "ghostsInTheGraveyard":
           markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("Ghosts in the Graveyard"));
@@ -77,5 +77,5 @@ public class GamesController : MonoBehaviour
           markerCreator.StartCoroutine(markerCreator.PlaceMarkersOnMap("Bar Dice"));
         break;
       }
-    }
+    }*/
 }

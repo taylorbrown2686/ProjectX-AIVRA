@@ -8,6 +8,7 @@ public class AIVRASays : MonoBehaviour
 
     private RectTransform transform;
     private Text aivraText;
+    private bool menuIsDown = false;
 
     void Start()
     {
@@ -24,17 +25,42 @@ public class AIVRASays : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         yield return new WaitForSeconds(7f);
-        StartCoroutine(Unsay());
+        if (menuIsDown) {
+            StartCoroutine(Unsay());
+        }
     }
 
     public IEnumerator Unsay()
     {
-        while (transform.anchoredPosition.y < 600)
+        while (transform.anchoredPosition.y < 520)
         {
             transform.anchoredPosition += new Vector2(0, 10f);
             yield return new WaitForSeconds(0.01f);
         }
         aivraText.text = "";
+    }
+
+    public void MoveMenuOnClick() {
+        StartCoroutine(MoveMenuManually());
+    }
+
+    private IEnumerator MoveMenuManually() {
+        menuIsDown = !menuIsDown;
+        if (menuIsDown) {
+            while (transform.anchoredPosition.y < 520)
+            {
+                transform.anchoredPosition += new Vector2(0, 10f);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
+        else 
+        {
+            while (transform.anchoredPosition.y > 0)
+            {
+                transform.anchoredPosition -= new Vector2(0, 10f);
+                yield return new WaitForSeconds(0.01f);
+            }
+        }
     }
 
     public void Menu()

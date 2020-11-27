@@ -42,7 +42,7 @@ public class MMForgotPassScreen : MonoBehaviour
             form.AddField("email", MMUIController.Instance.email);
             form.AddField("code", code.text);
             form.AddField("password", password.text);
-            WWW www = new WWW("http://localhost:8080/AIVRA-PHP/checkForgotPassCode.php", form);
+            WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/checkForgotPassCode.php", form);
             yield return www;
             if (www.text == "0")
             {
@@ -50,7 +50,7 @@ public class MMForgotPassScreen : MonoBehaviour
                 WWWForm form2 = new WWWForm();
                 form2.AddField("password", password.text);
                 form2.AddField("email", MMUIController.Instance.email);
-                WWW www2 = new WWW("http://localhost:8080/AIVRA-PHP/updateUserPassword.php", form);
+                WWW www2 = new WWW("http://65.52.195.169/AIVRA-PHP/updateUserPassword.php", form);
                 yield return www2;
                 yield return new WaitForSeconds(2f);
                 MMUIController.Instance.ChangeScreen(1);

@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
 
                 break;
             case "Deals":
-
+                dealsContainer.GetComponent<DealsController>().GlobalBack();
                 break;
             case "Games":
 

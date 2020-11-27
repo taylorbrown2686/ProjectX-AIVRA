@@ -33,7 +33,7 @@ public class MMConfirmAccountScreen : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("emailorusername", MMUIController.Instance.usernameOrEmail);
         form.AddField("code", code.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/updateVerifiedStatus.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateVerifiedStatus.php", form);
         yield return www;
         if (www.text != "0")
         {
@@ -60,7 +60,7 @@ public class MMConfirmAccountScreen : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("email", CrossSceneVariables.Instance.email);
         form.AddField("code", randomCode);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/updateVerificationCode.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateVerificationCode.php", form);
         yield return www;
         if (resending)
         {

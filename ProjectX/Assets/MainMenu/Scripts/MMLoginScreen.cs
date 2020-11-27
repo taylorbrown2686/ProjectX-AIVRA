@@ -46,13 +46,13 @@ public class MMLoginScreen : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("emailorusername", username.text);
         form.AddField("password", password.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/checkUsernamePasswordMatch.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/checkUsernamePasswordMatch.php", form);
         yield return www;
         if (www.text == "00")
         {
             WWWForm form2 = new WWWForm();
             form2.AddField("emailorusername", username.text);
-            WWW www2 = new WWW("http://localhost:8080/AIVRA-PHP/checkVerifiedStatus.php", form2);
+            WWW www2 = new WWW("http://65.52.195.169/AIVRA-PHP/checkVerifiedStatus.php", form2);
             yield return www2;
             if (www2.text == "1")
             {
@@ -90,7 +90,7 @@ public class MMLoginScreen : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("username", username.text);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/getEmailFromUsername.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/getEmailFromUsername.php", form);
         yield return www;
         
         csv.email = www.text;
@@ -111,7 +111,7 @@ public class MMLoginScreen : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("email", username.text);
         form.AddField("code", randomCode);
-        WWW www = new WWW("http://localhost:8080/AIVRA-PHP/updateForgotPassCode.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateForgotPassCode.php", form);
         yield return www;
     }
 

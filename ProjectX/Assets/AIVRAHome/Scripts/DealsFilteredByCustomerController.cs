@@ -15,9 +15,9 @@ public class DealsFilteredByCustomerController : MonoBehaviour
 
     public void GetListOfFilteredDeals()
     {
+        filteredDeals.Clear();
         filteredDeals = new List<Deal>(dealsController.yourDeals);
         totalDeals = filteredDeals.Count;
-        Debug.Log(totalDeals);
         DisplayDealList();
     }
 
@@ -39,7 +39,7 @@ public class DealsFilteredByCustomerController : MonoBehaviour
 
     public void SeeMyDeals()
     {
-        //GetListOfFilteredDeals();
+        GetListOfFilteredDeals();
         dealsMapCover.SetActive(true);
         customerDeals.SetActive(true);
         businessDeals.SetActive(false);
@@ -52,7 +52,6 @@ public class DealsFilteredByCustomerController : MonoBehaviour
         {
             dealIndex = ((totalDeals / 3) * 3);
         }
-        Debug.Log(dealIndex);
         DisplayDealList();
     }
 
@@ -63,7 +62,6 @@ public class DealsFilteredByCustomerController : MonoBehaviour
         {
             dealIndex = 0;
         }
-        Debug.Log(dealIndex);
         DisplayDealList();
     }
 }
