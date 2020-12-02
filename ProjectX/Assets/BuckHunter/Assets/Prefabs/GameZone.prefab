@@ -2835,7 +2835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 551672005635885931}
   gameManager: GameManager
-  defaultPlayer: {fileID: 5887813282529583661, guid: fcab5b50d03389049aeabbfcc358ba48,
+  defaultPlayer: {fileID: 8156458771216958420, guid: b02ea55a7090ed64ba3cafe8b77625f6,
     type: 3}
   multiplayer: 0
 --- !u!114 &8368287856188859869

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, businessContainer;
+    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, businessContainer, appOptions;
     private string previousPage, currentPage;
 
     private static UIController instance = null;
@@ -96,5 +97,18 @@ public class UIController : MonoBehaviour
                 businessContainer.GetComponent<BusinessController>().GlobalBack();
                 break;
         }
+    }
+
+    public void AppOptionsToggle()
+    {
+        appOptions.SetActive(!appOptions.activeSelf);
+    }
+
+    public void Logout()
+    {
+        PlayerPrefs.SetInt("stayloggedin", 0);
+        PlayerPrefs.SetString("email", "");
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -20,11 +20,9 @@ public class CheckForNearbyEvent : MonoBehaviour
       if (canCheckProx && Input.location.status == LocationServiceStatus.Running) {
         if (!inLocation) {
           StartCoroutine(CheckProximityToEventCoords());
-          aivraSaysPulldown.SetActive(false);
         } else {
           //check if they leave
           StartCoroutine(CheckProximityToCurrentLocation());
-          aivraSaysPulldown.SetActive(true);
         }
       }
     }
@@ -38,7 +36,7 @@ public class CheckForNearbyEvent : MonoBehaviour
             //gameLockController.UnlockGames(hostedGameTitles);
             inLocation = true;
             //aivraSaysPulldown.SetActive(true);
-            aivraSays.StartCoroutine(aivraSays.Say("You are at: " + coord.Key));
+            aivraSays.StartCoroutine(aivraSays.EnteringLocation(coord.Key));
             currentLocationCoords = coord.Value;
             currentBusinessName = coord.Key;
             StartCoroutine(GetLocationGames());
@@ -56,7 +54,7 @@ public class CheckForNearbyEvent : MonoBehaviour
         inLocation = false;
        // aivraSaysPulldown.SetActive(false);
         //gameLockController.LockGames();
-        aivraSays.StartCoroutine(aivraSays.Say("You are leaving " + currentBusinessName + ". Come back soon!"));
+        aivraSays.StartCoroutine(aivraSays.LeavingLocation());
         currentLocationCoords = new Vector2(0,0);
         currentBusinessName = "";
         gameLockController.LockGames();

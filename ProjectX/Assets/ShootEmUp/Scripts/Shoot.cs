@@ -31,6 +31,10 @@ public class Shoot : MonoBehaviour
 
       if (ammoText == null) {
         ammoText = GameObject.Find("AmmoText").GetComponent<Text>();
+      } 
+      else
+      {
+
       }
 
       if (Input.touchCount == 1) {

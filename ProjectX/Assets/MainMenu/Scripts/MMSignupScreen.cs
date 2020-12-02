@@ -88,9 +88,6 @@ public class MMSignupScreen : MonoBehaviour
                 return "Your business address was in an invalid format. Include city, state, and zip code, separated by a comma.";
             }
         }
-        //if (emailExists || phoneNumberExists) { TODO: DB check
-
-        //}
         return "No Errors";
     }
 
@@ -119,10 +116,10 @@ public class MMSignupScreen : MonoBehaviour
         MMUIController.Instance.AddValueToStoredFields("fullName", firstName.text + " " + lastName.text, false);
         MMUIController.Instance.AddValueToStoredFields("birthdate", birthday.text, false);
         MMUIController.Instance.AddValueToStoredFields("email", email.text, false);
-        MMUIController.Instance.AddValueToStoredFields("email", email.text, true);
         MMUIController.Instance.AddValueToStoredFields("phoneNumber", phoneNumber.text, false);
         if (isBusiness)
         {
+            MMUIController.Instance.AddValueToStoredFields("email", email.text, true);
             MMUIController.Instance.AddValueToStoredFields("businessName", businessName.text, true);
             MMUIController.Instance.AddValueToStoredFields("businessAddress", businessAddress.text, true);
             MMUIController.Instance.businessAddress = businessAddress.text;

@@ -2,82 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//Attached to NearbyEventBox
+
 public class AIVRASays : MonoBehaviour
 {
 
-    private RectTransform transform;
-    private Text aivraText;
-    private bool menuIsDown = false;
+    [SerializeField] private GameObject businessButton, inLocationContainer, notInLocationContainer;
+    [SerializeField] private Text businessButtonText, helloText, youAreAtText;
 
-    void Start()
+    public IEnumerator EnteringLocation(string businessName)
     {
-        transform = this.GetComponent<RectTransform>();
-        aivraText = this.GetComponentInChildren<Text>();
+        //play animation
+        yield return null;
+        OpenMenu();
+        businessButton.SetActive(true);
+        businessButtonText.text = businessName;
+        youAreAtText.text = "You are at: " + businessName;
     }
 
-    public IEnumerator Say(string message)
+    public IEnumerator LeavingLocation()
     {
-        aivraText.text = message;
-        while (transform.anchoredPosition.y > 0)
-        {
-            transform.anchoredPosition -= new Vector2(0, 10f);
-            yield return new WaitForSeconds(0.01f);
-        }
-        yield return new WaitForSeconds(7f);
-        if (menuIsDown) {
-            StartCoroutine(Unsay());
-        }
+        //play animation
+        yield return null;
+        CloseMenu();
+        businessButton.SetActive(false);
+        businessButtonText.text = "Home";
+        youAreAtText.text = "";
     }
 
-    public IEnumerator Unsay()
+    public void OpenMenu()
     {
-        while (transform.anchoredPosition.y < 520)
-        {
-            transform.anchoredPosition += new Vector2(0, 10f);
-            yield return new WaitForSeconds(0.01f);
-        }
-        aivraText.text = "";
+        inLocationContainer.SetActive(true);
     }
 
-    public void MoveMenuOnClick() {
-        StartCoroutine(MoveMenuManually());
-    }
-
-    private IEnumerator MoveMenuManually() {
-        menuIsDown = !menuIsDown;
-        if (menuIsDown) {
-            while (transform.anchoredPosition.y < 520)
-            {
-                transform.anchoredPosition += new Vector2(0, 10f);
-                yield return new WaitForSeconds(0.01f);
-            }
-        }
-        else 
-        {
-            while (transform.anchoredPosition.y > 0)
-            {
-                transform.anchoredPosition -= new Vector2(0, 10f);
-                yield return new WaitForSeconds(0.01f);
-            }
-        }
-    }
-
-    public void Menu()
+    public void CloseMenu()
     {
-
+        inLocationContainer.SetActive(false);
     }
-
-    public void Deals()
-    {
-        Unsay();
-        UIController.Instance.ChangePage("Deals");
-    }
-
-    public void Games()
-    {
-        Unsay();
-        UIController.Instance.ChangePage("Games");
-    }
-
 }

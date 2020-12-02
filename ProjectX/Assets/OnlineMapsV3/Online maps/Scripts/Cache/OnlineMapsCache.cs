@@ -102,6 +102,10 @@ public partial class OnlineMapsCache:MonoBehaviour, IOnlineMapsSavableComponent
             StopCoroutine(saveCustomCacheAtlasCoroutine);
             if (customCacheAtlas != null) customCacheAtlas.Save(this);
         }
+        OnlineMapsTileManager.OnLoadFromCache -= OnStartDownloadTileM;
+        OnlineMapsTileManager.OnPreloadTiles -= OnPreloadTiles;
+        OnlineMapsTile.OnTileDownloaded -= OnTileDownloaded;
+        map = null;
     }
 
     private void OnEnable()
@@ -114,6 +118,8 @@ public partial class OnlineMapsCache:MonoBehaviour, IOnlineMapsSavableComponent
         lock (OnlineMapsTile.lockTiles)
         {
             float start = Time.realtimeSinceStartup;
+            Debug.Log(map.gameObject);
+            Debug.Log(map.tileManager);
             for (int i = 0; i < map.tileManager.tiles.Count; i++)
             {
                 OnlineMapsTile tile = map.tileManager.tiles[i];
@@ -166,9 +172,11 @@ public partial class OnlineMapsCache:MonoBehaviour, IOnlineMapsSavableComponent
 
     private void Start()
     {
-        map = OnlineMaps.instance;
-        if (map == null) map = FindObjectOfType<OnlineMaps>();
-
+        //map = OnlineMaps.instance;
+        Debug.Log(this.gameObject);
+        map = this.gameObject.GetComponent<OnlineMaps>();
+        Debug.Log(map.gameObject);
+        //if (map == null) map = FindObjectOfType<OnlineMaps>();
         OnlineMapsTileManager.OnLoadFromCache += OnStartDownloadTileM;
         OnlineMapsTileManager.OnPreloadTiles += OnPreloadTiles;
         OnlineMapsTile.OnTileDownloaded += OnTileDownloaded;

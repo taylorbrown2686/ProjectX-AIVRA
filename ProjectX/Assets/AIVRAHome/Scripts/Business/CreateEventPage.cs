@@ -108,9 +108,9 @@ public class CreateEventPage : MonoBehaviour
                 {
                     dealExpiry.text = "01/01/2050";
                 }
-                if (!Regex.IsMatch(dealPublicName.text, "^[a-zA-Z0-9 ]*$") || !Regex.IsMatch(dealPrivateName.text, "^[a-zA-Z0-9]*$"))
+                if (!Regex.IsMatch(dealPrivateName.text, "^[a-zA-Z0-9]*$"))
                 {
-                    return "Please avoid symbols in the internal and external name. Avoid spaces in the internal name.";
+                    return "Please avoid symbols and spaces in the internal name.";
                 }
                 if (currentDiscountType == "Percentage")
                 {
@@ -139,9 +139,9 @@ public class CreateEventPage : MonoBehaviour
                 {
                     rewardExpiry.text = "01/01/2050";
                 }
-                if (!Regex.IsMatch(rewardPrivateName.text, "^[a-zA-Z0-9]*$") || !Regex.IsMatch(rewardPublicName.text, "^[a-zA-Z0-9 ]*$"))
+                if (!Regex.IsMatch(rewardPrivateName.text, "^[a-zA-Z0-9]*$"))
                 {
-                    return "Please avoid symbols in the internal and external name. Avoid spaces in the internal name.";
+                    return "Please avoid symbols and spaces in the internal name.";
                 }
                 if (!DateTime.TryParse(rewardExpiry.text, out date))
                 {
@@ -157,10 +157,6 @@ public class CreateEventPage : MonoBehaviour
                 {
                     gameEndOf.text = "01/01/2050";
                 }
-                if (!Regex.IsMatch(gameEventName.text, "^[a-zA-Z0-9 ]*$"))
-                {
-                    return "Please avoid symbols in the event name.";
-                }
                 if (!DateTime.TryParse(gameEndOf.text, out date))
                 {
                     return "Your expiration was invalid, use format MM/DD/YYYY";
@@ -174,10 +170,6 @@ public class CreateEventPage : MonoBehaviour
                 if (eventEndOf.text == "")
                 {
                     eventEndOf.text = "01/01/2050";
-                }
-                if (!Regex.IsMatch(eventEventName.text, "^[a-zA-Z0-9 ]*$"))
-                {
-                    return "Please avoid symbols in the event name.";
                 }
                 if (!DateTime.TryParse(eventEndOf.text, out date))
                 {

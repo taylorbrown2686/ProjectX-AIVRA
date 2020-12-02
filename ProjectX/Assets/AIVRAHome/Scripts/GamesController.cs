@@ -38,11 +38,11 @@ public class GamesController : MonoBehaviour
         break;
 
         case "arFishin":
-          aivraSays.StartCoroutine(aivraSays.Say("AR Fishin' is currently in development, check back later!"));
+          //aivraSays.StartCoroutine(aivraSays.Say("AR Fishin' is currently in development, check back later!"));
         break;
 
         case "arTetris":
-          aivraSays.StartCoroutine(aivraSays.Say("AR Tetris is currently in development, check back later!"));
+          //aivraSays.StartCoroutine(aivraSays.Say("AR Tetris is currently in development, check back later!"));
         break;
 
         case "buckHunter":
