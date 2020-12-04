@@ -15,6 +15,11 @@ public class DealCouponPopulator : MonoBehaviour
 
     public bool isSavedDeal;
 
+    private void Start()
+    {
+        dealController = FindObjectOfType(typeof(DealsController)) as DealsController;
+    }
+
     public void PopulateCoupon(Deal deal)
     {
         dealInternalName = deal.internalName;

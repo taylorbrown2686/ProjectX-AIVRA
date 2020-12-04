@@ -9,7 +9,8 @@ public class DealsController : MonoBehaviour
     public List<Deal> yourDeals = new List<Deal>();
     private bool dealExists = false;
     private bool dealExpired = false;
-    [SerializeField] private GameObject mapCover;
+    [SerializeField] private GameObject allDealsContent, yourDealsContent;
+    [SerializeField] private GameObject emptyDealPrefab;
     [SerializeField] private DealsFilteredByCustomerController customerController;
     [SerializeField] private DealsFilteredByBusinessController businessController;
 
@@ -24,6 +25,64 @@ public class DealsController : MonoBehaviour
         }
         else {
             StartCoroutine(GetSavedDeals(businessRecall: true));
+        }
+    }
+
+    private void PopulateAllDeals()
+    {
+        allDealsContent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 300 * deals.Count);
+        for (int i = 0; i < deals.Count; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GameObject newObj = Instantiate(emptyDealPrefab, new Vector3(0,0,0), Quaternion.identity);
+                newObj.transform.SetParent(allDealsContent.transform, false);
+                newObj.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, i * -150, 0);
+                newObj.GetComponent<DealCouponPopulator>().PopulateCoupon(deals[i]);
+            }
+            else
+            {
+                GameObject newObj = Instantiate(emptyDealPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                newObj.transform.SetParent(allDealsContent.transform, false);
+                newObj.GetComponent<RectTransform>().anchorMin = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, (i - 1) * -150, 0);
+                newObj.GetComponent<DealCouponPopulator>().PopulateCoupon(deals[i]);
+            }
+        }
+    }
+
+    private void PopulateYourDeals()
+    {
+        yourDealsContent.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 300 * yourDeals.Count);
+        for (int i = 0; i < yourDeals.Count; i++)
+        {
+            if (i % 2 == 0)
+            {
+                GameObject newObj = Instantiate(emptyDealPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                newObj.transform.SetParent(yourDealsContent.transform, false);
+                newObj.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+                newObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, i * -150, 0);
+                newObj.GetComponent<DealCouponPopulator>().PopulateCoupon(yourDeals[i]);
+                newObj.GetComponent<DealCouponPopulator>().isSavedDeal = true;
+            }
+            else
+            {
+                GameObject newObj = Instantiate(emptyDealPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                newObj.transform.SetParent(yourDealsContent.transform, false);
+                newObj.GetComponent<RectTransform>().anchorMin = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+                newObj.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, (i - 1) * -150, 0);
+                newObj.GetComponent<DealCouponPopulator>().PopulateCoupon(yourDeals[i]);
+                newObj.GetComponent<DealCouponPopulator>().isSavedDeal = true;
+            }
         }
     }
 
@@ -58,11 +117,9 @@ public class DealsController : MonoBehaviour
             deal.expiry = splitString[i + 3];
             deals.Add(deal);
         }
-        if (customerRecall) {
-            customerController.GetListOfFilteredDeals();
-        } else if (businessRecall) {
-            businessController.GetListOfFilteredDeals(businessController.search.text);
-        }
+        PopulateAllDeals();
+        PopulateYourDeals();
+
     }
 
     private IEnumerator GetSavedDeals(bool customerRecall = false, bool businessRecall = false)
@@ -90,18 +147,7 @@ public class DealsController : MonoBehaviour
             deal.expiry = splitString[i + 4];
             yourDeals.Add(deal);
         }
-        if (customerRecall) {
-            StartCoroutine(GetDealsInRadius(customerRecall: true));
-        }
-        else if (businessRecall) {
-            StartCoroutine(GetDealsInRadius(businessRecall: true));
-        }
-        else {
-            StartCoroutine(GetDealsInRadius());
-        }
-    }
-
-    public void GlobalBack() {
-        mapCover.SetActive(false);
+        StartCoroutine(GetDealsInRadius());
+        
     }
 }

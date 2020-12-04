@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, businessContainer, appOptions;
+    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, yourProfileContainer, businessContainer, appOptions;
+    [SerializeField] private GameObject uiBackground;
     private string previousPage, currentPage;
 
     private static UIController instance = null;
@@ -21,6 +22,7 @@ public class UIController : MonoBehaviour
         DisableAllPages();
         mainMenuContainer.SetActive(true);
         currentPage = "MainMenu";
+        uiBackground.SetActive(false);
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class UIController : MonoBehaviour
                 previousPage = currentPage;
                 currentPage = "MainMenu";
                 mainMenuContainer.SetActive(true);
+                uiBackground.SetActive(false);
                 break;
 
             case "Deals":
@@ -54,6 +57,12 @@ public class UIController : MonoBehaviour
                 gamesContainer.SetActive(true);
                 break;
 
+            case "Map":
+                previousPage = currentPage;
+                currentPage = "Map";
+                mapContainer.SetActive(true);
+                break;
+
             case "Entertainment":
                 previousPage = currentPage;
                 currentPage = "Entertainment";
@@ -64,6 +73,7 @@ public class UIController : MonoBehaviour
                 previousPage = currentPage;
                 currentPage = "Business";
                 businessContainer.SetActive(true);
+                uiBackground.SetActive(false);
                 break;
         }
     }
@@ -75,6 +85,7 @@ public class UIController : MonoBehaviour
         gamesContainer.SetActive(false);
         dealsContainer.SetActive(false);
         businessContainer.SetActive(false);
+        uiBackground.SetActive(true);
     }
 
     public void GlobalBack()
@@ -85,7 +96,7 @@ public class UIController : MonoBehaviour
 
                 break;
             case "Deals":
-                dealsContainer.GetComponent<DealsController>().GlobalBack();
+                //dealsContainer.GetComponent<DealsController>().GlobalBack();
                 break;
             case "Games":
 

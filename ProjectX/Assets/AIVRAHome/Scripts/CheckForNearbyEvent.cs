@@ -33,7 +33,6 @@ public class CheckForNearbyEvent : MonoBehaviour
       float playerLng = PlayerCoordinates.Instance.PlayerLng;
       foreach (KeyValuePair<string, Vector2> coord in CrossSceneVariables.Instance.nearbyBusinessCoords) {
         if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), coord.Value).magnitude < 0.035f) {
-            //gameLockController.UnlockGames(hostedGameTitles);
             inLocation = true;
             //aivraSaysPulldown.SetActive(true);
             aivraSays.StartCoroutine(aivraSays.EnteringLocation(coord.Key));
@@ -53,7 +52,7 @@ public class CheckForNearbyEvent : MonoBehaviour
       if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), currentLocationCoords).magnitude > 0.035f) {
         inLocation = false;
        // aivraSaysPulldown.SetActive(false);
-        //gameLockController.LockGames();
+        gameLockController.LockGames();
         aivraSays.StartCoroutine(aivraSays.LeavingLocation());
         currentLocationCoords = new Vector2(0,0);
         currentBusinessName = "";

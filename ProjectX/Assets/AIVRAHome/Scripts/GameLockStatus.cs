@@ -5,34 +5,22 @@ using UnityEngine.UI;
 
 public class GameLockStatus : MonoBehaviour
 {
-    public GameObject grayBox;
-    public Text gameTitle;
-    public AIVRASays aivraSays;
-    [SerializeField] private SortedList<string, bool> gamesAndStatuses = new SortedList<string, bool>();
+    public SortedList<string, bool> gamesAndStatuses = new SortedList<string, bool>();
+
+    private static GameLockStatus instance = null;
+
+    public static GameLockStatus Instance { get => instance; }
 
     void Start()
     {
-        gamesAndStatuses.Add("Ghosts in the Graveyard", false);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        gamesAndStatuses.Add("Ghosts In The Graveyard", false);
         gamesAndStatuses.Add("HuntAR", false);
         gamesAndStatuses.Add("AR Bar Dice", false);
-        gamesAndStatuses.Add("AR Tetris", false);
-        gamesAndStatuses.Add("AR Fishin'", false);
-    }
-
-    void Update()
-    {
-        if (CrossSceneVariables.Instance.isBusiness == true)
-        {
-            grayBox.SetActive(false);
-        }
-        else if (gameTitle.text == "Ghosts in the Graveyard")
-        {
-            grayBox.SetActive(false);
-        }
-        else
-        {
-            grayBox.SetActive(!gamesAndStatuses[gameTitle.text]);
-        }
+        gamesAndStatuses.Add("Samhains Revenge", false);
     }
 
     public void LockGames()
@@ -49,7 +37,8 @@ public class GameLockStatus : MonoBehaviour
         {
             foreach (string str in games)
             {
-                if (str == gamesAndStatuses.Keys[i])
+                Debug.Log(str.Equals(gamesAndStatuses.Keys[i]));
+                if (str.Equals(gamesAndStatuses.Keys[i]))
                 {
                     gamesAndStatuses[gamesAndStatuses.Keys[i]] = true;
                 }
@@ -60,5 +49,17 @@ public class GameLockStatus : MonoBehaviour
     public void PermanentlyUnlockGame()
     {
         //for database, takes account name and game unlocked and keeps it unlocked when they are in the app
+    }
+
+    public bool CheckIfGameUnlocked(string game)
+    {
+        foreach (KeyValuePair<string, bool> pair in gamesAndStatuses)
+        {
+            if (pair.Key == game)
+            {
+                return pair.Value;
+            }
+        }
+        return false;
     }
 }

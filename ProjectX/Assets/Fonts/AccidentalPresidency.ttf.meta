@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0cc120c2578b77b4ca1b5395ca22926c
+guid: ac7feee07988fc740a9d2568d22687e5
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,8 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Jagged Dreams
   fontNames:
-  - Jagged Dreams
+  - Accidental Presidency
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
