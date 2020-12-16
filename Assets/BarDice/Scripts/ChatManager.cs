@@ -1,5 +1,6 @@
 ﻿using ExitGames.Client.Photon;
 using Photon.Chat;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,17 +11,13 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     ChatClient chatClient;
     string userID = "user";
-
- 
-
     void Start()
     {
         chatClient = new ChatClient(this);
         // Set your favourite region. "EU", "US", and "ASIA" are currently supported.
         chatClient.ChatRegion = "US";
         chatClient.Connect("808855c8-16fe-4ddb-8fbc-9edbaab74cbe", "whatever", new AuthenticationValues(userID));
-       
-        print("sdfdsfsdsdfsd");
+        
     }
 
     private void Update()
@@ -35,12 +32,15 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnChatStateChange(ChatState state)
     {
-        print("state changed");
+        print(state);
     }
 
     public void OnConnected()
     {
         print("Chat works");
+        chatClient.Subscribe(new string[] { "public" });
+        print("sdfdsfsdsdfsd");
+        chatClient.SendPrivateMessage("user", "hii");
     }
 
     public void OnDisconnected()
@@ -50,12 +50,19 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        throw new System.NotImplementedException();
+        print(senders.Length);
+        string msgs = "";
+        for (int i = 0; i < senders.Length; i++)
+        {
+            msgs = string.Format("{0}{1}={2}, ", msgs, senders[i], messages[i]);
+        }
+        Console.WriteLine("OnGetMessages: {0} ({1}) > {2}", channelName, senders.Length, msgs);
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)
     {
-        throw new System.NotImplementedException();
+        print(message);
+        print(channelName);
     }
 
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
@@ -65,7 +72,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        throw new System.NotImplementedException();
+        chatClient.PublishMessage("public", "hiii");
     }
 
     public void OnUnsubscribed(string[] channels)
@@ -75,7 +82,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnUserSubscribed(string channel, string user)
     {
-        throw new System.NotImplementedException();
+        print(user);
     }
 
     public void OnUserUnsubscribed(string channel, string user)

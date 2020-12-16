@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -85,6 +85,7 @@
     <Compile Include="Assets\BuckHunter\Assets\Scripts\RoundEndManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Third-party Assets\OnlineMapsFingersTouchGesturesConnector.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\AMapSearchExample.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\SidebarToggle.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\Shoot.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\PowerupUIController.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\DealsOverlayController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindPlacesExample.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\PlayerCoordinates.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Buildings\OnlineMapsBuildingsNodeData.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindLocationNameExample.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ChangePositionAndZoomEventsExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\OSMRequestExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsAMapSearchResult.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\BingMapsElevationsExample.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Food.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXMLList.cs" />
@@ -125,11 +128,13 @@
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Cache\OnlineMapsCache.Memory.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindDirectionExample.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ProximityVoiceTrigger.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\InterceptElevationRequestExample.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\PointersController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\2D\OnlineMapsUIImageControl.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarker3DInstance.cs" />
+    <Compile Include="Assets\Facebook Login\Scripts\FirebaseLogin.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ModifyTooltipStyleExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Tooltips\OnlineMapsTooltipDrawerBase.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper7.cs" />
@@ -172,6 +177,7 @@
     <Compile Include="Assets\BarDice\Scripts\CreateJoinRoomManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsOpenRouteServiceDirectionResult.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Scare.cs" />
+    <Compile Include="Assets\Facebook Login\Scripts\FacebookScript.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\NonCriticalHit.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\HereRoutingAPIExample.cs" />
@@ -195,11 +201,13 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsTiledElevationManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\GroupMarkersExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ScreenToGeoExample.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\Marker_GPS_Example.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Interfaces\IOnlineMapsInteractiveElementManager.cs" />
     <Compile Include="Assets\BarDice\Scripts\Unique.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Tiles\OnlineMapsMapboxTile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase2D.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarkerInstanceBase.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Interfaces\IOnlineMapsSavableComponent.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper5.cs" />
@@ -225,7 +233,9 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\UIBubblePopup.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarker2DMeshDrawer.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ShootableObject.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\ObjectSelectWheel.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Buildings\OnlineMapsBuildingBase.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\AIVRACustomProvider.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\BillboardedAd.cs" />
@@ -235,6 +245,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\ZoomArea.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DrawingAPI_Example.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\UIController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsBingMapsLocationResult.cs" />
@@ -296,6 +307,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsRawImageTouchForwarder.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\AndroidBackFromGame.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\LocationService\OnlineMapsLocationService.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsOSMNominatim.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\EventCoordinates.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\ExtraTypes\OnlineMapsPositionRange.cs" />
@@ -462,6 +474,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsHereRoutingAPI.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\AnimatorController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarkerBase.cs" />
+    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerData.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Providers\Traffic\OnlineMapsTrafficProvider.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase.cs" />
@@ -480,33 +493,28 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\MenuBase.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppEvents.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\LogView.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\ConsoleBase.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
-    <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
-    <Compile Include="Assets\Facebook Login\Scripts\FacebookScript.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulGameGamager.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulNetworkManager.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulCommunication.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\OnlineMapsV3\Online maps\Shaders\TilesetDrawingElementZTestAlways.shader" />
+     <None Include="Assets\Parse\Plugins\Unity.Compat.dll" />
      <None Include="Assets\FacebookSDK\link.xml" />
      <None Include="Assets\FacebookSDK\Plugins\iOS\Facebook.Unity.IOS.dll" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
      <None Include="Assets\Scripts\Shaders\SilhouttedDiffuse.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\WSA\x86\opus_egpv.dll" />
+     <None Include="Assets\StreamingAssets\dnn\coco.names.txt" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\CharaOutline.cginc" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\AudioIn.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
      <None Include="Assets\Photon\PhotonVoice\changes-voice.txt" />
+     <None Include="Assets\Firebase\Plugins\Firebase.App.dll" />
+     <None Include="Assets\Parse\Plugins\Unity.Tasks.dll" />
      <None Include="Assets\Scripts\Shaders\DepthMask.shader" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
@@ -516,32 +524,42 @@
      <None Include="Assets\BuckHunter\Assets\Dog - Tatra Sheepdog\Model\tatrasheepdog_sv_ip_mx.txt" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\WSA\ARM\opus_egpv.dll" />
      <None Include="Assets\FacebookSDK\Plugins\Settings\Facebook.Unity.Settings.dll" />
+     <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppAuth.dll" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Audio\Pop-J_Fairba-8421_hifi.mp3.txt" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Fonts\Orbitron Black.txt" />
      <None Include="Assets\ShootEmUp\Halloween\Ghost Cute Series\Materials\GhostShader.shader" />
      <None Include="Assets\FacebookSDK\Plugins\Canvas\Facebook.Unity.Canvas.dll" />
+     <None Include="Assets\Firebase\Plugins\Firebase.TaskExtension.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
      <None Include="Assets\Suriyun\Yippy Kawaii\README.txt" />
      <None Include="Assets\OnlineMapsV3\Online maps\Shaders\TilesetShader.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86_64\opus_egpv.dll" />
      <None Include="Assets\OnlineMapsV3\Online maps\Shaders\TilesetDrawingElement.shader" />
+     <None Include="Assets\Firebase\Plugins\Firebase.Auth.dll" />
      <None Include="Assets\Packs\BirchPackVol1\Works For Fun.txt" />
+     <None Include="Assets\StreamingAssets\dnn\MobileNetSSD_deploy.prototxt.txt" />
      <None Include="Assets\FacebookSDK\Plugins\Facebook.Unity.dll" />
+     <None Include="Assets\StreamingAssets\dnn\yolov4-tiny.cfg.txt" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Docs\About.txt" />
      <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\RobotoFont\Apache License.txt" />
      <None Include="Assets\BuckHunter\Assets\Double-barrel gun\Stand\Standard_Two_Sided .shader" />
+     <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
      <None Include="Assets\FacebookSDK\Plugins\Gameroom\Facebook.Unity.Gameroom.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\CharaMain.cginc" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Shaders\Shader_ShadowCatch.shader" />
+     <None Include="Assets\Firebase\Plugins\iOS\Firebase.Auth.dll" />
      <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
      <None Include="Assets\OnlineMapsV3\Online maps\Shaders\TilesetCutoutShader.shader" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.dll" />
+     <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppApp-7_0_0.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Audio\Reminder-public_d-291_hifi.mp3.txt" />
      <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\readme.txt" />
+     <None Include="Assets\StreamingAssets\lbpcascade_frontalface.xml" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\CharaSkin.cginc" />
      <None Include="Assets\BuckHunter\Assets\Dog - Tatra Sheepdog\Model\tatrasheepdog_sv_rm_mx.txt" />
      <None Include="Assets\Photon\PhotonLibs\Metro\Photon3Unity3D.dll" />
@@ -549,12 +567,18 @@
      <None Include="Assets\FacebookSDK\Plugins\Android\Facebook.Unity.Android.dll" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\opus_egpv.dll" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\webrtc-audio.dll" />
+     <None Include="Assets\Parse\Plugins\dotNet45\Unity.Compat.dll" />
+     <None Include="Assets\Firebase\Plugins\Firebase.Platform.dll" />
      <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
+     <None Include="Assets\StreamingAssets\haarcascade_frontalface_alt.xml" />
+     <None Include="Assets\Parse\Plugins\dotNet45\Unity.Tasks.dll" />
+     <None Include="Assets\Firebase\Plugins\Google.MiniJson.dll" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Shaders\Shader_LightAtten.shader" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86_64\AudioIn.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\WSA\x64\opus_egpv.dll" />
+     <None Include="Assets\Firebase\Plugins\iOS\Firebase.App.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
      <None Include="Assets\FacebookSDK\Plugins\Gameroom\FacebookNamedPipeClient.dll" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\WebRTC-LICENSE.txt" />
@@ -738,23 +762,44 @@
     <Reference Include="UnityEditor">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.6f1\Editor\Data\Managed\UnityEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Facebook.Unity">
+      <HintPath>Assets\FacebookSDK\Plugins\Facebook.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Gameroom">
+      <HintPath>Assets\FacebookSDK\Plugins\Gameroom\Facebook.Unity.Gameroom.dll</HintPath>
+    </Reference>
+    <Reference Include="FacebookNamedPipeClient">
+      <HintPath>Assets\FacebookSDK\Plugins\Gameroom\FacebookNamedPipeClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Assets\FacebookSDK\Plugins\Settings\Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.App">
+      <HintPath>Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Auth">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.Platform">
+      <HintPath>Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Firebase.TaskExtension">
+      <HintPath>Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.MiniJson">
+      <HintPath>Assets\Firebase\Plugins\Google.MiniJson.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Compat">
+      <HintPath>Assets\Parse\Plugins\dotNet45\Unity.Compat.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Tasks">
+      <HintPath>Assets\Parse\Plugins\dotNet45\Unity.Tasks.dll</HintPath>
+    </Reference>
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Photon\PhotonLibs\Photon3Unity3D.dll</HintPath>
     </Reference>
     <Reference Include="websocket-sharp">
       <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity">
-      <HintPath>Assets\FacebookSDK\Plugins\Facebook.Unity.dll</HintPath>
-    </Reference>
-    <Reference Include="FacebookNamedPipeClient">
-      <HintPath>Assets\FacebookSDK\Plugins\Gameroom\FacebookNamedPipeClient.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity.Gameroom">
-      <HintPath>Assets\FacebookSDK\Plugins\Gameroom\Facebook.Unity.Gameroom.dll</HintPath>
-    </Reference>
-    <Reference Include="Facebook.Unity.Settings">
-      <HintPath>Assets\FacebookSDK\Plugins\Settings\Facebook.Unity.Settings.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.6f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -1107,6 +1152,9 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.6f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.ARKit.FaceTracking.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.XR.Management">
       <HintPath>Library\ScriptAssemblies\Unity.XR.Management.dll</HintPath>
     </Reference>
@@ -1133,6 +1181,9 @@
     </Reference>
     <Reference Include="Unity.XR.ARFoundation.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARFoundation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.ARKit.FaceTracking">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.FaceTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARFoundation">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARFoundation.dll</HintPath>

@@ -54,8 +54,6 @@ public class ShakeDice : MonoBehaviour, IPunObservable
 
         die.GetComponent<Rigidbody>().mass = scale * 1000;
 
-    //    die.transform.localScale = scale * new Vector3(2, 2, 2) / 2;
-
         plane = gameZone.transform.GetChild(0).gameObject;
         transform.SetParent(plane.transform);
         y = 0;
@@ -95,25 +93,20 @@ public class ShakeDice : MonoBehaviour, IPunObservable
                 x = Mathf.Clamp(fakeCup.transform.localPosition.x, -3.7f, 3.7f);
                 z = Mathf.Clamp(fakeCup.transform.localPosition.z, -3.7f, 3.7f);
                 transform.localPosition = new Vector3(x, y, z);
-            }else
-                if (Input.GetKeyDown("space") || Input.GetButton("Fire1"))
-                {
-                    FollowCursor();
-                    x = Mathf.Clamp(fakeCup.transform.localPosition.x, -3.7f, 3.7f);
-                    z = Mathf.Clamp(fakeCup.transform.localPosition.z, -3.7f, 3.7f);
-                    transform.localPosition = new Vector3(x, y, z);
+            }else if (Input.GetKeyDown("space") || Input.GetButton("Fire1"))
+            {
+                FollowCursor();
+                x = Mathf.Clamp(fakeCup.transform.localPosition.x, -3.7f, 3.7f);
+                z = Mathf.Clamp(fakeCup.transform.localPosition.z, -3.7f, 3.7f);
+                transform.localPosition = new Vector3(x, y, z);
+            }
 
-
-                }
-            
-            
         }
 
     }
 
     public void PlaceCub()
     {
-        
         placeCub.SetActive(false);
         AutoPlacement.gameObject.SetActive(false);
         isPlaced = true;
@@ -123,7 +116,6 @@ public class ShakeDice : MonoBehaviour, IPunObservable
             Button start = DiceGameManager.Instance.StartButton;
             start.onClick.AddListener(StartGame);
             start.gameObject.SetActive(true);
-            
         }
     }
 
@@ -145,10 +137,7 @@ public class ShakeDice : MonoBehaviour, IPunObservable
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         float distance;
         if (plane.Raycast(ray, out distance))
-        {
             pointalongplane = ray.origin + (ray.direction * distance);
-        }
-
         fakeCup.transform.position = pointalongplane;
     }
 
@@ -173,7 +162,6 @@ public class ShakeDice : MonoBehaviour, IPunObservable
                     dsm.Refresh();
                     dsm.HideDices();
                 }
-
                 else
                 if (turnCounter == maxTurns) {
                     dsm.Refresh();
@@ -182,7 +170,7 @@ public class ShakeDice : MonoBehaviour, IPunObservable
                     dsm.HideDices();
                 }
             }
-      }
+        }
     }
 
     private IEnumerator Shake() {
@@ -201,6 +189,10 @@ public class ShakeDice : MonoBehaviour, IPunObservable
         diceCup.transform.Rotate(new Vector3(0, 0, 2));
         yield return new WaitForEndOfFrame();
       }
+      foreach(GameObject die in activeDice)
+        {
+            die.GetComponent<Rigidbody>().isKinematic = false;
+        }
       int counter = 0;
       foreach (GameObject die in activeDice) {
         while (die.GetComponent<Die>().GetComponent<Rigidbody>().velocity != Vector3.zero && die.GetComponent<Die>().GetComponent<Rigidbody>().angularVelocity != Vector3.zero) {
@@ -226,23 +218,19 @@ public class ShakeDice : MonoBehaviour, IPunObservable
         playersTurn = false;
         turnCounter = maxTurns;
         StartCoroutine(Pickup());
-        
     }
 
-    private IEnumerator Pickup() {
-       // dsm.Refresh();
+    private IEnumerator Pickup() { 
+
         resultText.text = "";
         turnCounter++;
         for (int i = 0; i < 5; i++) {
-            
             if (dsm.isSelected[i] == true && turnCounter < maxTurns)
             {
                 activeDice[i].GetComponent<Rigidbody>().freezeRotation = true;
                 dsm.isFrozen[i] = true;
                 continue;
             }
-                
-         
             for (int k = 0; k < 25; k++) {
                 activeDice[i].transform.position = Vector3.Lerp(activeDice[i].transform.position, diceSpawnPoint.transform.position, 0.1f);
           yield return new WaitForEndOfFrame();
@@ -255,7 +243,7 @@ public class ShakeDice : MonoBehaviour, IPunObservable
             diceCup.transform.Rotate(new Vector3(0, 0, -2));
             yield return new WaitForEndOfFrame();
         }
-      //  this.transform.rotation = Quaternion.Euler(originalRotation);
+      //this.transform.rotation = Quaternion.Euler(originalRotation);
       //activeDice.Clear();
       isShaking = false;
       readyToCollect = false;

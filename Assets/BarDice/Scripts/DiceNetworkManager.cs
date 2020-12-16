@@ -63,7 +63,6 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Connected!!!");
         PhotonNetwork.JoinLobby();
                 
-
     }
 
 

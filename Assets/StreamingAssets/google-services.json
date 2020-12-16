@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "370789911996",
+    "project_id": "aivra-d7a38",
+    "storage_bucket": "aivra-d7a38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370789911996:android:e70ca6458df5cfd7496fb9",
+        "android_client_info": {
+          "package_name": "com.aivra.projectxx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "370789911996-oo4ca4rn749q60ui1katrh6bf2f6nnth.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoiX6k1qeAlOhVl5tZyLrPL8erTYJKScI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "370789911996-oo4ca4rn749q60ui1katrh6bf2f6nnth.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

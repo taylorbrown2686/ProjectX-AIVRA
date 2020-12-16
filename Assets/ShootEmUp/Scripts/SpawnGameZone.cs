@@ -20,6 +20,7 @@ public class SpawnGameZone : MonoBehaviour
     public ARPlaneManager planeManager;
     public ARRaycastManager raycastManager;
     static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    int counter = 0;
 
     void Start() {
         tutorialText.gameObject.SetActive(true);
@@ -27,13 +28,8 @@ public class SpawnGameZone : MonoBehaviour
     }
 
     void Update() {
-      Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
-      Ray ray = Camera.main.ScreenPointToRay(centerOfScreen);
-      if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon)) {
-        Pose hitPose = hits[0].pose;
-        Vector3 positionToBePlaced = hitPose.position + new Vector3(0, 0.025f, 0);
-        spawnedGame.transform.position = positionToBePlaced;
-      }
+      if(counter ==0)
+        PlacePlane();
       if (Input.touchCount == 1) {
         Touch touchZero = Input.GetTouch(0);
         if (EventSystem.current.IsPointerOverGameObject(touchZero.fingerId)) {
@@ -64,16 +60,31 @@ public class SpawnGameZone : MonoBehaviour
       }
     }
 
+    void PlacePlane()
+    {
+        Vector3 centerOfScreen = new Vector3(Screen.width / 2, Screen.height / 2);
+        Ray ray = Camera.main.ScreenPointToRay(centerOfScreen);
+        if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
+        {
+            Pose hitPose = hits[0].pose;
+            Vector3 positionToBePlaced = hitPose.position + new Vector3(0, 0.025f, 0);
+            spawnedGame.transform.position = positionToBePlaced;
+        }
+    }
+
     public void StartGameAfterScaling() { //Public onclick button handler
         Debug.Log("xx" + planeManager.isActiveAndEnabled);
       foreach (var plane in planeManager.trackables) {
         plane.gameObject.SetActive(false);
       }
       planeManager.enabled = false;
-    
-      tutorialText.gameObject.SetActive(false);
-      spawnedGame.GetComponent<InitializeGame>().InitializeUI();
-      spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
-      Destroy(this);
+        
+        counter++;
+        if(counter == 2) { 
+          tutorialText.gameObject.SetActive(false);
+          spawnedGame.GetComponent<InitializeGame>().InitializeUI();
+          spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();
+          Destroy(this);
+        }
     }
 }
