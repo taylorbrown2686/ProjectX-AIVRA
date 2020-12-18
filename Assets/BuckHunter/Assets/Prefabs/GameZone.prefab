@@ -7071,8 +7071,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pound
       value: 
-      objectReference: {fileID: 1097949467110869812, guid: ec5e6ff1df11adf4389eb9d9b1bfdc4a,
-        type: 3}
+      objectReference: {fileID: 100000, guid: 3176aeb440566664ab0bd513a6a46280, type: 3}
     - target: {fileID: 5587076485332354859, guid: e9e8fb189d1ce2a429ded94bdc2682b0,
         type: 3}
       propertyPath: farmArea

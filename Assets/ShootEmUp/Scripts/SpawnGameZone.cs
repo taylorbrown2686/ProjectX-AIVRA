@@ -23,7 +23,7 @@ public class SpawnGameZone : MonoBehaviour
     int counter = 0;
 
     void Start() {
-        tutorialText.gameObject.SetActive(true);
+       // tutorialText.gameObject.SetActive(true);
       spawnedGame = Instantiate(gameZone, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("AR Session Origin").transform);
     }
 

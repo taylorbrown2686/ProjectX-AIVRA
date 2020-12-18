@@ -33,7 +33,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnChatStateChange(ChatState state)
     {
-        print(state);
+        print("state: " + state);
     }
 
     public void OnConnected()
@@ -65,9 +65,9 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         string message_ = (string)message;
         if(message_.Substring(0,1) == "/")
         {
-            if (message_.Substring(1, 7) == "invite")
+            if (message_.Substring(1, 7) == "invite") //if gets "/invite roomname"
             {
-                throw new System.NotImplementedException();
+                PhotonNetwork.JoinRoom(message_.Substring(8, message_.Length));
             }
 
             if (message_.Substring(1, 5) == "kick")
@@ -89,9 +89,6 @@ public class ChatManager : MonoBehaviour, IChatClientListener
             {
                 throw new System.NotImplementedException();
             }
-
-
-
         }
     }
 

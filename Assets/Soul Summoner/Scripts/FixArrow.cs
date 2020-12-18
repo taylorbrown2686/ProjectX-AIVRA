@@ -29,7 +29,7 @@ public class FixArrow : MonoBehaviour
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient == false)
             return;
-            for (int i = 0; i < 360; i++) { 
+        for (int i = 0; i < 360; i++) { 
             gameZone.transform.rotation = Quaternion.Euler(0, i, 0);
             distance = Vector3.Distance(Camera.main.transform.position, transform.position);
             if (distance < min) { 

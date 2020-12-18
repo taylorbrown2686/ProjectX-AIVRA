@@ -25,7 +25,7 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
     {
         players = new List<Player>();
         //   photonView = GetComponent<PhotonView>();+
-        tutorial.SetActive(false);
+        
 
         Hashtable setPlayerProperties = new Hashtable();
         setPlayerProperties.Add("score", "null");
@@ -42,6 +42,7 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
     public void Connect()
     {
+        tutorial.SetActive(false);
         Destroy(nickName.gameObject, 1f);
         Destroy(connectButton.gameObject, 1f);
         roomCanvas.SetActive(true);
