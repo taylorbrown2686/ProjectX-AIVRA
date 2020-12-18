@@ -49,9 +49,12 @@ public class InitializeGame : MonoBehaviour
     public void InitializeUI() {
       canvas.SetActive(true);
     }
-    public void InitializeNetworkGameScripts() { 
-        
-        GameObject newPlayer = PhotonNetwork.Instantiate(diceCup.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+    public void InitializeNetworkGameScripts() {
+        GameObject newPlayer;
+        if (gameManager == "Soul Summoner")
+            newPlayer = PhotonNetwork.Instantiate("Soul Summoner\\Avatar", new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        else
+            newPlayer = PhotonNetwork.Instantiate(diceCup.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
      //   newPlayer.transform.SetParent(Camera.main.transform,true);
     }
 }

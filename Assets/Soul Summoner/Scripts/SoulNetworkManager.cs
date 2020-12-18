@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,7 +29,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
         Hashtable setPlayerProperties = new Hashtable();
         setPlayerProperties.Add("score", "null");
-        PhotonNetwork.LocalPlayer.SetCustomProperties(setPlayerProperties);
+        
+        //        PhotonNetwork.LocalPlayer.SetCustomProperties(setPlayerProperties);
 
     }
 
@@ -71,6 +73,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        
+
         roomCanvas.SetActive(false);
         tutorial.SetActive(true);
         Debug.Log("joined room!!!!!!!!");
@@ -87,6 +91,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("no rooms");
 
         RoomOptions ro = new RoomOptions();
+
+
 
         ro.IsOpen = true;
         ro.IsVisible = true;
@@ -105,6 +111,16 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log(PhotonNetwork.NickName + " created a " + PhotonNetwork.CurrentRoom.Name);
+        string[] lobbyprops = { "location", "longitude", "latitude" };
+
+        Hashtable props = new Hashtable();
+        props["longitude"] = Input.location.lastData.longitude;
+        props["latitude"] = Input.location.lastData.latitude;
+        props["location"] = "earth media";
+
+        PhotonNetwork.CurrentRoom.SetCustomProperties(props);
+
+        PhotonNetwork.CurrentRoom.SetPropertiesListedInLobby(lobbyprops);
 
     }
 
@@ -131,25 +147,25 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
     void SetScoreBoard()
     {
-        GameObject playerImagetemp;
+        /*  GameObject playerImagetemp;
 
-        foreach (Transform child in GameObject.FindGameObjectWithTag("ScoreBoard").transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+          foreach (Transform child in GameObject.FindGameObjectWithTag("ScoreBoard").transform)
+          {
+              GameObject.Destroy(child.gameObject);
+          }
 
-        for (int i = 0; i < players.Count; i++)
-        {
-            Debug.Log("created avatar");
-            playerImagetemp = Instantiate(playerImage, new Vector3(-400 + i * 200, 960, playerImage.rectTransform.position.z), playerImage.transform.rotation).gameObject;
+          for (int i = 0; i < players.Count; i++)
+          {
+              Debug.Log("created avatar");
+              playerImagetemp = Instantiate(playerImage, new Vector3(-400 + i * 200, 960, playerImage.rectTransform.position.z), playerImage.transform.rotation).gameObject;
 
-            DicePlayer dp = playerImagetemp.GetComponent<DicePlayer>();
+              DicePlayer dp = playerImagetemp.GetComponent<DicePlayer>();
 
-            dp.nickname = dp.nicknameText.text = players[i].NickName;
+              dp.nickname = dp.nicknameText.text = players[i].NickName;
 
-            playerImagetemp.transform.SetParent(GameObject.FindGameObjectWithTag("ScoreBoard").transform);
-            playerImagetemp.GetComponent<RectTransform>().localPosition = new Vector3(-400 + i * 200, 960, playerImage.rectTransform.position.z);
-        }
-
+              playerImagetemp.transform.SetParent(GameObject.FindGameObjectWithTag("ScoreBoard").transform);
+              playerImagetemp.GetComponent<RectTransform>().localPosition = new Vector3(-400 + i * 200, 960, playerImage.rectTransform.position.z);
+          }
+          */
     }
 }

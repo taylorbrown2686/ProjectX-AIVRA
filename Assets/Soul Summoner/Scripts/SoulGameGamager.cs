@@ -27,6 +27,7 @@ public class SoulGameGamager : MonoBehaviour
         else
         {
             _instance = this;
+            Input.location.Start();
         }
     }
 }

@@ -80,7 +80,9 @@ public class SpawnGameZone : MonoBehaviour
       planeManager.enabled = false;
         
         counter++;
-        if(counter == 2) { 
+        if(counter == 2) {
+          if(GameObject.FindGameObjectWithTag("ArrowFixer")!=null)
+            Destroy(GameObject.FindGameObjectWithTag("ArrowFixer"));
           tutorialText.gameObject.SetActive(false);
           spawnedGame.GetComponent<InitializeGame>().InitializeUI();
           spawnedGame.GetComponent<InitializeGame>().InitializeGameScripts();

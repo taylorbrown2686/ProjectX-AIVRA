@@ -25,6 +25,7 @@ TagManager:
   - GameZone
   - fakeCup
   - PlaceCub
+  - ArrowFixer
   layers:
   - Default
   - TransparentFX
