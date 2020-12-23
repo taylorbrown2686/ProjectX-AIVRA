@@ -16,12 +16,17 @@ public class SoulProjectile : MonoBehaviour
         parent = GameObject.FindGameObjectWithTag("GameZone");
         transform.SetParent(parent.transform);
         transform.localScale = new Vector3(0.1f / parent.transform.localScale.x, 0.1f / parent.transform.localScale.y, 0.1f / parent.transform.localScale.z);
-        Destroy(this.gameObject, 3.0f);
+        Destroy(this.gameObject, 5.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+       // Destroy(this.gameObject);
     }
 }

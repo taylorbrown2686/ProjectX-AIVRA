@@ -4,48 +4,52 @@ ScriptsOnlyBuild:
     - ARLocation.ARLocationConfig
     Assembly-CSharp.dll:
     - Avatar
-    - BuckHunterBullet
-    - ButtonManager
     - ChangeColor
     - ChangeName
-    - CriticalHit
-    - DeerShoot
+    - ChatManager
+    - CreateJoinRoomManager
+    - CreateObject
     - DiceSync
     - Die
-    - Duck
     - ExitGames.Demos.DemoPunVoice.FirstPersonController
     - ExitGames.Demos.DemoPunVoice.Highlighter
     - ExitGames.Demos.DemoPunVoice.OrthographicController
     - ExitGames.Demos.DemoPunVoice.ThirdPersonController
-    - Food
-    - GameManager
-    - Gun
+    - FixArrow
+    - FixedScale
     - InitializeGame
-    - MinScale
-    - NonCriticalHit
+    - MoveUp
     - PointersController
+    - ProcessDeepLinkMngr
     - ProximityVoiceTrigger
     - RFX1_ActivateGravityAfterCollision
+    - RFX1_AudioPitchCurves
     - RFX1_AudioVolumeCurves
     - RFX1_Decal
+    - RFX1_LightCurves
+    - RFX1_ParticleCollisionDecal
+    - RFX1_ParticleGravityPoint
     - RFX1_PerPlatformSettings
     - RFX1_RandomRotate
+    - RFX1_ShaderColorGradient
     - RFX1_ShaderFloatCurve
+    - RFX1_ShieldCollisionTrigger
+    - RFX1_StartDelay
     - RFX1_TransformMotion
     - RFX1_WindCurves
-    - RoundEndManager
-    - Scare
+    - ScoreManager
     - ShakeDice
-    - Sheep
     - SoulAvatar
+    - SoulCommunication
+    - SoulGameGamager
+    - SoulMonster
+    - SoulNetworkManager
     - SoulProjectile
     - SpawnGameZone
-    - Squirrel
+    - TestLocationService
+    - Unique
     Facebook.Unity.Settings.dll:
     - Facebook.Unity.Settings.FacebookSettings
-    NavMeshComponents.dll:
-    - UnityEngine.AI.NavMeshModifierVolume
-    - UnityEngine.AI.NavMeshSurface
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -67,6 +71,7 @@ ScriptsOnlyBuild:
     - Photon.Pun.PhotonView
     - Photon.Pun.ServerSettings
     PhotonVoice.PUN.dll:
+    - Photon.Voice.PUN.PhotonVoiceNetwork
     - Photon.Voice.PUN.PhotonVoiceView
     PhotonVoice.dll:
     - Photon.Voice.Unity.Recorder
@@ -81,6 +86,7 @@ ScriptsOnlyBuild:
     - UnityEngine.XR.ARFoundation.ARCameraBackground
     - UnityEngine.XR.ARFoundation.ARCameraManager
     - UnityEngine.XR.ARFoundation.ARInputManager
+    - UnityEngine.XR.ARFoundation.AROcclusionManager
     - UnityEngine.XR.ARFoundation.ARPlane
     - UnityEngine.XR.ARFoundation.ARPlaneManager
     - UnityEngine.XR.ARFoundation.ARPlaneMeshVisualizer
@@ -107,16 +113,24 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.EventTrigger
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
-    Assets/Scenes/BuckHunter.unity:
+    Assets/Scenes/SoulSummoner.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -174,21 +188,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12264}
     - Class: 114
-      Script: {instanceID: 12270}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12300}
+      Script: {instanceID: 12270}
     - Class: 114
       Script: {instanceID: 12352}
     - Class: 114
-      Script: {instanceID: 12528}
-    - Class: 114
       Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12588}
-    - Class: 114
-      Script: {instanceID: 12620}
-    - Class: 114
       Script: {instanceID: 12676}
+    - Class: 114
+      Script: {instanceID: 12682}
     - Class: 114
       Script: {instanceID: 12708}
     - Class: 114
@@ -198,7 +208,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12774}
     - Class: 114
-      Script: {instanceID: 12914}
+      Script: {instanceID: 12790}
+    - Class: 114
+      Script: {instanceID: 12836}
+    - Class: 114
+      Script: {instanceID: 12902}
     - Class: 114
       Script: {instanceID: 12948}
     - Class: 114
@@ -210,15 +224,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13376}
     - Class: 114
+      Script: {instanceID: 13378}
+    - Class: 114
       Script: {instanceID: 13406}
     - Class: 114
       Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13660}
+      Script: {instanceID: 13492}
     - Class: 114
-      Script: {instanceID: 13722}
+      Script: {instanceID: 13654}
     - Class: 114
-      Script: {instanceID: 13742}
+      Script: {instanceID: 13706}
     - Class: 114
       Script: {instanceID: 13762}
     - Class: 114
@@ -228,11 +244,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13900}
     - Class: 114
+      Script: {instanceID: 13944}
+    - Class: 114
+      Script: {instanceID: 14018}
+    - Class: 114
       Script: {instanceID: 14074}
-    - Class: 114
-      Script: {instanceID: 14140}
-    - Class: 114
-      Script: {instanceID: 14222}
     - Class: 114
       Script: {instanceID: 14344}
     - Class: 114
@@ -240,9 +256,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14384}
     - Class: 114
+      Script: {instanceID: 14504}
+    - Class: 114
       Script: {instanceID: 14564}
     - Class: 114
       Script: {instanceID: 14654}
+    - Class: 114
+      Script: {instanceID: 14660}
     - Class: 114
       Script: {instanceID: 14766}
     - Class: 114
@@ -252,9 +272,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15044}
     - Class: 114
-      Script: {instanceID: 15160}
+      Script: {instanceID: 15078}
     - Class: 114
-      Script: {instanceID: 15184}
+      Script: {instanceID: 15160}
     - Class: 114
       Script: {instanceID: 15196}
     - Class: 114
@@ -262,63 +282,87 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15478}
     - Class: 114
-      Script: {instanceID: 15500}
-    - Class: 114
       Script: {instanceID: 15512}
+    - Class: 114
+      Script: {instanceID: 15526}
+    - Class: 114
+      Script: {instanceID: 15532}
     - Class: 114
       Script: {instanceID: 15568}
     - Class: 114
-      Script: {instanceID: 15658}
+      Script: {instanceID: 15572}
     - Class: 114
-      Script: {instanceID: 15676}
+      Script: {instanceID: 15654}
+    - Class: 114
+      Script: {instanceID: 15658}
     - Class: 114
       Script: {instanceID: 15688}
     - Class: 114
-      Script: {instanceID: 15914}
+      Script: {instanceID: 15702}
+    - Class: 114
+      Script: {instanceID: 15900}
     - Class: 114
       Script: {instanceID: 15946}
     - Class: 114
-      Script: {instanceID: 15986}
+      Script: {instanceID: 15948}
     - Class: 114
-      Script: {instanceID: 16006}
+      Script: {instanceID: 15988}
     - Class: 114
-      Script: {instanceID: 16018}
+      Script: {instanceID: 16008}
     - Class: 114
-      Script: {instanceID: 16178}
+      Script: {instanceID: 16020}
     - Class: 114
-      Script: {instanceID: 16238}
+      Script: {instanceID: 16240}
     - Class: 114
-      Script: {instanceID: 16288}
+      Script: {instanceID: 16290}
     - Class: 114
-      Script: {instanceID: 16310}
+      Script: {instanceID: 16312}
     - Class: 114
-      Script: {instanceID: 16318}
+      Script: {instanceID: 16320}
     - Class: 114
-      Script: {instanceID: 16366}
+      Script: {instanceID: 16368}
     - Class: 114
-      Script: {instanceID: 16414}
+      Script: {instanceID: 16400}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16406}
     - Class: 114
-      Script: {instanceID: 16742}
+      Script: {instanceID: 16416}
     - Class: 114
-      Script: {instanceID: 16808}
+      Script: {instanceID: 16680}
     - Class: 114
-      Script: {instanceID: 16914}
+      Script: {instanceID: 16716}
     - Class: 114
-      Script: {instanceID: 16920}
+      Script: {instanceID: 16744}
     - Class: 114
-      Script: {instanceID: 16938}
+      Script: {instanceID: 16810}
     - Class: 114
-      Script: {instanceID: 16970}
+      Script: {instanceID: 16922}
     - Class: 114
-      Script: {instanceID: 16974}
+      Script: {instanceID: 16940}
     - Class: 114
-      Script: {instanceID: 17104}
+      Script: {instanceID: 16972}
     - Class: 114
-      Script: {instanceID: 17158}
+      Script: {instanceID: 16976}
     - Class: 114
-      Script: {instanceID: 17218}
+      Script: {instanceID: 17034}
+    - Class: 114
+      Script: {instanceID: 17106}
+    - Class: 114
+      Script: {instanceID: 17114}
+    - Class: 114
+      Script: {instanceID: 17160}
+    - Class: 114
+      Script: {instanceID: 17192}
+    - Class: 114
+      Script: {instanceID: 17220}
+    - Class: 114
+      Script: {instanceID: 17278}
+    - Class: 114
+      Script: {instanceID: 116634}
+    - Class: 114
+      Script: {instanceID: 148812}
+    - Class: 114
+      Script: {instanceID: 302302}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -341,10 +385,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 182
       Script: {instanceID: 0}
-    - Class: 193
-      Script: {instanceID: 0}
-    - Class: 195
-      Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
     - Class: 198
@@ -364,8 +404,6 @@ ScriptsOnlyBuild:
     - Class: 225
       Script: {instanceID: 0}
     - Class: 330
-      Script: {instanceID: 0}
-    - Class: 850595691
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1528,7 +1566,7 @@ ScriptsOnlyBuild:
     className: AsteroidsGameManager
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 0c820fd0394ff7595cbf87de975e6931
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoulGameGamager
@@ -1840,7 +1878,7 @@ ScriptsOnlyBuild:
     className: Demo
   - hash:
       serializedVersion: 2
-      Hash: 1d94228a0608f14def513674216f8ec1
+      Hash: 1977107699dbdfb0ddc8a0ca2accf448
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoulNetworkManager
@@ -3128,6 +3166,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARRaycast
+  - hash:
+      serializedVersion: 2
+      Hash: 464f6f7787eb07ae738477a4e6d3085e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TestLocationService
   - hash:
       serializedVersion: 2
       Hash: 11bdd61587db747672b66c52442395d8
@@ -4486,11 +4530,23 @@ ScriptsOnlyBuild:
     className: GamesController
   - hash:
       serializedVersion: 2
-      Hash: 464f6f7787eb07ae738477a4e6d3085e
+      Hash: 228265bc0aa9cdf2f870dbe1f2ec5a73
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: TestLocationService
+    className: CreateObject
+  - hash:
+      serializedVersion: 2
+      Hash: d6a027f8e3141dc88fa944065f428ec3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MoveUp
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoulMonster
   platform: 13
   scenePathNames:
-  - Assets/Scenes/BuckHunter.unity
+  - Assets/Scenes/SoulSummoner.unity
   playerPath: C:/Users/msalp/Desktop/aivra.apk

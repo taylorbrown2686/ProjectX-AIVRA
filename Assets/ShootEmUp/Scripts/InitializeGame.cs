@@ -26,6 +26,10 @@ public class InitializeGame : MonoBehaviour
         case "AvatarManager":
             superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AvatarManager>();
         break;
+        case "Soul Summoner":
+                var fooGroup = Resources.FindObjectsOfTypeAll<SoulGameGamager>();
+                superGameManager = fooGroup[0].GetComponent<SoulGameGamager>();
+        break;
             default:
            superGameManager=null;
         break;
@@ -52,7 +56,11 @@ public class InitializeGame : MonoBehaviour
     public void InitializeNetworkGameScripts() {
         GameObject newPlayer;
         if (gameManager == "Soul Summoner")
+        {
+            superGameManager.enabled = true;
             newPlayer = PhotonNetwork.Instantiate("Soul Summoner\\Avatar", new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        }
+            
         else
             newPlayer = PhotonNetwork.Instantiate(diceCup.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
      //   newPlayer.transform.SetParent(Camera.main.transform,true);

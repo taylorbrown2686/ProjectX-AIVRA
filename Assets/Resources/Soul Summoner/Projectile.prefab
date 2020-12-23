@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -6252808011923111210}
   - component: {fileID: 1676570691546357898}
   - component: {fileID: -4953035941184107387}
+  - component: {fileID: 6650096899480546092}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -53,7 +54,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2760517649050164299}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -163,6 +164,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55440536e58ca064aa6bee3893ab4081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6650096899480546092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2760517649050164299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
 --- !u!1001 &8747250521765625676
 PrefabInstance:
   m_ObjectHideFlags: 0

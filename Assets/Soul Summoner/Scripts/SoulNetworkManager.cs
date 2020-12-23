@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Chat;
+using System;
+using System.Linq;
 
 public class SoulNetworkManager : MonoBehaviourPunCallbacks
 {
@@ -20,6 +23,7 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
     public SoulCommunication sc;
     public GameObject tutorial;
     public GameObject roomCanvas;
+    public ChatManager cm;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +33,22 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
         Hashtable setPlayerProperties = new Hashtable();
         setPlayerProperties.Add("score", "null");
-        
-        //        PhotonNetwork.LocalPlayer.SetCustomProperties(setPlayerProperties);
 
+        //        PhotonNetwork.LocalPlayer.SetCustomProperties(setPlayerProperties);
+ 
+        
     }
+
+    IEnumerator GetFriends()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("email", "taylor");
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/pullFriends.php", form);
+        yield return www;
+        print(www.text);
+        var users = www.text.Split(new string[] { "&" }, StringSplitOptions.RemoveEmptyEntries).ToList();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -48,7 +64,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
         roomCanvas.SetActive(true);
         PhotonNetwork.LocalPlayer.NickName = nickName.text;
         PhotonNetwork.ConnectUsingSettings();
-
+        cm.Connect(nickName.text);
+        StartCoroutine(GetFriends());
     }
 
 
@@ -74,8 +91,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        
 
+    //    ChatClient.SetOnlineStatus(6);
         roomCanvas.SetActive(false);
         tutorial.SetActive(true);
         Debug.Log("joined room!!!!!!!!");
@@ -92,8 +109,6 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("no rooms");
 
         RoomOptions ro = new RoomOptions();
-
-
 
         ro.IsOpen = true;
         ro.IsVisible = true;
