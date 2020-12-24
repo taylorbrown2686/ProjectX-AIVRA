@@ -386,6 +386,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckAllTilesLoadedExample.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\InitializeGame.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\BuckHunterBullet.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\CreateObject.cs" />
     <Compile Include="Assets\BarDice\Scripts\Die.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CreateAndScaleMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsOSMNominatimResult.cs" />
@@ -439,6 +440,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\MoveMarkersExample.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\FramerateCheck.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulMonster.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsWhat3Words.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\DriveToPoint.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\OrthographicController.cs" />
@@ -473,6 +475,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ChangeMarkerTextureExample.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerCreator.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\MarkerImages.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\MoveUp.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_EffectSettingsInspector.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGooglePlacesAutocomplete.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ShowMarkerLabelsByZoomExample.cs" />
@@ -545,9 +548,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\CreateObject.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\MoveUp.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulMonster.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SyncSoulAvatar.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

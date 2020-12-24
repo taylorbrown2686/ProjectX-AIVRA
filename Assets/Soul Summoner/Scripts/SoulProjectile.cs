@@ -19,11 +19,6 @@ public class SoulProjectile : MonoBehaviour
         Destroy(this.gameObject, 5.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

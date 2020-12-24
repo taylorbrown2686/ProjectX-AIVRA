@@ -7,7 +7,7 @@ using UnityEngine.XR.ARFoundation;
 public class CreateObject : MonoBehaviour
 {
     public ARRaycastManager arRaycastManager;
-    public GameObject cubePrefab;
+    int counter = 0;
 
     private List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
 
@@ -24,10 +24,9 @@ public class CreateObject : MonoBehaviour
                     if (arRaycastManager.Raycast(touch.position, arRaycastHits))
                     {
                         var pose = arRaycastHits[0].pose;
-                        if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
+                       
                             CreateCube(pose.position);
-                        else
-                            Destroy(this.gameObject);
+                        
                         return;
                     }
 
@@ -46,9 +45,15 @@ public class CreateObject : MonoBehaviour
 
     private void CreateCube(Vector3 position)
     {
-        
-        PhotonNetwork.Instantiate("Soul Summoner\\Monster", position, Quaternion.identity);
-        Destroy(this.gameObject);
+        SoulGameGamager.Instance.BringBackButtons();
+        if (PhotonNetwork.LocalPlayer.IsMasterClient == true) { 
+            PhotonNetwork.Instantiate("Soul Summoner\\Monster", position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+        else { 
+            PhotonNetwork.Instantiate("Soul Summoner\\Perderos", position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     private void DeleteCube(GameObject cubeObject)

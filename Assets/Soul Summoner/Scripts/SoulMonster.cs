@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoulMonster : MonoBehaviour
 {
-    int hp = 3;
+    int hp = 10;
     Animator animator;
     // Start is called before the first frame update
     float speed = 0.5f;
@@ -46,6 +46,21 @@ public class SoulMonster : MonoBehaviour
         animator.SetTrigger("hit");
         hp--;
         if(hp < 1) {
+            GetComponent<Collider>().enabled = false;
+            animator.SetTrigger("die");
+            this.enabled = false;
+
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (hp < 1)
+            return;
+        animator.SetTrigger("hit");
+        hp--;
+        if (hp < 1)
+        {
             GetComponent<Collider>().enabled = false;
             animator.SetTrigger("die");
             this.enabled = false;

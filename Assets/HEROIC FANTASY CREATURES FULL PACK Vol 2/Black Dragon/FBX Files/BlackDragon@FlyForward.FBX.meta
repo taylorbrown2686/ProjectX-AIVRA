@@ -1,0 +1,803 @@
+fileFormatVersion: 2
+guid: 8e80efeaff9dd0744af051241df4414a
+ModelImporter:
+  serializedVersion: 20101
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: BLACK_DRAGON_
+  - first:
+      1: 100002
+    second: BLACK_DRAGON_ Head
+  - first:
+      1: 100004
+    second: BLACK_DRAGON_ L Calf
+  - first:
+      1: 100006
+    second: BLACK_DRAGON_ L Clavicle
+  - first:
+      1: 100008
+    second: BLACK_DRAGON_ L Finger0
+  - first:
+      1: 100010
+    second: BLACK_DRAGON_ L Finger01
+  - first:
+      1: 100012
+    second: BLACK_DRAGON_ L Finger1
+  - first:
+      1: 100014
+    second: BLACK_DRAGON_ L Finger11
+  - first:
+      1: 100016
+    second: BLACK_DRAGON_ L Finger2
+  - first:
+      1: 100018
+    second: BLACK_DRAGON_ L Finger21
+  - first:
+      1: 100020
+    second: BLACK_DRAGON_ L Finger3
+  - first:
+      1: 100022
+    second: BLACK_DRAGON_ L Finger31
+  - first:
+      1: 100024
+    second: BLACK_DRAGON_ L Foot
+  - first:
+      1: 100026
+    second: BLACK_DRAGON_ L Forearm
+  - first:
+      1: 100028
+    second: BLACK_DRAGON_ L Hand
+  - first:
+      1: 100030
+    second: BLACK_DRAGON_ L HorseLink
+  - first:
+      1: 100032
+    second: BLACK_DRAGON_ L Thigh
+  - first:
+      1: 100034
+    second: BLACK_DRAGON_ L Toe0
+  - first:
+      1: 100036
+    second: BLACK_DRAGON_ L Toe01
+  - first:
+      1: 100038
+    second: BLACK_DRAGON_ L Toe0Nub
+  - first:
+      1: 100040
+    second: BLACK_DRAGON_ L Toe1
+  - first:
+      1: 100042
+    second: BLACK_DRAGON_ L Toe11
+  - first:
+      1: 100044
+    second: BLACK_DRAGON_ L Toe2
+  - first:
+      1: 100046
+    second: BLACK_DRAGON_ L Toe21
+  - first:
+      1: 100048
+    second: BLACK_DRAGON_ L Toe3
+  - first:
+      1: 100050
+    second: BLACK_DRAGON_ L Toe31
+  - first:
+      1: 100052
+    second: BLACK_DRAGON_ L UpperArm
+  - first:
+      1: 100054
+    second: BLACK_DRAGON_ Neck
+  - first:
+      1: 100056
+    second: BLACK_DRAGON_ Neck1
+  - first:
+      1: 100058
+    second: BLACK_DRAGON_ Neck2
+  - first:
+      1: 100060
+    second: BLACK_DRAGON_ Neck3
+  - first:
+      1: 100062
+    second: BLACK_DRAGON_ Neck4
+  - first:
+      1: 100064
+    second: BLACK_DRAGON_ Neck5
+  - first:
+      1: 100066
+    second: BLACK_DRAGON_ Pelvis
+  - first:
+      1: 100068
+    second: BLACK_DRAGON_ Queue de cheval 1
+  - first:
+      1: 100070
+    second: BLACK_DRAGON_ R Calf
+  - first:
+      1: 100072
+    second: BLACK_DRAGON_ R Clavicle
+  - first:
+      1: 100074
+    second: BLACK_DRAGON_ R Finger0
+  - first:
+      1: 100076
+    second: BLACK_DRAGON_ R Finger01
+  - first:
+      1: 100078
+    second: BLACK_DRAGON_ R Finger1
+  - first:
+      1: 100080
+    second: BLACK_DRAGON_ R Finger11
+  - first:
+      1: 100082
+    second: BLACK_DRAGON_ R Finger2
+  - first:
+      1: 100084
+    second: BLACK_DRAGON_ R Finger21
+  - first:
+      1: 100086
+    second: BLACK_DRAGON_ R Finger3
+  - first:
+      1: 100088
+    second: BLACK_DRAGON_ R Finger31
+  - first:
+      1: 100090
+    second: BLACK_DRAGON_ R Foot
+  - first:
+      1: 100092
+    second: BLACK_DRAGON_ R Forearm
+  - first:
+      1: 100094
+    second: BLACK_DRAGON_ R Hand
+  - first:
+      1: 100096
+    second: BLACK_DRAGON_ R HorseLink
+  - first:
+      1: 100098
+    second: BLACK_DRAGON_ R Thigh
+  - first:
+      1: 100100
+    second: BLACK_DRAGON_ R Toe0
+  - first:
+      1: 100102
+    second: BLACK_DRAGON_ R Toe01
+  - first:
+      1: 100104
+    second: BLACK_DRAGON_ R Toe0Nub
+  - first:
+      1: 100106
+    second: BLACK_DRAGON_ R Toe1
+  - first:
+      1: 100108
+    second: BLACK_DRAGON_ R Toe11
+  - first:
+      1: 100110
+    second: BLACK_DRAGON_ R Toe2
+  - first:
+      1: 100112
+    second: BLACK_DRAGON_ R Toe21
+  - first:
+      1: 100114
+    second: BLACK_DRAGON_ R Toe3
+  - first:
+      1: 100116
+    second: BLACK_DRAGON_ R Toe31
+  - first:
+      1: 100118
+    second: BLACK_DRAGON_ R UpperArm
+  - first:
+      1: 100120
+    second: BLACK_DRAGON_ Spine
+  - first:
+      1: 100122
+    second: BLACK_DRAGON_ Spine1
+  - first:
+      1: 100124
+    second: BLACK_DRAGON_ Spine2
+  - first:
+      1: 100126
+    second: BLACK_DRAGON_ Spine3
+  - first:
+      1: 100128
+    second: BLACK_DRAGON_ Spine4
+  - first:
+      1: 100130
+    second: BLACK_DRAGON_ Spine5
+  - first:
+      1: 100132
+    second: BLACK_DRAGON_ Spine6
+  - first:
+      1: 100134
+    second: BLACK_DRAGON_ Tail
+  - first:
+      1: 100136
+    second: BLACK_DRAGON_ Tail1
+  - first:
+      1: 100138
+    second: BLACK_DRAGON_ Tail10
+  - first:
+      1: 100140
+    second: BLACK_DRAGON_ Tail11
+  - first:
+      1: 100142
+    second: BLACK_DRAGON_ Tail12
+  - first:
+      1: 100144
+    second: BLACK_DRAGON_ Tail13
+  - first:
+      1: 100146
+    second: BLACK_DRAGON_ Tail14
+  - first:
+      1: 100148
+    second: BLACK_DRAGON_ Tail15
+  - first:
+      1: 100150
+    second: BLACK_DRAGON_ Tail16
+  - first:
+      1: 100152
+    second: BLACK_DRAGON_ Tail17
+  - first:
+      1: 100154
+    second: BLACK_DRAGON_ Tail18
+  - first:
+      1: 100156
+    second: BLACK_DRAGON_ Tail19
+  - first:
+      1: 100158
+    second: BLACK_DRAGON_ Tail2
+  - first:
+      1: 100160
+    second: BLACK_DRAGON_ Tail20
+  - first:
+      1: 100162
+    second: BLACK_DRAGON_ Tail21
+  - first:
+      1: 100164
+    second: BLACK_DRAGON_ Tail3
+  - first:
+      1: 100166
+    second: BLACK_DRAGON_ Tail4
+  - first:
+      1: 100168
+    second: BLACK_DRAGON_ Tail5
+  - first:
+      1: 100170
+    second: BLACK_DRAGON_ Tail6
+  - first:
+      1: 100172
+    second: BLACK_DRAGON_ Tail7
+  - first:
+      1: 100174
+    second: BLACK_DRAGON_ Tail8
+  - first:
+      1: 100176
+    second: BLACK_DRAGON_ Tail9
+  - first:
+      1: 100178
+    second: BLACK_DRAGON_WHISKERS_L_01
+  - first:
+      1: 100180
+    second: BLACK_DRAGON_WHISKERS_L_02
+  - first:
+      1: 100182
+    second: BLACK_DRAGON_WHISKERS_L_03
+  - first:
+      1: 100184
+    second: BLACK_DRAGON_WHISKERS_L_04
+  - first:
+      1: 100186
+    second: BLACK_DRAGON_WHISKERS_L_05
+  - first:
+      1: 100188
+    second: BLACK_DRAGON_WHISKERS_L_06
+  - first:
+      1: 100190
+    second: BLACK_DRAGON_WHISKERS_L_07
+  - first:
+      1: 100192
+    second: BLACK_DRAGON_WHISKERS_R_01
+  - first:
+      1: 100194
+    second: BLACK_DRAGON_WHISKERS_R_02
+  - first:
+      1: 100196
+    second: BLACK_DRAGON_WHISKERS_R_03
+  - first:
+      1: 100198
+    second: BLACK_DRAGON_WHISKERS_R_04
+  - first:
+      1: 100200
+    second: BLACK_DRAGON_WHISKERS_R_05
+  - first:
+      1: 100202
+    second: BLACK_DRAGON_WHISKERS_R_06
+  - first:
+      1: 100204
+    second: BLACK_DRAGON_WHISKERS_R_07
+  - first:
+      1: 100206
+    second: //RootNode
+  - first:
+      1: 100208
+    second: Factice002
+  - first:
+      1: 100210
+    second: Factice003
+  - first:
+      1: 100212
+    second: BLACK_DRAGON_ Footsteps
+  - first:
+      1: 100214
+    second: BLACK_DRAGON_WHISKERS_L_nub
+  - first:
+      1: 100216
+    second: BLACK_DRAGON_WHISKERS_R_nub
+  - first:
+      1: 100218
+    second: nub
+  - first:
+      1: 100220
+    second: root
+  - first:
+      4: 400000
+    second: BLACK_DRAGON_
+  - first:
+      4: 400002
+    second: BLACK_DRAGON_ Head
+  - first:
+      4: 400004
+    second: BLACK_DRAGON_ L Calf
+  - first:
+      4: 400006
+    second: BLACK_DRAGON_ L Clavicle
+  - first:
+      4: 400008
+    second: BLACK_DRAGON_ L Finger0
+  - first:
+      4: 400010
+    second: BLACK_DRAGON_ L Finger01
+  - first:
+      4: 400012
+    second: BLACK_DRAGON_ L Finger1
+  - first:
+      4: 400014
+    second: BLACK_DRAGON_ L Finger11
+  - first:
+      4: 400016
+    second: BLACK_DRAGON_ L Finger2
+  - first:
+      4: 400018
+    second: BLACK_DRAGON_ L Finger21
+  - first:
+      4: 400020
+    second: BLACK_DRAGON_ L Finger3
+  - first:
+      4: 400022
+    second: BLACK_DRAGON_ L Finger31
+  - first:
+      4: 400024
+    second: BLACK_DRAGON_ L Foot
+  - first:
+      4: 400026
+    second: BLACK_DRAGON_ L Forearm
+  - first:
+      4: 400028
+    second: BLACK_DRAGON_ L Hand
+  - first:
+      4: 400030
+    second: BLACK_DRAGON_ L HorseLink
+  - first:
+      4: 400032
+    second: BLACK_DRAGON_ L Thigh
+  - first:
+      4: 400034
+    second: BLACK_DRAGON_ L Toe0
+  - first:
+      4: 400036
+    second: BLACK_DRAGON_ L Toe01
+  - first:
+      4: 400038
+    second: BLACK_DRAGON_ L Toe0Nub
+  - first:
+      4: 400040
+    second: BLACK_DRAGON_ L Toe1
+  - first:
+      4: 400042
+    second: BLACK_DRAGON_ L Toe11
+  - first:
+      4: 400044
+    second: BLACK_DRAGON_ L Toe2
+  - first:
+      4: 400046
+    second: BLACK_DRAGON_ L Toe21
+  - first:
+      4: 400048
+    second: BLACK_DRAGON_ L Toe3
+  - first:
+      4: 400050
+    second: BLACK_DRAGON_ L Toe31
+  - first:
+      4: 400052
+    second: BLACK_DRAGON_ L UpperArm
+  - first:
+      4: 400054
+    second: BLACK_DRAGON_ Neck
+  - first:
+      4: 400056
+    second: BLACK_DRAGON_ Neck1
+  - first:
+      4: 400058
+    second: BLACK_DRAGON_ Neck2
+  - first:
+      4: 400060
+    second: BLACK_DRAGON_ Neck3
+  - first:
+      4: 400062
+    second: BLACK_DRAGON_ Neck4
+  - first:
+      4: 400064
+    second: BLACK_DRAGON_ Neck5
+  - first:
+      4: 400066
+    second: BLACK_DRAGON_ Pelvis
+  - first:
+      4: 400068
+    second: BLACK_DRAGON_ Queue de cheval 1
+  - first:
+      4: 400070
+    second: BLACK_DRAGON_ R Calf
+  - first:
+      4: 400072
+    second: BLACK_DRAGON_ R Clavicle
+  - first:
+      4: 400074
+    second: BLACK_DRAGON_ R Finger0
+  - first:
+      4: 400076
+    second: BLACK_DRAGON_ R Finger01
+  - first:
+      4: 400078
+    second: BLACK_DRAGON_ R Finger1
+  - first:
+      4: 400080
+    second: BLACK_DRAGON_ R Finger11
+  - first:
+      4: 400082
+    second: BLACK_DRAGON_ R Finger2
+  - first:
+      4: 400084
+    second: BLACK_DRAGON_ R Finger21
+  - first:
+      4: 400086
+    second: BLACK_DRAGON_ R Finger3
+  - first:
+      4: 400088
+    second: BLACK_DRAGON_ R Finger31
+  - first:
+      4: 400090
+    second: BLACK_DRAGON_ R Foot
+  - first:
+      4: 400092
+    second: BLACK_DRAGON_ R Forearm
+  - first:
+      4: 400094
+    second: BLACK_DRAGON_ R Hand
+  - first:
+      4: 400096
+    second: BLACK_DRAGON_ R HorseLink
+  - first:
+      4: 400098
+    second: BLACK_DRAGON_ R Thigh
+  - first:
+      4: 400100
+    second: BLACK_DRAGON_ R Toe0
+  - first:
+      4: 400102
+    second: BLACK_DRAGON_ R Toe01
+  - first:
+      4: 400104
+    second: BLACK_DRAGON_ R Toe0Nub
+  - first:
+      4: 400106
+    second: BLACK_DRAGON_ R Toe1
+  - first:
+      4: 400108
+    second: BLACK_DRAGON_ R Toe11
+  - first:
+      4: 400110
+    second: BLACK_DRAGON_ R Toe2
+  - first:
+      4: 400112
+    second: BLACK_DRAGON_ R Toe21
+  - first:
+      4: 400114
+    second: BLACK_DRAGON_ R Toe3
+  - first:
+      4: 400116
+    second: BLACK_DRAGON_ R Toe31
+  - first:
+      4: 400118
+    second: BLACK_DRAGON_ R UpperArm
+  - first:
+      4: 400120
+    second: BLACK_DRAGON_ Spine
+  - first:
+      4: 400122
+    second: BLACK_DRAGON_ Spine1
+  - first:
+      4: 400124
+    second: BLACK_DRAGON_ Spine2
+  - first:
+      4: 400126
+    second: BLACK_DRAGON_ Spine3
+  - first:
+      4: 400128
+    second: BLACK_DRAGON_ Spine4
+  - first:
+      4: 400130
+    second: BLACK_DRAGON_ Spine5
+  - first:
+      4: 400132
+    second: BLACK_DRAGON_ Spine6
+  - first:
+      4: 400134
+    second: BLACK_DRAGON_ Tail
+  - first:
+      4: 400136
+    second: BLACK_DRAGON_ Tail1
+  - first:
+      4: 400138
+    second: BLACK_DRAGON_ Tail10
+  - first:
+      4: 400140
+    second: BLACK_DRAGON_ Tail11
+  - first:
+      4: 400142
+    second: BLACK_DRAGON_ Tail12
+  - first:
+      4: 400144
+    second: BLACK_DRAGON_ Tail13
+  - first:
+      4: 400146
+    second: BLACK_DRAGON_ Tail14
+  - first:
+      4: 400148
+    second: BLACK_DRAGON_ Tail15
+  - first:
+      4: 400150
+    second: BLACK_DRAGON_ Tail16
+  - first:
+      4: 400152
+    second: BLACK_DRAGON_ Tail17
+  - first:
+      4: 400154
+    second: BLACK_DRAGON_ Tail18
+  - first:
+      4: 400156
+    second: BLACK_DRAGON_ Tail19
+  - first:
+      4: 400158
+    second: BLACK_DRAGON_ Tail2
+  - first:
+      4: 400160
+    second: BLACK_DRAGON_ Tail20
+  - first:
+      4: 400162
+    second: BLACK_DRAGON_ Tail21
+  - first:
+      4: 400164
+    second: BLACK_DRAGON_ Tail3
+  - first:
+      4: 400166
+    second: BLACK_DRAGON_ Tail4
+  - first:
+      4: 400168
+    second: BLACK_DRAGON_ Tail5
+  - first:
+      4: 400170
+    second: BLACK_DRAGON_ Tail6
+  - first:
+      4: 400172
+    second: BLACK_DRAGON_ Tail7
+  - first:
+      4: 400174
+    second: BLACK_DRAGON_ Tail8
+  - first:
+      4: 400176
+    second: BLACK_DRAGON_ Tail9
+  - first:
+      4: 400178
+    second: BLACK_DRAGON_WHISKERS_L_01
+  - first:
+      4: 400180
+    second: BLACK_DRAGON_WHISKERS_L_02
+  - first:
+      4: 400182
+    second: BLACK_DRAGON_WHISKERS_L_03
+  - first:
+      4: 400184
+    second: BLACK_DRAGON_WHISKERS_L_04
+  - first:
+      4: 400186
+    second: BLACK_DRAGON_WHISKERS_L_05
+  - first:
+      4: 400188
+    second: BLACK_DRAGON_WHISKERS_L_06
+  - first:
+      4: 400190
+    second: BLACK_DRAGON_WHISKERS_L_07
+  - first:
+      4: 400192
+    second: BLACK_DRAGON_WHISKERS_R_01
+  - first:
+      4: 400194
+    second: BLACK_DRAGON_WHISKERS_R_02
+  - first:
+      4: 400196
+    second: BLACK_DRAGON_WHISKERS_R_03
+  - first:
+      4: 400198
+    second: BLACK_DRAGON_WHISKERS_R_04
+  - first:
+      4: 400200
+    second: BLACK_DRAGON_WHISKERS_R_05
+  - first:
+      4: 400202
+    second: BLACK_DRAGON_WHISKERS_R_06
+  - first:
+      4: 400204
+    second: BLACK_DRAGON_WHISKERS_R_07
+  - first:
+      4: 400206
+    second: //RootNode
+  - first:
+      4: 400208
+    second: Factice002
+  - first:
+      4: 400210
+    second: Factice003
+  - first:
+      4: 400212
+    second: BLACK_DRAGON_ Footsteps
+  - first:
+      4: 400214
+    second: BLACK_DRAGON_WHISKERS_L_nub
+  - first:
+      4: 400216
+    second: BLACK_DRAGON_WHISKERS_R_nub
+  - first:
+      4: 400218
+    second: nub
+  - first:
+      4: 400220
+    second: root
+  - first:
+      74: 7400000
+    second: FlyForward
+  - first:
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 0
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: FlyForward
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: root
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 069f55b3b80154148aa196b1b2b3540d,
+    type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

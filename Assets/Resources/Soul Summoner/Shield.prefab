@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3910541736121701798}
   - component: {fileID: 4025245155858791886}
   - component: {fileID: 3994677854296276922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 3816070382034976458}
   - component: {fileID: 3787426845195264370}
   - component: {fileID: 4025269390538084546}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShieldFringe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4964,13 +4964,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3916995673847590514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3916995673847590514
 Transform:
   m_ObjectHideFlags: 0
@@ -5001,7 +5001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3910411272978054234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5036,7 +5036,7 @@ GameObject:
   - component: {fileID: 3785306941916406250}
   - component: {fileID: 3787367084797913250}
   - component: {fileID: 4025220408041187922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9752,7 +9752,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3910536454838731578}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9785,7 +9785,7 @@ GameObject:
   - component: {fileID: 3785458446264718926}
   - component: {fileID: 3786487795308035756}
   - component: {fileID: 4025402562450308728}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ShieldAdd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14572,7 +14572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3910716929024476004}
   - component: {fileID: 4025602014814590718}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PerPlatformSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14620,7 +14620,7 @@ GameObject:
   - component: {fileID: 3916845619338181032}
   - component: {fileID: 3786139015121846990}
   - component: {fileID: 3787362529941428486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19191,7 +19191,7 @@ GameObject:
   - component: {fileID: 3785319233015981714}
   - component: {fileID: 3785617261250696656}
   - component: {fileID: 4025654222269375506}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23975,7 +23975,7 @@ GameObject:
   - component: {fileID: 3910672669975942566}
   - component: {fileID: 4020456522356647988}
   - component: {fileID: 4025201821398844010}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24108,7 +24108,7 @@ GameObject:
   - component: {fileID: 3916661816912620736}
   - component: {fileID: 4026021025449039914}
   - component: {fileID: 3939659447040013102}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TriggerEnter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24172,7 +24172,7 @@ GameObject:
   - component: {fileID: 3916541462898089760}
   - component: {fileID: 4025265769466577246}
   - component: {fileID: 3994587312771252004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
