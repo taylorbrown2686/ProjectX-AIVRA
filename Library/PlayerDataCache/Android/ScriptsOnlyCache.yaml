@@ -11,6 +11,13 @@ ScriptsOnlyBuild:
     - CreateObject
     - DiceSync
     - Die
+    - EmeraldAI.CameraShake
+    - EmeraldAI.CombatTextSystem
+    - EmeraldAI.EmeraldAICombatTextData
+    - EmeraldAI.EmeraldAIFactionData
+    - EmeraldAI.Utility.CombatText
+    - EmeraldAI.Utility.CombatTextAnimator
+    - EmeraldAI.Utility.EmeraldAIDamageOverTime
     - ExitGames.Demos.DemoPunVoice.FirstPersonController
     - ExitGames.Demos.DemoPunVoice.Highlighter
     - ExitGames.Demos.DemoPunVoice.OrthographicController
@@ -21,6 +28,7 @@ ScriptsOnlyBuild:
     - MoveUp
     - PointersController
     - ProcessDeepLinkMngr
+    - ProjectileHit
     - ProximityVoiceTrigger
     - RFX1_ActivateGravityAfterCollision
     - RFX1_AudioPitchCurves
@@ -123,6 +131,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.Outline
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Shadow
@@ -177,195 +186,213 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12270}
-    - Class: 114
-      Script: {instanceID: 12272}
-    - Class: 114
-      Script: {instanceID: 12274}
-    - Class: 114
-      Script: {instanceID: 12276}
-    - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12280}
     - Class: 114
       Script: {instanceID: 12282}
     - Class: 114
       Script: {instanceID: 12284}
     - Class: 114
+      Script: {instanceID: 12286}
+    - Class: 114
       Script: {instanceID: 12288}
     - Class: 114
-      Script: {instanceID: 12370}
+      Script: {instanceID: 12292}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12294}
     - Class: 114
-      Script: {instanceID: 12696}
+      Script: {instanceID: 12296}
     - Class: 114
-      Script: {instanceID: 12702}
+      Script: {instanceID: 12300}
     - Class: 114
-      Script: {instanceID: 12728}
+      Script: {instanceID: 12386}
     - Class: 114
-      Script: {instanceID: 12740}
+      Script: {instanceID: 12474}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12622}
     - Class: 114
-      Script: {instanceID: 12796}
+      Script: {instanceID: 12720}
     - Class: 114
-      Script: {instanceID: 12812}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 12858}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 12924}
+      Script: {instanceID: 12764}
     - Class: 114
-      Script: {instanceID: 12970}
+      Script: {instanceID: 12780}
     - Class: 114
-      Script: {instanceID: 13122}
+      Script: {instanceID: 12820}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 13288}
+      Script: {instanceID: 12882}
     - Class: 114
-      Script: {instanceID: 13402}
+      Script: {instanceID: 12952}
     - Class: 114
-      Script: {instanceID: 13404}
+      Script: {instanceID: 13002}
     - Class: 114
-      Script: {instanceID: 13432}
+      Script: {instanceID: 13156}
     - Class: 114
-      Script: {instanceID: 13496}
+      Script: {instanceID: 13176}
     - Class: 114
-      Script: {instanceID: 13518}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 13440}
     - Class: 114
-      Script: {instanceID: 13734}
+      Script: {instanceID: 13442}
     - Class: 114
-      Script: {instanceID: 13790}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13886}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 13908}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13928}
+      Script: {instanceID: 13724}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13778}
     - Class: 114
-      Script: {instanceID: 14048}
+      Script: {instanceID: 13834}
     - Class: 114
-      Script: {instanceID: 14104}
+      Script: {instanceID: 13930}
     - Class: 114
-      Script: {instanceID: 14376}
+      Script: {instanceID: 13940}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 14416}
+      Script: {instanceID: 13974}
     - Class: 114
-      Script: {instanceID: 14536}
+      Script: {instanceID: 14020}
     - Class: 114
-      Script: {instanceID: 14596}
+      Script: {instanceID: 14102}
     - Class: 114
-      Script: {instanceID: 14686}
+      Script: {instanceID: 14112}
+    - Class: 114
+      Script: {instanceID: 14162}
+    - Class: 114
+      Script: {instanceID: 14438}
+    - Class: 114
+      Script: {instanceID: 14446}
+    - Class: 114
+      Script: {instanceID: 14478}
+    - Class: 114
+      Script: {instanceID: 14600}
+    - Class: 114
+      Script: {instanceID: 14660}
     - Class: 114
       Script: {instanceID: 14692}
     - Class: 114
-      Script: {instanceID: 14800}
+      Script: {instanceID: 14752}
     - Class: 114
-      Script: {instanceID: 14824}
+      Script: {instanceID: 14760}
     - Class: 114
-      Script: {instanceID: 14844}
+      Script: {instanceID: 14874}
     - Class: 114
-      Script: {instanceID: 15078}
+      Script: {instanceID: 14900}
     - Class: 114
-      Script: {instanceID: 15112}
+      Script: {instanceID: 14920}
+    - Class: 114
+      Script: {instanceID: 15160}
     - Class: 114
       Script: {instanceID: 15194}
     - Class: 114
-      Script: {instanceID: 15230}
+      Script: {instanceID: 15280}
     - Class: 114
-      Script: {instanceID: 15356}
+      Script: {instanceID: 15316}
     - Class: 114
-      Script: {instanceID: 15514}
+      Script: {instanceID: 15324}
     - Class: 114
-      Script: {instanceID: 15548}
-    - Class: 114
-      Script: {instanceID: 15564}
-    - Class: 114
-      Script: {instanceID: 15570}
+      Script: {instanceID: 15446}
     - Class: 114
       Script: {instanceID: 15606}
     - Class: 114
-      Script: {instanceID: 15610}
+      Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 15696}
+      Script: {instanceID: 15656}
     - Class: 114
-      Script: {instanceID: 15700}
+      Script: {instanceID: 15662}
     - Class: 114
-      Script: {instanceID: 15728}
+      Script: {instanceID: 15698}
     - Class: 114
-      Script: {instanceID: 15734}
+      Script: {instanceID: 15702}
     - Class: 114
-      Script: {instanceID: 15748}
+      Script: {instanceID: 15788}
     - Class: 114
-      Script: {instanceID: 15946}
+      Script: {instanceID: 15794}
     - Class: 114
-      Script: {instanceID: 15992}
+      Script: {instanceID: 15822}
     - Class: 114
-      Script: {instanceID: 15994}
+      Script: {instanceID: 15828}
     - Class: 114
-      Script: {instanceID: 16034}
+      Script: {instanceID: 15842}
     - Class: 114
-      Script: {instanceID: 16054}
+      Script: {instanceID: 16016}
     - Class: 114
-      Script: {instanceID: 16066}
+      Script: {instanceID: 16048}
     - Class: 114
-      Script: {instanceID: 16288}
+      Script: {instanceID: 16096}
     - Class: 114
-      Script: {instanceID: 16338}
+      Script: {instanceID: 16098}
     - Class: 114
-      Script: {instanceID: 16360}
+      Script: {instanceID: 16142}
     - Class: 114
-      Script: {instanceID: 16368}
+      Script: {instanceID: 16162}
     - Class: 114
-      Script: {instanceID: 16402}
+      Script: {instanceID: 16174}
     - Class: 114
-      Script: {instanceID: 16418}
+      Script: {instanceID: 16348}
+    - Class: 114
+      Script: {instanceID: 16400}
     - Class: 114
       Script: {instanceID: 16450}
     - Class: 114
-      Script: {instanceID: 16456}
+      Script: {instanceID: 16474}
     - Class: 114
-      Script: {instanceID: 16466}
+      Script: {instanceID: 16482}
     - Class: 114
-      Script: {instanceID: 16678}
+      Script: {instanceID: 16516}
     - Class: 114
-      Script: {instanceID: 16734}
+      Script: {instanceID: 16532}
     - Class: 114
-      Script: {instanceID: 16770}
+      Script: {instanceID: 16564}
     - Class: 114
-      Script: {instanceID: 16798}
+      Script: {instanceID: 16570}
     - Class: 114
-      Script: {instanceID: 16864}
+      Script: {instanceID: 16580}
     - Class: 114
-      Script: {instanceID: 16976}
+      Script: {instanceID: 16784}
+    - Class: 114
+      Script: {instanceID: 16804}
+    - Class: 114
+      Script: {instanceID: 16862}
+    - Class: 114
+      Script: {instanceID: 16898}
+    - Class: 114
+      Script: {instanceID: 16926}
     - Class: 114
       Script: {instanceID: 16994}
     - Class: 114
-      Script: {instanceID: 17026}
+      Script: {instanceID: 17108}
     - Class: 114
-      Script: {instanceID: 17030}
+      Script: {instanceID: 17126}
     - Class: 114
-      Script: {instanceID: 17088}
+      Script: {instanceID: 17158}
     - Class: 114
-      Script: {instanceID: 17160}
+      Script: {instanceID: 17162}
     - Class: 114
-      Script: {instanceID: 17170}
+      Script: {instanceID: 17218}
     - Class: 114
-      Script: {instanceID: 17216}
+      Script: {instanceID: 17290}
     - Class: 114
-      Script: {instanceID: 17248}
+      Script: {instanceID: 17300}
     - Class: 114
-      Script: {instanceID: 17276}
+      Script: {instanceID: 17348}
     - Class: 114
-      Script: {instanceID: 17334}
+      Script: {instanceID: 17380}
     - Class: 114
-      Script: {instanceID: 56848}
+      Script: {instanceID: 17410}
+    - Class: 114
+      Script: {instanceID: 17468}
+    - Class: 114
+      Script: {instanceID: 52910}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -393,6 +420,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -453,6 +482,12 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: caa533b001ae39b864ba8425019e2268
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Outline
+  - hash:
+      serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -487,6 +522,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: ARLocation.Utils
     className: FollowCameraPosition
+  - hash:
+      serializedVersion: 2
+      Hash: 7bdf4d73336c82767cd8d602547e5ab8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAITimedDespawn
   - hash:
       serializedVersion: 2
       Hash: b9d976ae462e2cef42f2a501290e514c
@@ -603,6 +644,12 @@ ScriptsOnlyBuild:
     className: DistanceAndDurationExample
   - hash:
       serializedVersion: 2
+      Hash: 645f3cc2a0f2624532f0b9f4ae56aa0f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: CombatTextAnimator
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: InfinityCode.OnlineMapsExamples
@@ -625,6 +672,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: ServerAddressProperty
+  - hash:
+      serializedVersion: 2
+      Hash: ea7a90911a424012e6d723c4c3736cc0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: TameAI
   - hash:
       serializedVersion: 2
       Hash: ee1dba1a186ac062d564e9eb73a1c56f
@@ -807,6 +860,18 @@ ScriptsOnlyBuild:
     className: GPXExample
   - hash:
       serializedVersion: 2
+      Hash: 044dd8505ce2902c765878474b22b79e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAINeedsSystem
+  - hash:
+      serializedVersion: 2
+      Hash: ea85dabea4e6b7987a810041522f04cc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: DamageAIByAngle
+  - hash:
+      serializedVersion: 2
       Hash: 6c30d096c718d7e19134ddc4935cb90e
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: ARLocation
@@ -873,7 +938,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: ea37daa492f489d5876950798e7f94d2
+      Hash: 61f0a53e7c77dea4a56664b82b3b4e30
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoulAvatar
@@ -1059,16 +1124,34 @@ ScriptsOnlyBuild:
     className: AccessTokenMenu
   - hash:
       serializedVersion: 2
+      Hash: 556cc483b3f9d12aade7504632a9b58a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: DamageAISystem
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: SwordAnimation
+  - hash:
+      serializedVersion: 2
       Hash: 2089dceb9368e853cda793a79742148f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RFX1_ParticleCollisionDecal
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: SummonedAIComponent
   - hash:
       serializedVersion: 2
       Hash: 6859fc72b0d19e051273f301ded9ac27
@@ -1107,6 +1190,12 @@ ScriptsOnlyBuild:
     className: OnHoverExample
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: DebugEvent
+  - hash:
+      serializedVersion: 2
       Hash: c1aa24dc179be0cb7c6d49f66fc0db8a
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
@@ -1123,6 +1212,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.SlotRacer.Utils
     className: BezierSpline
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: UpdatePlayerHealthOrbUI
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1207,6 +1302,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PointersController
+  - hash:
+      serializedVersion: 2
+      Hash: 8c3287b4a0445c2ffcc68ec41a7f6ddd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: EmeraldAICharacterController
   - hash:
       serializedVersion: 2
       Hash: 43d45a31f1fc0b2a0b50b21ca8340394
@@ -1321,6 +1422,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.XR.ARFoundation.dll
     namespaceName: UnityEngine.XR.ARFoundation
     className: ARPlaneManager
+  - hash:
+      serializedVersion: 2
+      Hash: 8cb2ef118eb38d078f5e3d49db19302f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: VisibilityCheckDelay
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1569,7 +1676,7 @@ ScriptsOnlyBuild:
     className: AsteroidsGameManager
   - hash:
       serializedVersion: 2
-      Hash: 753522dbe39992bfd688b081bcbbfcb8
+      Hash: 7fb96845e727af1bb77fdb68656f9da7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoulGameGamager
@@ -1627,6 +1734,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OnlineMapsWWWBehaviour
+  - hash:
+      serializedVersion: 2
+      Hash: 1f612a5d9dccd63fa69ad2467aa29579
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIHealthBar
   - hash:
       serializedVersion: 2
       Hash: 9b73bd00768b7c6801f70c4a16f73560
@@ -1803,6 +1916,12 @@ ScriptsOnlyBuild:
     className: RFX1_TransformMotion
   - hash:
       serializedVersion: 2
+      Hash: 8aada2c23cea6fc6a57e7bccba99a649
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: CombatTextSystem
+  - hash:
+      serializedVersion: 2
       Hash: 910e37253ee0aec72e3483e1780d118c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1875,6 +1994,12 @@ ScriptsOnlyBuild:
     className: SmoothMove
   - hash:
       serializedVersion: 2
+      Hash: 8cb2ef118eb38d078f5e3d49db19302f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: VisibilityCheck
+  - hash:
+      serializedVersion: 2
       Hash: 8e849d9df682fdaa4fd6680400bfe6cc
     assemblyName: Assembly-CSharp.dll
     namespaceName: InfinityCode.OnlineMapsDemos
@@ -1885,6 +2010,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SoulNetworkManager
+  - hash:
+      serializedVersion: 2
+      Hash: 6f3d24f07f3a4cc08ba6020073444e73
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAIPlayerDamage
   - hash:
       serializedVersion: 2
       Hash: 9d88d7745c73c33ba1d190bb59478083
@@ -1923,6 +2054,12 @@ ScriptsOnlyBuild:
     className: AppLinks
   - hash:
       serializedVersion: 2
+      Hash: dfcd2af319806951b046cc9ca3ba8034
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: HUDHealthBarTopDown
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: InfinityCode.OnlineMapsExamples
@@ -1939,6 +2076,18 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: CurrentRoomIsVisibleToggle
+  - hash:
+      serializedVersion: 2
+      Hash: 38ea32c06bc17148118a93e8c422ad98
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SyncSoulAvatar
+  - hash:
+      serializedVersion: 2
+      Hash: 7197e4aaeff121927ae0e8db550e67be
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIProjectile
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -2125,6 +2274,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: ARLocation.UI
     className: OrientationInfo
+  - hash:
+      serializedVersion: 2
+      Hash: 822b82fc508ecf89f02553ba9d072906
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: PlayerWeapon
   - hash:
       serializedVersion: 2
       Hash: 55382b5634f066b19b9ac19be519cd93
@@ -2391,6 +2546,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: CombatText
+  - hash:
+      serializedVersion: 2
       Hash: 7602c8d40ade510f4c0e781c7062b246
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -2431,6 +2592,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ChatAppIdCheckerUI
+  - hash:
+      serializedVersion: 2
+      Hash: c20bea41753e9efec021728eb71ecadd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAIAbility
   - hash:
       serializedVersion: 2
       Hash: 87c91ce1f35a1cd655e47912bcba986d
@@ -2509,6 +2676,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ObjectSelectOutline
+  - hash:
+      serializedVersion: 2
+      Hash: 26df38ba51e7e90f65aded918cf9699f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAINonAIDamage
   - hash:
       serializedVersion: 2
       Hash: dc1bf7169b005112f7a4da5a6b15f0c4
@@ -2613,6 +2786,12 @@ ScriptsOnlyBuild:
     className: CountOfPlayersInRoomProperty
   - hash:
       serializedVersion: 2
+      Hash: 42aa20e830a61fce3ba3060c008bd9f2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: NeedsSystemDisplay
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -2641,6 +2820,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: InfinityCode.OnlineMapsExamples
     className: DottedLineExample
+  - hash:
+      serializedVersion: 2
+      Hash: 3dd6601338dd3094d004366566ee86ef
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: EmeraldAISmoothFollow
   - hash:
       serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
@@ -2709,6 +2894,12 @@ ScriptsOnlyBuild:
     className: SoulCommunication
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: UpdatePlayerHealthUI
+  - hash:
+      serializedVersion: 2
       Hash: d9aa52c5a283a9b8a790e55c0dee9ccf
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -2743,6 +2934,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EventCoordinates
+  - hash:
+      serializedVersion: 2
+      Hash: 9c578d4e948804b9f712a0681bc6366f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: AISchedule
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2787,6 +2984,12 @@ ScriptsOnlyBuild:
     className: RFX1_ShaderFloatCurve
   - hash:
       serializedVersion: 2
+      Hash: 5c78592db3c66db30175e44ebfc1ded9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIDamageOverTime
+  - hash:
+      serializedVersion: 2
       Hash: fa3e9b5b40102d25646425bfecf7bce3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -2821,6 +3024,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Photon.Chat.UtilityScripts
     className: TextButtonTransition
+  - hash:
+      serializedVersion: 2
+      Hash: 89af17f31b3dd67e45a3259dc46fe90c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: DamageAIByCollision
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2911,6 +3120,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScoreController
+  - hash:
+      serializedVersion: 2
+      Hash: 4469fcf62019a02c82c45d90633151c8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: MoveToMousePosition
   - hash:
       serializedVersion: 2
       Hash: e98afd54d2d120f77fe994b49fbd842c
@@ -3141,6 +3356,12 @@ ScriptsOnlyBuild:
     className: CheckAllTilesLoadedExample
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: EmeraldAIHideMouse
+  - hash:
+      serializedVersion: 2
       Hash: 2936eacef4dafdb3cb307d24b590c447
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -3183,10 +3404,22 @@ ScriptsOnlyBuild:
     className: TestLocationService
   - hash:
       serializedVersion: 2
+      Hash: e09582a6539625128ebda95387ae5cc8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: EmeraldAIMouseLook
+  - hash:
+      serializedVersion: 2
       Hash: 11bdd61587db747672b66c52442395d8
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
     className: AppVersionProperty
+  - hash:
+      serializedVersion: 2
+      Hash: 205d5a4abaaffcd7f366b1dac7d7d3f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: EmeraldAICharacterControllerTopDown
   - hash:
       serializedVersion: 2
       Hash: ae1347d9113eee8b83c5c8047dcf31a8
@@ -3297,6 +3530,12 @@ ScriptsOnlyBuild:
     className: CheckIntenetConnectionExample
   - hash:
       serializedVersion: 2
+      Hash: eb038aa8bac999dfc2907612599c1cb3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAIFactionData
+  - hash:
+      serializedVersion: 2
       Hash: 3f0fba59e2e9d3d9d1e438157bc71e4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: ExitGames.Demos.DemoPunVoice
@@ -3339,6 +3578,12 @@ ScriptsOnlyBuild:
     className: RoomListView
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIInitializer
+  - hash:
+      serializedVersion: 2
       Hash: b3fc932f28cf7ba9adc2228edcd63267
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -3349,6 +3594,18 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.PunBasics
     className: CameraWork
+  - hash:
+      serializedVersion: 2
+      Hash: 2791747c4adb8dc33debc52c24bec95a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIProjectileTimeout
+  - hash:
+      serializedVersion: 2
+      Hash: 2d6f9d7fb115fe0f7eba2e9c26f4a011
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: RaycastHitAI
   - hash:
       serializedVersion: 2
       Hash: cd275c9c37e9353e442777fc46f4a64e
@@ -3415,6 +3672,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RFX1_ProjectorSizeCurves
+  - hash:
+      serializedVersion: 2
+      Hash: 6e7f66e4d2ac90c088fde31a14c172a2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: EmeraldAIPlayerHealth
   - hash:
       serializedVersion: 2
       Hash: ae0bdcfc255e2ec8c9015a971df8bcf3
@@ -3501,6 +3764,12 @@ ScriptsOnlyBuild:
     className: NavMeshSurface
   - hash:
       serializedVersion: 2
+      Hash: d8c14689cfb280e58e66e0484d10653f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: CameraShake
+  - hash:
+      serializedVersion: 2
       Hash: 158825a5d2e0596c589f9760e11b8e80
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -3565,6 +3834,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonVoice.dll
     namespaceName: Photon.Voice.Unity
     className: WebRtcAudioDsp
+  - hash:
+      serializedVersion: 2
+      Hash: b90ce2b1927fc60663c97cada9284d7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAISystem
   - hash:
       serializedVersion: 2
       Hash: 59c3e80443cada55414516da1c1677c7
@@ -3723,6 +3998,12 @@ ScriptsOnlyBuild:
     className: PlaceAlongPath
   - hash:
       serializedVersion: 2
+      Hash: 02354ef208576d7ed4acdd4179e131f9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: EmeraldAIDetection
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: InfinityCode.OnlineMapsExamples
@@ -3733,6 +4014,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: UnityStandardAssets.CrossPlatformInput
     className: TouchPad
+  - hash:
+      serializedVersion: 2
+      Hash: cf7c9b085103734ce38f5961dfb3bf59
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: SpawnCompanion
   - hash:
       serializedVersion: 2
       Hash: cc02edf3b0a4a6cfea4b93b5e13fbc2a
@@ -3757,6 +4044,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonRealtime.dll
     namespaceName: Photon.Realtime
     className: SupportLogger
+  - hash:
+      serializedVersion: 2
+      Hash: 8cb2ef118eb38d078f5e3d49db19302f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAIBehaviors
   - hash:
       serializedVersion: 2
       Hash: 737eaf0c835fc704174b3f8520f8be8c
@@ -3793,6 +4086,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OnlineMapsMarkerBillboard
+  - hash:
+      serializedVersion: 2
+      Hash: 822b82fc508ecf89f02553ba9d072906
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.CharacterController
+    className: PlayerWeapon3rdPerson
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -3891,6 +4190,12 @@ ScriptsOnlyBuild:
     className: ChangeMarkerTextureExample
   - hash:
       serializedVersion: 2
+      Hash: 256cb881cdc689dfabd9dda1a5a14810
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAICombatTextData
+  - hash:
+      serializedVersion: 2
       Hash: 64e56168c8ec950b35d5c98496eec945
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -3901,6 +4206,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 2f52662ae98666322925a6f8c30393bc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: PlayAIsEmote
   - hash:
       serializedVersion: 2
       Hash: 817cb1d9ffc8e9f0138908a35a6d2c23
@@ -4027,6 +4338,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonVoice.dll
     namespaceName: Photon.Voice.Unity.UtilityScripts
     className: SaveIncomingStreamToFile
+  - hash:
+      serializedVersion: 2
+      Hash: b91be5a1abbc79939275035c4d8e1853
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: SpawnObjectEvent
   - hash:
       serializedVersion: 2
       Hash: 67d0f0452e98d3d240550a8cf222bde2
@@ -4195,12 +4512,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RFX1_RandomRotate
-  - hash:
-      serializedVersion: 2
-      Hash: caa533b001ae39b864ba8425019e2268
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Outline
   - hash:
       serializedVersion: 2
       Hash: 8170fe7434e1f50440baf0b7e15e4f53
@@ -4401,6 +4712,12 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI
+    className: EmeraldAIEventsManager
+  - hash:
+      serializedVersion: 2
       Hash: b616739909d3efe493956d3e0ba1c679
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -4497,6 +4814,12 @@ ScriptsOnlyBuild:
     className: UserIdUiForm
   - hash:
       serializedVersion: 2
+      Hash: dfcd2af319806951b046cc9ca3ba8034
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Example
+    className: HUDHealthBar
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -4519,6 +4842,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RFX4_LocalSpaceFix
+  - hash:
+      serializedVersion: 2
+      Hash: fe916feec106cdb774450cd03eb51da1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: EmeraldAI.Utility
+    className: AnimationProfile
   - hash:
       serializedVersion: 2
       Hash: 563caef839116c65b5f5fd4c0e967d6b
@@ -4551,10 +4880,10 @@ ScriptsOnlyBuild:
     className: GamesController
   - hash:
       serializedVersion: 2
-      Hash: ea37daa492f489d5876950798e7f94d2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SyncSoulAvatar
+    className: ProjectileHit
   platform: 13
   scenePathNames:
   - Assets/Scenes/SoulSummoner.unity

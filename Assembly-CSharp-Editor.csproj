@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;EMERALD_AI_PRESENT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -52,6 +52,7 @@
     <UnityVersion>2020.1.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIAnimatorGenerator.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Windows\OnlineMapsCustomURLWizard.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\EditorLayout\OnlineMapsFormattedEditor.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
@@ -64,23 +65,30 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Elevations\OnlineMapsBingMapsTiledElevationManagerEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsControlBase3DEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\PropertyDrawers\OnlineMapsMarkerBasePropertyDrawer.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAICombatTextManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsTextureControlEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Plugins\OnlineMapsCameraOrbitEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsControlBaseDynamicMeshEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Elevations\OnlineMapsArcGISElevationManagerEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAINeedsSystemEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Managers\OnlineMapsMarkerManagerBaseEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\AnimationProfileExporter.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Buildings\OnlineMapsBuildingsEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Elevations\OnlineMapsSinglePartElevationManagerEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsUIRawImageControlEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsPrefs.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Buildings\OnlineMapsBuildingBaseEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsPanoConnectorEditor.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Editor\RFX1_UberDecalGUI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Managers\OnlineMapsMarkerManager3DEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\Editor\PlayerWeaponEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Windows\OnlineMapsUpdater.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\PropertyDrawers\OnlineMapsMarkerPropertyDrawer.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIDefine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsUIImageControlEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsControlBaseUIEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIFactionManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsEasyTouchConnectorEditor.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\CustomShaderGUI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\PropertyDrawers\OnlineMapsRangePropertyDrawer.cs" />
@@ -92,6 +100,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsEditorUtils.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsRWTConnectorEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\CustomEditorProperties.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Elevations\OnlineMapsElevationManagerBaseEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsTouchScriptConnectorEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Plugins\OnlineMapsLimitsEditor.cs" />
@@ -106,7 +115,10 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsImporter.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Windows\OnlineMapsAboutWindow.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\RFX1_CustomMaterialInspectorParticle.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\Editor\PlayerWeaponEditor3rdPerson.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsSpriteRendererControlEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIAbilityEditor.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAISetupManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Elevations\OnlineMapsMapboxElevationManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_2020_1_6;UNITY_2020_1;UNITY_2020;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;PLATFORM_EXTENDS_VULKAN_DEVICE;PLATFORM_HAS_MULTIPLE_SWAPCHAINS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;PHOTON_UNITY_NETWORKING;PUN_2_0_OR_NEWER;PUN_2_OR_NEWER;PUN_2_19_OR_NEWER;UNITY_POST_PROCESSING_STACK_V2;CROSS_PLATFORM_INPUT;MOBILE_INPUT;EMERALD_AI_PRESENT;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\VoiceDemoUI.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAITimedDespawn.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\HealthController.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ShaderProperties.cs" />
@@ -65,10 +66,12 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_EffectSettingColor.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMMapScreen.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DistanceAndDurationExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\UI\CombatTextAnimator.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\JSONExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Projections\OnlineMapsProjection.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\PhotonDemoExtensions.cs" />
     <Compile Include="Assets\BuckHunter\Assets\JSSquirrel\Demo\Scripts\SquirrelCameraScript.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\TameAI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Mapbox\OnlineMapsMapboxStyle.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerTouch.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\MoveMarkerOnRouteExample.cs" />
@@ -92,6 +95,8 @@
     <Compile Include="Assets\ShootEmUp\Scripts\Shoot.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\PowerupUIController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\GPXExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAINeedsSystem.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\DamageAIByAngle.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\DoublePoints.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DistanceAndDirectionExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\SearchPanel.cs" />
@@ -122,15 +127,20 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsAMapSearchResult.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AccessTokenMenu.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ColorHelper.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\DamageAISystem.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\SwordAnimation.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ParticleCollisionDecal.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\SummonedAIComponent.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\BingMapsElevationsExample.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Food.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXMLList.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ParticleCollisionGameObject.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindLocationExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\OnHoverExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\DebugEvent.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsGooglePlacesAutocompleteResult.cs" />
     <Compile Include="Assets\BarDice\Scripts\DicePlayer.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\UpdatePlayerHealthOrbUI.cs" />
     <Compile Include="Assets\BuckHunter\Assets\JSSquirrel\Demo\Scripts\SquirrelUserController.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\BaseController.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper2.cs" />
@@ -141,6 +151,7 @@
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ProximityVoiceTrigger.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\InterceptElevationRequestExample.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\PointersController.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAICharacterController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\2D\OnlineMapsUIImageControl.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarker3DInstance.cs" />
     <Compile Include="Assets\Facebook Login\Scripts\FirebaseLogin.cs" />
@@ -152,6 +163,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsOpenRouteService.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsGoogleDirectionsResult.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleElevation.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\VisibilityCheckDelay.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\RoundController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarkerDrawerBase.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsWhat3WordsResult.cs" />
@@ -177,6 +189,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\RotateCameraByCompassExample.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\CorrectGPS.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Core\OnlineMapsWWWBehaviour.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\UI\EmeraldAIHealthBar.cs" />
     <Compile Include="Assets\Avatar\Scripts\AvatarManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsBingMapsLocation.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Squirrel.cs" />
@@ -204,23 +217,29 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\MapBaseboards.cs" />
     <Compile Include="Assets\BarDice\Scripts\RollResult.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_TransformMotion.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\CombatTextSystem.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsBingMapsElevationManager.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMForgotPassScreen.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Mole.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\Rotate.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMLoginScreen.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsLog.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\VisibilityCheck.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\Demo.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsTiledElevationManager.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\SoulNetworkManager.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIPlayerDamage.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\GroupMarkersExample.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_OverrideWorldRotation.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ScreenToGeoExample.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppLinks.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\HUDHealthBarTopDown.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\Marker_GPS_Example.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Interfaces\IOnlineMapsInteractiveElementManager.cs" />
     <Compile Include="Assets\BarDice\Scripts\Unique.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Tiles\OnlineMapsMapboxTile.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SyncSoulAvatar.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIProjectile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase2D.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarkerInstanceBase.cs" />
@@ -249,6 +268,7 @@
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\MicrophoneDropdownFiller.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\UIBubblePopup.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarker2DMeshDrawer.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\PlayerWeapon.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ShootableObject.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\GraphRequest.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\ObjectSelectWheel.cs" />
@@ -292,14 +312,17 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\RealTilesetSizeExample.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\AxesBase.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase3D.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\UI\CombatText.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\ExtraTypes\OnlineMapsGenericBase.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Mapbox\OnlineMapsPBFReader.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Cache\OnlineMapsCache.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIObjectPool.cs" />
     <Compile Include="Assets\BarDice\Prefabs\ChatManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsQQSearch.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIAbility.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\Bullet.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\DEBUGPAUSETIMESCALE.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarkerBillboardDrawer.cs" />
@@ -311,6 +334,7 @@
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Cache\OnlineMapsCache.File.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\ObjectSelectOutline.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAINonAIDamage.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\SpawnEnemy.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Projections\OnlineMapsProjectionWGS84.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper3.cs" />
@@ -322,10 +346,13 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsSinglePartElevationManager.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\MobileControlRig.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\SmoothZoomOnMouseEvents.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\NeedsSystemDisplay.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Drawing\Instances\OnlineMapsDrawingPoly.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ResetGame.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DottedLineExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAISmoothFollow.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAICombatManager.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\MouseLookHelper.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsRawImageTouchForwarder.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ScaleCurves.cs" />
@@ -334,9 +361,11 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\LocationService\OnlineMapsLocationService.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_RotationFreeze.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\SoulCommunication.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\UpdatePlayerHealthUI.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsOSMNominatim.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\EventCoordinates.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\AISchedule.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\ExtraTypes\OnlineMapsPositionRange.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\TilesetMarkerDepthExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarker3D.cs" />
@@ -345,10 +374,12 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\SwitchToProviderWithKey.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ShaderFloatCurve.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Providers\Tiles\OnlineMapsProvider.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIDamageOverTime.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsLimits.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGooglePlaces.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DragMarkerByLongPressExample.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\DamageAIByCollision.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Threading\OnlineMapsThreadManager.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\RoundSettings.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_ShieldInteraction.cs" />
@@ -356,6 +387,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\SaveMapStateExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\JSON\OnlineMapsJSONArray.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ScoreController.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\MoveToMousePosition.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\SpawnAdvertisingGPSObjects.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXML.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsBingMapsElevation.cs" />
@@ -384,6 +416,7 @@
     <Compile Include="Assets\Scripts\AIVRASocial\BackToMain.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\FixArrow.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckAllTilesLoadedExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAIHideMouse.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\InitializeGame.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\BuckHunterBullet.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\CreateObject.cs" />
@@ -391,6 +424,8 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CreateAndScaleMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsOSMNominatimResult.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\TestLocationService.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAIMouseLook.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAICharacterControllerTopDown.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Third-party Assets\OnlineMapsTouchScriptConnector.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsBingMapsTiledElevationManager.cs" />
@@ -401,12 +436,16 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsElevationManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\OpenRouteServiceExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckIntenetConnectionExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIFactionData.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\ChangePOV.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ShaderColorGradient.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\AddHealth.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Duck.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Base\OnlineMapsWebServiceAPI.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIInitializer.cs" />
     <Compile Include="Assets\BarDice\Scripts\ProcessDeepLinkMngr.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIProjectileTimeout.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\RaycastHitAI.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_UVAnimation.cs" />
     <Compile Include="Assets\MainMenu\Scripts\GetCoordsFromBusinessName.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\AirRoute.cs" />
@@ -416,6 +455,7 @@
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper1.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\OnlineMaps.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ProjectorSizeCurves.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\EmeraldAIPlayerHealth.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\PulloutMenu.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\JSON\OnlineMapsJSONItem.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\RaycastShoot.cs" />
@@ -423,11 +463,13 @@
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Animal.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ParticlePositionPoint.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\RotateOnY.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\CameraShake.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ShootableObjectController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Interfaces\IOnlineMapsInteractiveElement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMSignupScreen.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\RemoteSpeakerUI.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_AudioVolumeCurves.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\System\EmeraldAISystem.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsCache.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Tiles\OnlineMapsVectorTile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CustomWMSProvider.cs" />
@@ -454,15 +496,19 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\RotateMapInsteadMarkerExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\ExtraTypes\OnlineMapsRange.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\JSON\OnlineMapsJSONValue.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIDetection.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DrawingElementEventsExample.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\SpawnCompanion.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\Scale.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMConfirmAccountScreen.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIBehaviors.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\Aircraft.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Core\OnlineMapsJPEGDecoder.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\DemoResources\Scripts\RFX1_RealtimeReflection.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\DrawCircleAroundMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarkerBillboard.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Player\PlayerWeapon3rdPerson.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Third-party Assets\OnlineMapsRWTConnector.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\Move.cs" />
@@ -473,7 +519,9 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ControlDataTrafficExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Base\OnlineMapsTextWebService.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ChangeMarkerTextureExample.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAICombatTextData.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerCreator.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\PlayAIsEmote.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\MarkerImages.cs" />
     <Compile Include="Assets\Soul Summoner\Scripts\MoveUp.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_EffectSettingsInspector.cs" />
@@ -490,6 +538,7 @@
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\ExampleSwapMaterials.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\MaxAmmo.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\RotateObjectContinuously.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\SpawnObjectEvent.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Core\OnlineMapsZipDecompressor.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ActivateGravityAfterCollision.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerDataManager.cs" />
@@ -528,6 +577,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarkerBase.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\AppRequests.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerData.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIEventsManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Providers\Traffic\OnlineMapsTrafficProvider.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_SimpleDecal.cs" />
@@ -541,19 +591,22 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CustomDownloadTileExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\DriveUsingKeyboard.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarker2DDrawer.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Example Systems\HUDHealthBar.cs" />
     <Compile Include="Assets\BarDice\Scripts\DiceCommunication.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX4_LocalSpaceFix.cs" />
+    <Compile Include="Assets\Emerald AI\Scripts\Components\AnimationProfile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\InertiaExample.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MMCredentialsScreen.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SyncSoulAvatar.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\ProjectileHit.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_Lightning.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_Metall.shader" />
+     <None Include="Assets\Emerald AI\Credit\Credit.txt" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_CutoutBorder.shader" />
      <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
      <None Include="Assets\OnlineMapsV3\Online maps\Shaders\TilesetDrawingElementZTestAlways.shader" />
@@ -563,6 +616,7 @@
      <None Include="Assets\FacebookSDK\Plugins\iOS\Facebook.Unity.IOS.dll" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalWorldMask.shader" />
      <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\MeshSmith\ToonMonsterII\Toon Demon\Mesh\readMe.txt" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalWorldIce.shader" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_UberDecal.shader" />
@@ -592,11 +646,14 @@
      <None Include="Assets\Firebase\Plugins\x86_64\FirebaseCppAuth.dll" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalMask.shader" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Audio\Pop-J_Fairba-8421_hifi.mp3.txt" />
+     <None Include="Assets\Emerald AI\Scripts\Shaders\Emerald AI UI +1.shader" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Fonts\Orbitron Black.txt" />
      <None Include="Assets\ShootEmUp\Halloween\Ghost Cute Series\Materials\GhostShader.shader" />
      <None Include="Assets\Soul Summoner\Prefabs\SpecularLightEstimation.shader" />
      <None Include="Assets\FacebookSDK\Plugins\Canvas\Facebook.Unity.Canvas.dll" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\MeshSmith\ToonMonsterII\Toon Mouse Spear\Mesh\readMe.txt" />
      <None Include="Assets\Firebase\Plugins\Firebase.TaskExtension.dll" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\RainEntertainment\FantasyMonster2\Elf Mage Pack\readMe.txt" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-app-unity\maven-metadata.xml" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
@@ -612,12 +669,16 @@
      <None Include="Assets\StreamingAssets\dnn\MobileNetSSD_deploy.prototxt.txt" />
      <None Include="Assets\FacebookSDK\Plugins\Facebook.Unity.dll" />
      <None Include="Assets\StreamingAssets\dnn\yolov4-tiny.cfg.txt" />
+     <None Include="Assets\Emerald AI\Scripts\Shaders\Emerald AI Outline Shader.shader" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\BitGem\Skeleton_Swordsman\Animations\skeleton_swordsman_animation_list.txt" />
      <None Include="Assets\Soul Summoner\Prefabs\DiffuseLightEstimation.shader" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\MikeMoose\Art\Shaders\SeeThrough.shader" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Docs\About.txt" />
      <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
      <None Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\RobotoFont\Apache License.txt" />
      <None Include="Assets\BuckHunter\Assets\Double-barrel gun\Stand\Standard_Two_Sided .shader" />
      <None Include="Assets\Firebase\m2repository\com\google\firebase\firebase-auth-unity\maven-metadata.xml" />
+     <None Include="Assets\Emerald AI\Demo Source\AI Models\MeshSmith\ToonMonsterII\Toon Rock\Mesh\readMe.txt" />
      <None Include="Assets\FacebookSDK\Plugins\Gameroom\Facebook.Unity.Gameroom.dll" />
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\CharaMain.cginc" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Shaders\Shader_ShadowCatch.shader" />
@@ -641,6 +702,7 @@
      <None Include="Assets\FacebookSDK\Plugins\Android\Facebook.Unity.Android.dll" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalDistortMaskMobile.shader" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_BlendCutout.shader" />
+     <None Include="Assets\Emerald AI\Scripts\Shaders\Emerald AI UI.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\opus_egpv.dll" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalDistortMaskMul.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\webrtc-audio.dll" />

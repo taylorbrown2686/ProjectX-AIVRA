@@ -12,7 +12,9 @@ public class SoulAvatar : MonoBehaviour, IPunObservable
     float FixeScale = 0.3f;
     bool reloading = false;
     string type = "ice";
-    public GameObject shield;
+    public GameObject shield,fireP,iceP;
+    public SyncSoulAvatar ssa;
+    public Transform monsterposition;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +38,7 @@ public class SoulAvatar : MonoBehaviour, IPunObservable
             entry.eventID = EventTriggerType.PointerDown;
             entry.callback.AddListener((data) => { CreateShield(); });
             trigger.triggers.Add(entry);
-
+            SoulGameGamager.Instance.sa = this;
         
             GetComponent<MeshRenderer>().enabled = false;
         }
@@ -61,9 +63,12 @@ public class SoulAvatar : MonoBehaviour, IPunObservable
 
     IEnumerator ExecuteAfterTime(GameObject button, float time)
     {
-        button.SetActive(false);
-        yield return new WaitForSeconds(time);
-        button.SetActive(true);
+        if (photonview.IsMine == true)
+        {
+            button.SetActive(false);
+            yield return new WaitForSeconds(time);
+            button.SetActive(true);
+        }
     }
 
     public void Changetype(string type)
@@ -85,17 +90,21 @@ public class SoulAvatar : MonoBehaviour, IPunObservable
 
     public void Button1()
     {
-        Rigidbody bullet = PhotonNetwork.Instantiate("Soul Summoner\\Fire Projectile", Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
-        bullet.AddForce(Camera.main.transform.forward * 100);
-      
+        ssa.fireButton1();
+        //Rigidbody bullet = PhotonNetwork.Instantiate("Soul Summoner\\Fire Projectile", Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
+        // bullet.AddForce(Camera.main.transform.forward * 100);
+        GameObject effect = Instantiate(fireP, transform.position, transform.rotation);
+        //effect.SetActive(true);
         StartCoroutine(ExecuteAfterTime(SoulGameGamager.Instance.fireButton.gameObject,2));
     }
 
     public void Button2()
     {
-        Rigidbody bullet = PhotonNetwork.Instantiate("Soul Summoner\\Projectile", Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
-        bullet.AddForce(Camera.main.transform.forward * 100);
-       
+        ssa.fireButton2();
+        // Rigidbody bullet = PhotonNetwork.Instantiate("Soul Summoner\\Projectile", Camera.main.transform.position, Camera.main.transform.rotation).GetComponent<Rigidbody>();
+        //  bullet.AddForce(Camera.main.transform.forward * 100);
+        GameObject effect = Instantiate(iceP, transform.position, transform.rotation);
+
         StartCoroutine(ExecuteAfterTime(SoulGameGamager.Instance.iceButton.gameObject,2));
     }
 
