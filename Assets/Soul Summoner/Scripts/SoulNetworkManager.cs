@@ -27,6 +27,8 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+   
+
         players = new List<Player>();
         //   photonView = GetComponent<PhotonView>();+
         
@@ -61,7 +63,7 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
         tutorial.SetActive(false);
         Destroy(nickName.gameObject, 1f);
         Destroy(connectButton.gameObject, 1f);
-        roomCanvas.SetActive(true);
+        
         PhotonNetwork.LocalPlayer.NickName = nickName.text;
         PhotonNetwork.ConnectUsingSettings();
         cm.Connect(nickName.text);
@@ -85,6 +87,7 @@ public class SoulNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
+        roomCanvas.SetActive(true);
         Debug.Log("joined lobby!!!");
         // PhotonNetwork.JoinRandomRoom();
     }

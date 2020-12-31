@@ -56,12 +56,12 @@
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.1.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
     <file>Assets/Plugins/Android/com.android.installreferrer.installreferrer-1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-applinks-8.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-common-8.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-core-8.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-gamingservices-8.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-login-8.1.0.aar</file>
-    <file>Assets/Plugins/Android/com.facebook.android.facebook-share-8.1.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-applinks-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-common-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-core-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-gamingservices-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-login-8.2.0.aar</file>
+    <file>Assets/Plugins/Android/com.facebook.android.facebook-share-8.2.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-auth-api-phone-17.4.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-base-17.5.0.aar</file>

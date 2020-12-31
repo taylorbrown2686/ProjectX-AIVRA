@@ -10,7 +10,14 @@ public class SoulGameGamager : MonoBehaviour
     public CreateObject createObject;
     public Button iceButton, fireButton, shieldButton, SummonButton, MonsterAttackButton;
     public SoulAvatar sa;
-  //  public GameObject shield;
+    public Image manaBar;
+    public Text manaText;
+    public Image hpBar;
+    public Text hpText;
+    public Image monsterBar;
+    public GameObject playerUI;
+    public GameObject scrollview, scrollview2;
+    //  public GameObject shield;
     private SoulGameGamager()
     {
 
@@ -34,21 +41,26 @@ public class SoulGameGamager : MonoBehaviour
         {
             _instance = this;
             Input.location.Start();
-            
-            iceButton.gameObject.SetActive(true);
-            fireButton.gameObject.SetActive(true);
-            shieldButton.gameObject.SetActive(true);
-            SummonButton.gameObject.SetActive(true);
+
+            print("buttons get active");
+            scrollview.SetActive(true);
+            scrollview2.SetActive(true);
+            iceButton.gameObject.transform.parent.transform.parent.transform.parent.gameObject.SetActive(true);
+            fireButton.gameObject.transform.parent.transform.parent.transform.parent.gameObject.SetActive(true);
+            shieldButton.gameObject.transform.parent.transform.parent.transform.parent.gameObject.SetActive(true);
+            SummonButton.gameObject.transform.parent.transform.parent.transform.parent.gameObject.SetActive(true);
+            playerUI.SetActive(true);
+            monsterBar.gameObject.transform.parent.gameObject.SetActive(true);
         }
     }
 
 
     public void SummonMonster()
     {
-        iceButton.gameObject.SetActive(false);
-        fireButton.gameObject.SetActive(false);
-        shieldButton.gameObject.SetActive(false);
-        SummonButton.gameObject.SetActive(false);
+       // iceButton.gameObject.SetActive(false);
+      //  fireButton.gameObject.SetActive(false);
+     //   shieldButton.gameObject.SetActive(false);
+     //   SummonButton.gameObject.SetActive(false);
         /*Vector3 pos = new Vector3(sa.monsterposition.position.x, 0, sa.monsterposition.position.z);
         if (PhotonNetwork.LocalPlayer.IsMasterClient == true)
             PhotonNetwork.Instantiate("Soul Summoner\\Monster", pos, Quaternion.identity);
@@ -60,14 +72,14 @@ public class SoulGameGamager : MonoBehaviour
 
     public void BringBackButtons()
     {
-        iceButton.gameObject.SetActive(true);
-        fireButton.gameObject.SetActive(true);
-        shieldButton.gameObject.SetActive(true);
+    //    iceButton.gameObject.SetActive(true);
+    //    fireButton.gameObject.SetActive(true);
+    //    shieldButton.gameObject.SetActive(true);
     }
 
     public void ShowMonsterAttackButton()
     {
-        //MonsterAttackButton.gameObject.SetActive(true);
+    //    MonsterAttackButton.gameObject.SetActive(true);
     }
 
 }

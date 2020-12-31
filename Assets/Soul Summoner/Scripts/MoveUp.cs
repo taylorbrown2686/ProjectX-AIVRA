@@ -23,9 +23,10 @@ public class MoveUp : MonoBehaviourPunCallbacks
         plane.transform.parent = null;
         gameZone =  GameObject.FindGameObjectWithTag("GameZone");
         if(gameZone != null) {
-           // plane.transform.parent = cube.transform.parent = transform.parent = 
+         //   plane.transform.parent = cube.transform.parent = transform.parent = 
                 monster.transform.parent = gameZone.transform;
         }
+
         SetDestination(new Vector3(monster.transform.position.x, monster.transform.position.y, monster.transform.position.z), 10f);
         startPosition = monster.transform.position - new Vector3(0, 2f, 0);
         monster.transform.position = startPosition;

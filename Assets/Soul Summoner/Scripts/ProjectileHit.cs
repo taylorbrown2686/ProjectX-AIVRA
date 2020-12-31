@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileHit : MonoBehaviour
 {
+    public int damage;
     void Start()
     {
         var tm = GetComponentInChildren<RFX1_TransformMotion>(true);
@@ -17,5 +18,12 @@ public class ProjectileHit : MonoBehaviour
         {
             e.Hit.transform.gameObject.GetComponent<SoulMonster>().getHit();
         }
+
+        if (e.Hit.transform.gameObject.transform.parent.GetComponent<SoulAvatar>() != null)
+        {
+            print("hitttttttttt");
+            e.Hit.transform.gameObject.transform.parent.GetComponent<SoulAvatar>().UseHp(damage);
+        }
+
     }
 }

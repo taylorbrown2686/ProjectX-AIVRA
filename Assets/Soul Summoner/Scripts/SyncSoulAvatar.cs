@@ -72,6 +72,7 @@ public class SyncSoulAvatar : MonoBehaviour, IPunObservable
             stream.SendNext(button2);
             button1 = false;
             button2 = false;
+
             //   stream.SendNext(rb.velocity);
 
         }

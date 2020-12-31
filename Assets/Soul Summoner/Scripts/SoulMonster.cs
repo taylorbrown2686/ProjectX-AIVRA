@@ -3,21 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoulMonster : MonoBehaviour
+public class SoulMonster : MonoBehaviourPunCallbacks
 {
-    int hp = 10;
+    int hp;
+    int maxHp = 3;
     Animator animator;
     // Start is called before the first frame update
     float speed = 0.5f;
     bool move = false;
     bool isAttacking = false;
     Vector3 target;
-    PhotonView photonview;
+    public PhotonView photonview;
+    public SoulHealthBar soulHealthBar;
     void Start()
     {
         
+        hp = maxHp;
         animator = GetComponent<Animator>();
         photonview = GetComponent<PhotonView>();
+     //   animator.SetTrigger("die");
     }
 
     // Update is called once per frame
@@ -45,51 +49,40 @@ public class SoulMonster : MonoBehaviour
         }*/
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (hp < 1)
-            return;
-        animator.SetTrigger("hit");
-        hp--;
-        if(hp < 1) {
-            GetComponent<Collider>().enabled = false;
-            animator.SetTrigger("die");
-            this.enabled = false;
-
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (hp < 1)
-            return;
-        animator.SetTrigger("hit");
-        hp--;
-        if (hp < 1)
-        {
-            GetComponent<Collider>().enabled = false;
-            animator.SetTrigger("die");
-            this.enabled = false;
-
-        }
-    }
-
     public void getHit()
     {
         if (photonview.IsMine == false) { 
             if (hp < 1)
                 return;
-            animator.SetTrigger("hit");
-            hp--;
+            //hit is here
+            photonView.RPC("Hit", RpcTarget.All);
             if (hp < 1)
             {
-                GetComponent<Collider>().enabled = false;
-                animator.SetTrigger("die");
-                this.enabled = false;
+                print("monster died!");
+                photonView.RPC("Death", RpcTarget.All);
 
             }
         }
     }
+
+    [PunRPC]
+    void Hit()
+    {
+        hp--;
+        soulHealthBar.ChangeBar(maxHp, hp);
+        if(hp>0)
+            animator.SetTrigger("hit");
+    }
+
+    [PunRPC]
+    void Death()
+    {
+        GetComponent<Collider>().enabled = false;
+        animator.SetTrigger("die");
+        this.enabled = false;
+    }
+
+
 
     public void StartToMove()
     {

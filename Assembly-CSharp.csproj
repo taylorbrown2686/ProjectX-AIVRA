@@ -335,6 +335,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Cache\OnlineMapsCache.File.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\ObjectSelectOutline.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAINonAIDamage.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\ProjectileHit.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\SpawnEnemy.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Projections\OnlineMapsProjectionWGS84.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper3.cs" />
@@ -600,7 +601,9 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\ProjectileHit.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulHealthBar.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulButtonManager.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulRoomManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
@@ -671,6 +674,7 @@
      <None Include="Assets\StreamingAssets\dnn\yolov4-tiny.cfg.txt" />
      <None Include="Assets\Emerald AI\Scripts\Shaders\Emerald AI Outline Shader.shader" />
      <None Include="Assets\Emerald AI\Demo Source\AI Models\BitGem\Skeleton_Swordsman\Animations\skeleton_swordsman_animation_list.txt" />
+     <None Include="Assets\Emerald Treasure\fonts\LICENSE.txt" />
      <None Include="Assets\Soul Summoner\Prefabs\DiffuseLightEstimation.shader" />
      <None Include="Assets\Emerald AI\Demo Source\AI Models\MikeMoose\Art\Shaders\SeeThrough.shader" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Docs\About.txt" />
@@ -704,6 +708,7 @@
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_BlendCutout.shader" />
      <None Include="Assets\Emerald AI\Scripts\Shaders\Emerald AI UI.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\opus_egpv.dll" />
+     <None Include="Assets\GameORB\Readme.txt" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Decal\RFX1_DecalDistortMaskMul.shader" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86\webrtc-audio.dll" />
      <None Include="Assets\Parse\Plugins\dotNet45\Unity.Compat.dll" />
@@ -713,6 +718,7 @@
      <None Include="Assets\Parse\Plugins\dotNet45\Unity.Tasks.dll" />
      <None Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\RFX1_LightningParticles.shader" />
      <None Include="Assets\Firebase\Plugins\Google.MiniJson.dll" />
+     <None Include="Assets\GameORB\Shaders\ORB.shader" />
      <None Include="Assets\ShootEmUp\Halloween\GraveyardProps\Shaders\Shader_LightAtten.shader" />
      <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
      <None Include="Assets\Photon\PhotonVoice\PhotonVoiceLibs\x86_64\AudioIn.dll" />
