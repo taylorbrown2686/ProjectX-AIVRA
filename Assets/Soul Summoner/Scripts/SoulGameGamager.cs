@@ -8,7 +8,7 @@ public class SoulGameGamager : MonoBehaviour
 {
     private static SoulGameGamager _instance;
     public CreateObject createObject;
-    public Button iceButton, fireButton, shieldButton, SummonButton, MonsterAttackButton;
+    public Button iceButton, fireButton, shieldButton, SummonButton, MonsterAttackButton,thunderButton;
     public SoulAvatar sa;
     public Image manaBar;
     public Text manaText;

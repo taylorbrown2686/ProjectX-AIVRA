@@ -5,6 +5,8 @@ using UnityEngine;
 public class ProjectileHit : MonoBehaviour
 {
     public int damage;
+    public int dps = 0;
+    public int duration = 0;
     void Start()
     {
         var tm = GetComponentInChildren<RFX1_TransformMotion>(true);
@@ -23,7 +25,16 @@ public class ProjectileHit : MonoBehaviour
         {
             print("hitttttttttt");
             e.Hit.transform.gameObject.transform.parent.GetComponent<SoulAvatar>().UseHp(damage);
+            if (dps > 0)
+            {
+                StartCoroutine(e.Hit.transform.gameObject.transform.parent.GetComponent<SoulAvatar>().HpPerSecond(-1 * dps, duration));
+            }
         }
+    }
 
+    public void setDPS(int dps,int duration)
+    {
+        this.dps = dps;
+        this.duration = duration;
     }
 }

@@ -385,12 +385,14 @@
     <Compile Include="Assets\ShootEmUp\Scripts\RoundSettings.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_ShieldInteraction.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\3D\OnlineMapsTileSetControl.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulRoomManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\SaveMapStateExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\JSON\OnlineMapsJSONArray.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ScoreController.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\MoveToMousePosition.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\SpawnAdvertisingGPSObjects.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXML.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulButtonManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsBingMapsElevation.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\BingMapsLocationAPIExample.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\TempDirectionChange.cs" />
@@ -533,6 +535,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\ScaleMarkersOnZoom.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Email.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_AudioPitchCurves.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\SoulHealthBar.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckArcGISTile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\2D\OnlineMapsNGUITextureControl.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsCameraOrbit.cs" />
@@ -601,9 +604,10 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulHealthBar.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulButtonManager.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulRoomManager.cs" />
+    <Compile Include="Assets\Magazine\Scripts\TrackingManager.cs" />
+    <Compile Include="Assets\Magazine\Scripts\LightEstimation.cs" />
+    <Compile Include="Assets\Magazine\Scripts\SnowMo.cs" />
+    <Compile Include="Assets\Soul Summoner\Scripts\FixedYRotation.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

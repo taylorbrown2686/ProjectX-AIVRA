@@ -33407,6 +33407,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  dps: 1
+  duration: 5
 --- !u!1 &1778725495532086
 GameObject:
   m_ObjectHideFlags: 0

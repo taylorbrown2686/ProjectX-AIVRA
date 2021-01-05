@@ -10,9 +10,10 @@ public class SyncSoulAvatar : MonoBehaviour, IPunObservable
 
     Vector3 networkedposition;
     Quaternion networkedRotation;
-    public GameObject shield;
-    bool isShieldActive, button1, button2, nbutton1, nbutton2;
+    public GameObject shield,chargeBall;
+    bool isShieldActive, button1, button2, button3, nbutton1, nbutton2, nbutton3,isCharging;
     public SoulAvatar sa;
+    int level;
    
 
 
@@ -36,6 +37,11 @@ public class SyncSoulAvatar : MonoBehaviour, IPunObservable
         button2 = true;
     }
 
+    public void fireButton3()
+    {
+        button3 = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -46,15 +52,21 @@ public class SyncSoulAvatar : MonoBehaviour, IPunObservable
             transform.localPosition = new Vector3(networkedposition.x, networkedposition.y, networkedposition.z);
             transform.localRotation = networkedRotation;
             shield.SetActive(isShieldActive);
+            chargeBall.SetActive(isCharging);
             if (nbutton1 == true)
             {
-                sa.Button1();
+                sa.Button1(level);
                 nbutton1 = false;
             }
             if (nbutton2 == true)
             {
-                sa.Button2();
+                sa.Button2(level);
                 nbutton2 = false;
+            }
+            if (nbutton3 == true)
+            {
+                sa.Button3(level);
+                nbutton3 = false;
             }
 
         }
@@ -67,25 +79,28 @@ public class SyncSoulAvatar : MonoBehaviour, IPunObservable
         {
             stream.SendNext(transform.localPosition);
             stream.SendNext(transform.localRotation);
+            stream.SendNext(chargeBall.activeSelf);
+            stream.SendNext(sa.level);
             stream.SendNext(shield.activeSelf);
             stream.SendNext(button1);
             stream.SendNext(button2);
+            stream.SendNext(button3);
             button1 = false;
             button2 = false;
-
-            //   stream.SendNext(rb.velocity);
+            button3 = false;
 
         }
         else if (stream.IsReading)
         {
             networkedposition = (Vector3)stream.ReceiveNext();
             networkedRotation = (Quaternion)stream.ReceiveNext();
+            isCharging = (bool)stream.ReceiveNext();
+            level = (int)stream.ReceiveNext();
             isShieldActive = (bool)stream.ReceiveNext();
             nbutton1 = (bool)stream.ReceiveNext();
             nbutton2 = (bool)stream.ReceiveNext();
+            nbutton3 = (bool)stream.ReceiveNext();
 
-            //   float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-            //   rb.position += rb.velocity * lag;
         }
     }
 }
