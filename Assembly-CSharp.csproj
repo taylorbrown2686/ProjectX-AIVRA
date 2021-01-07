@@ -59,6 +59,7 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_ShaderProperties.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleRoads.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindAutocompleteExample.cs" />
+    <Compile Include="Assets\Magazine\Scripts\SnowMo.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Dog.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\AdjustMap.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\FlyCamera.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\JSONExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Projections\OnlineMapsProjection.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\PhotonDemoExtensions.cs" />
+    <Compile Include="Assets\Magazine\Scripts\TrackingManager.cs" />
     <Compile Include="Assets\BuckHunter\Assets\JSSquirrel\Demo\Scripts\SquirrelCameraScript.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\TameAI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Mapbox\OnlineMapsMapboxStyle.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\ShootEmUp\Scripts\Shoot.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\PowerupUIController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\GPXExample.cs" />
+    <Compile Include="Assets\Magazine\Scripts\LightEstimation.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAINeedsSystem.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\DamageAIByAngle.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\DoublePoints.cs" />
@@ -104,7 +107,7 @@
     <Compile Include="Assets\BarDice\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Buildings\OnlineMapsBuildingMaterial.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\Marker3D_GPS_Example.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulAvatar.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulAvatar.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoiceUI\Scripts\BackgroundMusicController.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Rendering\RFX1_LegacyRenderDistortion.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\DealsOverlayController.cs" />
@@ -132,10 +135,12 @@
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ParticleCollisionDecal.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\SummonedAIComponent.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\BingMapsElevationsExample.cs" />
+    <Compile Include="Assets\HEROIC FANTASY CREATURES FULL PACK Vol 2\Phoenix\Script\ScrollingUVs.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\Food.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXMLList.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_ParticleCollisionGameObject.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\FindLocationExample.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulUnit.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\OnHoverExample.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\DebugEvent.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsGooglePlacesAutocompleteResult.cs" />
@@ -150,6 +155,7 @@
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\Pay.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ProximityVoiceTrigger.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\InterceptElevationRequestExample.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\FixedYRotation.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\PointersController.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAICharacterController.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\2D\OnlineMapsUIImageControl.cs" />
@@ -183,7 +189,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsGoogleElevationResult.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsDynamicTexture.cs" />
     <Compile Include="Assets\BarDice\Scripts\DiceSync.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulGameGamager.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulGameGamager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\UICompass.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_Target.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\RotateCameraByCompassExample.cs" />
@@ -205,7 +211,9 @@
     <Compile Include="Assets\Facebook Login\Scripts\FacebookScript.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\NonCriticalHit.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\NamePickGui.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulShield.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\HereRoutingAPIExample.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulTarget.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsGoogleGeocodingResult.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\MarkerCustomDataExample.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\Shooter.cs" />
@@ -227,7 +235,7 @@
     <Compile Include="Assets\Emerald AI\Scripts\Components\VisibilityCheck.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\Demo.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Elevations\OnlineMapsTiledElevationManager.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulNetworkManager.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulNetworkManager.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIPlayerDamage.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\GroupMarkersExample.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_OverrideWorldRotation.cs" />
@@ -238,7 +246,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Interfaces\IOnlineMapsInteractiveElementManager.cs" />
     <Compile Include="Assets\BarDice\Scripts\Unique.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Tiles\OnlineMapsMapboxTile.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SyncSoulAvatar.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SyncSoulAvatar.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAIProjectile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\Base\OnlineMapsControlBase2D.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\DialogShare.cs" />
@@ -278,7 +286,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\BillboardedAd.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Drawers\OnlineMapsMarker3DDrawer.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoProximityVoiceChat\Scripts\ChangeName.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulProjectile.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulProjectile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXMLNamespaceManager.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_AnimatorEvents.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\ZoomArea.cs" />
@@ -335,7 +343,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Cache\OnlineMapsCache.File.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\ObjectSelectOutline.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Components\EmeraldAINonAIDamage.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\ProjectileHit.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\ProjectileHit.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\SpawnEnemy.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Projections\OnlineMapsProjectionWGS84.cs" />
     <Compile Include="Assets\Suriyun\Yippy Kawaii\Scripts\Swapper3.cs" />
@@ -361,7 +369,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\AndroidBackFromGame.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\LocationService\OnlineMapsLocationService.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\RFX1_RotationFreeze.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulCommunication.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulCommunication.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\UpdatePlayerHealthUI.cs" />
     <Compile Include="Assets\FacebookSDK\Examples\Scripts\SubMenus\MainMenu.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsOSMNominatim.cs" />
@@ -385,14 +393,14 @@
     <Compile Include="Assets\ShootEmUp\Scripts\RoundSettings.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_ShieldInteraction.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\3D\OnlineMapsTileSetControl.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulRoomManager.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulRoomManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\SaveMapStateExample.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\JSON\OnlineMapsJSONArray.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\ScoreController.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\MoveToMousePosition.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\SpawnAdvertisingGPSObjects.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\XML\OnlineMapsXML.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulButtonManager.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulButtonManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsBingMapsElevation.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\BingMapsLocationAPIExample.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\TempDirectionChange.cs" />
@@ -417,16 +425,16 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\SaveMarkersExample.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\BackToMain.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\FixArrow.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\FixArrow.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckAllTilesLoadedExample.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAIHideMouse.cs" />
     <Compile Include="Assets\ShootEmUp\Scripts\InitializeGame.cs" />
     <Compile Include="Assets\BuckHunter\Assets\Scripts\BuckHunterBullet.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\CreateObject.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\CreateObject.cs" />
     <Compile Include="Assets\BarDice\Scripts\Die.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CreateAndScaleMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\Results\OnlineMapsOSMNominatimResult.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\TestLocationService.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\TestLocationService.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAIMouseLook.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Character Controller\EmeraldAICharacterControllerTopDown.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
@@ -485,7 +493,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Markers\Instances\OnlineMapsMarker.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\MoveMarkersExample.cs" />
     <Compile Include="Assets\Scripts\AIVRASocial\FramerateCheck.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulMonster.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulMonster.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsWhat3Words.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\DriveToPoint.cs" />
     <Compile Include="Assets\Photon\PhotonVoice\Demos\DemoVoicePun\Scripts\OrthographicController.cs" />
@@ -526,7 +534,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\MarkerCreator.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Example Systems\PlayAIsEmote.cs" />
     <Compile Include="Assets\Scripts\GPSCorrection\MarkerImages.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\MoveUp.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\MoveUp.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\EffectSettings\RFX1_EffectSettingsInspector.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGooglePlacesAutocomplete.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\ShowMarkerLabelsByZoomExample.cs" />
@@ -535,7 +543,7 @@
     <Compile Include="Assets\AIVRAHome\Scripts\ScaleMarkersOnZoom.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Email.cs" />
     <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Curves\RFX1_AudioPitchCurves.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\SoulHealthBar.cs" />
+    <Compile Include="Assets\Soul Summoner\Prefabs\Scripts\SoulHealthBar.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples (API usage)\CheckArcGISTile.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Controls\2D\OnlineMapsNGUITextureControl.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Plugins\OnlineMapsCameraOrbit.cs" />
@@ -604,10 +612,6 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Examples\Scripts\CustomMarkerEngine.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\WebServices\OnlineMapsGoogleGeocoding.cs" />
     <Compile Include="Assets\AIVRAHome\Scripts\GamesController.cs" />
-    <Compile Include="Assets\Magazine\Scripts\TrackingManager.cs" />
-    <Compile Include="Assets\Magazine\Scripts\LightEstimation.cs" />
-    <Compile Include="Assets\Magazine\Scripts\SnowMo.cs" />
-    <Compile Include="Assets\Soul Summoner\Scripts\FixedYRotation.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Suriyun\Yippy Kawaii\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />

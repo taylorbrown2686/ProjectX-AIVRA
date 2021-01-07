@@ -26,6 +26,8 @@ TagManager:
   - fakeCup
   - PlaceCub
   - ArrowFixer
+  - Undefined
+  - avatar
   layers:
   - Default
   - TransparentFX

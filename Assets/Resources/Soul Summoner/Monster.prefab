@@ -28560,6 +28560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49aad8c4d00edb4594b491ce0ed182b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonview: {fileID: 0}
   soulHealthBar: {fileID: 2343142596591364297}
 --- !u!1 &6493550338859767981
 GameObject:
