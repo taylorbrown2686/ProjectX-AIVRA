@@ -71,7 +71,7 @@ public class MoveUp : MonoBehaviourPunCallbacks
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
-        SoulGameGamager.Instance.ShowMonsterAttackButton();
+        SoulGameManager.Instance.ShowMonsterAttackButton();
         Destroy(cube.gameObject);
         Destroy(plane.gameObject);
         Destroy(this.gameObject);

@@ -34,8 +34,8 @@ public class SoulUnit : MonoBehaviour
         currentMana -= amount;
         if (photonview.IsMine == true && this.gameObject.tag == "avatar")
         {
-            SoulGameGamager.Instance.manaBar.fillAmount = (float)currentMana / maxMana;
-            SoulGameGamager.Instance.manaText.text = currentMana + "/" + maxMana;
+            SoulGameManager.Instance.manaBar.fillAmount = (float)currentMana / maxMana;
+            SoulGameManager.Instance.manaText.text = currentMana + "/" + maxMana;
         }
         return true;
 

@@ -89,6 +89,6 @@ public class SoulMonster : MonoBehaviourPunCallbacks
         move = true;
         animator.SetTrigger("move");
         if (photonview.IsMine == true)
-            target = new Vector3(SoulGameGamager.Instance.sa.monsterposition.position.x, transform.position.y, SoulGameGamager.Instance.sa.monsterposition.position.z);
+            target = new Vector3(SoulGameManager.Instance.sa.monsterposition.position.x, transform.position.y, SoulGameManager.Instance.sa.monsterposition.position.z);
     }
 }

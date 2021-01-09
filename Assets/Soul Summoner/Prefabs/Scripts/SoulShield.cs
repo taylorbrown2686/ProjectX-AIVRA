@@ -21,7 +21,7 @@ public class SoulShield : SoulUnit
 
         if(photonview.IsMine == true)
         {
-            button = SoulGameGamager.Instance.shieldButton;
+            button = SoulGameManager.Instance.shieldButton;
 
             hpBar = button.gameObject.GetComponent<SoulButtonManager>().active;
 

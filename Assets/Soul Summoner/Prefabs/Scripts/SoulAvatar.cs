@@ -47,16 +47,16 @@ public class SoulAvatar : SoulUnit, IPunObservable
 
         if (photonview.IsMine == true) {
 
-            arRaycastManager = SoulGameGamager.Instance.arRaycastManager;
+            arRaycastManager = SoulGameManager.Instance.arRaycastManager;
 
             manaRegen = 50;
             hpRegen = 1;
-            hpText = SoulGameGamager.Instance.hpText;
-            hpBar = SoulGameGamager.Instance.hpBar;
+            hpText = SoulGameManager.Instance.hpText;
+            hpBar = SoulGameManager.Instance.hpBar;
 
             //shield starts
 
-            EventTrigger trigger = SoulGameGamager.Instance.shieldButton.GetComponent<EventTrigger>();
+            EventTrigger trigger = SoulGameManager.Instance.shieldButton.GetComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerUp;
             entry.callback.AddListener((data) => { RemoveShield(); });
@@ -66,13 +66,13 @@ public class SoulAvatar : SoulUnit, IPunObservable
             entry.eventID = EventTriggerType.PointerDown;
             entry.callback.AddListener((data) => { CreateShield(); });
             trigger.triggers.Add(entry);
-            SoulGameGamager.Instance.sa = this;
+            SoulGameManager.Instance.sa = this;
 
             //shield ends
 
             //ground shield starts
 
-            trigger = SoulGameGamager.Instance.groundShieldButton.GetComponent<EventTrigger>();
+            trigger = SoulGameManager.Instance.groundShieldButton.GetComponent<EventTrigger>();
             entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerUp;
             entry.callback.AddListener((data) => { CreateGroundSpell(); });
@@ -80,23 +80,23 @@ public class SoulAvatar : SoulUnit, IPunObservable
 
             //shield ends
 
-            AddCharging(SoulGameGamager.Instance.fireButton,"Button1");
-            AddCharging(SoulGameGamager.Instance.iceButton, "Button2");
-            AddCharging(SoulGameGamager.Instance.thunderButton, "Button3");
+            AddCharging(SoulGameManager.Instance.fireButton,"Button1");
+            AddCharging(SoulGameManager.Instance.iceButton, "Button2");
+            AddCharging(SoulGameManager.Instance.thunderButton, "Button3");
 
             GetComponent<MeshRenderer>().enabled = false;
             StartCoroutine(ManaPerSecond(manaRegen , this.gameObject)); // manaregen
             StartCoroutine(HpPerSecond(hpRegen, -1));
             buttons = new SoulButtonManager[5];
-            buttons[0] = SoulGameGamager.Instance.fireButton.gameObject.GetComponent<SoulButtonManager>();
+            buttons[0] = SoulGameManager.Instance.fireButton.gameObject.GetComponent<SoulButtonManager>();
             buttons[0].SetCost(button1ManaCost);
-            buttons[1] = SoulGameGamager.Instance.iceButton.gameObject.GetComponent<SoulButtonManager>();
+            buttons[1] = SoulGameManager.Instance.iceButton.gameObject.GetComponent<SoulButtonManager>();
             buttons[1].SetCost(button2ManaCost);
-            buttons[2] = SoulGameGamager.Instance.shieldButton.gameObject.GetComponent<SoulButtonManager>();
+            buttons[2] = SoulGameManager.Instance.shieldButton.gameObject.GetComponent<SoulButtonManager>();
             buttons[2].SetCost(shieldManacost);
-            buttons[3] = SoulGameGamager.Instance.thunderButton.gameObject.GetComponent<SoulButtonManager>();
+            buttons[3] = SoulGameManager.Instance.thunderButton.gameObject.GetComponent<SoulButtonManager>();
             buttons[3].SetCost(button3ManaCost);
-            buttons[4] = SoulGameGamager.Instance.groundShieldButton.gameObject.GetComponent<SoulButtonManager>();
+            buttons[4] = SoulGameManager.Instance.groundShieldButton.gameObject.GetComponent<SoulButtonManager>();
             buttons[4].SetCost(groundShieldManaCost);
         }
     }
@@ -153,18 +153,23 @@ public class SoulAvatar : SoulUnit, IPunObservable
 
     public void CreateGroundSpell()
     {
+       // print(SoulGameManager.Instance.spellsFilePath);
+        //PhotonNetwork.Instantiate(SoulGameManager.Instance.spellsFilePath + "Ground Shield", transform.position, Quaternion.identity);
         if (photonview.IsMine == true)
             if (UseMana(groundShieldManaCost) == false)
                 return;
-        if (arRaycastManager.Raycast(new Vector2(500,1000), arRaycastHits))
+        print(Screen.currentResolution.width + " " + Screen.currentResolution.height);
+        if (arRaycastManager.Raycast(new Vector2(Screen.currentResolution.width/2, Screen.currentResolution.height/2), arRaycastHits))
         {
             var pose = arRaycastHits[0].pose;
 
-            Instantiate(groundShield, pose.position, Quaternion.identity);
+            GameObject effect = PhotonNetwork.Instantiate(SoulGameManager.Instance.spellsFilePath + "Ground Shield", pose.position, Quaternion.identity);
+
+            effect.transform.SetParent(gameZone.transform);
 
             return;
         }
-        StartCoroutine(CooldownForButton(SoulGameGamager.Instance.iceButton.gameObject, 2));
+        StartCoroutine(CooldownForButton(SoulGameManager.Instance.iceButton.gameObject, 2));
     }
 
     public void StartCharge()
@@ -241,7 +246,7 @@ public class SoulAvatar : SoulUnit, IPunObservable
             ssa.fireButton1();
             GameObject effect = Instantiate(fireP, transform.position, transform.rotation);
             effect.transform.localScale *= level;
-            StartCoroutine(CooldownForButton(SoulGameGamager.Instance.fireButton.gameObject, 2));
+            StartCoroutine(CooldownForButton(SoulGameManager.Instance.fireButton.gameObject, 2));
     }
 
     public void Button2(int level)
@@ -252,7 +257,7 @@ public class SoulAvatar : SoulUnit, IPunObservable
             ssa.fireButton2();
             GameObject effect = Instantiate(iceP, transform.position, transform.rotation);
             effect.GetComponentInChildren<RFX1_TransformMotion>().Speed = 5 * level;
-            StartCoroutine(CooldownForButton(SoulGameGamager.Instance.iceButton.gameObject, 2));
+            StartCoroutine(CooldownForButton(SoulGameManager.Instance.iceButton.gameObject, 2));
     }
 
     public void Button3(int level)
@@ -266,7 +271,7 @@ public class SoulAvatar : SoulUnit, IPunObservable
             effect = Instantiate(ThunderP, transform.position, transform.rotation);
             effect.GetComponentInChildren<RFX1_TransformMotion>().RandomMoveRadius = i - 1;
         }
-        StartCoroutine(CooldownForButton(SoulGameGamager.Instance.thunderButton.gameObject, 5));
+        StartCoroutine(CooldownForButton(SoulGameManager.Instance.thunderButton.gameObject, 5));
     }
 
     public IEnumerator ManaPerSecond(int amount, GameObject gameObject) //adds mana per second
@@ -284,8 +289,8 @@ public class SoulAvatar : SoulUnit, IPunObservable
                 currentMana = 100;
             if (photonview.IsMine == true)
             {
-                SoulGameGamager.Instance.manaBar.fillAmount = (float)currentMana / maxMana;
-                SoulGameGamager.Instance.manaText.text = currentMana + "/" + maxMana;
+                SoulGameManager.Instance.manaBar.fillAmount = (float)currentMana / maxMana;
+                SoulGameManager.Instance.manaText.text = currentMana + "/" + maxMana;
             }
             yield return new WaitForSeconds(1f);
         }

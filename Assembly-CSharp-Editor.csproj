@@ -80,7 +80,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsPrefs.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Buildings\OnlineMapsBuildingBaseEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsPanoConnectorEditor.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Shaders\Editor\RFX1_UberDecalGUI.cs" />
+    <Compile Include="Assets\Resources\Soul Summoner\KriptoFX\Realistic Effects Pack v1\Shaders\Editor\RFX1_UberDecalGUI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Managers\OnlineMapsMarkerManager3DEditor.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Player\Editor\PlayerWeaponEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Windows\OnlineMapsUpdater.cs" />
@@ -90,7 +90,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsControlBaseUIEditor.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIFactionManager.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsEasyTouchConnectorEditor.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\CustomShaderGUI.cs" />
+    <Compile Include="Assets\Resources\Soul Summoner\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\CustomShaderGUI.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\PropertyDrawers\OnlineMapsRangePropertyDrawer.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsControlBaseEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Third-Party\OnlineMapsFingersTouchGesturesConnectorEditor.cs" />
@@ -114,7 +114,7 @@
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsNGUITextureControlEditor.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\OnlineMapsImporter.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Windows\OnlineMapsAboutWindow.cs" />
-    <Compile Include="Assets\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\RFX1_CustomMaterialInspectorParticle.cs" />
+    <Compile Include="Assets\Resources\Soul Summoner\KriptoFX\Realistic Effects Pack v1\Scripts\Editor\RFX1_CustomMaterialInspectorParticle.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Player\Editor\PlayerWeaponEditor3rdPerson.cs" />
     <Compile Include="Assets\OnlineMapsV3\Online maps\Scripts\Editor\Controls\OnlineMapsSpriteRendererControlEditor.cs" />
     <Compile Include="Assets\Emerald AI\Scripts\Editor\EmeraldAIAbilityEditor.cs" />

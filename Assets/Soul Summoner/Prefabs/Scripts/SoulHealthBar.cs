@@ -16,7 +16,7 @@ public class SoulHealthBar : MonoBehaviour
 
         if (transform.parent.GetComponent<SoulMonster>().photonview.IsMine)
         {
-            SoulGameGamager.Instance.monsterBar.fillAmount = percentage;
+            SoulGameManager.Instance.monsterBar.fillAmount = percentage;
         }
 
     }

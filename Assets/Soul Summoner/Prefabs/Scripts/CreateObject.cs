@@ -7,7 +7,6 @@ using UnityEngine.XR.ARFoundation;
 public class CreateObject : MonoBehaviour
 {
     public ARRaycastManager arRaycastManager;
-    int counter = 0;
 
     private List<ARRaycastHit> arRaycastHits = new List<ARRaycastHit>();
 
@@ -45,7 +44,7 @@ public class CreateObject : MonoBehaviour
 
     private void CreateCube(Vector3 position)
     {
-        SoulGameGamager.Instance.BringBackButtons();
+        SoulGameManager.Instance.BringBackButtons();
         if (PhotonNetwork.LocalPlayer.IsMasterClient == true) { 
             PhotonNetwork.Instantiate("Soul Summoner\\Monster", position, Quaternion.identity);
             Destroy(this.gameObject);
