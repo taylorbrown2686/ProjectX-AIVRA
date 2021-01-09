@@ -584,7 +584,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 863e20514db118449825048ecf683f10, type: 2}
+  - {fileID: 2100000, guid: 63eb004898151324aae4aebd54af0403, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -634,8 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1174717159161394414}
   gameManager: 
-  defaultPlayer: {fileID: 6133216053322016836, guid: 875a3bef04320a34cb411badc662c437,
-    type: 3}
+  diceCup: {fileID: 6133216053322016836, guid: 35fb0993b3638fc47a552cd3eaac346e, type: 3}
   multiplayer: 1
 --- !u!114 &4708354448731161181
 MonoBehaviour:

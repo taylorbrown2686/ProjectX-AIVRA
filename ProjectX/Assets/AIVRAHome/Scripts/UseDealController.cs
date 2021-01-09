@@ -11,13 +11,15 @@ public class UseDealController : MonoBehaviour
     [SerializeField] private Text issuer, amount, expiry;
     [SerializeField] private RawImage qr;
     public string internalName;
+    private bool reward;
 
-    public void Populate(string internalNameM, string issuerM, string amountM, string expiryM)
+    public void Populate(string internalNameM, string issuerM, string amountM, string expiryM, bool isReward)
     {
         internalName = internalNameM;
         issuer.text = issuerM;
         amount.text = amountM;
         expiry.text = expiryM;
+        reward = isReward;
         qr.texture = GenerateQR();
     }
 
@@ -39,7 +41,7 @@ public class UseDealController : MonoBehaviour
         writer.Format = BarcodeFormat.QR_CODE;
         writer.Options = options;
 
-        Color32[] pixels = writer.Write(CrossSceneVariables.Instance.email + "&" + internalName + "&" + issuer.text + "&" + amount.text + "&" + expiry.text);
+        Color32[] pixels = writer.Write(CrossSceneVariables.Instance.email + "&" + internalName + "&" + issuer.text + "&" + amount.text + "&" + expiry.text + "&" + reward);
         Texture2D tex = new Texture2D(200, 200);
         tex.SetPixels32(pixels);
         tex.Apply();

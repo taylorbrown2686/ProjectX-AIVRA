@@ -95,21 +95,22 @@ public class CreateJoinRoomManager : MonoBehaviourPunCallbacks
         RoomOptions ro = new RoomOptions();
 
         ro.IsOpen = true;
+        print(isVisible.isOn);
         ro.IsVisible = isVisible.isOn;
-        ro.MaxPlayers = (byte)Convert.ToInt32(maxPlayers);
+        ro.MaxPlayers = (byte)Convert.ToInt32(maxPlayers.text);
 
-        print(roomName.text + " " + (byte)Convert.ToInt32(maxPlayers));
+        print(roomName.text + " " + maxPlayers.text);
 
         PhotonNetwork.CreateRoom(roomName.text, ro);
-        gameObject.SetActive(false);
+      //  gameObject.SetActive(false);
     }
 
     public void JoinRoom()
     {
-        print(selectedRoom);
+        print("attempt to join " + selectedRoom);
         PhotonNetwork.JoinRoom(selectedRoom);
-        if (selectedRoom != null)
-            gameObject.SetActive(false);
+     //   if (selectedRoom != null)
+      //      gameObject.SetActive(false);
     }
 
 }

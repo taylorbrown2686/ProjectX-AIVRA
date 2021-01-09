@@ -7,7 +7,7 @@ using ZXing.Common;
 
 public class Deal
 {
-    public string email, businessName, internalName, externalName, category, tags, audience, discountType, discountAmount, expiry, amountDistributed, priceOfDiscountedItem;
+    public string email, businessName, internalName, externalName, category, tags, audience, discountType, discountAmount, expiry, amountDistributed, priceOfDiscountedItem, isReward;
 
     public Texture2D GenerateQR()
     {
@@ -28,9 +28,4 @@ public class Deal
         tex.Apply();
         return tex;
     }
-
-    //public Texture2D GenerateQRForUse()
-    //{
-
-    //}
 }

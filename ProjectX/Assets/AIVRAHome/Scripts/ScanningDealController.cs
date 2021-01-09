@@ -9,21 +9,30 @@ public class ScanningDealController : MonoBehaviour
     [SerializeField] private Text internalName, location, amount, expiry, originalPrice, newPrice;
     public string email;
     [SerializeField] private InputField price;
+    [SerializeField] private GameObject rewardCover;
     private float totalPrice;
 
-    public void Populate(string internalNameM, string locationM, string amountM, string expiryM)
+    public void Populate(string internalNameM, string locationM, string amountM, string expiryM, bool isReward)
     {
         internalName.text = internalNameM;
         location.text = locationM;
         amount.text = amountM;
         expiry.text = expiryM;
+        if (isReward)
+        {
+            ChangeToReward();
+        }
+    }
+
+    private void ChangeToReward()
+    {
+        rewardCover.SetActive(true);
     }
 
     public void Calculate()
     {
         if (price.text != "")
         {
-            StartCoroutine(RemoveDealForCustomer());
             if (amount.text.Contains("%"))
             {
                 totalPrice = float.Parse(price.text) - (float.Parse(price.text) * float.Parse(amount.text.Trim(new Char[] {'%'})));
@@ -43,18 +52,18 @@ public class ScanningDealController : MonoBehaviour
         }
     }
 
-    private IEnumerator RemoveDealForCustomer()
+    private IEnumerator MarkDealUsedForCustomer()
     {
         WWWForm form = new WWWForm();
         form.AddField("email", email);
         form.AddField("dealInternalName", internalName.text);
-        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/removeDealFromSavedCustomerDeals.php", form);
+        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateDealUsedFromSavedCustomerDeals.php", form);
         yield return www;
-        Debug.Log(www.text);
+        Destroy(this.gameObject);
     }
 
     public void Done()
     {
-        Destroy(this.gameObject);
+        StartCoroutine(MarkDealUsedForCustomer());
     }
 }

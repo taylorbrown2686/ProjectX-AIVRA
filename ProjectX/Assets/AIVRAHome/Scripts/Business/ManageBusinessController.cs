@@ -26,4 +26,10 @@ public class ManageBusinessController : MonoBehaviour
             obj.SetActive(false);
         }
     }
+
+    public void Back()
+    {
+        BusinessController.Instance.optionSelectScreen.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
 }

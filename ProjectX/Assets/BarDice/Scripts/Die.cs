@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Die : MonoBehaviour
 {
-    private int value;
+    private int value = 6;
    // private Rigidbody rigidbody;
 
     public int Value {get => value;}
@@ -18,7 +18,7 @@ public class Die : MonoBehaviour
       //  var emptyObject = new GameObject();
         transform.SetParent(plane.transform);
      //   emptyObject.transform.parent = plane.transform;
-     //   transform.parent = emptyObject.transform;
+     
     }
 
     public void ReadDie() {

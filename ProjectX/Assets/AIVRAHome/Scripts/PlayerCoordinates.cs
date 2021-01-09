@@ -31,9 +31,9 @@ public class PlayerCoordinates : MonoBehaviour
     private IEnumerator ReadGPS(float delay) {
       canRead = false;
       playerLat = Input.location.lastData.latitude;
-      latText.text = "Lat: " + playerLat.ToString();
+      latText.text = playerLat.ToString();
       playerLng = Input.location.lastData.longitude;
-      lngText.text = "Lng: " + playerLng.ToString();
+      lngText.text = playerLng.ToString();
       yield return new WaitForSeconds(delay);
       canRead = true;
     }

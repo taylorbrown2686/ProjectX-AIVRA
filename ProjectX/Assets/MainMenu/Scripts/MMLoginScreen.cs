@@ -62,7 +62,7 @@ public class MMLoginScreen : MonoBehaviour
                 } else
                 {
                     csv.email = username.text;
-                    EditPlayerPrefsToStayLoggedIn();
+                    EditPlayerPrefs();
                     SceneManager.LoadScene("AIVRAHome");
                 }
             }
@@ -101,7 +101,7 @@ public class MMLoginScreen : MonoBehaviour
             MMUIController.Instance.ChangeScreen(2); //Verify Account
         } else
         {
-            EditPlayerPrefsToStayLoggedIn();
+            EditPlayerPrefs();
             SceneManager.LoadScene("AIVRAHome");
         }
     }
@@ -120,7 +120,7 @@ public class MMLoginScreen : MonoBehaviour
         MMUIController.Instance.stayLoggedIn = !MMUIController.Instance.stayLoggedIn;
     }
 
-    private void EditPlayerPrefsToStayLoggedIn()
+    private void EditPlayerPrefs()
     {
         if (MMUIController.Instance.stayLoggedIn)
         {
@@ -132,6 +132,11 @@ public class MMLoginScreen : MonoBehaviour
         {
             PlayerPrefs.SetInt("stayloggedin", 0);
             PlayerPrefs.SetString("email", csv.email);
+            PlayerPrefs.Save();
+        }
+        if (!PlayerPrefs.HasKey("showwarning"))
+        {
+            PlayerPrefs.SetInt("showwarning", 1);
             PlayerPrefs.Save();
         }
     }

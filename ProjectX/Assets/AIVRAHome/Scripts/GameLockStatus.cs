@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameLockStatus : MonoBehaviour
 {
-    public SortedList<string, bool> gamesAndStatuses = new SortedList<string, bool>();
+    public Dictionary<string, bool> gamesAndStatuses = new Dictionary<string, bool>();
 
     private static GameLockStatus instance = null;
 
@@ -17,30 +17,35 @@ public class GameLockStatus : MonoBehaviour
         {
             instance = this;
         }
-        gamesAndStatuses.Add("Ghosts In The Graveyard", false);
-        gamesAndStatuses.Add("HuntAR", false);
-        gamesAndStatuses.Add("AR Bar Dice", false);
-        gamesAndStatuses.Add("Samhains Revenge", false);
+        gamesAndStatuses.Add("Ghosts In The Graveyard", true);
+        gamesAndStatuses.Add("HuntAR", true);
+        gamesAndStatuses.Add("AR Bar Dice", true);
+        gamesAndStatuses.Add("Samhains Revenge", true);
     }
 
     public void LockGames()
     { //no games[] array, disable all and enable if they permanently unlocked the game
-        for (int i = 0; i < gamesAndStatuses.Count; i++)
-        {
-            gamesAndStatuses[gamesAndStatuses.Keys[i]] = false;
+        foreach (KeyValuePair<string, bool> pair in gamesAndStatuses) {
+            if (pair.Key == "Ghosts In The Graveyard")
+            {
+                gamesAndStatuses[pair.Key] = true;
+            }
+            else
+            {
+                gamesAndStatuses[pair.Key] = true; //CHANGE THIS TO FALSE WHEN GAMES NEED TO BE LOCKED!!!
+            }
         }
     }
 
     public void UnlockGames(string[] games)
     {
-        for (int i = 0; i < gamesAndStatuses.Count; i++)
+        foreach (KeyValuePair<string, bool> pair in gamesAndStatuses)
         {
             foreach (string str in games)
             {
-                Debug.Log(str.Equals(gamesAndStatuses.Keys[i]));
-                if (str.Equals(gamesAndStatuses.Keys[i]))
+                if (str.Equals(pair.Key))
                 {
-                    gamesAndStatuses[gamesAndStatuses.Keys[i]] = true;
+                    gamesAndStatuses[pair.Key] = true;
                 }
             }
         }

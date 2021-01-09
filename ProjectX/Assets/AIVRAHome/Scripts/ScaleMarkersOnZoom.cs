@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,11 +22,11 @@ public class ScaleMarkersOnZoom : MonoBehaviour
         {
             if (map.zoom < defaultZoom)
             {
-                marker.scale = 1;
+                marker.scale = 2;
             }
             else
             {
-                marker.scale = marker.originalRadius / (.0008f * Mathf.Pow(2, 22 - map.zoom));
+                marker.scale = Convert.ToSingle((1.40625f * Math.Pow(map.zoom, 2)) - (51.5625f * map.zoom) + 473.75f);
             }
         }
         

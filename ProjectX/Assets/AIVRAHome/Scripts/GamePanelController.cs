@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 public class GamePanelController : MonoBehaviour
 {
     [SerializeField] private GameObject mainOverlay, infoOverlay;
+    [SerializeField] private GameObject errorText;
+    [SerializeField] private GameObject mapScreen, gameScreen;
 
     public void ToggleMainOverlay()
     {
         if (mainOverlay.activeSelf)
         {
+            errorText.SetActive(false);
             mainOverlay.SetActive(false);
         } else
         {
@@ -22,6 +25,7 @@ public class GamePanelController : MonoBehaviour
     {
         if (infoOverlay.activeSelf)
         {
+            errorText.SetActive(false);
             infoOverlay.SetActive(false);
         }
         else
@@ -35,13 +39,13 @@ public class GamePanelController : MonoBehaviour
         GameLockStatus gameStatus = GameLockStatus.Instance;
         switch (this.gameObject.name) {
             case "GhostsInTheGraveyard":
-                if (gameStatus.CheckIfGameUnlocked("Ghosts in the Graveyard"))
+                if (gameStatus.CheckIfGameUnlocked("Ghosts In The Graveyard"))
                 {
                     SceneManager.LoadScene("ShootEmUp");
                 } 
                 else
                 {
-                    //error text
+                    errorText.SetActive(true);
                 }
                 break;
             case "HuntAR":
@@ -51,7 +55,7 @@ public class GamePanelController : MonoBehaviour
                 }
                 else
                 {
-                    //error text
+                    errorText.SetActive(true);
                 }
                 break;
             case "BarDiceAR":
@@ -61,19 +65,40 @@ public class GamePanelController : MonoBehaviour
                 }
                 else
                 {
-                    //error text
+                    errorText.SetActive(true);
                 }
                 break;
             case "SamhainsRevenge":
                 if (gameStatus.CheckIfGameUnlocked("Samhains Revenge"))
                 {
-                    //SceneManager.LoadScene("SamhainsRevenge");
+                    SceneManager.LoadScene("SamhainsRevenge");
                 }
                 else
                 {
-                    //error text
+                    errorText.SetActive(true);
                 }
                 break;
         }
+    }
+
+    public void SeeFreeLocations()
+    {
+        mapScreen.SetActive(true);
+        switch (this.gameObject.name)
+        {
+            case "GhostsInTheGraveyard":
+                mapScreen.GetComponent<MapController>().OnFilterChanged("hosted_games#Ghosts In The Graveyard");
+                break;
+            case "HuntAR":
+                mapScreen.GetComponent<MapController>().OnFilterChanged("hosted_games#HuntAR");
+                break;
+            case "BarDiceAR":
+                mapScreen.GetComponent<MapController>().OnFilterChanged("hosted_games#AR Bar Dice");
+                break;
+            case "SamhainsRevenge":
+                mapScreen.GetComponent<MapController>().OnFilterChanged("hosted_games#Samhains Revenge");
+                break;
+        }
+        gameScreen.SetActive(false);
     }
 }

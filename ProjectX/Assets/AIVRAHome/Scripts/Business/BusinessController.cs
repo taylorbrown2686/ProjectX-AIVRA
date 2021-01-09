@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BusinessController : MonoBehaviour
 {
-    [SerializeField] private GameObject scanDealsScreen, manageBusinessScreen, optionSelectScreen;
+    public GameObject scanDealsScreen, manageBusinessScreen, spinToWinScreen, optionSelectScreen;
     public string businessName, businessAddress;
     public string businessLat, businessLng;
     public List<Deal> deals = new List<Deal>();
@@ -14,8 +14,16 @@ public class BusinessController : MonoBehaviour
     public Dictionary<string, string> businessNamesAndAddresses = new Dictionary<string, string>();
     public Dictionary<string, string> businessCoordinates = new Dictionary<string, string>();
 
+    private static BusinessController instance = null;
+
+    public static BusinessController Instance { get => instance; }
+
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         StartCoroutine(GetBusinessInfo());
         StartCoroutine(GetAdditionalLocations());
     }
@@ -30,6 +38,12 @@ public class BusinessController : MonoBehaviour
     {
         optionSelectScreen.SetActive(false);
         manageBusinessScreen.SetActive(true);
+    }
+
+    public void GoToSpinSetup()
+    {
+        optionSelectScreen.SetActive(false);
+        spinToWinScreen.SetActive(true);
     }
 
     public void GlobalBack()

@@ -275,6 +275,7 @@ public class GameManager : MonoBehaviour
                 imageToDisplay.sprite = gameOverSprite;
                 levelText.gameObject.SetActive(true);
                 selectedState.score = score - previousScore;
+                RewardsController.Instance.CompareScore(score);
                 buttonManager.StateCompleted(selectedState.name, selectedState.score);
 
 

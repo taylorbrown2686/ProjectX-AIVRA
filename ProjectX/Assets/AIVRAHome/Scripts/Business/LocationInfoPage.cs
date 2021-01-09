@@ -6,19 +6,15 @@ using UnityEngine.UI;
 
 public class LocationInfoPage : MonoBehaviour
 {
-    [SerializeField] private GameObject updatingMarkerContainer, scaleMarkerSlider, updateLocationInfoWindow, updatingMarkerWindow;
-    [SerializeField] private Text currentBusinessAddress, updateMarkerButtonText;
+    [SerializeField] private GameObject yourGalleryWindow;
+    [SerializeField] private Text currentBusinessAddress;
     [SerializeField] private Dropdown businessDropdown;
     private string currentBusinessName;
-    [SerializeField] private InputField editBusinessName, editBusinessAddress;
-    private bool updatingMarker = false;
-    private bool updatingLocationInfo = false;
     [SerializeField] private BusinessController businessController;
     [SerializeField] private OnlineMaps map;
 
     void Start()
     {
-        //CHANGE BELOW LATER (FOR MULTIPLE BUSINESSES)
         businessDropdown.ClearOptions();
         foreach (KeyValuePair<string, string> pair in businessController.businessNamesAndAddresses)
         {
@@ -26,72 +22,6 @@ public class LocationInfoPage : MonoBehaviour
         }
         currentBusinessAddress.text = businessController.businessAddress;
         businessDropdown.value = 1;
-    }
-
-    /*public void UpdateLocation()
-    {
-        if (!updatingLocationInfo)
-        {
-            updatingLocationInfo = true;
-            updateLocationInfoWindow.SetActive(true);
-            editBusinessName.text = currentBusinessName;
-            editBusinessAddress.text = currentBusinessAddress.text;
-        }
-        else
-        {
-            updatingLocationInfo = false;
-            updateLocationInfoWindow.SetActive(false);
-            if (businessController.businessName != editBusinessName.text)
-            {
-                if (businessController.businessAddress != editBusinessAddress.text)
-                {
-                    Debug.Log("UPDATE BOTH");
-                } 
-                else
-                {
-                    Debug.Log("UPDATE NAME");
-                }
-            }
-            else
-            {
-                Debug.Log("UPDATE ADDY");
-            }
-        }
-    }
-
-    private IEnumerator SendLocationUpdatesToDB(string fieldType, string fieldUpdateValue, bool changeBoth, string fieldUpdateValue2)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("fieldType", fieldType);
-        form.AddField("fieldToUpdate", fieldUpdateValue);
-        if (changeBoth)
-        {
-            form.AddField("fieldToUpdate2", fieldUpdateValue2);
-        }
-        form.AddField("businessName", businessController.businessName);
-        WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/updateBusinessNameOrAddress.php", form);
-        yield return www;
-        break;
-    }*/ //REQUIRES SPECIAL CONTACT, TOO MANY DB FIELDS TO UPDATE
-
-    public void UpdateMarker()
-    {
-        if (!updatingMarker)
-        {
-            updatingMarker = true;
-            updatingMarkerWindow.SetActive(true);
-            updateMarkerButtonText.text = "Done";
-            updatingMarkerContainer.SetActive(true);
-            scaleMarkerSlider.SetActive(true);
-        }
-        else
-        {
-            updatingMarker = false;
-            updatingMarkerWindow.SetActive(false);
-            updateMarkerButtonText.text = "Update Marker";
-            updatingMarkerContainer.SetActive(false);
-            scaleMarkerSlider.SetActive(false);
-        }
     }
 
     public void FocusedBusinessChanged()
@@ -116,5 +46,12 @@ public class LocationInfoPage : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void GoToGallery()
+    {
+        yourGalleryWindow.SetActive(true);
+        yourGalleryWindow.GetComponent<YourGalleryController>().currentBusinessName = currentBusinessName;
+        this.gameObject.SetActive(false);
     }
 }

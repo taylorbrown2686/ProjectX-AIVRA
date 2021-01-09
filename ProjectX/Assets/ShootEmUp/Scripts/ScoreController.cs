@@ -11,9 +11,7 @@ public class ScoreController : MonoBehaviour
     public bool doublePoints = false; //For the 2x power-up
 
     void Update() {
-      if (doublePoints) {
-        Debug.Log("doublePoints");
-      }
+        RewardsController.Instance.CompareScore(compositeScore);
     }
 
     public void AddScore(int scoreToAdd) {
@@ -26,6 +24,7 @@ public class ScoreController : MonoBehaviour
 
     public void AddScoreToComposite(int scoreToAdd) {
       compositeScore += scoreToAdd;
+        Debug.Log(currentScore + ", " + compositeScore);
     }
 
     public IEnumerator PowerUp() {

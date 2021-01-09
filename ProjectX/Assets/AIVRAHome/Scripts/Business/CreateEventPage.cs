@@ -90,7 +90,7 @@ public class CreateEventPage : MonoBehaviour
             StartCoroutine(CheckForDuplicates(eventType));
         } else
         {
-            errorText.text = VerifyFields(eventType);
+            StartCoroutine(ErrorText(VerifyFields(eventType)));
         }
     }
 
@@ -264,5 +264,51 @@ public class CreateEventPage : MonoBehaviour
         creatingEventText.text += "\nDone!";
         yield return new WaitForSeconds(2f);
         creatingEventPopup.SetActive(false);
+    }
+
+    private void ClearFields(string fieldsToClear)
+    {
+        switch (fieldsToClear)
+        {
+            case "Deal":
+                dealPrivateName.text = "";
+                dealPublicName.text = "";
+                dealTags.text = "";
+                discountAmount.text = "";
+                dealExpiry.text = "";
+                dealAmt.text = "";
+                dealOrigPrice.text = "";
+                break;
+            case "Reward":
+                rewardPrivateName.text = "";
+                rewardPublicName.text = "";
+                rewardTags.text = "";
+                howMuch.text = "";
+                scoreRequired.text = "";
+                rewardExpiry.text = "";
+                rewardAmt.text = "";
+                break;
+            case "Game":
+                gameEventName.text = "";
+                gameTags.text = "";
+                gameDesc.text = "";
+                gameSubDesc.text = "";
+                gameEndOf.text = "";
+                break;
+            case "Event":
+                eventEventName.text = "";
+                eventTags.text = "";
+                eventDesc.text = "";
+                eventSubDesc.text = "";
+                eventEndOf.text = "";
+                break;
+        }
+    }
+
+    private IEnumerator ErrorText(string text)
+    {
+        errorText.text = text;
+        yield return new WaitForSeconds(3f);
+        errorText.text = "";
     }
 }

@@ -16,53 +16,68 @@ public class CheckForNearbyEvent : MonoBehaviour
     public GameLockStatus gameLockController;
     public GameObject aivraSaysPulldown;
 
-    void Update() {
-      if (canCheckProx && Input.location.status == LocationServiceStatus.Running) {
-        if (!inLocation) {
-          StartCoroutine(CheckProximityToEventCoords());
-        } else {
-          //check if they leave
-          StartCoroutine(CheckProximityToCurrentLocation());
+    void Update()
+    {
+        if (canCheckProx && Input.location.status == LocationServiceStatus.Running)
+        {
+            if (!inLocation)
+            {
+                StartCoroutine(CheckProximityToEventCoords());
+            }
+            else
+            {
+                //check if they leave
+                StartCoroutine(CheckProximityToCurrentLocation());
+            }
         }
-      }
     }
 
-    private IEnumerator CheckProximityToEventCoords() {
-      canCheckProx = false;
-      float playerLat = PlayerCoordinates.Instance.PlayerLat;
-      float playerLng = PlayerCoordinates.Instance.PlayerLng;
-      foreach (KeyValuePair<string, Vector2> coord in CrossSceneVariables.Instance.nearbyBusinessCoords) {
-        if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), coord.Value).magnitude < 0.035f) {
-            inLocation = true;
-            //aivraSaysPulldown.SetActive(true);
-            aivraSays.StartCoroutine(aivraSays.EnteringLocation(coord.Key));
-            currentLocationCoords = coord.Value;
-            currentBusinessName = coord.Key;
-            StartCoroutine(GetLocationGames());
+    private IEnumerator CheckProximityToEventCoords()
+    {
+        canCheckProx = false;
+        float playerLat = PlayerCoordinates.Instance.PlayerLat;
+        float playerLng = PlayerCoordinates.Instance.PlayerLng;
+        foreach (KeyValuePair<string, Vector2> coord in CrossSceneVariables.Instance.nearbyBusinessCoords)
+        {
+            if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), coord.Value).magnitude < 0.035f)
+            {
+                inLocation = true;
+                //aivraSaysPulldown.SetActive(true);
+                aivraSays.StartCoroutine(aivraSays.EnteringLocation(coord.Key));
+                currentLocationCoords = coord.Value;
+                currentBusinessName = coord.Key;
+                CrossSceneVariables.Instance.inBusiness = true;
+                CrossSceneVariables.Instance.inBusinessName = currentBusinessName;
+                StartCoroutine(GetLocationGames());
+            }
         }
-      }
-      yield return new WaitForSeconds(5f);
-      canCheckProx = true;
+        yield return new WaitForSeconds(5f);
+        canCheckProx = true;
     }
 
-    private IEnumerator CheckProximityToCurrentLocation() {
-      canCheckProx = false;
-      float playerLat = PlayerCoordinates.Instance.PlayerLat;
-      float playerLng = PlayerCoordinates.Instance.PlayerLng;
-      if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), currentLocationCoords).magnitude > 0.035f) {
-        inLocation = false;
-       // aivraSaysPulldown.SetActive(false);
-        gameLockController.LockGames();
-        aivraSays.StartCoroutine(aivraSays.LeavingLocation());
-        currentLocationCoords = new Vector2(0,0);
-        currentBusinessName = "";
-        gameLockController.LockGames();
-      }
-      yield return new WaitForSeconds(5f);
-      canCheckProx = true;
+    private IEnumerator CheckProximityToCurrentLocation()
+    {
+        canCheckProx = false;
+        float playerLat = PlayerCoordinates.Instance.PlayerLat;
+        float playerLng = PlayerCoordinates.Instance.PlayerLng;
+        if (OnlineMapsUtils.DistanceBetweenPoints(new Vector2(playerLng, playerLat), currentLocationCoords).magnitude > 0.035f)
+        {
+            inLocation = false;
+            // aivraSaysPulldown.SetActive(false);
+            gameLockController.LockGames();
+            aivraSays.StartCoroutine(aivraSays.LeavingLocation());
+            currentLocationCoords = new Vector2(0, 0);
+            currentBusinessName = "";
+            CrossSceneVariables.Instance.inBusiness = false;
+            CrossSceneVariables.Instance.inBusinessName = "";
+            gameLockController.LockGames();
+        }
+        yield return new WaitForSeconds(5f);
+        canCheckProx = true;
     }
 
-    private IEnumerator GetLocationGames() {
+    private IEnumerator GetLocationGames()
+    {
         WWWForm form = new WWWForm();
         form.AddField("businessName", currentBusinessName);
         WWW www = new WWW("http://65.52.195.169/AIVRA-PHP/getUnlockedGamesForBusiness.php", form);

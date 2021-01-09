@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BarDice.unity
     guid: 9265c1506d2229a45b68d8eb4cd48a10
+  - enabled: 1
+    path: Assets/Scenes/AvatarSelection.unity
+    guid: 528a9e88f45aba14eb573e8761d94a44
+  - enabled: 1
+    path: Assets/Scenes/SpinToWin.unity
+    guid: 1b761edb0ed7b9b4da9735aa99b0c654
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8abc4507234e0cc43abcec0b961ec41b,
       type: 2}

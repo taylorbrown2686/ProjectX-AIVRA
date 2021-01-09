@@ -300,13 +300,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b8722fda5c4c540ac4d6bfece39e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  die: {fileID: 3822769828856545821, guid: 844cbef9737be6942b04a1b05cc991cf, type: 3}
+  die: {fileID: 3822769828856545821, guid: 5ade3f1d27fa6d64d880ea9c2fc9d599, type: 3}
   diceCup: {fileID: 6133216053322016836}
   diceSpawnPoint: {fileID: 8627877805252650735}
   playersTurn: 0
   turnCounter: 0
   maxTurns: 0
-  avatar: {fileID: 5137653050397635222, guid: ca1e12efdab13be4482fd4f357097c6d, type: 3}
+  avatar: {fileID: 4810209838037695657, guid: 78afb84bac2175c4a8e0a8a3347ba6d1, type: 3}
 --- !u!114 &-3872430452197429168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8627877805252650735}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6797725337767326462}

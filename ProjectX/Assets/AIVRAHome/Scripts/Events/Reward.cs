@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Reward
 {
-    public string internalName, externalName, gameTitle, tags, typeOfReward, amountOrItem, requiredScore, expiry, amountDistributed;
+    public string businessName, internalName, externalName, gameTitle, tags, typeOfReward, amountOrItem, requiredScore, expiry, amountDistributed;
 }

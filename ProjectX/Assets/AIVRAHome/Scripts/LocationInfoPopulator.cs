@@ -24,7 +24,6 @@ public class LocationInfoPopulator : MonoBehaviour
 
     public string GetLocationAddress(string markerUID) {
       foreach (MarkerData data in MarkerDataManager.Instance.MarkerData) {
-        Debug.Log(markerUID + " " + data.UID);
         if (data.UID == Convert.ToInt32(markerUID)) {
           return data.Address;
         }

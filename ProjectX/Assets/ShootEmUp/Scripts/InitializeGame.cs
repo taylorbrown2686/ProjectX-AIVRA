@@ -13,21 +13,35 @@ public class InitializeGame : MonoBehaviour
     private MonoBehaviour superGameManager;
     public bool multiplayer = false;
 
-    void Awake() {
-      canvas.SetActive(false);
-      switch (gameManager) {
-        case "GameManager":
-          superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        break;
+    void Awake()
+    {
+        canvas.SetActive(false);
+        switch (gameManager)
+        {
+            case "GameManager":
+                superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+                break;
 
-        case "RoundController":
-          superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoundController>();
-        break;
+            case "RoundController":
+                superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoundController>();
+                break;
 
-        case "SSRoundController":
-          //superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ARMenuEnable>();
-        break;
-      }
+            case "SSRoundController":
+                //superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ARMenuEnable>();
+                break;
+
+            case "AvatarManager":
+                superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<AvatarManager>();
+                break;
+
+            case "SlotController":
+                superGameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<SlotController>();
+                break;
+
+            default:
+                superGameManager = null;
+                break;
+        }
         if (superGameManager != null)
             superGameManager.enabled = false;
         //newPlayer.name = ""; NAME OF PLAYER FROM ROOM GOES HERE
@@ -44,12 +58,13 @@ public class InitializeGame : MonoBehaviour
 
     }
 
-    public void InitializeUI() {
-      canvas.SetActive(true);
+    public void InitializeUI()
+    {
+        canvas.SetActive(true);
     }
 
     public void InitializeNetworkGameScripts()
-    { 
+    {
         GameObject newPlayer = PhotonNetwork.Instantiate(defaultPlayer.name, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         //   newPlayer.transform.SetParent(Camera.main.transform,true);
     }

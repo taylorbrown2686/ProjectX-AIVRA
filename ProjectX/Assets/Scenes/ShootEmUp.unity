@@ -182,7 +182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0cc120c2578b77b4ca1b5395ca22926c, type: 3}
+    m_Font: {fileID: 12800000, guid: ac7feee07988fc740a9d2568d22687e5, type: 3}
     m_FontSize: 75
     m_FontStyle: 0
     m_BestFit: 0
@@ -194,12 +194,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Touch to rotate your game zone.
+  m_Text: 'Touch to rotate, pinch to scale
 
-    Pinch to scale your game zone.
+    Play in a well-lit environment
 
-    Hit
-    the check when you are done.'
+    Touch
+    the ''check'' to start the game
+
+'
 --- !u!222 &104916271
 CanvasRenderer:
   m_ObjectHideFlags: 0

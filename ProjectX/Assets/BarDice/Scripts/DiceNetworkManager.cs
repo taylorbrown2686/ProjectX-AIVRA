@@ -20,7 +20,7 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
     public int counter;
     public DiceCommunication dc;
     public GameObject tutorial;
-    public GameObject roomListCanvas;
+    public GameObject roomCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -35,17 +35,17 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
 
     }
 
-    // Update is called once per frame
+   /* // Update is called once per frame
     void Update()
     {
         
     }
-
+    */
     public void Connect()
     {
         Destroy(nickName.gameObject, 1f);
         Destroy(connectButton.gameObject, 1f);
-        roomListCanvas.SetActive(true);
+        roomCanvas.SetActive(true);
         PhotonNetwork.LocalPlayer.NickName = nickName.text;
         PhotonNetwork.ConnectUsingSettings();
         
@@ -63,7 +63,6 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Connected!!!");
         PhotonNetwork.JoinLobby();
                 
-
     }
 
 
@@ -75,6 +74,7 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        roomCanvas.SetActive(false);
         tutorial.SetActive(true);
         Debug.Log("joined room!!!!!!!!");
        
@@ -82,8 +82,6 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
             players.Add(player);
       //  InitializeNetworkGameScripts
         SetScoreBoard();
-        print((string)PhotonNetwork.LocalPlayer.CustomProperties["score"]);
-        print((string)PhotonNetwork.MasterClient.CustomProperties["score"]);
 
     }
 
@@ -98,6 +96,11 @@ public class DiceNetworkManager : MonoBehaviourPunCallbacks
         ro.MaxPlayers = 8;
 
         PhotonNetwork.CreateRoom("room", ro);
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        print(message);
     }
 
 

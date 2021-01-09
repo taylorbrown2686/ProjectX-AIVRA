@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, yourProfileContainer, businessContainer, appOptions;
-    [SerializeField] private GameObject uiBackground;
+    [SerializeField] private GameObject mainMenuContainer, mapContainer, gamesContainer, dealsContainer, yourProfileContainer, businessContainer, notificationsContainer, indevContainer, menuContainer;
+    [SerializeField] private GameObject uiBackground, notificationTopCover;
     private string previousPage, currentPage;
+    [HideInInspector] public bool filterBusinessDeals = false, filterBusinessGames = false;
+    [SerializeField] private GameObject businessButton;
 
     private static UIController instance = null;
 
@@ -31,12 +34,20 @@ public class UIController : MonoBehaviour
         {
             ChangePage(previousPage);
         }
+        if (CrossSceneVariables.Instance.isBusiness && CrossSceneVariables.Instance.activeSubscription)
+        {
+            businessButton.SetActive(true);
+        }
+        else
+        {
+            businessButton.SetActive(false);
+        }
     }
 
     public void ChangePage(string pageToOpen)
     {
         DisableAllPages();
-        switch (pageToOpen)
+        switch (pageToOpen.Substring(0, pageToOpen.Length - 1))
         {
             case "MainMenu":
                 previousPage = currentPage;
@@ -48,12 +59,28 @@ public class UIController : MonoBehaviour
             case "Deals":
                 previousPage = currentPage;
                 currentPage = "Deals";
+                if (pageToOpen.Substring(pageToOpen.Length - 1) == "B")
+                {
+                    filterBusinessDeals = true;
+                }
+                else
+                {
+                    filterBusinessDeals = false;
+                }
                 dealsContainer.SetActive(true);
                 break;
 
             case "Games":
                 previousPage = currentPage;
                 currentPage = "Games";
+                if (pageToOpen.Substring(pageToOpen.Length - 1) == "B")
+                {
+                    filterBusinessGames = true;
+                }
+                else
+                {
+                    filterBusinessGames = false;
+                }
                 gamesContainer.SetActive(true);
                 break;
 
@@ -63,10 +90,10 @@ public class UIController : MonoBehaviour
                 mapContainer.SetActive(true);
                 break;
 
-            case "Entertainment":
+            case "YourProfile":
                 previousPage = currentPage;
-                currentPage = "Entertainment";
-                gamesContainer.SetActive(true);
+                currentPage = "YourProfile";
+                yourProfileContainer.SetActive(true);
                 break;
 
             case "Business":
@@ -74,6 +101,24 @@ public class UIController : MonoBehaviour
                 currentPage = "Business";
                 businessContainer.SetActive(true);
                 uiBackground.SetActive(false);
+                break;
+            case "Notifications":
+                print("af");
+                previousPage = currentPage;
+                currentPage = "Notifications";
+                notificationsContainer.SetActive(true);
+                notificationTopCover.SetActive(true);
+                uiBackground.SetActive(false);
+                break;
+            case "Indev":
+                previousPage = currentPage;
+                currentPage = "Indev";
+                indevContainer.SetActive(true);
+                break;
+            case "DemoMenu":
+                previousPage = currentPage;
+                currentPage = "DemoMenu";
+                menuContainer.SetActive(true);
                 break;
         }
     }
@@ -84,10 +129,14 @@ public class UIController : MonoBehaviour
         mapContainer.SetActive(false);
         gamesContainer.SetActive(false);
         dealsContainer.SetActive(false);
+        yourProfileContainer.SetActive(false);
         businessContainer.SetActive(false);
+        notificationsContainer.SetActive(false);
+        notificationTopCover.SetActive(false);
+        indevContainer.SetActive(false);
+        menuContainer.SetActive(false);
         uiBackground.SetActive(true);
     }
-
     public void GlobalBack()
     {
         switch (currentPage)
@@ -110,13 +159,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void AppOptionsToggle()
-    {
-        appOptions.SetActive(!appOptions.activeSelf);
-    }
-
     public void Logout()
     {
+        Destroy(GameObject.Find("_DONTDESTROYONLOAD"));
         PlayerPrefs.SetInt("stayloggedin", 0);
         PlayerPrefs.SetString("email", "");
         PlayerPrefs.Save();

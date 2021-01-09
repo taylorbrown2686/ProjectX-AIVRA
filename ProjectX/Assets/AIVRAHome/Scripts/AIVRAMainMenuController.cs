@@ -38,6 +38,6 @@ public class AIVRAMainMenuController : MonoBehaviour
         {
             yield return new WaitForSeconds(1f);
         }
-        helloText.text = "Hello, " + CrossSceneVariables.Instance.name + "!";
+        helloText.text = CrossSceneVariables.Instance.name;
     }
 }

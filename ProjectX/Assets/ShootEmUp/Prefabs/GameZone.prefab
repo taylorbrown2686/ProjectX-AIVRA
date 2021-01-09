@@ -435,7 +435,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0cc120c2578b77b4ca1b5395ca22926c, type: 3}
+    m_Font: {fileID: 12800000, guid: be8e1b452502add48b1626d193bda4dc, type: 3}
     m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
@@ -1039,7 +1039,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0cc120c2578b77b4ca1b5395ca22926c, type: 3}
+    m_Font: {fileID: 12800000, guid: be8e1b452502add48b1626d193bda4dc, type: 3}
     m_FontSize: 150
     m_FontStyle: 0
     m_BestFit: 0
@@ -2457,7 +2457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e4046ced91d07c44976077dd553d0e1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: accaa63997fe4f3469314b117d684429, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3513,6 +3513,7 @@ GameObject:
   - component: {fileID: 8376129756680302956}
   - component: {fileID: 4045565368146888143}
   - component: {fileID: 5053874568140309117}
+  - component: {fileID: 3040108422893908544}
   m_Layer: 0
   m_Name: GameZone
   m_TagString: Untagged
@@ -3557,6 +3558,7 @@ MonoBehaviour:
   gameManager: RoundController
   defaultPlayer: {fileID: 5887813282529583661, guid: fcab5b50d03389049aeabbfcc358ba48,
     type: 3}
+  multiplayer: 0
 --- !u!82 &5053874568140309117
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3653,6 +3655,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3040108422893908544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8376129756680302957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98b5a73599ee1c48938780d587fa37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTitle: Ghosts In The Graveyard
+  youWonImage: {fileID: 2086551729797429561, guid: c75e67f3c9483ad458585a78ae2011d9,
+    type: 3}
+  canvas: {fileID: 156481153439980735}
 --- !u!1 &8412747819115733178
 GameObject:
   m_ObjectHideFlags: 0
